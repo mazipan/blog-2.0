@@ -5,22 +5,41 @@
   "author": "Irfan Maulana",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "cross-env NODE_ENV=development nuxt",
+    "build": "cross-env NODE_ENV=production nuxt build",
+    "start": "cross-env NODE_ENV=production nuxt start",
+    "generate": "cross-env NODE_ENV=production nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-beta.7",
+    "@nuxtjs/sitemap": "^0.2.0",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0"
+    "intersection-observer": "^0.5.1",
+    "nuxt": "^2.4.3",
+    "nuxt-webfontloader": "^1.0.0",
+    "vue-tiny-lazyload-img": "^0.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
-    "@vue/test-utils": "^1.0.0-beta.27",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "autoprefixer": "^9.4.7",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "jest": "^23.6.0",
-    "vue-jest": "^3.0.2"
+    "babel-jest": "^24.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.14.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.1",
+    "frontmatter-markdown-loader": "^1.6.0",
+    "jest": "^24.1.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "sass-loader": "^7.1.0",
+    "vue-jest": "^3.0.3"
   }
 }
