@@ -1,7 +1,7 @@
 {
   "name": "blog-2.0",
   "version": "1.0.0",
-  "description": "My top-notch Nuxt.js project",
+  "description": "@mazipan's personal blog built with Nuxt.js",
   "author": "Irfan Maulana",
   "private": true,
   "scripts": {

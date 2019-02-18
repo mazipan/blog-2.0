@@ -1,6 +1,8 @@
 # blog-2.0
 
-> My top-notch Nuxt.js project
+[![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0)
+
+> @mazipan's personal blog built with Nuxt.js
 
 ## Build Setup
 
@@ -20,3 +22,8 @@ $ yarn run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+
+------
+
+Copyright © 2018 by Irfan Maulana
