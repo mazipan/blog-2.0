@@ -1,5 +1,5 @@
 {
-  "name": "@mazipan",
+  "name": "mazipan",
   "version": "1.0.0",
   "description": "@mazipan's personal blog built with Nuxt.js",
   "author": "Irfan Maulana",
@@ -18,6 +18,7 @@
     "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
     "intersection-observer": "^0.5.1",
+    "modern-normalize": "0.5.0",
     "nuxt": "^2.4.3",
     "nuxt-webfontloader": "^1.0.0",
     "vue-tiny-lazyload-img": "^0.1.0"
@@ -26,6 +27,7 @@
     "@vue/test-utils": "^1.0.0-beta.29",
     "autoprefixer": "^9.4.7",
     "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.14.0",

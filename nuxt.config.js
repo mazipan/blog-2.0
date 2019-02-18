@@ -1,8 +1,7 @@
 const path = require('path')
 const pkg = require('./package')
 const appTitle = `@mazipan's personal blog`
-const productionUrl = 'https://mazipan.io'
-
+const productionUrl = 'https://mazipan-blog.netlify.com'
 
 module.exports = {
   mode: 'spa',
@@ -27,7 +26,7 @@ module.exports = {
       { name: 'twitter:image:src', content: '/icon.png' },
       { name: 'twitter:title', content: `${appTitle}` },
       { name: 'twitter:description', content: pkg.description },
-      { name: 'twitter:url', content: productionUrl },
+      { name: 'twitter:url', content: productionUrl }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -47,12 +46,14 @@ module.exports = {
     color: '#ff0000',
     height: '4px',
     continuous: true
-   },
+  },
 
   /*
   ** Global CSS
   */
   css: [
+    'node_modules/modern-normalize/modern-normalize.css',
+    './assets/scss/global.scss'
   ],
 
   /*
@@ -74,13 +75,8 @@ module.exports = {
   },
   webfontloader: {
     google: {
-      families: ['Lato:400,700'] //Loads Lato font with weights 400 and 700
+      families: ['Merriweather Sans:400,700']
     }
-  },
-  styleResources: {
-    scss: [
-      './assets/scss/global.scss'
-    ]
   },
   /*
   ** Nuxt.js modules
@@ -88,8 +84,7 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    'nuxt-webfontloader',
-    '@nuxtjs/style-resources',
+    'nuxt-webfontloader'
   ],
 
   /*
@@ -111,7 +106,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extend (config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
@@ -128,7 +123,7 @@ module.exports = {
         include: path.resolve(__dirname, 'contents'),
         options: {
           vue: {
-            root: "content-markdown"
+            root: 'content-markdown'
           }
         }
       })

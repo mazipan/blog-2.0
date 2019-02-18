@@ -30,4 +30,4 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ------
 
-Copyright © 2018 by Irfan Maulana
+Copyright © 2019 by Irfan Maulana
