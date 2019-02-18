@@ -15,6 +15,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.7",
     "@nuxtjs/sitemap": "^0.2.0",
+    "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
     "intersection-observer": "^0.5.1",
     "nuxt": "^2.4.3",

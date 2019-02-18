@@ -1,4 +1,7 @@
+const path = require('path')
 const pkg = require('./package')
+const appTitle = `@mazipan's personal blog`
+const productionUrl = 'https://mazipan.io'
 
 
 module.exports = {
@@ -11,7 +14,20 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: pkg.description },
+
+      { name: 'theme-color', content: '#ff0000' },
+
+      { property: 'og:image', content: '/icon.png' },
+      { property: 'og:title', content: `${appTitle}` },
+      { property: 'og:description', content: pkg.description },
+      { property: 'og:url', content: productionUrl },
+
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image:src', content: '/icon.png' },
+      { name: 'twitter:title', content: `${appTitle}` },
+      { name: 'twitter:description', content: pkg.description },
+      { name: 'twitter:url', content: productionUrl },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -27,7 +43,11 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#ff0000',
+    height: '4px',
+    continuous: true
+   },
 
   /*
   ** Global CSS
@@ -41,10 +61,13 @@ module.exports = {
   plugins: [
     { src: '~/plugins/lazyload', ssr: false }
   ],
-
+  manifest: {
+    name: `${appTitle}`,
+    short_name: '@mazipan'
+  },
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://blog-2.0',
+    hostname: productionUrl,
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: true
