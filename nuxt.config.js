@@ -1,7 +1,14 @@
+import Contents from './contents/index.js'
+
 const path = require('path')
 const pkg = require('./package')
-const appTitle = `@mazipan's personal blog`
+const appTitle = `@mazipan`
 const productionUrl = 'https://mazipan-blog.netlify.com'
+
+const routes = Contents.map(item => {
+  item = `/${item}`
+  return item
+})
 
 module.exports = {
   mode: 'spa',
@@ -9,7 +16,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: `${appTitle}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -65,6 +72,9 @@ module.exports = {
   manifest: {
     name: `${appTitle}`,
     short_name: '@mazipan'
+  },
+  generate: {
+    routes
   },
   sitemap: {
     path: '/sitemap.xml',

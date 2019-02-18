@@ -1,6 +1,6 @@
 ---
 title: Hello Markdown
-slug: hello-world
+slug: hello-markdown
 date: '2018-11-30'
 description: Get started with markdown syntax
 ---

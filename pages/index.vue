@@ -21,6 +21,7 @@
 import Contents from '../contents/index.js'
 
 export default {
+  name: 'Homepage',
   async asyncData ({ store }) {
     async function asyncImport (blogName) {
       const allMarkdown = await import(`~/contents/markdown/${blogName}/index.md`)
@@ -36,6 +37,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
