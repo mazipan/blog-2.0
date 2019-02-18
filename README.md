@@ -4,6 +4,10 @@
 
 > @mazipan's personal blog built with Nuxt.js
 
+## Dev Env
+
+[https://mazipan-blog.netlify.com/](https://mazipan-blog.netlify.com/)
+
 ## Build Setup
 
 ``` bash
