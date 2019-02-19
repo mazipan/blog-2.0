@@ -2,6 +2,6 @@
  * This file is for mapping url route that will be generated into html file
  */
 export default [
-  'blog-2.0-in-nuxtjs',
-  'eslint-formatter-html-extended'
+  'eslint-formatter-html-extended',
+  'blog-2.0-in-nuxtjs'
 ]
