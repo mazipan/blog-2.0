@@ -22,7 +22,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
 
-      { name: 'theme-color', content: '#ff0000' },
+      { name: 'theme-color', content: '#bd93f9' },
 
       { property: 'og:image', content: '/icon.png' },
       { property: 'og:title', content: `${appTitle}` },
@@ -50,7 +50,7 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: {
-    color: '#ff0000',
+    color: '#50fa7b',
     height: '4px',
     continuous: true
   },

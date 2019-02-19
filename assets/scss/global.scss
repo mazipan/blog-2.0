@@ -1,13 +1,20 @@
 :root{
-  --bg: #fff;
-  --textNormal: #222;
-  --textLink: #42b983;
+  /* color pallete from https://github.com/dracula/dracula-theme */
+  --bg: #282a36;
+  --textNormal: #f8f8f2;
+  --textTitle: #50fa7b;
+  --textSubtitle: #8be9fd;
+  --textLink: #bd93f9;
+  --textHighlight: #ff79c6;
+  --textWarning: #f1fa8c;
+  --textDanger: #ff5555;
+  --textSecondary: #6272a4;
 }
 
 body {
   font-family: 'Merriweather Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  font-size: 16px;
+  font-size: 14px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -34,4 +41,32 @@ body {
 a {
   color: var(--textLink);
   text-decoration: none;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+small{
+  font-size: 70%;
+}
+
+.flex{
+  display: flex;
+
+  &--center{
+    align-items: center;
+  }
+}
+
+.dot{
+  padding: 0 .5em;
+}
+
+.meta{
+  display: flex;
+  align-items: center;
+  &__date {
+    color: var(--textSubtitle);
+  }
 }
