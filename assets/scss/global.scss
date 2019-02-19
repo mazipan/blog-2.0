@@ -1,6 +1,7 @@
 :root{
   /* color pallete from https://github.com/dracula/dracula-theme */
   --bg: #282a36;
+  --bgLighter: #44475a;
   --textNormal: #f8f8f2;
   --textTitle: #50fa7b;
   --textSubtitle: #8be9fd;
@@ -14,7 +15,7 @@
 body {
   font-family: 'Merriweather Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  font-size: 14px;
+  font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,7 +49,7 @@ a {
 }
 
 small{
-  font-size: 70%;
+  font-size: 80%;
 }
 
 .flex{
