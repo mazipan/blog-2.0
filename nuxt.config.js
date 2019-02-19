@@ -70,7 +70,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/lazyload', ssr: false }
+    { src: '~/plugins/lazyload', ssr: false },
+    { src: '~/plugins/firebase', ssr: false }
   ],
   manifest: {
     name: `${appTitle}`,
@@ -95,6 +96,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
     'nuxt-webfontloader'

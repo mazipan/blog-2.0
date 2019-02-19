@@ -3,5 +3,5 @@
  */
 export default [
   'eslint-formatter-html-extended',
-  'blog-2.0-in-nuxtjs'
+  'blog-2-0-in-nuxtjs'
 ]

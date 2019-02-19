@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper{
-  margin: 1em 0;
+  margin: 1em 0 3.5em 0;
   min-height: 60vh;
 }
 </style>
