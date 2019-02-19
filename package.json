@@ -13,14 +13,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.0.0-beta.7",
+    "@nuxtjs/pwa": "^3.0.0-beta.8",
     "@nuxtjs/sitemap": "^0.2.0",
-    "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
     "intersection-observer": "^0.5.1",
     "modern-normalize": "0.5.0",
     "nuxt": "^2.4.3",
     "nuxt-webfontloader": "^1.0.0",
+    "prismjs": "^1.15.0",
     "vue-tiny-lazyload-img": "^0.1.0"
   },
   "devDependencies": {
@@ -30,18 +30,17 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "cross-env": "^5.2.0",
-    "eslint": "^5.14.0",
+    "eslint": "^5.14.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^5.2.1",
+    "eslint-plugin-vue": "^5.2.2",
     "frontmatter-markdown-loader": "^1.6.0",
     "jest": "^24.1.0",
     "node-sass": "^4.11.0",
-    "nodemon": "^1.18.10",
     "sass-loader": "^7.1.0",
     "vue-jest": "^3.0.3"
   }

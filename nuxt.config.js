@@ -22,18 +22,18 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
 
-      { name: 'theme-color', content: '#bd93f9' },
+      { hid: 'theme-color', name: 'theme-color', content: '#bd93f9' },
 
-      { property: 'og:image', content: '/icon.png' },
-      { property: 'og:title', content: `${appTitle}` },
-      { property: 'og:description', content: pkg.description },
-      { property: 'og:url', content: productionUrl },
+      { hid: 'og:image', property: 'og:image', content: '/icon.png' },
+      { hid: 'og:title', property: 'og:title', content: `${appTitle}` },
+      { hid: 'og:description', property: 'og:description', content: pkg.description },
+      { hid: 'og:url', property: 'og:url', content: productionUrl },
 
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:image:src', content: '/icon.png' },
-      { name: 'twitter:title', content: `${appTitle}` },
-      { name: 'twitter:description', content: pkg.description },
-      { name: 'twitter:url', content: productionUrl }
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/icon.png' },
+      { hid: 'twitter:title', name: 'twitter:title', content: `${appTitle}` },
+      { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
+      { hid: 'twitter:url', name: 'twitter:url', content: productionUrl }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

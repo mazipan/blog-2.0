@@ -29,6 +29,16 @@ export default {
   components: {
     ContentParser
   },
+  head () {
+    const title = `${this.meta.title} | @mazipan`
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'twitter:title', name: 'twitter:title', content: title }
+      ]
+    }
+  },
   data () {
     return {
       formatReadingTime
