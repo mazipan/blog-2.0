@@ -1,7 +1,7 @@
 ---
 title: Developing Blog 2.0 with Nuxt.js
 slug: blog-2.0-in-nuxtjs
-date: '2019-02-19'
+date: '2019-02-18'
 minute2read: 5
 description: Explaining how static site called Blog 2.0 was built using Nuxt.js
 ---
