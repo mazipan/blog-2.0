@@ -1,8 +1,8 @@
-# Blog-2.0
+# 🗣 Blog-2.0
 
 [![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0)
 
-> @mazipan's personal blog built with Nuxt.js
+> A personal blog by Irfan Maulana built with Nuxt.js
 
 ## Dev Env
 

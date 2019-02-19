@@ -1,7 +1,7 @@
 {
   "name": "mazipan",
   "version": "1.0.0",
-  "description": "@mazipan's personal blog built with Nuxt.js",
+  "description": "A personal blog by Irfan Maulana",
   "author": "Irfan Maulana",
   "private": true,
   "scripts": {
