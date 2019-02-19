@@ -1,4 +1,4 @@
-# blog-2.0
+# Blog-2.0
 
 [![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0)
 
@@ -15,18 +15,19 @@
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
+$ yarn dev
 
 # generate static project
-$ yarn run generate
+$ yarn generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
+## Thanks for these awesome repo
+
++ [Dracula Theme](https://github.com/dracula/dracula-theme)
++ [Marinaaisa](https://github.com/marinaaisa/marinaaisa-website-2018)
++ [Overreacted.io](https://overreacted.io/)
 
 ------
 
