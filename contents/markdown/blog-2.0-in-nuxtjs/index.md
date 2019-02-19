@@ -24,7 +24,7 @@ With Blog 2.0, I have full control in my Blog. I can tweak the UI, improving pag
 
 Behind this Blog 2.0, `nuxt@2.4.3` is installed as main framework that organize all the things. Adding `@nuxtjs/pwa`, `@nuxtjs/sitemap` and `nuxt-webfontloader` module to this Nuxt Application.
 
-[Prism.js](https://prismjs.com/) for syntax highlighter, [Vue Tiny Lazy Load](vue-tiny-lazyload-img) for lazy loading image using Intersection Observer API.
+[Prism.js](https://prismjs.com/) for syntax highlighter, [Vue Tiny Lazy Load](https://github.com/mazipan/vue-tiny-lazyload-img) for lazy loading image using Intersection Observer API.
 
 For UI, I only adding [modern-normalize](https://github.com/sindresorhus/modern-normalize) by [Sindre Sorhus](https://github.com/sindresorhus/) and craft from scratch for the UI layouting and styling. I highly inspired by simplicity UI in Dan's [Overreacted.io](https://overreacted.io/) and pick color scheme from [Dracula Theme](https://github.com/dracula/dracula-theme). I also pick some `helpers` from Dan's repo.
 
