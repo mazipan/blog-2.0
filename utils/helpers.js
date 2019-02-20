@@ -23,9 +23,7 @@ export function formatPostDate (date) {
 
 export function debounce (func, wait, immediate) {
   var timeout
-  console.log('123456')
   return function () {
-    console.log('testtttt')
     var context = this; var args = arguments
     var later = function () {
       timeout = null

@@ -12,8 +12,6 @@ const routes = Contents.map(item => {
   return item
 })
 
-console.warn('ENV', process.env)
-
 module.exports = {
   mode: 'spa',
   env: {
