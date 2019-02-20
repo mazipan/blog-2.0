@@ -6,7 +6,7 @@
 
 ## Dev Env
 
-[https://mazipan-blog.netlify.com/](https://mazipan-blog.netlify.com/)
+[https://www.mazipan.xyz](https://www.mazipan.xyz)
 
 ## Build Setup
 
