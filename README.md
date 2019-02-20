@@ -4,9 +4,24 @@
 
 > A personal blog by Irfan Maulana built with Nuxt.js
 
-## Dev Env
+## Live
 
 [https://www.mazipan.xyz](https://www.mazipan.xyz)
+
+## Firebase Setup
+
+We use `Firebase` Real Time Database, so you need to create file `.env` before running this project in your local.
+
+```bash
+FIREBASE_API_KEY= your firebase `apiKey` config
+FIREBASE_AUTH_DOMAIN= your firebase `authDomain` config
+FIREBASE_DATABASE_URL= your firebase `databaseURL` config
+FIREBASE_PROJECT_ID= your firebase `projectId` config
+FIREBASE_STORAGE_BUCKET= your firebase `storageBucket` config
+FIREBASE_MESSAGING_SENDER_ID= your firebase `messagingSenderId` config
+```
+
+Create DB in Firebase Database with your own name, and import from file `firebase-db-export.json` in this project.
 
 ## Build Setup
 

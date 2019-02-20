@@ -4,6 +4,7 @@ const path = require('path')
 const pkg = require('./package')
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'
+const iconUrl = `${productionUrl}/icon.png`
 
 const routes = Contents.map(item => {
   item = `/${item}`
@@ -21,16 +22,25 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
+      { hid: 'author', name: 'author', content: pkg.author },
+      { hid: 'keywords', name: 'keywords', content: 'mazipan, mazipanneh, irfan maulana, irfan, irfan blibli, irfan bizzy, frontend, frontend developer' },
 
       { hid: 'theme-color', name: 'theme-color', content: '#bd93f9' },
 
-      { hid: 'og:image', property: 'og:image', content: '/icon.png' },
+      { hid: 'og:image', property: 'og:image', content: iconUrl },
+      { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: iconUrl },
+      { hid: 'og:image:width', property: 'og:image:width', content: '512' },
+      { hid: 'og:image:height', property: 'og:image:height', content: '512' },
       { hid: 'og:title', property: 'og:title', content: `${appTitle}` },
       { hid: 'og:description', property: 'og:description', content: pkg.description },
       { hid: 'og:url', property: 'og:url', content: productionUrl },
+      { hid: 'og:site_name', property: 'og:site_name', content: '@mazipan' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
 
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:image:src', name: 'twitter:image:src', content: '/icon.png' },
+      { hid: 'twitter:creator', name: 'twitter:creator', content: '@maz_ipan' },
+      { hid: 'twitter:site', name: 'twitter:site', content: '@maz_ipan' },
+      { hid: 'twitter:image:src', name: 'twitter:image:src', content: iconUrl },
       { hid: 'twitter:title', name: 'twitter:title', content: `${appTitle}` },
       { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },
       { hid: 'twitter:url', name: 'twitter:url', content: productionUrl }
@@ -46,14 +56,35 @@ module.exports = {
         innerHTML: 'This website requires JavaScript.',
         body: true
       }
-    ]
+    ],
+    script: [
+      { innerHTML: `{
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "${productionUrl}",
+        "name": "Irfan Maulana",
+        "author": "${pkg.author}",
+        "image": "${iconUrl}",
+        "description": "${pkg.description}",
+        "sameAs": [
+          "https://www.facebook.com/mazipanneh",
+          "https://instagram.com/maz_ipan",
+          "https://twitter.com/Maz_Ipan",
+          "https://id.linkedin.com/in/mazipan",
+          "https://www.slideshare.net/IrfanMaulana21",
+          "https://github.com/mazipan"
+        ]
+      }`,
+      type: 'application/ld+json' }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
   ** Customize the progress-bar color
   */
   loading: {
-    color: '#50fa7b',
+    color: '#bd93f9',
     height: '4px',
     continuous: true
   },

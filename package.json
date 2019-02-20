@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production nuxt build",
     "start": "cross-env NODE_ENV=production nuxt start",
     "generate": "cross-env NODE_ENV=production nuxt generate",
+    "export:db": "node generate-json-db.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
     "test": "jest"
   },
@@ -16,7 +17,6 @@
     "@nuxtjs/dotenv": "^1.3.0",
     "@nuxtjs/pwa": "^3.0.0-beta.8",
     "@nuxtjs/sitemap": "^0.2.0",
-    "cross-env": "^5.2.0",
     "firebase": "^5.8.3",
     "intersection-observer": "^0.5.1",
     "modern-normalize": "0.5.0",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.29",
-    "autoprefixer": "^9.4.7",
+    "autoprefixer": "^9.4.8",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
@@ -41,9 +41,16 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.2",
     "frontmatter-markdown-loader": "^1.6.0",
+    "fs-extra": "^7.0.1",
+    "husky": "^1.3.1",
     "jest": "^24.1.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue-jest": "^3.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
   }
 }

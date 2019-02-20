@@ -6,7 +6,7 @@ minute2read: 3
 description: Why I decide to extending official ESLint's HTML formatter
 ---
 
-## Background Story ✍️
+## Background Story ⛈
 
 In my daily job, we are using ESLint in almost all of our repository especially for our FrontEnd (FE) code (because I only work in FE repository). Ideally, developers should run ESLint in it's development phase and make sure all branch that he working for is clean from ESLint warnings and errors. For the sake of teams, we also put git hook using `husky` to run ESLint before pushing changes to it's origin. But it wasn't enough for our current flow, I don't know why, sometimes still there are code that not pass ESLint's rule in the origin branch. Recently, we put this ESLint script into our Continuous Integration (CI) process.
 
@@ -22,7 +22,7 @@ We call it, `eslint-formatter-html-extended`!
 
 Basicly, we don't want reinvent the whell. So, we just combining two type of formatters from ESLint. We choose HTML formatter by [JulianLaval](https://github.com/JulianLaval) and Stylish formatter by [Sindre Sorhus](https://github.com/sindresorhus). We also adding some little touch in HTML output report to be more beautiful and easy to navigated.
 
-## Usage
+## Usage ☀️
 
 Install dependencies via script:
 
