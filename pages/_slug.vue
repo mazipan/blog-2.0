@@ -2,6 +2,7 @@
   <section class="page">
     <nuxt-link
       :to="`/${meta.slug}`"
+      :title="meta.title"
       class="page__link">
       <h2 class="page__title">
         {{ meta.title }}
@@ -33,11 +34,12 @@
         <div
           v-if="isSupportWebshare"
           class="share">
-          <button
+          <a
             class="share-btn"
+            title="Share this article"
             @click="onClickShare">
             📣 Share
-          </button>
+          </a>
         </div>
 
         <div
@@ -45,6 +47,7 @@
           class="share">
           <a
             class="share-btn"
+            title="Share to facebook"
             :href="fbLinkShare"
             target="_blank"
             rel="noopener">
@@ -52,6 +55,7 @@
           </a>
           <a
             class="share-btn"
+            title="Share to twitter"
             :href="twitterLinkShare"
             target="_blank"
             rel="noopener">
@@ -62,6 +66,7 @@
         <div class="like">
           <a
             class="like-btn"
+            title="Like this article"
             @click="onClickLike">
             👍 {{ claps }}
           </a>

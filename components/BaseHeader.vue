@@ -19,6 +19,7 @@
         <div class="profile__social">
           <a
             href="https://github.com/mazipan"
+            title="Github"
             target="_blank"
             rel="noopener">
             <svg
@@ -33,6 +34,7 @@
           </a>
           <a
             href="https://twitter.com/Maz_Ipan"
+            title="Twitter"
             target="_blank"
             rel="noopener">
             <svg
@@ -47,6 +49,7 @@
           </a>
           <a
             href="https://www.facebook.com/mazipanneh"
+            title="Facebook"
             target="_blank"
             rel="noopener">
             <svg
