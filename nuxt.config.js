@@ -2,9 +2,14 @@ import Contents from './contents/index.js'
 
 const path = require('path')
 const pkg = require('./package')
+const dotenv = require('dotenv')
+
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'
 const iconUrl = `${productionUrl}/icon.png`
+
+const result = dotenv.config()
+const envData = result.parsed
 
 const routes = Contents.map(item => {
   item = `/${item}`
@@ -13,6 +18,14 @@ const routes = Contents.map(item => {
 
 module.exports = {
   mode: 'spa',
+  env: {
+    FIREBASE_API_KEY: envData.FIREBASE_API_KEY,
+    FIREBASE_AUTH_DOMAIN: envData.FIREBASE_AUTH_DOMAIN,
+    FIREBASE_DATABASE_URL: envData.FIREBASE_DATABASE_URL,
+    FIREBASE_PROJECT_ID: envData.FIREBASE_PROJECT_ID,
+    FIREBASE_STORAGE_BUCKET: envData.FIREBASE_STORAGE_BUCKET,
+    FIREBASE_MESSAGING_SENDER_ID: envData.FIREBASE_MESSAGING_SENDER_ID
+  },
   /*
   ** Headers of the page
   */
