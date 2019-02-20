@@ -60,5 +60,8 @@ export default {
   &__date {
     color: var(--textSubtitle);
   }
+  &__item {
+    margin-bottom: 3.5em;
+  }
 }
 </style>
