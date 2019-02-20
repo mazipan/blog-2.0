@@ -26,7 +26,7 @@ Basicly, we don't want reinvent the whell. So, we just combining two type of for
 
 Install dependencies via script:
 
-```javascript
+```bash
 $ yarn add eslint-formatter-html-extended -D
 # OR
 $ npm i eslint-formatter-html-extended --dev
@@ -34,8 +34,8 @@ $ npm i eslint-formatter-html-extended --dev
 
 Refer to this [docs](https://eslint.org/docs/user-guide/formatters/), you just need to add parameter `-f nameFormatter -o nameFile` in your ESLint CLI script, e.g.:
 
-```javascript
-eslint --ext .js . -f html-extended -o eslint-report.html
+```bash
+$ eslint --ext .js . -f html-extended -o eslint-report.html
 ```
 
 This formatter is published as open source that you can see in [Github repository](https://github.com/mazipan/eslint-formatter-html-extended), feel free to fork or submit new issue.
