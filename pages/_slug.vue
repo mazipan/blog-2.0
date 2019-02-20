@@ -12,8 +12,12 @@
       <small class="dot"> • </small>
       <small class="meta__read">{{ formatReadingTime(meta.minute2read) }}</small>
       <small class="dot"> • </small>
-      <small class="dot">
+      <small>
         👍 {{ claps }} likes
+      </small>
+      <small class="dot"> • </small>
+      <small>
+        📖 {{ hits }} read
       </small>
     </div>
     <div class="page__content">
@@ -31,22 +35,41 @@
           class="share">
           <button
             class="share-btn"
-            @click="onClickLike">
+            @click="onClickShare">
             📣 Share
           </button>
         </div>
 
+        <div
+          v-else
+          class="share">
+          <a
+            class="share-btn"
+            :href="fbLinkShare"
+            target="_blank"
+            rel="noopener">
+            🎭 FB Share
+          </a>
+          <a
+            class="share-btn"
+            :href="twitterLinkShare"
+            target="_blank"
+            rel="noopener">
+            🐦 Twitter Share
+          </a>
+        </div>
+
         <div class="like">
-          <button
+          <a
             class="like-btn"
             @click="onClickLike">
             👍 {{ claps }}
-          </button>
-          <div
+          </a>
+          <!-- <div
             v-show="clapClicked"
             class="like-plus zoomIn">
             +{{ youClapped }}
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -81,6 +104,7 @@ export default {
   },
   data () {
     return {
+      productionUrl: 'https://www.mazipan.xyz',
       formatReadingTime,
       youClapped: 0,
       claps: 0,
@@ -89,6 +113,23 @@ export default {
       hitsRefs: null,
       isSupportWebshare: false,
       clapClicked: false
+    }
+  },
+  computed: {
+    encodedTitle () {
+      return encodeURIComponent(`${this.meta.title}`)
+    },
+    encodedDesc () {
+      return encodeURIComponent(`${this.meta.description}`)
+    },
+    encodedUrl () {
+      return encodeURIComponent(`${this.productionUrl}/${this.meta.slug}`)
+    },
+    fbLinkShare () {
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.encodedUrl}&title=${this.encodedTitle}&description=${this.encodedDesc}&quote=${this.encodedDesc}`
+    },
+    twitterLinkShare () {
+      return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${this.encodedDesc}&url=${this.encodedUrl}&via=maz_ipan`
     }
   },
   async asyncData ({ params, store }) {
@@ -192,10 +233,11 @@ export default {
 .block-wrap{
   margin: 1em 0;
   display: flex;
+  justify-items: center;
+  align-items: center;
 }
 
 .share{
-  margin-right: 1em;
   &-btn{
     color: var(--textNormal);
     background: var(--textLink);
@@ -204,6 +246,8 @@ export default {
     border: 0;
     outline: 0;
     cursor: pointer;
+    margin-right: 1em;
+    text-decoration: none;
   }
 }
 
@@ -228,6 +272,8 @@ export default {
     border: 0;
     outline: 0;
     cursor: pointer;
+    margin-right: 1em;
+    text-decoration: none;
   }
 }
 </style>
