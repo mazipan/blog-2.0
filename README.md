@@ -1,6 +1,6 @@
 # 🗣 Blog-2.0
 
-[![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0)
+[![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0) [![Netlify Status](https://api.netlify.com/api/v1/badges/4f1c2c07-6893-4973-858b-66a8809e7e96/deploy-status)](https://app.netlify.com/sites/mazipan-blog/deploys)
 
 > A personal blog by Irfan Maulana built with Nuxt.js
 
