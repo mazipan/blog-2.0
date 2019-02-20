@@ -3,7 +3,7 @@ import Contents from './contents/index.js'
 const path = require('path')
 const pkg = require('./package')
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
-const productionUrl = 'https://mazipan-blog.netlify.com'
+const productionUrl = 'https://www.mazipan.xyz'
 
 const routes = Contents.map(item => {
   item = `/${item}`
