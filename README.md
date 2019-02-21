@@ -8,6 +8,14 @@
 
 [https://www.mazipan.xyz](https://www.mazipan.xyz)
 
+## Screenshoot
+
+
+
+| Homepage                              |  Post Detail                      |
+| :-----------------------------------: | :------------------------------:  |
+| ![Homepage](screenshoot-homepage.png) | ![Detail](screenshoot-detail.png) |
+
 ## Firebase Setup
 
 We use `Firebase` Real Time Database, so you need to create file `.env` before running this project in your local.
