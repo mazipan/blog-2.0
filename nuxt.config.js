@@ -11,6 +11,7 @@ const routes = Contents.map(item => {
   item = `/${item}`
   return item
 })
+routes.push('/success-subscribed')
 
 const routesSitemap = () => {
   let res = []

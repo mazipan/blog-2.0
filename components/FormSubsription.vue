@@ -46,7 +46,7 @@ export default {
     line-height: 18px;
     height: 40px;
     vertical-align: middle;
-    width: 40%;
+    width: 250px;
     padding: .5em 1em;
     border-top-left-radius: .25em;
     border-bottom-left-radius: .25em;
