@@ -92,18 +92,20 @@ export default {
     FormSubsription
   },
   head () {
-    const title = `${this.meta.title} | @mazipan`
-    const decription = `${this.meta.description}`
-    const url = `/${this.meta.slug}`
+    const title = `${this.meta.title}`
+    const description = `${this.meta.description}`
+    const url = `${this.productionUrl}/${this.meta.slug}`
     return {
       title,
       meta: [
+        { hid: 'description', name: 'description', content: description },
+
         { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'og:description', name: 'og:description', content: decription },
+        { hid: 'og:description', name: 'og:description', content: description },
         { hid: 'og:url', name: 'og:url', content: url },
 
         { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'twitter:description', name: 'twitter:description', content: decription },
+        { hid: 'twitter:description', name: 'twitter:description', content: description },
         { hid: 'og:url', name: 'og:url', content: url }
       ]
     }
@@ -138,12 +140,12 @@ export default {
       return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${this.encodedDesc}&url=${this.encodedUrl}&via=maz_ipan`
     }
   },
-  async asyncData ({ params, store }) {
+  async asyncData ({ params }) {
     const fileContent = await import(`~/contents/markdown/${params.slug}/index.md`)
+
     const attr = fileContent.attributes
     return {
       meta: {
-        params: params,
         title: attr.title,
         slug: attr.slug,
         date: attr.date,

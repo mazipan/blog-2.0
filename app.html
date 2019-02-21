@@ -5,28 +5,24 @@
   </head>
   <body {{ BODY_ATTRS }}>
     {{ APP }}
-    <form
-      style="display: none;"
-      class="form"
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-recaptcha="true"
-      action="/success-subscribed">
-      <input type="hidden" name="form-name" value="contact">
-      <label for="form-email">Subscribe to get my latest content by email.</label>
-      <div class="control">
-        <input
-          type="email"
-          name="email"
-          class="input"
-          placeholder="Your email address">
-        <button
-          class="btn"
-          type="submit">
-          Submit
-        </button>
-      </div>
-    </form>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.mazipan.xyz",
+        "name": "Irfan Maulana",
+        "author": "Irfan Maulana",
+        "image": "https://www.mazipan.xyz/icon.png",
+        "description": "A personal blog by Irfan Maulana",
+        "sameAs": [
+          "https://www.facebook.com/mazipanneh",
+          "https://instagram.com/maz_ipan",
+          "https://twitter.com/Maz_Ipan",
+          "https://id.linkedin.com/in/mazipan",
+          "https://www.slideshare.net/IrfanMaulana21",
+          "https://github.com/mazipan"
+        ]
+      }
+    </script>
   </body>
 </html>

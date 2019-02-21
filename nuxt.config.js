@@ -27,7 +27,6 @@ const routesSitemap = () => {
 }
 
 module.exports = {
-  mode: 'spa',
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
@@ -78,28 +77,7 @@ module.exports = {
         innerHTML: 'This website requires JavaScript.',
         body: true
       }
-    ],
-    script: [
-      { innerHTML: `{
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        "url": "${productionUrl}",
-        "name": "Irfan Maulana",
-        "author": "${pkg.author}",
-        "image": "${iconUrl}",
-        "description": "${pkg.description}",
-        "sameAs": [
-          "https://www.facebook.com/mazipanneh",
-          "https://instagram.com/maz_ipan",
-          "https://twitter.com/Maz_Ipan",
-          "https://id.linkedin.com/in/mazipan",
-          "https://www.slideshare.net/IrfanMaulana21",
-          "https://github.com/mazipan"
-        ]
-      }`,
-      type: 'application/ld+json' }
-    ],
-    __dangerouslyDisableSanitizers: ['script']
+    ]
   },
 
   /*
@@ -110,7 +88,9 @@ module.exports = {
     height: '4px',
     continuous: true
   },
-
+  router: {
+    middleware: ['static']
+  },
   /*
   ** Global CSS
   */

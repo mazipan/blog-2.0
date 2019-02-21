@@ -22,7 +22,24 @@
 
 <script>
 export default {
-  name: 'SuccessSubscribedPage'
+  name: 'SuccessSubscribedPage',
+  head () {
+    const title = `Thank You`
+    const decription = `Thank you for subscribing!`
+    const url = `/success-subscribed`
+    return {
+      title,
+      meta: [
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:description', name: 'og:description', content: decription },
+        { hid: 'og:url', name: 'og:url', content: url },
+
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'twitter:description', name: 'twitter:description', content: decription },
+        { hid: 'og:url', name: 'og:url', content: url }
+      ]
+    }
+  }
 }
 </script>
 

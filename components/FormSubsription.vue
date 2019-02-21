@@ -6,9 +6,11 @@
       name="contact"
       method="POST"
       data-netlify="true"
-      data-netlify-recaptcha="true"
       action="/success-subscribed">
-      <input type="hidden" name="form-name" value="contact">
+      <input
+        type="hidden"
+        name="form-name"
+        value="contact">
       <label for="form-email">Subscribe to get my latest content by email.</label>
       <div class="control">
         <input
