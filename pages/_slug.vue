@@ -1,7 +1,7 @@
 <template>
   <section class="page">
     <nuxt-link
-      :to="`/${meta.slug}`"
+      :to="`/${meta.slug}/`"
       :title="meta.title"
       class="page__link">
       <h2 class="page__title">
@@ -94,11 +94,12 @@ export default {
   head () {
     const title = `${this.meta.title}`
     const description = `${this.meta.description}`
-    const url = `${this.productionUrl}/${this.meta.slug}`
+    const url = `${this.productionUrl}/${this.meta.slug}/`
     return {
       title,
       meta: [
         { hid: 'description', name: 'description', content: description },
+        { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: title },
 
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'og:description', name: 'og:description', content: description },

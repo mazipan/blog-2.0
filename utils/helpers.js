@@ -21,6 +21,7 @@ export function formatPostDate (date) {
   return date.toLocaleDateString(...args)
 }
 
+// script from https://davidwalsh.name/javascript-debounce-function
 export function debounce (func, wait, immediate) {
   var timeout
   return function () {

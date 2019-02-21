@@ -17,7 +17,7 @@ const routesSitemap = () => {
   let res = []
   routes.forEach(el => {
     const item = {}
-    item.url = el
+    item.url = el + '/'
     item.changefreq = 'daily'
     item.priority = 1
     item.lastmodISO = String(new Date().toISOString())
@@ -44,10 +44,12 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description },
-      { hid: 'author', name: 'author', content: pkg.author },
+      { name: 'author', content: pkg.author },
       { hid: 'keywords', name: 'keywords', content: 'mazipan, mazipanneh, irfan maulana, irfan, irfan blibli, irfan bizzy, frontend, frontend developer' },
 
-      { hid: 'theme-color', name: 'theme-color', content: '#bd93f9' },
+      { name: 'theme-color', content: '#bd93f9' },
+      { name: 'mobile-web-app-capable', content: "yes" },
+      { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${appTitle}` },
 
       { hid: 'og:image', property: 'og:image', content: iconUrl },
       { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: iconUrl },
@@ -56,12 +58,12 @@ module.exports = {
       { hid: 'og:title', property: 'og:title', content: `${appTitle}` },
       { hid: 'og:description', property: 'og:description', content: pkg.description },
       { hid: 'og:url', property: 'og:url', content: productionUrl },
-      { hid: 'og:site_name', property: 'og:site_name', content: '@mazipan' },
-      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: '@mazipan' },
+      { property: 'og:type', content: 'website' },
 
-      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:creator', name: 'twitter:creator', content: '@maz_ipan' },
-      { hid: 'twitter:site', name: 'twitter:site', content: '@maz_ipan' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:creator', content: '@maz_ipan' },
+      { name: 'twitter:site', content: '@maz_ipan' },
       { hid: 'twitter:image:src', name: 'twitter:image:src', content: iconUrl },
       { hid: 'twitter:title', name: 'twitter:title', content: `${appTitle}` },
       { hid: 'twitter:description', name: 'twitter:description', content: pkg.description },

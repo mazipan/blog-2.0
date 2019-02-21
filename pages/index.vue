@@ -5,7 +5,7 @@
       :key="blog.title"
       class="pages__item">
       <nuxt-link
-        :to="`/${blog.slug}`"
+        :to="`/${blog.slug}/`"
         :title="blog.title"
         class="pages__link">
         <h2 class="pages__title">
