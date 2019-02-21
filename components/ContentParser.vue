@@ -35,4 +35,10 @@ a {
 p {
   line-height: 1.5;
 }
+img{
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 8px 5px rgba(0, 0, 0, 0.2);
+}
 </style>

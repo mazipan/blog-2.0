@@ -167,6 +167,12 @@ export default {
       __self.clapsRefs = __self.$firebase.database().ref(REF_URL)
       __self.clapsRefs.once('value').then(function (snapshot) {
         __self.claps = snapshot.val()
+        if (__self.claps === null) {
+          const newRef = {
+            [REF_URL]: 0
+          }
+          __self.$firebase.database().ref().update(newRef)
+        }
       })
 
       __self.clapsRefs.on('value', function (snapshot) {
@@ -181,7 +187,14 @@ export default {
       __self.hitsRefs = __self.$firebase.database().ref(REF_URL)
       __self.hitsRefs.once('value').then(function (snapshot) {
         __self.hits = snapshot.val()
-        __self.hitsRefs.set(__self.hits + 1)
+        if (__self.hits === null) {
+          const newRef = {
+            [REF_URL]: 1
+          }
+          __self.$firebase.database().ref().update(newRef)
+        } else {
+          __self.hitsRefs.set(__self.hits + 1)
+        }
       })
     },
     onClickShare () {
