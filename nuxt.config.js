@@ -153,7 +153,10 @@ module.exports = {
     '@nuxtjs/dotenv',
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-25065548-6',
+    }],
   ],
 
   /*
