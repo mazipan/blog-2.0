@@ -102,7 +102,7 @@ Selain membuka koneksi ke Firebase saya juga melakukan injeksi objek firebase ya
 
 Saya perlu menambahkan plugins ini di file `nuxt.config.js` agar terbaca di projek ini dengan kode seperti berikut:
 
-```
+```javascript
 module.exports = {
   plugins: [
     { src: '~/plugins/firebase', ssr: false }
@@ -204,7 +204,7 @@ Sentuhan terkhir adalah memastikan ketika proses build kita menyetel nilai *envi
 
 Di [Travis CI](https://travis-ci.org) kita juga bisa menyetel berbagai variabel dengan mudah. Cukup masuk ke bagian `settings` dan kita bisa menambahkan *key-value* sebagai variabel yang akan diikutkan saat proses *build*.
 
-<img v-lazyload data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable">
 
 ### Demikian artikel kali ini, semoga bermanfaat...
 

@@ -8,9 +8,13 @@
 
 [https://www.mazipan.xyz](https://www.mazipan.xyz)
 
+## Logo
+
+![Logo](static/favicon-96x96.png)
+
+Raw file in this [vectr.com link](https://vectr.com/mazipan/i7V7tBB5z.png?width=512&height=512&select=i7V7tBB5zpage0)
+
 ## Screenshoot
-
-
 
 | Homepage                              |  Post Detail                      |
 | :-----------------------------------: | :------------------------------:  |
