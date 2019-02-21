@@ -6,15 +6,27 @@
   <body {{ BODY_ATTRS }}>
     {{ APP }}
     <form
-      id="form-netlify"
       style="display: none;"
+      class="form"
       name="contact"
       method="POST"
       data-netlify="true"
       data-netlify-recaptcha="true"
       action="/success-subscribed">
-        <input type="email" name="email">
-        <button type="submit">Submit</button>
+      <input type="hidden" name="form-name" value="contact">
+      <label for="form-email">Subscribe to get my latest content by email.</label>
+      <div class="control">
+        <input
+          type="email"
+          name="email"
+          class="input"
+          placeholder="Your email address">
+        <button
+          class="btn"
+          type="submit">
+          Submit
+        </button>
+      </div>
     </form>
   </body>
 </html>
