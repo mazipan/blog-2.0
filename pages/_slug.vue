@@ -70,25 +70,26 @@
             @click="onClickLike">
             👍 {{ claps }}
           </a>
-          <!-- <div
-            v-show="clapClicked"
-            class="like-plus zoomIn">
-            +{{ youClapped }}
-          </div> -->
         </div>
       </div>
+    </div>
+    <hr>
+    <div class="page__footer">
+      <FormSubsription />
     </div>
   </section>
 </template>
 
 <script>
 import ContentParser from '../components/ContentParser'
+import FormSubsription from '../components/FormSubsription'
 import { formatReadingTime, debounce } from '../utils/helpers.js'
 
 export default {
   name: 'SlugPage',
   components: {
-    ContentParser
+    ContentParser,
+    FormSubsription
   },
   head () {
     const title = `${this.meta.title} | @mazipan`

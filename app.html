@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+  <head {{ HEAD_ATTRS }}>
+    {{ HEAD }}
+  </head>
+  <body {{ BODY_ATTRS }}>
+    {{ APP }}
+    <form
+      id="form-netlify"
+      style="display: none;"
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-recaptcha="true"
+      action="/success-subscribed">
+        <input type="email" name="email">
+        <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
