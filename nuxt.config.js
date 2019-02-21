@@ -155,8 +155,8 @@ module.exports = {
     '@nuxtjs/sitemap',
     'nuxt-webfontloader',
     ['@nuxtjs/google-analytics', {
-      id: 'UA-25065548-6',
-    }],
+      id: 'UA-25065548-6'
+    }]
   ],
 
   /*
