@@ -48,7 +48,7 @@ module.exports = {
       { hid: 'keywords', name: 'keywords', content: 'mazipan, mazipanneh, irfan maulana, irfan, irfan blibli, irfan bizzy, frontend, frontend developer' },
 
       { name: 'theme-color', content: '#bd93f9' },
-      { name: 'mobile-web-app-capable', content: "yes" },
+      { name: 'mobile-web-app-capable', content: 'yes' },
       { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: `${appTitle}` },
 
       { hid: 'og:image', property: 'og:image', content: iconUrl },
@@ -91,7 +91,7 @@ module.exports = {
     continuous: true
   },
   router: {
-    middleware: ['static']
+    // middleware: ['static']
   },
   /*
   ** Global CSS

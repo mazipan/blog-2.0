@@ -11,6 +11,7 @@ export default async ({ app, route }) => {
       const isPageDetail = Contents.find(item => item === cleanPath)
 
       if (typeof isPageDetail !== 'undefined') {
+        console.log(Component.name, route.path)
         Component.options.asyncData = async function () {
           const fileContent = await import(`~/contents/markdown${route.path}/index.md`)
 
