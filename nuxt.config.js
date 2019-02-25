@@ -1,5 +1,4 @@
 import Contents from './contents/index.js'
-
 const path = require('path')
 const pkg = require('./package')
 
@@ -24,6 +23,16 @@ const routesSitemap = () => {
     res.push(item)
   })
   return res
+}
+
+const readMarkdown = async (slug) => {
+  return {
+    title: 'dummy',
+    slug: 'dummy',
+    date: 'dummy',
+    minute2read: 'dummy',
+    description: 'dummy',
+  }
 }
 
 module.exports = {
@@ -109,6 +118,18 @@ module.exports = {
     { src: '~/plugins/lazyload', ssr: false },
     { src: '~/plugins/firebase', ssr: false }
   ],
+  /*
+  ** Nuxt.js modules
+  */
+  modules: [
+    '@nuxtjs/dotenv',
+    '@nuxtjs/pwa',
+    '@nuxtjs/sitemap',
+    'nuxt-webfontloader',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-25065548-6'
+    }]
+  ],
   manifest: {
     name: `${appTitle}`,
     short_name: '@mazipan'
@@ -129,19 +150,6 @@ module.exports = {
       families: ['Merriweather Sans:400,700']
     }
   },
-  /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    '@nuxtjs/dotenv',
-    '@nuxtjs/pwa',
-    '@nuxtjs/sitemap',
-    'nuxt-webfontloader',
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-25065548-6'
-    }]
-  ],
-
   /*
   ** Build configuration
   */

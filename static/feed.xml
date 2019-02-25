@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>@mazipan — A personal blog by Irfan Maulana</title>
+        <link>https://www.mazipan.xyz</link>
+        <description>A personal blog by Irfan Maulana</description>
+        <lastBuildDate>Mon, 25 Feb 2019 07:43:48 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/nuxt-community/feed-module</generator>
+        <category>Software Development</category>
+        <item>
+        </item>
+        <item>
+        </item>
+        <item>
+        </item>
+    </channel>
+</rss>

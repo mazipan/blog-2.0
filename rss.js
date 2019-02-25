@@ -1,0 +1,43 @@
+const fs = require('fs-extra')
+const path = require('path')
+const markdown = require('markdown-parse')
+const RSS = require('rss')
+const pkg = require('./package')
+const Contents = require('./contents/index')
+
+const appTitle = `@mazipan — A personal blog by Irfan Maulana`
+const productionUrl = 'https://www.mazipan.xyz'
+const iconUrl = `${productionUrl}/icon.png`
+
+let FEED_RSS = new RSS({
+  title: appTitle,
+  description: pkg.description,
+  site_url: productionUrl,
+  image_url: iconUrl
+})
+
+function generateFeedData (data) {
+  data.forEach(item => {
+    const file = path.resolve(__dirname, `./contents/markdown/${item}/index.md`)
+    const fileContent = fs.readFileSync(file, 'utf8')
+    markdown(fileContent, function (err, result) {
+      let feed = {}
+      feed.title = result.attributes.title
+      feed.author = 'Irfan Maulana - @mazipan'
+      feed.date = new Date(result.attributes.date).toISOString()
+      feed.url = `${productionUrl}/${result.attributes.slug}` || ''
+      feed.guid = `${result.attributes.slug}` || ''
+      feed.description = result.attributes.description || ''
+      feed['content:encoded'] = result.html || ''
+      FEED_RSS.item(feed)
+    })
+  })
+}
+
+generateFeedData(Contents)
+
+var feed_xml = FEED_RSS.xml({indent: true})
+const stream = fs.createWriteStream(path.resolve(__dirname, `./dist/feed.xml`))
+stream.write(feed_xml)
+stream.end()
+
