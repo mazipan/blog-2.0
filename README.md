@@ -1,6 +1,6 @@
 # 🗣 Blog-2.0
 
-[![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0) [![Netlify Status](https://api.netlify.com/api/v1/badges/4f1c2c07-6893-4973-858b-66a8809e7e96/deploy-status)](https://app.netlify.com/sites/mazipan-blog/deploys) [![Greenkeeper badge](https://badges.greenkeeper.io/mazipan/blog-2.0.svg)](https://greenkeeper.io/)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a146a9bea244c28b909499be3bcade8)](https://app.codacy.com/app/mazipan/blog-2.0?utm_source=github.com&utm_medium=referral&utm_content=mazipan/blog-2.0&utm_campaign=Badge_Grade_Settings) [![Codecov](https://codecov.io/gh/mazipan/blog-2.0/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/blog-2.0) ![Website Up](https://img.shields.io/website-up-down-green-red/https/mazipan.xyz.svg) [![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0) [![Greenkeeper badge](https://badges.greenkeeper.io/mazipan/blog-2.0.svg)](https://greenkeeper.io/) ![Dependencies](https://img.shields.io/david/mazipan/blog-2.0.svg)
 
 > A personal blog by Irfan Maulana built with Nuxt.js
 

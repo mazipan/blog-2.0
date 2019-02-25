@@ -1,4 +1,12 @@
 {
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ]
+  ],
   "env": {
     "test": {
       "presets": [
@@ -9,9 +17,12 @@
               "node": "current"
             }
           }
-        ],
-        "@nuxt/babel-preset-app"
+        ]
       ]
     }
-  }
+  },
+  "plugins": [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-jsx"
+  ]
 }
