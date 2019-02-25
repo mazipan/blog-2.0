@@ -12,13 +12,14 @@
     "generate": "nuxt generate",
     "export:db": "node generate-json-db.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "test": "jest"
+    "test": "jest",
+    "lh": "lighthousebot"
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.3.0",
+    "@nuxtjs/google-analytics": "^2.1.0",
     "@nuxtjs/pwa": "^3.0.0-beta.8",
     "@nuxtjs/sitemap": "^0.2.0",
-    "@nuxtjs/google-analytics": "^2.1.0",
     "firebase": "^5.8.4",
     "intersection-observer": "^0.5.1",
     "modern-normalize": "0.5.0",
@@ -47,6 +48,7 @@
     "fs-extra": "^7.0.1",
     "husky": "^1.3.1",
     "jest": "^24.1.0",
+    "lighthousebot": "https://github.com/GoogleChromeLabs/lighthousebot",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue-jest": "^3.0.3"
