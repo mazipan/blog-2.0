@@ -1,6 +1,5 @@
 /* eslint-env jest */
 import { shallowMount } from '@vue/test-utils'
-import Helpers from '~/test/helper'
 import Component from '~/pages/success-subscribed.vue'
 
 const createWrapper = () => {
