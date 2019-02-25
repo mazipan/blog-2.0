@@ -1,12 +1,12 @@
 # 🗣 Blog-2.0
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/974204443ba449c69058d5906c9d25c6)](https://www.codacy.com/app/mazipan/blog-2.0?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mazipan/blog-2.0&amp;utm_campaign=Badge_Grade) [![Codecov](https://codecov.io/gh/mazipan/blog-2.0/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/blog-2.0) ![Website Up](https://img.shields.io/website-up-down-green-red/https/mazipan.xyz.svg) [![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0) [![Greenkeeper badge](https://badges.greenkeeper.io/mazipan/blog-2.0.svg)](https://greenkeeper.io/) ![Dependencies](https://img.shields.io/david/mazipan/blog-2.0.svg)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/974204443ba449c69058d5906c9d25c6)](https://www.codacy.com/app/mazipan/blog-2.0?utm_source=github.com&utm_medium=referral&utm_content=mazipan/blog-2.0&utm_campaign=Badge_Grade) [![Codecov](https://codecov.io/gh/mazipan/blog-2.0/branch/master/graph/badge.svg)](https://codecov.io/gh/mazipan/blog-2.0) ![Website Up](https://img.shields.io/website-up-down-green-red/https/mazipan.xyz.svg) [![Travis](https://img.shields.io/travis/mazipan/blog-2.0.svg)](https://travis-ci.org/mazipan/blog-2.0) [![Greenkeeper badge](https://badges.greenkeeper.io/mazipan/blog-2.0.svg)](https://greenkeeper.io/) ![Dependencies](https://img.shields.io/david/mazipan/blog-2.0.svg)
 
 > A personal blog by Irfan Maulana built with Nuxt.js
 
 ## Live
 
-[https://www.mazipan.xyz](https://www.mazipan.xyz)
+<https://www.mazipan.xyz>
 
 ## Logo
 
@@ -16,8 +16,8 @@ Raw file in this [vectr.com link](https://vectr.com/mazipan/i7V7tBB5z.png?width=
 
 ## Screenshoot
 
-| Homepage                              |  Post Detail                      |
-| :-----------------------------------: | :------------------------------:  |
+|                Homepage               |            Post Detail            |
+| :-----------------------------------: | :-------------------------------: |
 | ![Homepage](screenshoot-homepage.png) | ![Detail](screenshoot-detail.png) |
 
 ## Firebase Setup
@@ -37,7 +37,7 @@ Create DB in Firebase Database with your own name, and import from file `firebas
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -52,10 +52,10 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## Thanks for these awesome repo
 
-+ [Dracula Theme](https://github.com/dracula/dracula-theme)
-+ [Marinaaisa](https://github.com/marinaaisa/marinaaisa-website-2018)
-+ [Overreacted.io](https://overreacted.io/)
+-   [Dracula Theme](https://github.com/dracula/dracula-theme)
+-   [Marinaaisa](https://github.com/marinaaisa/marinaaisa-website-2018)
+-   [Overreacted.io](https://overreacted.io/)
 
-------
+* * *
 
 Copyright © 2019 by Irfan Maulana
