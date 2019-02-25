@@ -25,16 +25,6 @@ const routesSitemap = () => {
   return res
 }
 
-const readMarkdown = async (slug) => {
-  return {
-    title: 'dummy',
-    slug: 'dummy',
-    date: 'dummy',
-    minute2read: 'dummy',
-    description: 'dummy',
-  }
-}
-
 module.exports = {
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,

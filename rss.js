@@ -21,6 +21,10 @@ function generateFeedData (data) {
     const file = path.resolve(__dirname, `./contents/markdown/${item}/index.md`)
     const fileContent = fs.readFileSync(file, 'utf8')
     markdown(fileContent, function (err, result) {
+      if (err) {
+        console.log(err)
+        return
+      }
       let feed = {}
       feed.title = result.attributes.title
       feed.author = 'Irfan Maulana - @mazipan'
@@ -36,8 +40,9 @@ function generateFeedData (data) {
 
 generateFeedData(Contents)
 
-var feed_xml = FEED_RSS.xml({indent: true})
+var feedXml = FEED_RSS.xml({ indent: true })
 const stream = fs.createWriteStream(path.resolve(__dirname, `./dist/feed.xml`))
-stream.write(feed_xml)
+stream.write(feedXml)
 stream.end()
 
+console.log('success generate feed.xml')
