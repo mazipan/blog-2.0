@@ -6,7 +6,7 @@
 
 ## Live
 
-[https://www.mazipan.xyz](https://www.mazipan.xyz)
+<https://www.mazipan.xyz>
 
 ## Logo
 
@@ -16,8 +16,8 @@ Raw file in this [vectr.com link](https://vectr.com/mazipan/i7V7tBB5z.png?width=
 
 ## Screenshoot
 
-| Homepage                              |  Post Detail                      |
-| :-----------------------------------: | :------------------------------:  |
+|                Homepage               |            Post Detail            |
+| :-----------------------------------: | :-------------------------------: |
 | ![Homepage](screenshoot-homepage.png) | ![Detail](screenshoot-detail.png) |
 
 ## Firebase Setup
@@ -37,7 +37,7 @@ Create DB in Firebase Database with your own name, and import from file `firebas
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
@@ -52,10 +52,10 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## Thanks for these awesome repo
 
-+ [Dracula Theme](https://github.com/dracula/dracula-theme)
-+ [Marinaaisa](https://github.com/marinaaisa/marinaaisa-website-2018)
-+ [Overreacted.io](https://overreacted.io/)
+-   [Dracula Theme](https://github.com/dracula/dracula-theme)
+-   [Marinaaisa](https://github.com/marinaaisa/marinaaisa-website-2018)
+-   [Overreacted.io](https://overreacted.io/)
 
-------
+* * *
 
 Copyright © 2019 by Irfan Maulana
