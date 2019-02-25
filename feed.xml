@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[@mazipan — A personal blog by Irfan Maulana]]></title>
+        <description><![CDATA[A personal blog by Irfan Maulana]]></description>
+        <link>https://www.mazipan.xyz</link>
+        <image>
+            <url>https://www.mazipan.xyz/icon.png</url>
+            <title>@mazipan — A personal blog by Irfan Maulana</title>
+            <link>https://www.mazipan.xyz</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 25 Feb 2019 08:42:37 GMT</lastBuildDate>
+        <item>
+            <title><![CDATA[Membuat button Like sederhana menggunakan Firebase Realtime Database]]></title>
+            <description><![CDATA[Berbagi pengalaman dalam menggunakan Firebase RTDB untuk membuat button Like sederhana seperti yang terlihat pada Blog 2.0 ini]]></description>
+            <link>https://www.mazipan.xyz/create-simple-like-button-using-firebase-rtdb</link>
+            <guid isPermaLink="false">create-simple-like-button-using-firebase-rtdb</guid>
+            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
+            <pubDate>Thu, 21 Feb 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Extending Official ESLint's HTML Formatter]]></title>
+            <description><![CDATA[Why I decide to extending official ESLint's HTML formatter]]></description>
+            <link>https://www.mazipan.xyz/eslint-formatter-html-extended</link>
+            <guid isPermaLink="false">eslint-formatter-html-extended</guid>
+            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
+            <pubDate>Tue, 19 Feb 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Developing Blog 2.0 with Nuxt.js]]></title>
+            <description><![CDATA[Explaining how static site called Blog 2.0 was built using Nuxt.js]]></description>
+            <link>https://www.mazipan.xyz/blog-2-0-in-nuxtjs</link>
+            <guid isPermaLink="false">blog-2-0-in-nuxtjs</guid>
+            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
+            <pubDate>Mon, 18 Feb 2019 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
