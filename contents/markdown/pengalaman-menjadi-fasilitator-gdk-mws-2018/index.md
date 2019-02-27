@@ -8,7 +8,7 @@ description: Berbagi pengalaman bagaimana ketika saya menjadi fasilitator pada p
 
 ## Mengenai Google Developer Kejar 🏃‍
 
-Seperti telah dijelaskan pada website [ini ↗️](https://events.withgoogle.com/googledeveloperskejar/), **Google Developers Kejar 2018** adalah program yang diinisiasi oleh Google Developers untuk mengasah kemampuan developer Indonesia dalam mengembangkan aplikasi Mobile Android berbasis Kotlin dan Mobile Web Specialist.
+Seperti telah dijelaskan pada website [ini ↗️](https://events.withgoogle.com/googledeveloperskejar/), **Google Developers Kejar 2018** adalah program yang diinisiasi oleh Google Developers untuk mengasah kemampuan developer Indonesia dalam mengembangkan aplikasi Mobile Android berbasis Kotlin dan Mobile Web Specialis.
 
 Bila pada program sebelumnya yang berlabel [Indonesia Android Kejar ↗️](https://events.withgoogle.com/indonesiaandroidkejar/) hanya ada program khusus untuk Android saja, maka pada tahun 2018 ada cabang baru untuk para web developer spesifiknya untuk mobile web.
 
@@ -20,23 +20,23 @@ Pada dasarnya para peserta program ini akan diberikan sebuah *track* belajar dar
 
 Selain belajar secara online lewat Udacity para peserta akan dikumpulkan dalam suatu grup beserta fasilitator yang ditunjuk untuk berdiskusi berbagai kesulitan dan berbagi informasi mengenai program ini sendiri.
 
-Dua kali dalam satu *batch* para peserta diharuskan melakukan *offline meetup* dengan fasilitatornya untuk membahas berbagai kesulitan ini secara lebih detail.
+Dua kali dalam satu *batch* para peserta diharuskan melakukan pertemuan luring (*offline meetup*) dengan fasilitatornya untuk membahas berbagai kesulitan ini secara lebih detail.
 
-Di akhir *batch* akan diberikan tugas penutup yang berkaitan dengan pembelajaran dari awal sampai akhir.
+Di akhir program, peserta akan diberikan tugas penutup yang berkaitan dengan pembelajaran dari awal sampai akhir.
 
-## Bagaimana saya menjalankan peran Fasilitator? 🤡
+## Bagaimana saya menjalankan peran Fasilitator? 👨‍👧‍👦
 
 Sebagai fasilitator saya tidak ingin terlalu menggurui dalam urusan teknis, karena memang sebagian dari peserta yang ada di dalam grup saya pada dasarnya sudah lumayan mengetahui perihal teknis. Saya lebih memposisikan diri sebagai teman curhat mereka dimana saling berbagi cerita mengenai bagaimana suka duka menangani Mobile Web berdasarkan pengalaman yang saya dapatkan selama ini. Saya juga berusaha meluangkan waktu untuk tetap menjaga semangat mereka agar konsisten mengikuti program ini dari awal sampai akhir, saya menyadari salah satu penyakit kita bersama adalah urusan konsistensi. Seringkali saya sendiri semangat menggebu-gebu diawal namun kedodoran ditengah-tengah sampai menghilang tanpa kabar pada akhirnya 😂
 
-Saya memberikan pendapat sebisa dan sepengetahuan saya dalam membangun sebuah Mobile Web yang progressive. Saya juga memberikan motivasi dan pengetahuan mengenai hal-hal lain di luar pembelajaran yang saya rasa akan sangat berguna bagi mereka ke depannya, seperti bagaimana saya belajar suatu teknologi, bagaimana cara memigrasikan suatu framework ke framework lain, bagaimana cara berkontribusi ke open-source, dan hal lain yang bisa kita diskusikan bersama-sama.
+Saya memberikan pendapat sebisa dan sepengetahuan saya dalam membangun sebuah Mobile Web yang progressive. Saya juga memberikan motivasi dan pengetahuan mengenai hal-hal lain di luar pembelajaran yang saya rasa akan sangat berguna bagi mereka ke depannya, seperti bagaimana saya belajar suatu teknologi, bagaimana cara memigrasikan suatu framework ke framework lain, bagaimana cara berkontribusi ke kode sumber terbuka (*open-source*), dan hal lain yang bisa kita diskusikan bersama-sama.
 
 Para peserta yang ikut dalam grup saya mungkin tidak mendapat banyak bantuan teknis mengenai program ini, tapi silahkan bisa ditanyakan langsung ke beberapa peserta mengenai pengalaman yang mereka dapatkan. Pastinya ada baik dan buruk, mari kita lupakan yang buruk-buruk dan anggap sebagai pelajaran saja 😜
 
-## Menariknya Meetup Offline ☕️
+## Menariknya Pertemuan Luring ☕️
 
-Saya mengadakan meetup offline sebanyak dua kali selama program ini. Pada meetup pertama ada sekita 13 peserta kalau tidak salah (termasuk beberapa orang yang memilih pindah fasilitator dengan saya) yang bisa datang. Pada dasarnya saya mengerti kesibukan mereka dan tidak memaksakan mereka untuk datang ke meetup offline tersebut, tapi mengingat meetup menjadi salah satu kriteria yang harus dipenuhi dalam program ini maka saya mengingatkan mereka untuk menyempatkan datang ke meetup offline yang diadakan.
+Saya mengadakan pertemuan luring sebanyak dua kali selama program ini. Pada pertemuan pertama ada sekita 13 peserta kalau tidak salah (termasuk beberapa orang yang memilih pindah fasilitator dengan saya) yang bisa datang. Pada dasarnya saya mengerti kesibukan mereka dan tidak memaksakan mereka untuk datang ke pertemuan luring tersebut, tapi mengingat pertemuan luring menjadi salah satu kriteria yang harus dipenuhi dalam program ini maka saya mengingatkan mereka untuk menyempatkan datang ke pertemuan yang diadakan.
 
-Bagi saya, meetup offline selalu lebih menarik dibandingkan online. Kita bisa lebih mengenal pribadi seseorang setelah bertatap muka secara fisik dan ngobrol banyak hal. Apalagi saya tergolong orang yang mudah lupa dengan wajah dan nama seseorang yang bahkan sudah sempat bertemu. Bertemu offline memudahkan saya untuk bercerita lebih banyak hal mengenai bagaimana membangun Mobile Web yang progressive.
+Bagi saya, pertemuan luring selalu lebih menarik dibandingkan daring. Kita bisa lebih mengenal pribadi seseorang setelah bertatap muka secara fisik dan ngobrol banyak hal. Apalagi saya tergolong orang yang mudah lupa dengan wajah dan nama seseorang yang bahkan sudah sempat bertemu. Bertemu secara luring memudahkan saya untuk bercerita lebih banyak hal mengenai bagaimana membangun Mobile Web yang progressive.
 
 Seperti saya sebutkan diatas, konsistensi menjadi barang mahal bagi kita bersama. Setelah meetup pertama dihadiri 13 orang meetup kedua yang saya adakan hanya dihadiri oleh 4 peserta saja.
 
@@ -48,6 +48,8 @@ Tapi bagi saya pribadi ini bukan masalah, selama masih ada satu dua orang yang b
 
 Sehari setelah acara Google For Indonesia, Google mengadakan acara Google Developer Showcase yang intinya memberitahu ke khalayak ramai apa-apa saja yang telah dikerjakan Google belakangan ini dalam rangka membangun ekosistem dan membangun sumber daya manusia di Indonesia khususnya untuk mencetak banyak developer baru lewat berbagai program yang dicanangkannya.
 Google Developer Kejar sendiri merupakan satu dari sekian program yang dibuat Google untuk membantu hal ini. Untuk menghadiri acara ini dipilihlah beberapa fasilitator dan peserta untuk mewakili dari masing-masing kota.
+
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/pengalaman-menjadi-fasilitator-gdk-mws-2018/gdk-mws-meetup.jpg" alt="GDK MWS Meetup">
 
 ## Bagaimana Hasilnya? 💎
 
