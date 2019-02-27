@@ -33,13 +33,13 @@
     "vue-tiny-lazyload-img": "^0.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.3.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-syntax-jsx": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.2.0",
     "@vue/test-utils": "^1.0.0-beta.29",
-    "autoprefixer": "^9.4.8",
+    "autoprefixer": "^9.4.9",
     "babel-core": "7.0.0-bridge.0",
+    "babel-plugin-dynamic-import-node-babel-7": "2.0.7",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "cross-env": "^5.2.0",
