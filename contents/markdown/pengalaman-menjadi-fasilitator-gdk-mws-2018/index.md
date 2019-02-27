@@ -49,7 +49,7 @@ Tapi bagi saya pribadi ini bukan masalah, selama masih ada satu dua orang yang b
 Sehari setelah acara Google For Indonesia, Google mengadakan acara Google Developer Showcase yang intinya memberitahu ke khalayak ramai apa-apa saja yang telah dikerjakan Google belakangan ini dalam rangka membangun ekosistem dan membangun sumber daya manusia di Indonesia khususnya untuk mencetak banyak developer baru lewat berbagai program yang dicanangkannya.
 Google Developer Kejar sendiri merupakan satu dari sekian program yang dibuat Google untuk membantu hal ini. Untuk menghadiri acara ini dipilihlah beberapa fasilitator dan peserta untuk mewakili dari masing-masing kota.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/pengalaman-menjadi-fasilitator-gdk-mws-2018/gdk-mws-meetup.jpg" alt="GDK MWS Meetup">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/pengalaman-menjadi-fasilitator-gdk-mws-2018/gdk-mws-dev-showcase.jpg" alt="Google Developer Showcase">
 
 ## Bagaimana Hasilnya? 💎
 
