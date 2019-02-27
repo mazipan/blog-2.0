@@ -63,6 +63,15 @@
             @click.native="trackSocialShare('Twitter')">
             🐦 Twitter Share
           </a>
+          <a
+            class="share-btn"
+            title="Share to linkedin"
+            :href="linkedinLinkShare"
+            target="_blank"
+            rel="noopener"
+            @click.native="trackSocialShare('LinkedIn')">
+            💼 LinkedIn Share
+          </a>
         </div>
 
         <div class="like">
@@ -145,6 +154,9 @@ export default {
     },
     twitterLinkShare () {
       return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${this.encodedDesc}&url=${this.encodedUrl}&via=maz_ipan`
+    },
+    linkedinLinkShare () {
+      return `https://www.linkedin.com/sharing/share-offsite/?url=${this.encodedUrl}`
     }
   },
   async asyncData ({ params }) {
