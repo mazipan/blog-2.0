@@ -28,7 +28,7 @@
     </div>
     <hr>
     <div class="page__footer">
-      Do you like this article? help me to click this like button and share to your followers.
+      Do you like this article? help me to click this like button, share it to your followers and subscribe the newsletter.
 
       <div class="block-wrap">
         <div
@@ -84,24 +84,18 @@
         </div>
       </div>
     </div>
-    <hr>
-    <div class="page__footer">
-      <FormSubsription />
-    </div>
   </section>
 </template>
 
 <script>
 import ContentParser from '../components/ContentParser'
-import FormSubsription from '../components/FormSubsription'
 import { formatReadingTime, debounce } from '../utils/helpers.js'
 import { trackLike, trackUniversalShare, trackShare } from '../utils/analitycs.js'
 
 export default {
   name: 'SlugPage',
   components: {
-    ContentParser,
-    FormSubsription
+    ContentParser
   },
   head () {
     const title = `${this.meta.title}`

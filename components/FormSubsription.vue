@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>📧 Join the Newsletter</h3>
+    <h3>📧 Get the newsletter</h3>
     <form
       class="form"
       name="contact"
@@ -11,7 +11,7 @@
         type="hidden"
         name="form-name"
         value="contact">
-      <label for="form-email">Subscribe to get my latest content by email.</label>
+      <label for="form-email">Subscribe here to get the latest article by email.</label>
       <div class="control">
         <input
           id="form-email"
