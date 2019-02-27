@@ -9,11 +9,16 @@
 <script>
 import BaseHeader from '../components/BaseHeader'
 import BaseFooter from '../components/BaseFooter'
+import { trackJSPerf } from '../utils/analitycs.js'
+
 export default {
   name: 'DefaultLayout',
   components: {
     BaseHeader,
     BaseFooter
+  },
+  mounted () {
+    trackJSPerf()
   }
 }
 </script>

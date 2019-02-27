@@ -50,7 +50,8 @@
             title="Share to facebook"
             :href="fbLinkShare"
             target="_blank"
-            rel="noopener">
+            rel="noopener"
+            @click.native="trackSocialShare('Facebook')">
             🎭 FB Share
           </a>
           <a
@@ -58,7 +59,8 @@
             title="Share to twitter"
             :href="twitterLinkShare"
             target="_blank"
-            rel="noopener">
+            rel="noopener"
+            @click.native="trackSocialShare('Twitter')">
             🐦 Twitter Share
           </a>
         </div>
@@ -84,6 +86,7 @@
 import ContentParser from '../components/ContentParser'
 import FormSubsription from '../components/FormSubsription'
 import { formatReadingTime, debounce } from '../utils/helpers.js'
+import { trackLike, trackUniversalShare, trackShare } from '../utils/analitycs.js'
 
 export default {
   name: 'SlugPage',
@@ -204,10 +207,14 @@ export default {
         }
       })
     },
+    trackSocialShare (network) {
+      trackShare(this, this.meta.slug, network)
+    },
     onClickShare () {
-      const title = `${this.meta.title} | @mazipan`
+      const title = `${this.meta.title}`
       const decription = `${this.meta.description}`
       const url = `/${this.meta.slug}`
+      trackUniversalShare(this, this.meta.slug)
 
       const data = {
         title,
@@ -223,6 +230,7 @@ export default {
       const __self = this
       if (__self.clapsRefs && __self.youClapped < 10) {
         debounce(function () {
+          trackLike(__self, __self.meta.slug)
           __self.youClapped += 1
           __self.clapClicked = true
           __self.clapsRefs.set(__self.claps + 1)
