@@ -50,9 +50,11 @@ a {
 
 blockquote{
   font-style: italic;
-  border-left: 2px solid var(--textSecondary);
+  border-left: 4px solid var(--textSecondary);
+  color: var(--textSecondary);
   margin: 0;
-  padding: .25em 0 .25em 1em;
+  padding: .25em 1em;
+  font-size: 110%;
 }
 
 :not(pre) > code[class*="language-"], pre[class*="language-"] {

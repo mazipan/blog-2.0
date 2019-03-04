@@ -4,13 +4,12 @@ const fs = require('fs-extra')
 const path = require('path')
 
 function generateData () {
-  let resultObj = {
-    claps: {},
-    hits: {}
-  }
+  let resultObj = {}
   allMarkdownContent.map(item => {
-    resultObj.claps[item] = 0
-    resultObj.hits[item] = 0
+    resultObj[item] = {
+      claps: 0,
+      hits: 0
+    }
 
     return item
   })

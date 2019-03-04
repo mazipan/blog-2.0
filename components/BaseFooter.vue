@@ -12,7 +12,7 @@
       href="https://github.com/mazipan/blog-2.0"
       title="Github Blog 2.0"
       target="_blank"
-      rel="noopener">Github Blog 2.0</a>
+      rel="noopener">Github</a>
   </footer>
 </template>
 

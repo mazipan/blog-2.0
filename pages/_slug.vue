@@ -91,6 +91,18 @@
 import ContentParser from '../components/ContentParser'
 import { formatReadingTime, debounce } from '../utils/helpers.js'
 import { trackLike, trackUniversalShare, trackShare } from '../utils/analitycs.js'
+import {
+  initFirebase,
+  getHitsUrl,
+  getHitsData,
+  setHitsData,
+  getClapsUrl,
+  getClapsData,
+  setClapsData,
+  subscribeClapsData,
+  createNewRef
+} from '../utils/firebase.js'
+let firebaseInstance = null
 
 export default {
   name: 'SlugPage',
@@ -127,10 +139,7 @@ export default {
       youClapped: 0,
       claps: 0,
       hits: 0,
-      clapsRefs: null,
-      hitsRefs: null,
-      isSupportWebshare: false,
-      clapClicked: false
+      isSupportWebshare: false
     }
   },
   computed: {
@@ -173,46 +182,36 @@ export default {
     if (window.navigator.share) {
       this.isSupportWebshare = true
     }
-    this.setHitsData() // set hits in every mounted
-    this.initClapsData()
+    firebaseInstance = initFirebase()
+    getHitsData(firebaseInstance, this.meta.slug, (snapshot) => {
+      this.hits = snapshot.val()
+      if (!this.hits) {
+        const newRef = {
+          [getHitsUrl(this.meta.slug)]: 1
+        }
+        createNewRef(firebaseInstance, newRef)
+      } else {
+        setHitsData(firebaseInstance, this.meta.slug, this.hits + 1)
+      }
+    })
+
+    getClapsData(firebaseInstance, this.meta.slug, (snapshot) => {
+      this.claps = snapshot.val()
+      if (!this.claps) {
+        const newRef = {
+          [getClapsUrl(this.meta.slug)]: 1
+        }
+        createNewRef(firebaseInstance, newRef)
+      }
+    })
+
+    subscribeClapsData(firebaseInstance, this.meta.slug, (snapshot) => {
+      debounce(() => {
+        this.claps = snapshot.val()
+      }, 300)()
+    })
   },
   methods: {
-    initClapsData () {
-      const __self = this
-      const REF_URL = 'claps/' + __self.meta.slug
-      __self.clapsRefs = __self.$firebase.database().ref(REF_URL)
-      __self.clapsRefs.once('value').then(function (snapshot) {
-        __self.claps = snapshot.val()
-        if (__self.claps === null) {
-          const newRef = {
-            [REF_URL]: 0
-          }
-          __self.$firebase.database().ref().update(newRef)
-        }
-      })
-
-      __self.clapsRefs.on('value', function (snapshot) {
-        debounce(() => {
-          __self.claps = snapshot.val()
-        }, 300)()
-      })
-    },
-    setHitsData () {
-      const __self = this
-      const REF_URL = 'hits/' + __self.meta.slug
-      __self.hitsRefs = __self.$firebase.database().ref(REF_URL)
-      __self.hitsRefs.once('value').then(function (snapshot) {
-        __self.hits = snapshot.val()
-        if (__self.hits === null) {
-          const newRef = {
-            [REF_URL]: 1
-          }
-          __self.$firebase.database().ref().update(newRef)
-        } else {
-          __self.hitsRefs.set(__self.hits + 1)
-        }
-      })
-    },
     trackSocialShare (network) {
       trackShare(this, this.meta.slug, network)
     },
@@ -233,16 +232,11 @@ export default {
       }
     },
     onClickLike () {
-      const __self = this
-      if (__self.clapsRefs && __self.youClapped < 10) {
-        debounce(function () {
-          trackLike(__self, __self.meta.slug)
-          __self.youClapped += 1
-          __self.clapClicked = true
-          __self.clapsRefs.set(__self.claps + 1)
-          setTimeout(() => {
-            __self.clapClicked = false
-          }, 1000)
+      if (firebaseInstance && this.youClapped < 10) {
+        debounce(() => {
+          trackLike(this, this.meta.slug)
+          this.youClapped += 1
+          setClapsData(firebaseInstance, this.meta.slug, this.claps + 1)
         }, 300)()
       }
     }
