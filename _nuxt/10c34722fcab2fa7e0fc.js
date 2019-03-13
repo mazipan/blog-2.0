@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{292:function(e,n,t){"use strict";t.r(n);var c={name:"NowPage"},o=t(4),component=Object(o.a)(c,function(){var e=this.$createElement;return(this._self._c||e)("div",{staticClass:"now"})},[],!1,null,"4948ddfe",null);n.default=component.exports}}]);
