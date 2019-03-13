@@ -92,6 +92,37 @@ small{
   }
 }
 
+/* Color */
+.text-normal{
+  color: var(--textNormal);
+}
+.text-title{
+  color: var(--textTitle);
+}
+.text-subtitle{
+  color: var(--textSubtitle);
+}
+.text-link{
+  color: var(--textLink);
+}
+.text-highlight{
+  color: var(--textHighlight);
+}
+.text-warning{
+  color: var(--textWarning);
+}
+.text-danger{
+  color: var(--textDanger);
+}
+.text-secondary{
+  color: var(--textSecondary);
+}
+
+/* Spacing */
+.space-bottom{
+  margin-bottom: 1em;
+}
+
 @-webkit-keyframes zoomIn {
   from {
     opacity: 0;

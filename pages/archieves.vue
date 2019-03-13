@@ -1,5 +1,8 @@
 <template>
   <div class="archieves">
+    <div class="space-bottom text-title">
+      <h1>Archieves</h1>
+    </div>
     <table width="100%">
       <tr
         v-for="blog in blogs"

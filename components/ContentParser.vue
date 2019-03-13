@@ -28,6 +28,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2 {
+  color: var(--textSubtitle);
+}
 a {
   color: var(--textHighlight);
   text-decoration: underline;

@@ -1,15 +1,12 @@
 <template>
   <section class="page">
-    <nuxt-link
-      :to="`/${meta.slug}/`"
-      :title="meta.title"
-      class="page__link">
-      <h2 class="page__title">
-        {{ meta.title }}
-      </h2>
-    </nuxt-link>
+    <h1 class="page__title text-title">
+      {{ meta.title }}
+    </h1>
     <div class="meta">
-      <small class="meta__date">{{ meta.date }}</small>
+      <small class="meta__date">
+        🗓 {{ formatPostDate(meta.date) }}
+      </small>
       <small class="dot"> • </small>
       <small class="meta__read">{{ formatReadingTime(meta.minute2read) }}</small>
       <small class="dot"> • </small>
@@ -89,7 +86,7 @@
 
 <script>
 import ContentParser from '../components/ContentParser'
-import { formatReadingTime, debounce } from '../utils/helpers.js'
+import { formatReadingTime, formatPostDate, debounce } from '../utils/helpers.js'
 import { trackLike, trackUniversalShare, trackShare } from '../utils/analitycs.js'
 import {
   initFirebase,
@@ -136,6 +133,7 @@ export default {
     return {
       productionUrl: 'https://www.mazipan.xyz',
       formatReadingTime,
+      formatPostDate,
       youClapped: 0,
       claps: 0,
       hits: 0,

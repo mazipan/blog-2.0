@@ -13,7 +13,9 @@
         </h2>
       </nuxt-link>
       <div class="meta">
-        <small class="meta__date">{{ formatPostDate(blog.date) }}</small>
+        <small class="meta__date">
+          🗓 {{ formatPostDate(blog.date) }}
+        </small>
         <small class="dot"> • </small>
         <small class="meta__read">{{ formatReadingTime(blog.minute2read) }}</small>
       </div>
