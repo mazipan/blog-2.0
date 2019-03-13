@@ -10,7 +10,10 @@ export function initFirebase () {
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET || '',
     messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || ''
   }
-  return firebase.initializeApp(config)
+  if (!firebase.apps.length) {
+    firebase.initializeApp(config)
+  }
+  return firebase
 }
 
 export function getClapsUrl (slug) {

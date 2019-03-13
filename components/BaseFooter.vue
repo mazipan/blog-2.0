@@ -7,7 +7,7 @@
       target="_blank"
       rel="noopener">Irfan Maulana</a>
     <br>
-    <span>Fork source code in </span>
+    <span>See source code in </span>
     <a
       href="https://github.com/mazipan/blog-2.0"
       title="Github Blog 2.0"

@@ -32,6 +32,7 @@ import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
 
 export default {
   name: 'Homepage',
+  layout: 'homepage',
   data () {
     return {
       formatReadingTime,

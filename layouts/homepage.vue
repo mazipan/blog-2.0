@@ -1,8 +1,8 @@
 <template>
   <div class="container app">
-    <SimplifyHeader />
+    <BaseHeader />
     <nuxt class="wrapper clearfix" />
-
+    <Navigation class="footer_nav" />
     <hr>
     <div
       class="clearfix"
@@ -14,16 +14,18 @@
 </template>
 
 <script>
-import SimplifyHeader from '../components/SimplifyHeader'
+import BaseHeader from '../components/BaseHeader'
 import BaseFooter from '../components/BaseFooter'
+import Navigation from '../components/Navigation'
 import FormSubsription from '../components/FormSubsription'
 import { trackJSPerf } from '../utils/analitycs.js'
 
 export default {
-  name: 'DefaultLayout',
+  name: 'HomepageLayout',
   components: {
-    SimplifyHeader,
+    BaseHeader,
     BaseFooter,
+    Navigation,
     FormSubsription
   },
   mounted () {
@@ -34,7 +36,10 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper{
-  margin: 1em 0 3.5em 0;
+  margin: 1em 0 0 0;
   min-height: 60vh;
+}
+.footer_nav{
+  margin-bottom: 2em;
 }
 </style>

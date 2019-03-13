@@ -18,6 +18,7 @@
           type="email"
           name="email"
           class="input"
+          required
           placeholder="Your email address">
         <button
           class="btn"
