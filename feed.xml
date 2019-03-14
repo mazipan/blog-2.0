@@ -9,7 +9,15 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 13 Mar 2019 08:29:54 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 14 Mar 2019 13:24:14 GMT</lastBuildDate>
+        <item>
+            <title><![CDATA[Membuat blog keren dengan Gridsome]]></title>
+            <description><![CDATA[Bagaimana memulai membuat Blog statis keren menggunakan Vue.js static site generator Gridsome dalam waktu yang singkat]]></description>
+            <link>https://www.mazipan.xyz/membuat-blog-keren-dengan-gridsome</link>
+            <guid isPermaLink="false">membuat-blog-keren-dengan-gridsome</guid>
+            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
+            <pubDate>Thu, 14 Mar 2019 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Pengalaman menjadi fasilitator di program Google Developer Kejar - Mobile Web Specialis 2018]]></title>
             <description><![CDATA[Berbagi pengalaman bagaimana ketika saya menjadi fasilitator pada program Google Developer Kejar - Mobile Web Specialis tahun 2018]]></description>
@@ -27,7 +35,7 @@
             <pubDate>Thu, 21 Feb 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Extending Official ESLint's HTML Formatter]]></title>
+            <title><![CDATA[Extending official ESLint's HTML formatter]]></title>
             <description><![CDATA[Why I decide to extending official ESLint's HTML formatter]]></description>
             <link>https://www.mazipan.xyz/eslint-formatter-html-extended</link>
             <guid isPermaLink="false">eslint-formatter-html-extended</guid>
