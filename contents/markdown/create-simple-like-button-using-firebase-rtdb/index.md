@@ -8,15 +8,15 @@ description: Berbagi pengalaman dalam menggunakan Firebase RTDB untuk membuat bu
 
 ## Latar Belakang
 
-Seperti sudah saya jelaskan pada tulisan sebelumnya bahwa [Blog 2.0](/blog-2-0-in-nuxtjs) ini hanyalah sebuah static Blog tanpa Backend, pun saya hanya menggunakan jasa static hosting dari Netlify untuk meletakan dan meyajikan file hasil build. Karena saya tidak menggunakan Backend dan tidak ingin menggunakannya, maka saya kesulitan ketika ingin menambahkan fitur yang mengharuskan saya menyimpan data di basis data (*database* -DB) seperti jumlah orang yang *like* suatu artikel. Data seperti itu jelas bukan data yang bisa disimpan di *browser* masing-masing. Datanya harus terpusat dan semua pengunjung melihat jumlah yang sama. Data seperti ini paling ideal ada di DB, apapun jenis DB yang digunakan.
+Seperti sudah saya jelaskan pada tulisan sebelumnya bahwa [Blog 2.0 ↗️](/blog-2-0-in-nuxtjs) ini hanyalah sebuah static Blog tanpa Backend, pun saya hanya menggunakan jasa static hosting dari Netlify untuk meletakan dan meyajikan file hasil build. Karena saya tidak menggunakan Backend dan tidak ingin menggunakannya, maka saya kesulitan ketika ingin menambahkan fitur yang mengharuskan saya menyimpan data di basis data (*database* -DB) seperti jumlah orang yang *like* suatu artikel. Data seperti itu jelas bukan data yang bisa disimpan di *browser* masing-masing. Datanya harus terpusat dan semua pengunjung melihat jumlah yang sama. Data seperti ini paling ideal ada di DB, apapun jenis DB yang digunakan.
 
-Dewasa ini untunglah ada platform seperti [Firebase](https://firebase.google.com/) yang membantu orang-orang yang males bikin Backend namun tetap bisa menyimpan data secara terpusat. Firebase bukan cuma menyediakan DB untuk kita tapi juga jasa lainnya seperti hosting, otentikasi, cloud storage, analytics, A/B testing, remote config, dynamic link dan berbagai hal keren lainnya. Firebase ini ibarat paket komplit kalau kita mau beli makan siang.
+Dewasa ini untunglah ada platform seperti [Firebase ↗️](https://firebase.google.com/) yang membantu orang-orang yang males bikin Backend namun tetap bisa menyimpan data secara terpusat. Firebase bukan cuma menyediakan DB untuk kita tapi juga jasa lainnya seperti hosting, otentikasi, cloud storage, analytics, A/B testing, remote config, dynamic link dan berbagai hal keren lainnya. Firebase ini ibarat paket komplit kalau kita mau beli makan siang.
 
 Kali ini kita hanya akan menggunakan fitur real-time databasenya saja.
 
 ## Membuat Projek di Firebase
 
-Pertama kalian harus membuat projek di [Firebase Console](https://console.firebase.google.com/), kalian bisa memberi nama apapun pada projek kalian tapi nama ini memang harus unik dan belum pernah digunakan oleh orang lain.
+Pertama kalian harus membuat projek di [Firebase Console ↗️](https://console.firebase.google.com/), kalian bisa memberi nama apapun pada projek kalian tapi nama ini memang harus unik dan belum pernah digunakan oleh orang lain.
 
 Berikutnya kalian akan disuguhi pilihan untuk melakukan setup pada Firebase yang berbeda-beda tergantung jenis projek kalian, kita bisa memilih untuk web dan akan diberikan kode untuk memasang Firebase seperti berikut:
 
@@ -106,7 +106,7 @@ Saya perlu menambahkan plugins ini di file `nuxt.config.js` agar terbaca di proj
 module.exports = {
   plugins: [
     { src: '~/plugins/firebase', ssr: false }
-  ]
+   ↗️]
 }
 ```
 
@@ -202,7 +202,7 @@ if (this.clapsRefs) {
 
 Sentuhan terkhir adalah memastikan ketika proses build kita menyetel nilai *environment variable* dengan nilai asli sesuai dengan apa yang kita gunakan di prodcution. Bila pada saat di lokal kita bisa menggunakan file `.env` yang tidak mungkin kita push ke repository.
 
-Di [Travis CI](https://travis-ci.org) kita juga bisa menyetel berbagai variabel dengan mudah. Cukup masuk ke bagian `settings` dan kita bisa menambahkan *key-value* sebagai variabel yang akan diikutkan saat proses *build*.
+Di [Travis CI ↗️](https://travis-ci.org) kita juga bisa menyetel berbagai variabel dengan mudah. Cukup masuk ke bagian `settings` dan kita bisa menambahkan *key-value* sebagai variabel yang akan diikutkan saat proses *build*.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable">
 
