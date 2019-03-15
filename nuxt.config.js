@@ -1,29 +1,29 @@
-import Contents from './contents/index.js';
-const path = require('path');
-const pkg = require('./package');
+import Contents from './contents/index.js'
+const path = require('path')
+const pkg = require('./package')
 
-const appTitle = `@mazipan — A personal blog by Irfan Maulana`;
-const productionUrl = 'https://www.mazipan.xyz';
-const iconUrl = `${productionUrl}/icon.png`;
+const appTitle = `@mazipan — A personal blog by Irfan Maulana`
+const productionUrl = 'https://www.mazipan.xyz'
+const iconUrl = `${productionUrl}/icon.png`
 
 const routes = Contents.map(item => {
-  item = `/${item}`;
-  return item;
-});
-routes.push('/success-subscribed');
+  item = `/${item}`
+  return item
+})
+routes.push('/success-subscribed')
 
 const routesSitemap = () => {
-  let res = [];
+  let res = []
   routes.forEach(el => {
-    const item = {};
-    item.url = el + '/';
-    item.changefreq = 'daily';
-    item.priority = 1;
-    item.lastmodISO = String(new Date().toISOString());
-    res.push(item);
-  });
-  return res;
-};
+    const item = {}
+    item.url = el + '/'
+    item.changefreq = 'daily'
+    item.priority = 1
+    item.lastmodISO = String(new Date().toISOString())
+    res.push(item)
+  })
+  return res
+}
 
 module.exports = {
   env: {
@@ -211,7 +211,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
+    extend (config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
@@ -219,7 +219,7 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        });
+        })
       }
 
       config.module.rules.push({
@@ -231,7 +231,7 @@ module.exports = {
             root: 'content-markdown'
           }
         }
-      });
+      })
     }
   }
-};
+}
