@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <nuxt-link to="/about">
-      🤩 About
+      😎 About
     </nuxt-link>
     <span class="dot"> • </span>
     <nuxt-link to="/now">
