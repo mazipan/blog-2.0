@@ -64,23 +64,23 @@ Kalian bisa lihat hasil membuat Blog dengan gridsome starter di repository [http
 
 Untuk deploy Gridsome ke Netlify juga sangat mudah, bahkan Gridsome juga menyediakan dokumentasi resmi mengenai langkah-langkahnya di halaman [deploy-to-netlify ↗️](https://gridsome.org/docs/deploy-to-netlify), yang kurang lebih seperti berikut:
 
-1. Buat halaman projek baru di Netlify
+1) Buat halaman projek baru di Netlify
 
-2. Tambahkan perintah `gridsome build` pada kolom *build command*
+2) Tambahkan perintah `gridsome build` pada kolom *build command*
 
-3. Dan tambahkan direktori `dist` pada kolom *publish directory*
+3) Dan tambahkan direktori `dist` pada kolom *publish directory*
 
-4. Kalian bisa lihat hasilnya di [https://gridsome-blog.netlify.com/ ↗️](https://gridsome-blog.netlify.com/)
+4) Kalian bisa lihat hasilnya di [https://gridsome-blog.netlify.com/ ↗️](https://gridsome-blog.netlify.com/)
 
 ## Menambahkan Artikel Baru
 
-1. Semua artikel terletal di direktori `/content/posts` dengan format berkas menggunakan Markdown yang berekstensi `.md`.
+1) Semua artikel terletal di direktori `/content/posts` dengan format berkas menggunakan Markdown yang berekstensi `.md`.
 
-2. Kita tinggal menambahkan file baru dengan nama berkas yang nantinya akan menjadi url dari artikel tersebut.
+2) Kita tinggal menambahkan file baru dengan nama berkas yang nantinya akan menjadi url dari artikel tersebut.
 
-3.Buat meta dari sebuah artikel, seperti berikut contohnya:
+3) Buat meta dari sebuah artikel, seperti berikut contohnya:
 
-```
+```markdown
 ---
 title: Membuat blog keren dengan Gridsome
 slug: membuat-blog-keren-dengan-gridsome
@@ -93,13 +93,9 @@ description: Bagaimana memulai membuat Blog statis keren menggunakan Vue.js stat
 ---
 ```
 
-4. Kita bisa menambahkan gambar untuk artikel terkait pada direktori `/content/posts/images`, dan cukup menautkan dengan kode Markdown biasa seperti berikut:
+4) Kita bisa menambahkan gambar untuk artikel terkait pada direktori `/content/posts/images`, dan cukup menautkan dengan kode Markdown biasa seperti `![Image Alt](./images/logo-poster.png)`
 
-```
-`![Image Alt](./images/logo-poster.png)`
-```
-
-5. Kita bisa mengubah konfigurasi dari nama blog dan deskripsi blog pada file `gridsome.config.js`
+5) Kita bisa mengubah konfigurasi dari nama blog dan deskripsi blog pada file `gridsome.config.js`
 
 ## Menambahkan dukungan sitemap.xml
 
@@ -107,15 +103,15 @@ Sayangnya dari bawaan templat belum disematkan dukungan untuk membuat `sitemap.x
 
 1. Pasang dependency
 
-```
-$ yarn add @gridsome/plugin-sitemap
+```bash
+yarn add @gridsome/plugin-sitemap
 ```
 
 2. Tambahkan `siteUrl` di dalam berkas `gridsome.config.js` dengan nilai URL produksi dari blog kita
 
 3. Tambahkan konfigurasi untuk sitemap pada berkas `gridsome.config.js` pada properti `plugins`, seperti berikut contohnya:
 
-```
+```javascript
 module.exports = {
   plugins: [
     {

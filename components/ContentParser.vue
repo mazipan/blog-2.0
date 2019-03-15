@@ -1,6 +1,6 @@
 <script>
 import Prism from 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
+import 'prism-themes/themes/prism-a11y-dark.css'
 
 export default {
   name: 'ContentParser',
