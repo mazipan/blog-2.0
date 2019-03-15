@@ -101,4 +101,42 @@ description: Bagaimana memulai membuat Blog statis keren menggunakan Vue.js stat
 
 5. Kita bisa mengubah konfigurasi dari nama blog dan deskripsi blog pada file `gridsome.config.js`
 
+## Menambahkan dukungan sitemap.xml
+
+Sayangnya dari bawaan templat belum disematkan dukungan untuk membuat `sitemap.xml`, karenanya di sini kita akan menambahkannya sendiri dengan cara seperti berikut:
+
+1. Pasang dependency
+
+```
+$ yarn add @gridsome/plugin-sitemap
+```
+
+2. Tambahkan `siteUrl` di dalam berkas `gridsome.config.js` dengan nilai URL produksi dari blog kita
+
+3. Tambahkan konfigurasi untuk sitemap pada berkas `gridsome.config.js` pada properti `plugins`, seperti berikut contohnya:
+
+```
+module.exports = {
+  plugins: [
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        cacheTime: 600000, // default
+        exclude: ['/exclude-me'],
+        config: {
+          '/articles/*': {
+            changefreq: 'weekly',
+            priority: 0.5
+          },
+          '/about': {
+            changefreq: 'monthly',
+            priority: 0.7
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
 ### Demikian artikel kali ini, semoga bermanfaat...
