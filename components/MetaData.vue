@@ -1,7 +1,7 @@
 <template>
   <div class="meta">
     <small class="meta__date">
-      🗓 {{ formatPostDate(metaDate) }}
+      📆 {{ formatPostDate(metaDate) }}
     </small>
     <small class="dot"> • </small>
     <small class="meta__read">{{ formatReadingTime(metaMinuteToRead) }}</small>
@@ -15,7 +15,7 @@
       v-if="isShowStats"
       class="dot"> • </small>
     <small v-if="isShowStats">
-      📖 {{ statsRead }} read
+      📓 {{ statsRead }} read
     </small>
   </div>
 </template>
