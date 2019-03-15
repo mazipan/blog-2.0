@@ -1,15 +1,15 @@
 <template>
   <div class="nav">
     <nuxt-link to="/about">
-      About
+      🤩 About
     </nuxt-link>
     <span class="dot"> • </span>
     <nuxt-link to="/now">
-      Now
+      ⏰ Now
     </nuxt-link>
     <span class="dot"> • </span>
     <nuxt-link to="/archieves">
-      Archieves
+      📦 Archieves
     </nuxt-link>
   </div>
 </template>

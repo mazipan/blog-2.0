@@ -2,7 +2,6 @@
   <div class="container app">
     <BaseHeader />
     <nuxt class="wrapper clearfix" />
-    <Navigation class="footer_nav" />
     <hr>
     <div
       class="clearfix"
@@ -16,16 +15,15 @@
 <script>
 import BaseHeader from '../components/BaseHeader'
 import BaseFooter from '../components/BaseFooter'
-import Navigation from '../components/Navigation'
 import FormSubsription from '../components/FormSubsription'
 import { trackJSPerf } from '../utils/analitycs.js'
+require('vue-ionicons/ionicons.css')
 
 export default {
   name: 'HomepageLayout',
   components: {
     BaseHeader,
     BaseFooter,
-    Navigation,
     FormSubsription
   },
   mounted () {
@@ -38,8 +36,5 @@ export default {
 .wrapper{
   margin: 1em 0 0 0;
   min-height: 60vh;
-}
-.footer_nav{
-  margin-bottom: 2em;
 }
 </style>

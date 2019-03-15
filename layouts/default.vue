@@ -18,6 +18,7 @@ import SimplifyHeader from '../components/SimplifyHeader'
 import BaseFooter from '../components/BaseFooter'
 import FormSubsription from '../components/FormSubsription'
 import { trackJSPerf } from '../utils/analitycs.js'
+require('vue-ionicons/ionicons.css')
 
 export default {
   name: 'DefaultLayout',

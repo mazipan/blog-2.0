@@ -3,25 +3,23 @@
     <h1 class="page__title text-title">
       {{ meta.title }}
     </h1>
-    <div class="meta">
-      <small class="meta__date">
-        🗓 {{ formatPostDate(meta.date) }}
-      </small>
-      <small class="dot"> • </small>
-      <small class="meta__read">{{ formatReadingTime(meta.minute2read) }}</small>
-      <small class="dot"> • </small>
-      <small>
-        👍 {{ claps }} likes
-      </small>
-      <small class="dot"> • </small>
-      <small>
-        📖 {{ hits }} read
-      </small>
-    </div>
+    <MetaData
+      :meta-date="meta.date"
+      :meta-minute-to-read="meta.minute2read"
+      :is-show-stats="true"
+      :stats-likes="claps"
+      :stats-read="hits" />
     <div class="page__content">
       <ContentParser
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />
+      <a
+        target="_blank"
+        rel="noopener"
+        title="Edit in Github"
+        :href="`https://github.com/mazipan/blog-2.0/edit/master/contents/markdown/${meta.slug}/index.md`">
+        ✏️ Edit in Github
+      </a>
     </div>
     <hr>
     <div class="page__footer">
@@ -35,7 +33,19 @@
             class="share-btn"
             title="Share this article"
             @click="onClickShare">
-            📣 Share
+            <ShareIcon
+              w="24px"
+              h="24px" />
+          </a>
+
+          <a
+            class="like-btn"
+            title="Like this article"
+            @click="onClickLike">
+            <HeartIcon
+              w="24px"
+              h="24px" />
+            &nbsp; {{ claps }}
           </a>
         </div>
 
@@ -49,7 +59,9 @@
             target="_blank"
             rel="noopener"
             @click.native="trackSocialShare('Facebook')">
-            🎭 FB Share
+            <FacebookIcon
+              w="24px"
+              h="24px" />
           </a>
           <a
             class="share-btn"
@@ -58,7 +70,9 @@
             target="_blank"
             rel="noopener"
             @click.native="trackSocialShare('Twitter')">
-            🐦 Twitter Share
+            <TwitterIcon
+              w="24px"
+              h="24px" />
           </a>
           <a
             class="share-btn"
@@ -67,16 +81,19 @@
             target="_blank"
             rel="noopener"
             @click.native="trackSocialShare('LinkedIn')">
-            💼 LinkedIn Share
+            <LinkedinIcon
+              w="24px"
+              h="24px" />
           </a>
-        </div>
 
-        <div class="like">
           <a
             class="like-btn"
             title="Like this article"
             @click="onClickLike">
-            👍 {{ claps }}
+            <HeartIcon
+              w="24px"
+              h="24px" />
+            &nbsp; {{ claps }}
           </a>
         </div>
       </div>
@@ -85,6 +102,13 @@
 </template>
 
 <script>
+import FacebookIcon from 'vue-ionicons/dist/js/logo-facebook'
+import TwitterIcon from 'vue-ionicons/dist/js/logo-twitter'
+import LinkedinIcon from 'vue-ionicons/dist/js/logo-linkedin'
+import HeartIcon from 'vue-ionicons/dist/js/md-heart'
+import ShareIcon from 'vue-ionicons/dist/js/md-share'
+
+import MetaData from '../components/MetaData'
 import ContentParser from '../components/ContentParser'
 import { formatReadingTime, formatPostDate, debounce } from '../utils/helpers.js'
 import { trackLike, trackUniversalShare, trackShare } from '../utils/analitycs.js'
@@ -104,6 +128,12 @@ let firebaseInstance = null
 export default {
   name: 'SlugPage',
   components: {
+    FacebookIcon,
+    TwitterIcon,
+    LinkedinIcon,
+    HeartIcon,
+    ShareIcon,
+    MetaData,
     ContentParser
   },
   head () {
@@ -182,24 +212,25 @@ export default {
     }
     firebaseInstance = initFirebase()
     getHitsData(firebaseInstance, this.meta.slug, (snapshot) => {
-      this.hits = snapshot.val()
-      if (!this.hits) {
+      if (!snapshot.val()) {
         const newRef = {
           [getHitsUrl(this.meta.slug)]: 1
         }
         createNewRef(firebaseInstance, newRef)
       } else {
+        this.hits = Number(snapshot.val())
         setHitsData(firebaseInstance, this.meta.slug, this.hits + 1)
       }
     })
 
     getClapsData(firebaseInstance, this.meta.slug, (snapshot) => {
-      this.claps = snapshot.val()
-      if (!this.claps) {
+      if (!snapshot.val()) {
         const newRef = {
           [getClapsUrl(this.meta.slug)]: 1
         }
         createNewRef(firebaseInstance, newRef)
+      } else {
+        this.claps = Number(snapshot.val())
       }
     })
 
@@ -268,7 +299,8 @@ export default {
   align-items: center;
 }
 
-.share{
+.like, .share{
+  display: flex;
   &-btn{
     color: var(--textNormal);
     background: var(--textLink);
@@ -279,32 +311,9 @@ export default {
     cursor: pointer;
     margin-right: 1em;
     text-decoration: none;
-  }
-}
-
-.like{
-  &-plus{
-    color: var(--textNormal);
-    background: var(--textLink);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    margin-left: 130px;
-    padding: 10px 5px;
-    margin-top: -33px;
-  }
-
-  &-btn{
-    color: var(--textNormal);
-    background: var(--textLink);
-    padding: .25em 1em;
-    border-radius: .25em;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    margin-right: 1em;
-    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

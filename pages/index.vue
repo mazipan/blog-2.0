@@ -12,13 +12,9 @@
           {{ blog.title }}
         </h2>
       </nuxt-link>
-      <div class="meta">
-        <small class="meta__date">
-          🗓 {{ formatPostDate(blog.date) }}
-        </small>
-        <small class="dot"> • </small>
-        <small class="meta__read">{{ formatReadingTime(blog.minute2read) }}</small>
-      </div>
+      <MetaData
+        :meta-date="blog.date"
+        :meta-minute-to-read="blog.minute2read" />
       <div>
         <p>
           {{ blog.description }}
@@ -31,10 +27,14 @@
 <script>
 import Contents from '../contents/index.js'
 import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
+import MetaData from '../components/MetaData'
 
 export default {
   name: 'Homepage',
   layout: 'homepage',
+  components: {
+    MetaData
+  },
   data () {
     return {
       formatReadingTime,
