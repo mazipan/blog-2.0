@@ -18,12 +18,12 @@
         rel="noopener"
         title="Edit in Github"
         :href="`https://github.com/mazipan/blog-2.0/edit/master/contents/markdown/${meta.slug}/index.md`">
-        ✏️ Edit in Github
+        📝 Edit in Github
       </a>
     </div>
     <hr>
     <div class="page__footer">
-      Do you like this article? help me to click this like button, share it to your followers and subscribe the newsletter.
+      ❕ Do you like this article? help me to click this like button, share it to your followers and subscribe the newsletter.
 
       <div class="block-wrap">
         <div
