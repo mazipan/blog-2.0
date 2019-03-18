@@ -509,9 +509,200 @@ describe('HelloWorld.vue', () => {
 
 ## Testing Computed dan Watcher
 
+Untuk melakukan test pada `computed` dan `watch` kita perlu mengetahui apa yang sebenarnya dilakukan keduanya di dalam Vue **SFC**. Kita akan memahami mengenai dua hal ini lewat contoh kode berikut:
+
+```javascript
+export default {
+  data () {
+    return {
+      firstName: 'Irfan',
+      lastName: 'Maulana'
+    }
+  },
+  computed: {
+    fullName () {
+      return `${this.firstName} ${this.lastName}`
+    }
+  }
+}
+```
+
+Kode yang sama bila kita selesaikan dengan `watch` akan menjadi:
+
+```javascript
+export default {
+  data () {
+    return {
+      firstName: 'Irfan',
+      lastName: 'Maulana',
+      fullName: '',
+    }
+  },
+  watch: {
+    firstName (newValue) {
+      this.fullName = `${newValue} ${this.lastName}`
+    },
+    lastName (newValue) {
+      this.fullName = `${this.firstName} ${newValue}`
+    }
+  }
+}
+```
+
+Dari contoh kode diatas, kita bisa tau bahwa `computed` akan mengkalkulasikan ulang nilainya pada saat suatu variabel yang digunakan dibawah fungsi `computed` mengalami perubahan. Ciri khas dari `computed` sendiri adalah selalu mengambalikan nilai baru yang akan menjadi bagian dari `data`, meskipun begitu nilai dari `computed` tidak bisa kita ubah secara langsung. Nilainya hanya bisa diubah dengan melakukan perubahan pada variabel yang digunakan oleh `computed` tersebut. Sedangkan pada `watch` sama-sama akan dijalankan ketika terjadi perubahan pada variabel di dalamnya, hanya saja `watch` tidak akan mengembalikan nilai baru yang bisa kita gunakan.
+
+Berikut contoh kode untuk membuat unit test pada `computed` dan `watch`:
+
+```javascript
+<template>
+  <h1>{{ fullName }}</h1>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      firstName: 'Irfan',
+      lastName: 'Maulana'
+    }
+  },
+  computed: {
+    fullName () {
+      return `${this.firstName} ${this.lastName}`
+    }
+  }
+}
+</script>
+```
+
+Dari kode tersebut kita membuat unit test berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  it('computed seharusnya ter-trigger', () => {
+    const wrapper = shallowMount(HelloWorld)
+    expect(wrapper.find('h1')).toBe('Irfan Maulana')
+
+    // nilai firstName dan lastName akan kita ubah
+    wrapper.vm.firstName = 'Syamil'
+    wrapper.vm.lastName = 'Al-Khawarizmi'
+
+    // mengecek perubahan
+    expect(wrapper.find('h1')).toBe('Syamil Al-Khawarizmi')
+  })
+})
+```
+
+Pada kasus menggunakan `watch` bisa dilihat pada contoh kasus berikut:
+
+```javascript
+<template>
+  <h1>{{ fullName }}</h1>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      firstName: 'Irfan',
+      lastName: 'Maulana',
+      fullName: '',
+    }
+  },
+  watch: {
+    firstName (newValue) {
+      this.fullName = `${newValue} ${this.lastName}`
+    },
+    lastName (newValue) {
+      this.fullName = `${this.firstName} ${newValue}`
+    }
+  }
+}
+</script>
+```
+
+Dari kode tersebut kita membuat unit test berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  it('watch seharusnya ter-trigger', () => {
+    const wrapper = shallowMount(HelloWorld)
+    expect(wrapper.find('h1')).toBe('Irfan Maulana')
+
+    // nilai firstName dan lastName akan kita ubah
+    wrapper.vm.firstName = 'Syamil'
+    wrapper.vm.lastName = 'Al-Khawarizmi'
+
+    // mengecek perubahan
+    expect(wrapper.find('h1')).toBe('Syamil Al-Khawarizmi')
+  })
+})
+```
+
 ## Testing Event Emitter
 
+Seringkali pada sebuah komponen kita harus melakukan `$emit` terhadap *event* yang dilempar oleh komponen induknya. Masalahnya adalah ketika kita mengetest komponen anak yang seperti ini, kita sebenarnya tidak pernah tau *event* seperti apa yang akan dilempar oleh komponen induknya. Ketidakpunyaan penglihatan kita terhadap aksi sejenis ini membuat kita tidak bisa melakukan test yang bisa kita pastikan hasilnya, karenanya kita biasanya cuma akan melakukan `Spy` terhadap fungsi seperti ini. Untungnya dari `@vue/test-utils` sudah menyediakan API yang memudahkan kita melakukan ini yakni [emitted](https://vue-test-utils.vuejs.org/api/wrapper/emitted.html).
+
+Contoh menggunakan `emitted` sebagai berikut, misalkan kita memiliki kode:
+
+```javascript
+export default {
+  methods: {
+    emitSomething () {
+      this.$emit('foo', 123)
+    }
+  }
+}
+```
+
+Maka kita bisa membuatkan unit test sebagai berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  it('memanggil $emit', () => {
+    const wrapper = shallowMount(HelloWorld)
+    wrapper.vm.emitSomething()
+    expect(wrapper.emitted().foo).toBeTruthy()
+    expect(wrapper.emitted('foo')).toBeTruthy()
+  })
+})
+```
+
 ## Testing Perpindahan Route
+
+Terkadang pada sebuah projek kita diharuskan melakukan manipulasi `route` pada sebuah seperti menggunakan `router.push`, `router.go` atau lainnya. Sebelum kita melakukan test pada kode seperti ini, kita paling tidak mesti tau apa yang terjadi ketika kita melakukan manipulasi `router` di Vue. Vue memanfaatkan pustaka tambahan yakni `Vue Router` untuk melakukan manipulasi `router` yang mana diurus secara resmi oleh tim yang sama dengan yang membuat Vue inti.
+
+Ada dua objek yang harus kita tau ketika menggunakan `Vue Router` yakni, `route` yang bisa diakses lewat **SFC** melalui `this.$route` dan juga `router` yang bisa diakses melalui `this.$router`. `Route` adalah representasi posisi halaman saat ini, berupa objek yang berisi `path`, `name`, `query` dan sebagainya. Sementara `Router` merupakan objek yang bisa memanipulasi posisi `route` tersebut. Jadi kita akan mengakses `router` untuk mengubah `route` dan akan mengecek `route` untuk mengetahui apakah manipulasi tersebut berhasil ataukah tidak.
+
+Contoh kode berikut akan memberikan gambaran mengenai dua hal tersebut:
+
+
+```javascript
+export default {
+  methods: {
+    changeRoute () {
+      this.$router.push('/')
+      // console.log(this.$route.path)
+      // akan mencetak nilai /
+      this.$router.push('/foo')
+      // console.log(this.$route.path)
+      // akan mencetak nilai /foo
+      this.$router.push('/bar')
+      // console.log(this.$route.path)
+      // akan mencetak nilai /bar
+    }
+  }
+}
+```
 
 ## Testing Vuex
 
