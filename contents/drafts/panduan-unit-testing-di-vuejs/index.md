@@ -87,7 +87,7 @@ module.exports = {
 }
 ```
 
-Pada konfigurasi diatas, beberapa yang perlu kalian ketahui  seperti `moduleNameMapper` merupakan `alias` dari direktori kita seperti yang biasa kita lakukan di `webpack`. Sementara `transform` digunakan untuk men-transpile kode sebelum diproses oleh Jest, kita gunakan `babel-jest` dan `vue-jest` untuk membaca komponen berkas tunggal (*single file komponen*) pada Vue.
+Pada konfigurasi diatas, beberapa yang perlu kalian ketahui  seperti `moduleNameMapper` merupakan `alias` dari direktori kita seperti yang biasa kita lakukan di `webpack`. Sementara `transform` digunakan untuk men-transpile kode sebelum diproses oleh Jest, kita gunakan `babel-jest` dan `vue-jest` untuk membaca komponen berkas tunggal (*single file komponen* - **SFC**) pada Vue.
 
 Karena kita menggunakan `babel` juga pada unit test kita, maka jika belum ada konfigurasi babel pada projek kita, silakan tambahkan konfigurasi berikut:
 
@@ -266,9 +266,246 @@ describe('math-util.js', () => {
 
 ## Testing Mounting Komponen Vue
 
+Dalam melakukan unit testing pada **SFC**, hal pertama yang harus kita lakukan adalah memastikan kita berhasil memasang atau *mounting* komponen tersebut ke dalam Virtual DOM yang ada di unit test runner. Terdengar mudah memang, tapi seringkali justru ini menjadi hal yang tersulit untuk dikerjakan karena setelah berhasil melakukan bagian ini biasanya bagian selanjutnya akan terasa lebih mudah. Untuk bisa melakukan *mounting* kita diharuskan menyiapkan semua kebutuhan awal sebuah komponen tersebut agar bisa di-*mounting*. Cara paling bar-bar yang biasa saya lakukan adalah dengan *trial and error*, tapi bila kita telah terbiasa nanti kita bisa lebih mendeteksi lebih awal kebutuhan apa saja yang harus kita siapkan untuk *mounting* komponen tersebut.
+
+Saya beri contoh misalkan ada komponen dengan templat seperti berikut:
+
+```html
+<template>
+  Hello world, {{ message }}
+</template>
+```
+
+Dari templat tersebut, kita mesti mencari tau darimana datangnya nilai `{{ message }}` karena ini dibutuhkan pada saat pertama kali komponen tersebut nantinya dipasang. Bila datang dari `data ()` bisa jadi aman karena data akan otomatis terbuat ketika komponen dipasang, bila datang dari `props` berarti kita perlu mengoper props tersebut juga pada unit test kita.
+
+Untuk contoh yang akan kita gunakan dalam melakukan *mounting* komponen di unit test akan mengikuti dari contoh yang dibuat oleh tim Vue melalui Vue-CLI yang di generate pada saat awal kita membuat projek baru, berikut contoh melakukan *mounting* komponen di unit test:
+
+katakanlah kita mempunyai berkas dengan nama `HelloWorld.vue` yang berisi:
+
+```html
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <!-- banyak kode lain yang kita hilangkan karena dianggap tidak diperlukan -->
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+</script>
+```
+
+Maka pada berkas `hello-world.spec.js` kita bisa membuat unit test sebagai berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  it('renders props.msg ketika dilempar', () => {
+    const msg = 'new message'
+    const wrapper = shallowMount(HelloWorld, {
+      propsData: { msg }
+    })
+    expect(wrapper.text()).toMatch(msg)
+  })
+})
+```
+
+Dari kode diatas kita belajar dasar-dasar memasang komponen pada unit test menggunakan `@vue/test-utils`, kita menggunakan API `shallowMount` dibandingkan `mount` karena kemampuan untuk memalsukan komponen anak sehingga kita tidak perlu mendefinisikan kebutuhan dari komponen anak dari komponen tersebut dan cukup fokus untuk mendefinisikan kebutuhan komponen terkait saja. Hal ini tentu selaras dengan prinsip *isolated* pada unit testing. Pada contoh diatas kita menambahkan opsi `propsData` untuk mengoper `props` yang nanti akan kita bahas di bagian terpisah dibawah nanti.
+
 ## Testing Method di Komponen Vue
 
+Setelah sebelumnya kita berhasil melakukan *mounting*, maka tugas berikutnya akan lebih mudah seperti yang sudah kita bahas sebelumnya. Pada bagian sebelumnya kita hanya melakukan *mounting* komponen tanpa memanggil *method* apapun, berikut contoh memanggil *method* dalam Vue **SFC** melalui unit test:
+
+Menggunkan berkas sebelumnya, kita akan menambahkan *method* pada **SFC**-nya dan melakukan sedikit perubahan seperti berikut:
+
+```html
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      msg: 'Sebuah pesan'
+    }
+  },
+  methods: {
+    changeMessage (newMessage) {
+      this.msg = newMessage
+    }
+  }
+}
+</script>
+```
+
+Dari kode diatas, kita bisa membuatkan unit test seperti berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  it('berhasil mounting komponen', () => {
+    const msgExpected = 'Sebuah pesan'
+    const wrapper = shallowMount(HelloWorld)
+    expect(wrapper.vm.msg).toBe(msgExpected)
+  })
+
+  it('berhasil memanggil changeMessage', () => {
+    const msgExpected = 'Sebuah pesan'
+    const msgAfterChangeExpected = 'Sebuah pesan baru'
+    const wrapper = shallowMount(HelloWorld)
+    expect(wrapper.vm.msg).toBe(msgExpected)
+    // memanggil method changeMessage
+    wrapper.vm.changeMessage(msgAfterChangeExpected)
+    expect(wrapper.vm.msg).toBe(msgExpected)
+  })
+})
+```
+
+Dari kode unit test diatas kita bisa mengetahui bahwa kita bisa langsung mengakses berbagai fitur Vue komponen lewat `wrapper.vm`, ini sama saja seperti `this` pada **SFC** yang merujuk pada *instance* dari komponen tersebut. Kita bisa mengakses `data`, `method`, `props`, hasil dari `computed` dan lainnya menggunakan `wrapper.vm` yang merupakan fitur `@vue/test-utils`.
+
+## Mensimulasikan Aksi Klik Elemen
+
+Beberapa programmer tidak senang melakukan akses langsung ke *method* tanpa melalui akses ke tampilan pengguna. Seperti pada contoh sebelumnya, unit test tersebut menjadi tidak masuk akal karena method `changeMessage` pada dasarnya tidak pernah digunakan oleh templat dan menjadi hal yang sia-sia karena kode tersebut tidak pernah mempengaruhi pengguna pada akhirnya.
+
+Untuk mengakomodir hal ini, beberapa programmer lebih senang melakukan unit test dengan mensimulasikan apa yang harus dilakukan pengguna akhir pada aplikasi mereka tanpa mengakses ke *method* secara langsung.
+
+Dari contoh kode sebelumnya kita akan melakukan perubahan agar *method* `changeMessage` menjadi berguna, seperti berikut:
+
+```html
+<template>
+  <div class="hello">
+    <h1 class="message">{{ msg }}</h1>
+    <button
+      class="btn"
+      @click="changeMessage('Sebuah pesan baru')">
+      Ubah pesan
+    </button>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      msg: 'Sebuah pesan'
+    }
+  },
+  methods: {
+    changeMessage (newMessage) {
+      this.msg = newMessage
+    }
+  }
+}
+</script>
+```
+
+Dari kode diatas, kita bisa membuatkan unit test seperti berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  it('berhasil mounting komponen', () => {
+    const msgExpected = 'Sebuah pesan'
+    const wrapper = shallowMount(HelloWorld)
+    expect(wrapper.find('.message')).toBe(msgExpected)
+  })
+
+  it('berhasil memanggil changeMessage melalui aksi klik', () => {
+    const msgExpected = 'Sebuah pesan'
+    const msgAfterChangeExpected = 'Sebuah pesan baru'
+    const wrapper = shallowMount(HelloWorld)
+    expect(wrapper.find('.message')).toBe(msgExpected)
+
+    // memanggil method changeMessage lewat aksi klik
+    const buttonElemen = wrapper.find('.btn')
+    buttonWrapper.trigger('click')
+
+    // mengecek perubahan setelah klik
+    expect(wrapper.find('.message')).toBe(msgAfterChangeExpected)
+  })
+})
+```
+
+Bisa dilihat perbedaanya dari cara kita melakukan test pada bagian sebelumnya dengan cara kita melakukan test pada bagian ini, pada bagian ini kita benar-benar mensimulasikan bagaimana tampilan dari komponen ini nantinya akan digunakan oleh pengguna.
+
+Kedua cara yang kita contohkan benar dan boleh saja dilakukan. Kita bahkan bisa mengerjakan kedua cara tersebut dalam satu berkas unit test. Pilihan terserah pada Anda masing-masing. Cara pertama tentu lebih cepat apalagi kalau mengejar `coverage`, cara kedua lebih baik dan lebih berorientasi pada pengguna tapi seringkali menghabiskan lebih banyak waktu untuk dibuat.
+
 ## Testing Props di Komponen Vue
+
+Sebelum melakukan test pada `props`, kita mesti mengetahui terlebih dahulu bahwa `props` adalah sebuah nilai yang dioper oleh komponen lain, nilainya berupa satu arah yang artinya tidak bisa kita ubah secara langsung dari komponen yang menerima `props`, beberapa props sudah didefinisikan tipe data maupun struktur data yang diperbolehkan. Pada unit test kita bisa menggunakan fitur `propsData` untuk melempar `props` pada komponen tanpa perlu membuat komponen induk terlebih dahulu, berikut contoh membuat unit test pada `props`:
+
+
+```html
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <h2>{{ num }}</h2>
+    <h3>{{ obj.name }}</h3>
+    <h4>{{ obj.desc }}</h4>
+</template>
+
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String,
+    num: {
+      type: Number,
+      default: 0
+    },
+    obj: {
+      type: Object,
+      default: () => ({
+        name: '',
+        desc: ''
+      })
+    },
+  }
+}
+</script>
+```
+
+Maka kita bisa membuat unit test dari kode diatas sebagai berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  it('renders props.msg ketika dilempar', () => {
+    const msgProp = 'sebuah pesan'
+    const numProp = 12345
+    const objProp = {
+      name: 'sebuah nama',
+      desc: 'sebuah deskripsi'
+    }
+    const wrapper = shallowMount(HelloWorld, {
+      propsData: {
+        msg: msgProp,
+        num: numProp,
+        obj: objProp,
+      }
+    })
+    expect(wrapper.find('h1')).toBe(msgProp)
+    expect(wrapper.find('h2')).toBe(numProp)
+    expect(wrapper.find('h3')).toBe(objProp.name)
+    expect(wrapper.find('h4')).toBe(objProp.desc)
+  })
+})
+```
 
 ## Testing Computed dan Watcher
 

@@ -202,7 +202,7 @@ module.exports = {
         [
           'prismjs',
           {
-            languages: ['javascript', 'css', 'markup', 'bash', 'markdown', 'git'],
+            languages: ['javascript', 'css', 'markup', 'bash', 'markdown', 'git', 'yaml'],
             css: false
           }
         ]

@@ -80,7 +80,7 @@ Untuk deploy Gridsome ke Netlify juga sangat mudah, bahkan Gridsome juga menyedi
 
 3) Buat meta dari sebuah artikel, seperti berikut contohnya:
 
-```markdown
+```yaml
 ---
 title: Membuat blog keren dengan Gridsome
 slug: membuat-blog-keren-dengan-gridsome

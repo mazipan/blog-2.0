@@ -1,5 +1,6 @@
 /**
  * This file is for mapping url route that will be generated into html file
+ * Should sort based on newest published date
  */
 module.exports = [
   'membuat-blog-keren-dengan-gridsome',
