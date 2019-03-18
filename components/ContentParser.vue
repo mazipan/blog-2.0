@@ -31,6 +31,9 @@ export default {
 h2 {
   color: var(--textSubtitle);
 }
+h3 {
+  color: var(--textWarning);
+}
 a {
   color: var(--textHighlight);
   text-decoration: underline;

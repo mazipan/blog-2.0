@@ -693,9 +693,13 @@ export default {
       this.$router.push('/')
       // console.log(this.$route.path)
       // akan mencetak nilai /
+    },
+    changeRouteFoo () {
       this.$router.push('/foo')
       // console.log(this.$route.path)
       // akan mencetak nilai /foo
+    },
+    changeRouteBar () {
       this.$router.push('/bar')
       // console.log(this.$route.path)
       // akan mencetak nilai /bar
@@ -704,12 +708,88 @@ export default {
 }
 ```
 
+Dari kode diatas kita bisa membuat beberapa alternatif untuk unit test kita, antara lain sebagai berikut:
+
+```javascript
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+import VueRouter from 'vue-router'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+const localVue = createLocalVue()
+localVue.use(VueRouter)
+
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+const dummyRoutes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+]
+
+describe('HelloWorld.vue', () => {
+  it('mengubah $route pada komponen', () => {
+    const router = new VueRouter({
+      routes: dummyRoutes
+    })
+
+    const wrapper = shallowMount(HelloWorld, {
+      localVue,
+      router
+    })
+
+    // ubah $route ke /
+    wrapper.vm.changeRoute()
+    expect(wrapper.vm.$route.path).toBe('/')
+    // ubah $route ke /foo
+    wrapper.vm.changeRouteFoo()
+    expect(wrapper.vm.$route.path).toBe('/foo')
+    // ubah $route ke /bar
+    wrapper.vm.changeRouteBar()
+    expect(wrapper.vm.$route.path).toBe('/bar')
+  })
+})
+```
+
+Dari contoh kode unit test diatas, kita belajar untuk menggunakan `localVue` dari `@vue/test-utils`. API ini digunakan untuk menamabahkan plugin ke dalam unit test kita, seperti dijelaskan sebelumnya bahwa Vue Router merupakan pustaka luar yang harus digunakan lewat `Vue.use` ke dalam *instance* utama dari Vue. Maka pada unit test kita memanfaatkan `localVue` untuk melakukan hal yang sama namun dalam lingkungan unit test. Selain mengoper opsi `localVue`, kita juga diharuskan melempar opsi `router` seperti saat kita melakukan *instance*  Vue ketika menggunakan `Vue Router` seperti contoh potongan kode berikut:
+
+```javascript
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+]
+
+const router = new VueRouter({
+  routes // short for `routes: routes`
+})
+
+const app = new Vue({
+  router
+}).$mount('#app')
+```
+
+Pada contoh kode unit test yang kita buat sebelumnya kita memalsukan `routes` yang ada, pada projek Vue mungkin hal ini tidak diperlukan karena kita bisa langsung impor dari berkas `router.js` yang kita buat sebelumnya tapi pada projek Nuxt yang tidak memiliki `router.js` hal ini menjadi dibutuhkan. Namun tidak menutup kemungkinan juga kita melakukan hal seperti ini pada projek Vue, kembali pada preferensi masing-masing lebih memilih kode yang mana.
+
+Sebagai catatan, `Vue Router` mungkin tidak akan memberikan error ketika kita memindahkan sebuah `route` ke alamat yang tidak dikenal atau belum didefinisikan sebelumnya, namun kita bisa mengetahui apakah proses pemindahan itu berhasil atau tidak dari posisi `route` setelah pemindahan tersebut. Bila gagal, maka posisi `route` akan tetap sama seperti sebelumnya atau dalam kata lain tidak terjadi apa-apa pada objek `route` tersebut.
+
 ## Testing Vuex
+
+### Testing Getters
+
+### Testing Mutations
+
+### Testing Mutations di Komponen
+
+### Testing Actions
+
+### Testing Actions di Komponen
 
 ## Testing Dengan Vue-i18n
 
 ## Testing Pemanggilan API
 
+## Melakukan Mocking Module
 
 ---
 
