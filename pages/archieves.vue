@@ -32,10 +32,31 @@ import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
 
 export default {
   name: 'ArchievesPage',
+  head () {
+    const title = `Archieves | @mazipan`
+    const description = `Page Archieves`
+    const url = `${this.productionUrl}/archieves/`
+    return {
+      title,
+      meta: [
+        { hid: 'description', name: 'description', content: description },
+        { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: title },
+
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:description', property: 'og:description', content: description },
+        { hid: 'og:url', property: 'og:url', content: url },
+
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'twitter:description', name: 'twitter:description', content: description },
+        { hid: 'twitter:url', name: 'twitter:url', content: url }
+      ]
+    }
+  },
   data () {
     return {
       formatReadingTime,
-      formatPostDate
+      formatPostDate,
+      productionUrl: 'https://www.mazipan.xyz'
     }
   },
   async asyncData ({ store }) {

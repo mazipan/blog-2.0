@@ -5,7 +5,7 @@
       :key="meta.title"
       class="pages__item">
       <nuxt-link
-        :to="`/${meta.slug}/`"
+        :to="`/drafts/${meta.slug}/`"
         :title="meta.title"
         class="pages__link">
         <h2 class="pages__title">
@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import Contents from '../contents/index.js'
-import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
-import MetaData from '../components/MetaData'
+import Contents from '../../contents/drafts/index.js'
+import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
+import MetaData from '../../components/MetaData'
 
 export default {
   name: 'Homepage',
@@ -43,7 +43,7 @@ export default {
   },
   async asyncData ({ store }) {
     async function asyncImport (blogSlug) {
-      const allMarkdown = await import(`~/contents/markdown/${blogSlug}/index.md`)
+      const allMarkdown = await import(`~/contents/drafts/${blogSlug}/index.md`)
       return allMarkdown.attributes
     }
 

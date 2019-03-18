@@ -1,4 +1,6 @@
-import Contents from './contents/index.js'
+import publisedContents from './contents/index.js'
+import draftContents from './contents/drafts/index.js'
+
 const path = require('path')
 const pkg = require('./package')
 
@@ -6,11 +8,20 @@ const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'
 const iconUrl = `${productionUrl}/icon.png`
 
-const routes = Contents.map(item => {
-  item = `/${item}`
+const drafts = draftContents.map(item => {
+  item = `/drafts/${item}`
   return item
 })
-routes.push('/success-subscribed')
+
+let routes = publisedContents.map(item => {
+  item = `/${item}`
+  return item
+}).concat(drafts).concat([
+  '/success-subscribed',
+  '/about',
+  '/archieves',
+  '/now'
+])
 
 const routesSitemap = () => {
   let res = []
