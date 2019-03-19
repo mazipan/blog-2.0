@@ -53,7 +53,7 @@ npm i -g @vue/cli
 
 + Jalankan unit test dengan perintah `yarn test:unit` dan semua konfigurasi sudah dibuatkan oleh Vue-CLI tanpa kita harus melakukan secara manual.
 
-### Memasang Jest tanpa Vue-CLI {#memasang-jest-tanpa-vue-cli}
+### Memasang Jest tanpa Vue-CLI
 
 Pasang beberapa dependency untuk menjalankan unit test dengan jest berikut:
 
