@@ -1,7 +1,8 @@
 export function trackLike (self, slug) {
   try {
-    if (self.$ga) {
-      self.$ga.event({
+    if (window.ga) {
+      window.ga({
+        hitType: 'event',
         eventCategory: 'Like Post',
         eventAction: 'like',
         eventLabel: 'Like',
@@ -13,8 +14,9 @@ export function trackLike (self, slug) {
 
 export function trackShare (self, slug, network) {
   try {
-    if (self.$ga) {
-      self.$ga.event({
+    if (window.ga) {
+      window.ga({
+        hitType: 'event',
         eventCategory: 'Share Post',
         eventAction: 'share',
         eventLabel: network,
@@ -28,7 +30,7 @@ export function trackUniversalShare (self, slug) {
   trackShare(self, slug, 'Universal')
 }
 
-export function trackJSPerf (self) {
+export function trackJSPerf () {
   // Feature detects Navigation Timing API support.
   if (window.performance) {
     // Gets the number of milliseconds since page load
@@ -36,8 +38,9 @@ export function trackJSPerf (self) {
     var timeSincePageLoad = Math.round(performance.now())
     // Sends the timing hit to Google Analytics.
     try {
-      if (self.$ga) {
-        self.$ga.time({
+      if (window.ga) {
+        window.ga('send', {
+          hitType: 'timing',
           timingCategory: 'JS Dependencies',
           timingVar: 'load',
           timingValue: timeSincePageLoad
