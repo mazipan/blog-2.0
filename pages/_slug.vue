@@ -258,13 +258,19 @@ export default {
       }
     },
     onClickLike () {
-      if (firebaseInstance && this.youClapped < 10) {
-        debounce(() => {
-          trackLike(this, this.meta.slug)
-          this.youClapped += 1
-          setClapsData(firebaseInstance, this.meta.slug, this.claps + 1)
-        }, 300)()
-      }
+      // @TODO: remove debounce for temporary
+      // this made like seems small
+      // if (firebaseInstance && this.youClapped < 10) {
+      //   debounce(() => {
+      //     trackLike(this, this.meta.slug)
+      //     this.youClapped += 1
+      //     setClapsData(firebaseInstance, this.meta.slug, this.claps + 1)
+      //   }, 300)()
+      // }
+
+      trackLike(this, this.meta.slug)
+      this.youClapped += 1
+      setClapsData(firebaseInstance, this.meta.slug, this.claps + 1)
     }
   }
 }
