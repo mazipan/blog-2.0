@@ -1,7 +1,7 @@
 ---
 title: Panduan Unit Testing di Vue.js
 slug: panduan-unit-testing-di-vuejs
-date: '2019-02-25'
+date: '2019-03-19'
 minute2read: 20
 description: Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan Nuxt.js dengan belajar dari berbagai kasus yang terjadi pada proyek nyata
 ---
@@ -10,6 +10,8 @@ description: Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan
 
 Unit testing (UT) merupakan bagian terkecil dari proses pengetesan sebuah aplikasi perangkat lunak. UT berfokus untuk mengetest bagian terkecil sebuah aplikasi yakni potongan-potongan kode yang dibuat oleh pengembangnya, itu mengapa UT paling ideal dibuat oleh pengembang itu sendiri. Dengan mengetest kode-kode kecil di dalam sebuah aplikasi diharapkan kita bisa menghasilkan aplikasi perangkat lunak dengan kualitas yang lebih bisa dijamin.
 
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://www.commitstrip.com/wp-content/uploads/2017/02/Strip-Ou-sont-les-tests-unitaires-english650-final.jpg" alt="Unit Test Meme by commitstrip">
+
 ## Prinsip Utama
 
 Ada beberapa prinsip utama dalam melakukan unit testing, beberapa diantaranya yang dikenal dengan **FIRST**
@@ -17,14 +19,14 @@ Ada beberapa prinsip utama dalam melakukan unit testing, beberapa diantaranya ya
 1. **F - Fast** (Cepat), unit test harus bisa dieksekusi dengan cepat, tidak memakan waktu yang lebih lama dibandingkan ketika harus menjalankan aplikasi secara utuh untuk melakukan test manual.
 2. **I - Isolated** (Dapat Diisolasi), unit test harus bisa diisolasi antar satu dengan yang lain, ketika terjadi kegagalan maka harus bisa dipastikan tidak merembet ke berkas testing pada bagian lain.
 3. **R - Repeatable** (Dapat Diulang), unit testing harus bisa dijalankan kapan saja dan menghasilkan hasil yang sama. Tidak terikat pada hari tertentu, waktu tertentu atau zona waktu tertentu.
-4. **S - Self-Validating** (Validasi Diri Sendiri),
-5. **T - Timely** (Tepat Waktu), unit test seharusnya tidak menghabiskan terlalu banyak waktu untuk dibuat, keberadaannya tidak boleh memakan porsi dari pekerjaan yang harus diselesaikan.
+4. **S - Self-Validating** (Validasi Diri Sendiri), setipa test harus bisa menentukan sendiri apakah gagal atau berhasil menjalankan test tanpa perlu dilakukan verifikasi secara manual.
+5. **T - Timely** (Tepat Waktu), test ditulis pada waktu yang tepat segera setelah kodenya selesai dibuat atau dalam praktik TDD, test dibuat terlebih dahulu untuk bisa memberi arahan yang lebih baik pada saat menulis kode.
 
 ## Beberapa Siklus Hidup Umum di Unit Test
 
-1. Setup
-2. Test Execution
-3. Teardown
+1. **Setup** adalah siklus dimana kita menyiapkan berbagai kebutuhan skenario test yang akan dijalankan, di Jest mungkin kita akan menggunakan sintaksis seperti `BeforeAll` atau `BeforeEach` untuk melakukan setup sebelum skenario test dijalankan.
+2. **Test Execution** siklus dimana test dijalankan dengan segala setup yang telah didefinisikan sebelumnya. Di Jest kita bisa menggunakan `test()` atau `it()` untuk mendefinisikan masing-masing skenario dan bisa dikelompokkan ke dalam satu grup menggunakan `describe()`.
+3. **Teardown** siklus dimana unit test selesai dijalankan, pada tahap ini biasanya dilakukan pembersihan dari segala macam hal yang mungkin akan mengganggu proses test selanjutnya. Hal ini dikarenakan seringkali kita akan melakukan berbagai macam trik seperti `mock`, `spy`, dan lainnya yang kalau tidak dibersihkan dikhawatirkan akan mengganggu ketika skenario selanjutnya dijalankan. Di Jest kita bisa menggunakan kait `afterEach` maupun `afterAll`.
 
 ## Memasang Unit Testing di Vue dan Nuxt
 
@@ -940,21 +942,357 @@ const messages = [{
 
 describe('Vuex Store: Messages', () => {
   it('setMessageList harus mengubah nilai state messages', () => {
+    // memanggil mutations lewat Vuex Instance
     $storeInstance.commit('setMessageList', messages)
+    // mengecek perubahan state
     expect($storeInstance.state.messages).toEqual(messages)
   })
 })
 ```
 
-### Testing Mutations di Komponen
-
 ### Testing Actions
 
-### Testing Actions di Komponen
+`Actions` digunakan untuk mengeksekusi berbagai fungsi yang tidak berjalan sinkron (*asynchronous*), berikut contoh kode Actions:
+
+```javascript
+import axios from 'axios'
+
+export default {
+  state: {
+    messages: []
+  },
+  mutations: {
+    setMessageList: (state, data) => {
+      state.messages = data
+    }
+  },
+  actions: {
+    async fetchMessages({ commit }, { username }) {
+      const response = await axios.get("/api/messages", {
+        username
+      })
+      commit('setMessageList', response.data)
+    }
+  }
+}
+```
+
+Dari kode diatas kita bisa membuatkan unit test sebagai berikut:
+
+```javascript
+import axios from 'axios'
+import store from '@/store/messages'
+
+const messages = [{
+  id: 'pesan-1',
+  text: 'sebuah pesan',
+  read: 0
+}, {
+  id: 'pesan-2',
+  text: 'sebuah pesan 2',
+  read: 1
+}, {
+  id: 'pesan-3',
+  text: 'sebuah pesan 3',
+  read: 1
+}]
+
+describe('Vuex Store: Messages', () => {
+  it('fetchMessages harus mendapatkan semua data messages', () => {
+    const commit = jest.fn()
+    const mockFetchPromise = Promise.resolve({
+      data: messages,
+    })
+    axios.get = jest.fn().mockResolvedValue(mockFetchPromise)
+
+    store.actions.fetchMessages({ commit }, { username: 'dummy-username' })
+    expect(commit).toHaveBeenCalledWith('setMessageList', messages)
+  })
+})
+```
+
+Dengan cara diatas, kita tidak bisa mengecek perubahan *state* karena fungsi `commit` sudah di-*mock* sehingga tidak lagi memanggil fungsi yang sesungguhnya. Untuk mengatasi kekurangan diatas kita bisa meng-*instance* Vuex Store agar fungsi commit yang sesungguhnya bisa dipakai di unit test. Berikut contoh kodenya:
+
+```javascript
+import Vuex from 'vuex'
+import axios from 'axios'
+import store from '@/store/messages'
+
+const $storeInstance = new Vuex.Store(store)
+
+const messages = [{
+  id: 'pesan-1',
+  text: 'sebuah pesan',
+  read: 0
+}, {
+  id: 'pesan-2',
+  text: 'sebuah pesan 2',
+  read: 1
+}, {
+  id: 'pesan-3',
+  text: 'sebuah pesan 3',
+  read: 1
+}]
+
+describe('Vuex Store: Messages', () => {
+  it('fetchMessages harus mendapatkan semua data messages', () => {
+    const mockFetchPromise = Promise.resolve({
+      data: messages,
+    })
+    axios.get = jest.fn().mockResolvedValueOnce(mockFetchPromise)
+    // mengeksekusi actions lewat Vuex Instance
+    $storeInstance.dispatch('fetchMessages', { username: 'dummy-username' })
+    // mengecek perubahan state
+    expect($storeInstance.state.messages).toEqual(messages)
+  })
+})
+```
+
+### Testing Vuex di Komponen
+
+Bila sebelumnya kita melakukan test langsung pada berkas Vuex itu sendiri, berikutnya kita akan memberikan contoh ketika kita menggunakan Vuex di komponen. Pada dasarnya sama saja, kita hanya perlu melakukan *instance* Vuex Store agar bisa menggunakan berbagai fitur Vuex di komponen. Bedanya hanya kita harus menambahkan `localVue` dari `@vue/test-utils` untuk memasangkan Vuex ke dalam komponen yang akan kita test. Berikut contoh kodenya:
+
+Misalkan kita memiliki berkas Vuex seperti berikut:
+
+```javascript
+import axios from 'axios'
+
+export default {
+  state: {
+    messages: []
+  },
+  mutations: {
+    setMessageList: (state, data) => {
+      state.messages = data
+    }
+  },
+  actions: {
+    async fetchMessages({ commit }, { username }) {
+      const response = await axios.get("/api/messages", {
+        username
+      })
+      commit('setMessageList', response.data)
+    }
+  }
+}
+```
+
+Dan akan digunakan di komponen `HelloWorld.vue` pada bagian templat seperti berikut:
+
+```html
+<template>
+  <div>
+    <h1>Contoh Vuex di Komponen</h1>
+    <ul
+      v-for="message in messages"
+      :key="message.id">
+      {{ message.text }}
+    </ul>
+  </div>
+</template>
+```
+
+Sedangkan pada bagian `script` berisi kode berikut:
+
+```javascript
+import { mapState, mapActions } from "vuex"
+
+export default {
+  data () {
+    return {
+      username: 'dummy-username'
+    }
+  },
+  computed: {
+    ...mapState([
+      'messages'
+    ])
+  },
+  methods: {
+    ...mapState([
+      'fetchMessages'
+    ]),
+    fireFetchMessage() {
+      this.fetchMessages({
+        username: this.username
+      })
+    }
+  }
+}
+```
+
+Dari kode di atas kita bisa membuat unit test seperti berikut:
+
+```javascript
+import { shallowMount, localVue } from '@vue/test-utils'
+import Vuex from 'vuex'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+const mockFetchMessages = jest.fn()
+const store = new Vuex.Store({
+  state: {
+    messages: []
+  },
+  actions: {
+    fetchMessages: mockFetchMessages
+  }
+})
+
+describe('HelloWorld.vue', () => {
+  // reset semua pemalsuan (mock) setiap selesai test
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('memanggil methods fireFetchMessage', async (done) => {
+    // mengoper localVue dan store
+    const wrapper = shallowMount(HelloWorld, {
+      store,
+      localVue
+    })
+    await wrapper.vm.fireFetchMessage()
+
+    expect(mockFetchMessages).toHaveBeenCalledTimes(1)
+    expect(mockFetchMessages).toHaveBeenCalledWith({
+      username: 'dummy-username'
+    })
+    done()
+  })
+})
+```
+
+Pada unit test di atas saya memilih untuk melakukan *mock* pada actions `fetchMessages` yang akan ikut terpanggil ketika kita memanggil method `fireFetchMessage`. Tujuannya agar tidak perlu berulang melakukan *mock* pada pemanggilan Rest API yang sebenarnya sudah dikerjakan ketika membuat unit test untuk file *store* itu sendiri. Sebenarnya kita bisa juga memilih untuk memanggil store tanpa melakukan *mock* sehingga kodenya akan memanggil store yang sesungguhnya. berikut contoh kodenya:
+
+```javascript
+import { shallowMount, localVue } from '@vue/test-utils'
+import Vuex from 'vuex'
+import axios from 'axios'
+import storeMessages from '@/store/messages'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+const store =  new Vuex.Store(storeMessages)
+
+const messages = [{
+  id: 'pesan-1',
+  text: 'sebuah pesan',
+  read: 0
+}, {
+  id: 'pesan-2',
+  text: 'sebuah pesan 2',
+  read: 1
+}, {
+  id: 'pesan-3',
+  text: 'sebuah pesan 3',
+  read: 1
+}]
+
+describe('HelloWorld.vue', () => {
+  // reset semua pemalsuan (mock) setiap selesai test
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('memanggil methods fireFetchMessage', async (done) => {
+    const mockFetchPromise = Promise.resolve({
+      data: messages,
+    })
+    axios.get = jest.fn().mockResolvedValueOnce(mockFetchPromise)
+    // mengoper localVue dan store
+    const wrapper = shallowMount(HelloWorld, {
+      store,
+      localVue
+    })
+    await wrapper.vm.fireFetchMessage()
+    process.nextTick(() => {
+      expect(wrapper.vm.messages).toEqual(messages)
+      done()
+    })
+  })
+})
+```
 
 ## Testing Dengan Vue-i18n
 
 [Vue-i18n ↗️](http://kazupon.github.io/vue-i18n/) menjadi salah satu pilihan terbaik bila kita ingin mendukung beberapa bahasa dalam sebuah projek Vue kita. Dengan Menggunakan Vue-i18n akan membuat cara kita melakukan unit test sedikit berbeda dibandingkan ketika tidak menggunakannya.
+
+Contoh kode tamplat ketika menggunakan Vue-i18n adalah seperti berikut:
+
+```html
+<template>
+  <div class="hello">
+    {{ $t("message") }}
+  </div>
+</template>
+```
+
+Cara paling gampang melakukan test ketika melakukan test dengan Vue-i18n adalah dengan memalsukan fungsi `$t` yang biasa digunakan untuk mengambil suatu kata dari penyimpanan bahasa yang kita kerjakan.
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe("HelloWorld", () => {
+  it("renders successfully with i18n", () => {
+    const wrapper = shallowMount(HelloWorld, {
+      mocks: {
+        $t: (msg) => msg
+      }
+    })
+  })
+})
+```
+
+Bisa juga kita membuatnya menjadi konfigurasi global dengan menambahkan konfigurasi pada `jest.config.js` seperti:
+
+```javascript
+// untuk jest v24x
+setupFilesAfterEnv: ['<rootDir>/test/setup-test.js'],
+// `setupFiles` atau `setupTestFrameworkScriptFile` untuk jest 23
+```
+
+Pada file `setup-test.js`, kita bisa menambahkan `config` seperti kode berikut:
+
+```javascript
+import { config } from '@vue/test-utils'
+import langEN from '@/locales/en'
+
+const defaultLocale = 'en'
+
+config.mocks['$t'] = (msg) => langEN[defaultLocale][msg]
+```
+
+Kedua cara ini sebenarnya bukanlah cara yang sering saya gunakan, saya lebih senang memanfaastkan `localVue` untuk memasang i18n ke dalam unit test. Berikut contoh kodenya:
+
+```javascript
+import { shallowMount, localVue } from '@vue/test-utils'
+import VueI18n from 'vue-i18n'
+import langEN from '@/locales/en'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+localVue.use(VueI18n)
+
+const i18n = new VueI18n({
+  locale: 'en', // set locale
+  messages: {
+    en: langEN
+  }
+})
+
+describe("HelloWorld", () => {
+  it("renders successfully with i18n", () => {
+    const wrapper = shallowMount(HelloWorld, {
+      i18n,
+      localVue
+    })
+  })
+})
+```
 
 ## Testing Pemanggilan Rest API
 
@@ -1096,5 +1434,6 @@ describe('HelloWorld.vue', () => {
 ## Referensi
 
 1. [https://www.guru99.com/unit-testing-guide.html ↗️](https://www.guru99.com/unit-testing-guide.html)
-2. [https://lmiller1990.github.io/vue-testing-handbook/ ↗️](https://lmiller1990.github.io/vue-testing-handbook/)
-3. [https://vue-test-utils.vuejs.org/ ↗️](https://vue-test-utils.vuejs.org/)
+2. [https://howtodoinjava.com/best-practices/first-principles-for-good-tests/](https://howtodoinjava.com/best-practices/first-principles-for-good-tests/)
+3. [https://lmiller1990.github.io/vue-testing-handbook/ ↗️](https://lmiller1990.github.io/vue-testing-handbook/)
+4. [https://vue-test-utils.vuejs.org/ ↗️](https://vue-test-utils.vuejs.org/)
