@@ -36,7 +36,7 @@
     "vue-tiny-lazyload-img": "^0.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
+    "@babel/core": "^7.4.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-syntax-jsx": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
