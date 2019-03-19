@@ -13,17 +13,12 @@
       <ContentParser
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />
-      <a
-        target="_blank"
-        rel="noopener"
-        title="Edit in Github"
-        :href="`https://github.com/mazipan/blog-2.0/edit/master/contents/markdown/${meta.slug}/index.md`">
-        📝 Edit in Github
-      </a>
+      <EditContentNav
+        :slug="meta.slug" />
     </div>
     <hr>
     <div class="page__footer">
-      ❕ Do you like this article? help me to click this like button, share it to your followers and subscribe the newsletter.
+      🚨Do you like this article? help me to click ❤️ button, share to your followers and subscribe the newsletter.
 
       <div class="block-wrap">
         <div
@@ -110,6 +105,7 @@ import ShareIcon from 'vue-ionicons/dist/js/md-share'
 
 import MetaData from '../components/MetaData'
 import ContentParser from '../components/ContentParser'
+import EditContentNav from '../components/EditContentNav'
 import { formatReadingTime, formatPostDate, debounce } from '../utils/helpers.js'
 import { trackLike, trackUniversalShare, trackShare } from '../utils/analitycs.js'
 import {
@@ -134,6 +130,7 @@ export default {
     HeartIcon,
     ShareIcon,
     MetaData,
+    EditContentNav,
     ContentParser
   },
   head () {

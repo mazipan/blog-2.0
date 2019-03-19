@@ -6,20 +6,14 @@
     <MetaData
       :meta-date="meta.date"
       :meta-minute-to-read="meta.minute2read"
-      :is-show-stats="true"
-      :stats-likes="claps"
-      :stats-read="hits" />
+      :is-show-stats="false" />
     <div class="page__content">
       <ContentParser
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />
-      <a
-        target="_blank"
-        rel="noopener"
-        title="Edit in Github"
-        :href="`https://github.com/mazipan/blog-2.0/edit/master/contents/drafts/${meta.slug}/index.md`">
-        📝 Edit in Github
-      </a>
+      <EditContentNav
+        :is-draft="true"
+        :slug="meta.slug" />
     </div>
   </section>
 </template>
@@ -27,12 +21,14 @@
 <script>
 import MetaData from '../../components/MetaData'
 import ContentParser from '../../components/ContentParser'
+import EditContentNav from '../../components/EditContentNav'
 import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
 
 export default {
   name: 'DraftPage',
   components: {
     MetaData,
+    EditContentNav,
     ContentParser
   },
   head () {

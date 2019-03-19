@@ -28,10 +28,10 @@ Ada beberapa prinsip utama dalam melakukan unit testing, beberapa diantaranya ya
 
 ## Memasang Unit Testing di Vue dan Nuxt
 
-Saya akan spesifik membahas bagaimana cara memasang Unit Test pada *framework* [Jest](https://jestjs.io/en/) beberapa kode yang akan saya sertakan pun akan spesifik pada Jest, bila Anda menggunakan *framework* lain, bisa melihat pada referensi yang akan saya sertakan berikut:
+Saya akan spesifik membahas bagaimana cara memasang Unit Test pada *framework* [Jest ↗️](https://jestjs.io/en/) beberapa kode yang akan saya sertakan pun akan spesifik pada Jest, bila Anda menggunakan *framework* lain, bisa melihat pada referensi yang akan saya sertakan berikut:
 
-+ [Memasang unit test pada Mocha + Webpack](https://vue-test-utils.vuejs.org/guides/testing-single-file-components-with-mocha-webpack.html)
-+ [Memasang unit test pada Karma](https://vue-test-utils.vuejs.org/guides/testing-single-file-components-with-karma.html)
++ [Memasang unit test pada Mocha + Webpack ↗️](https://vue-test-utils.vuejs.org/guides/testing-single-file-components-with-mocha-webpack.html)
++ [Memasang unit test pada Karma ↗️](https://vue-test-utils.vuejs.org/guides/testing-single-file-components-with-karma.html)
 
 Untuk Jest sendiri berikut cara memasang Unit Test pada beberapa projek:
 
@@ -47,11 +47,11 @@ yarn add @vue/cli
 npm i -g @vue/cli
 ```
 
-+ Buat projek baru dengan `vue create my-project-name`. Pilih *"Manually select features"* dan centang "Unit Testing" dan "Jest" untuk runner unit testnya, silakan lihat artikel resmi [membuat project baru dengan Vue-CLI](https://cli.vuejs.org/guide/creating-a-project.html) untuk lebih jelasnya.
++ Buat projek baru dengan `vue create my-project-name`. Pilih *"Manually select features"* dan centang "Unit Testing" dan "Jest" untuk runner unit testnya, silakan lihat artikel resmi [membuat project baru dengan Vue-CLI ↗️](https://cli.vuejs.org/guide/creating-a-project.html) untuk lebih jelasnya.
 
 + Jalankan unit test dengan perintah `yarn test:unit` dan semua konfigurasi sudah dibuatkan oleh Vue-CLI tanpa kita harus melakukan secara manual.
 
-### Memasang Jest pada tanpa Vue-CLI
+### Memasang Jest tanpa Vue-CLI {#memasang-jest-tanpa-vue-cli}
 
 Pasang beberapa dependency untuk menjalankan unit test dengan jest berikut:
 
@@ -87,7 +87,7 @@ module.exports = {
 }
 ```
 
-Pada konfigurasi diatas, beberapa yang perlu kalian ketahui  seperti `moduleNameMapper` merupakan `alias` dari direktori kita seperti yang biasa kita lakukan di `webpack`. Sementara `transform` digunakan untuk men-transpile kode sebelum diproses oleh Jest, kita gunakan `babel-jest` dan `vue-jest` untuk membaca komponen berkas tunggal (*single file komponen* - **SFC**) pada Vue.
+Pada konfigurasi diatas, beberapa yang perlu kalian ketahui  seperti `moduleNameMapper` merupakan `alias` dari direktori kita seperti yang biasa kita lakukan di `webpack`. Sementara `transform` digunakan untuk men-transpile kode sebelum diproses oleh Jest, kita gunakan `babel-jest` dan `vue-jest` untuk membaca komponen berkas tunggal (*single file component* - **SFC**) pada Vue.
 
 Karena kita menggunakan `babel` juga pada unit test kita, maka jika belum ada konfigurasi babel pada projek kita, silakan tambahkan konfigurasi berikut:
 
@@ -114,15 +114,19 @@ Selanjutnya kita bisa memasang `script` tambahan pada `package.json` kita sepert
 
 Secara default, jest akan menganggap semua file yang berekstensi `.spec.js` atau `.test.js` sebagai file unit test yang akan dijalankan pada saat perintah `jest` diketikkan.
 
-### Memasang Jest pada Nuxt dengan `create-nuxt-app`
+### Memasang Jest pada Nuxt dengan create-nuxt-app
 
 Untuk memasang Jest pada Nuxt, bisa melalui `create-nuxt-app` yang bisa dilakukan dengan perintah:
 
 ```bash
 yarn create nuxt-app my-project-name
+
 # atau
+
 npm init nuxt-app my-project-name
+
 # atau
+
 npx create-nuxt-app my-project-name
 ```
 
@@ -133,7 +137,7 @@ Jalankan unit test dengan perintah `yarn test`.
 
 ### Memasang Jest pada Nuxt secara manual
 
-Hampir tidak ada perbedaan dengan bagian [Memasang Jest pada tanpa Vue-CLI](#memasang-jest-pada-tanpa-vue-cli) pada projek Vue biasa tanpa Nuxt. Perbedaan mungkin hanya ada pada konfigurasi `babel`, karena pada Vue-CLI kita memanfaatkan babel presets dari Vue yang telah terpasang pada saat membuat projek Vue.
+Hampir tidak ada perbedaan dengan bagian [Memasang Jest pada tanpa Vue-CLI ↗️](#memasang-jest-tanpa-vue-cli) pada projek Vue biasa tanpa Nuxt. Perbedaan mungkin hanya ada pada konfigurasi `babel`, karena pada Vue-CLI kita memanfaatkan babel presets dari Vue yang telah terpasang pada saat membuat projek Vue.
 
 Kita cukup melakukan konfigurasi babel untuk environment "test" karena projek Nuxt sudah memiliki konfigurasi babel bawaan, seperti berikut contohnya:
 
@@ -142,14 +146,11 @@ Kita cukup melakukan konfigurasi babel untuk environment "test" karena projek Nu
   "env": {
     "test": {
       "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "targets": {
-              "node": "current"
-            }
+        ["@babel/preset-env", {
+          "targets": {
+            "node": "current"
           }
-        ]
+        }]
       ]
     }
   }
@@ -167,17 +168,15 @@ Pada saat ingin membuat unit test untuk projek Nuxt dengan Vue ada beberapa perb
 <no-ssr></no-ssr>
 ```
 
-Selain itu Nuxt memiliki beberapa properti pada `SFC` nya seperti berikut diantaranya:
+Selain itu Nuxt memiliki beberapa properti pada **SFC**-nya seperti berikut diantaranya:
 
 ```javascript
 export default {
-  head () {},
-  asyncData () {},
-  fetch () {},
-  nuxtServerInit () {},
-  validate () {},
-  middleware: '',
-  layout: ''
+  head () { },
+  asyncData () { },
+  fetch () { },
+  nuxtServerInit () { },
+  validate () { },
 }
 ```
 
@@ -208,7 +207,7 @@ Dengan mengetahui beberapa perbedaan mendasar ini, nantinya akan berguna ketika 
 
 ## Testing JavaScript File Sederhana
 
-Untuk mengetest berkas JavaScript biasa tentu lebih mudah dibandingkan untuk melakukan test pada file `SFC` Vue. Misalnya saja kita punya berkas `helper` dengan nama berkas `math-util.js`, di dalamnya terdapat kode seperti berikut:
+Untuk mengetest berkas JavaScript biasa tentu lebih mudah dibandingkan untuk melakukan test pada file **SFC** Vue. Misalnya saja kita punya berkas `helper` dengan nama berkas `math-util.js`, di dalamnya terdapat kode seperti berikut:
 
 ```javascript
 export function add (a, b) {
@@ -234,28 +233,28 @@ Maka kita bisa membuatkan berkas untuk unit test dengan nama `math-util.spec.js`
 import { add, min, increment, decrement } from '@/helpers/math-util'
 
 describe('math-util.js', () => {
-  it('add function should return correct value', () => {
+  it('`add` harus mengembalikan nilai yang benar', () => {
     expect(add(1, 2)).toBe(3)
     expect(add(2, 2)).toBe(4)
     expect(add(2, 3)).toBe(5)
     expect(add(3, 4)).toBe(7)
   })
 
-  it('min function should return correct value', () => {
+  it('`min` harus mengembalikan nilai yang benar', () => {
     expect(min(7, 1)).toBe(6)
     expect(min(5, 2)).toBe(3)
     expect(min(4, 3)).toBe(1)
     expect(min(3, 1)).toBe(2)
   })
 
-  it('increment function should return correct value', () => {
+  it('`increment` harus mengembalikan nilai yang benar', () => {
     expect(increment(1)).toBe(2)
     expect(increment(5)).toBe(6)
     expect(increment(4)).toBe(5)
     expect(increment(8)).toBe(9)
   })
 
-  it('decrement function should return correct value', () => {
+  it('`decrement` harus mengembalikan nilai yang benar', () => {
     expect(decrement(2)).toBe(1)
     expect(decrement(5)).toBe(4)
     expect(decrement(4)).toBe(3)
@@ -280,7 +279,7 @@ Dari templat tersebut, kita mesti mencari tau darimana datangnya nilai `{{ messa
 
 Untuk contoh yang akan kita gunakan dalam melakukan *mounting* komponen di unit test akan mengikuti dari contoh yang dibuat oleh tim Vue melalui Vue-CLI yang di generate pada saat awal kita membuat projek baru, berikut contoh melakukan *mounting* komponen di unit test:
 
-katakanlah kita mempunyai berkas dengan nama `HelloWorld.vue` yang berisi:
+katakanlah kita mempunyai berkas dengan nama `HelloWorld.vue` yang berisi templat berikut:
 
 ```html
 <template>
@@ -288,15 +287,16 @@ katakanlah kita mempunyai berkas dengan nama `HelloWorld.vue` yang berisi:
     <h1>{{ msg }}</h1>
     <!-- banyak kode lain yang kita hilangkan karena dianggap tidak diperlukan -->
 </template>
+```
+Dengan bagian `script` berisi kode berikut:
 
-<script>
+```javascript
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   }
 }
-</script>
 ```
 
 Maka pada berkas `hello-world.spec.js` kita bisa membuat unit test sebagai berikut:
@@ -329,8 +329,11 @@ Menggunkan berkas sebelumnya, kita akan menambahkan *method* pada **SFC**-nya da
   <div class="hello">
     <h1>{{ msg }}</h1>
 </template>
+```
 
-<script>
+Dengan bagian `script` berisi kode berikut:
+
+```javascript
 export default {
   name: 'HelloWorld',
   data () {
@@ -344,7 +347,6 @@ export default {
     }
   }
 }
-</script>
 ```
 
 Dari kode diatas, kita bisa membuatkan unit test seperti berikut:
@@ -392,8 +394,11 @@ Dari contoh kode sebelumnya kita akan melakukan perubahan agar *method* `changeM
       Ubah pesan
     </button>
 </template>
+```
 
-<script>
+Dengan bagian `script` seperti berikut ini:
+
+```javascript
 export default {
   name: 'HelloWorld',
   data () {
@@ -407,7 +412,6 @@ export default {
     }
   }
 }
-</script>
 ```
 
 Dari kode diatas, kita bisa membuatkan unit test seperti berikut:
@@ -447,7 +451,6 @@ Kedua cara yang kita contohkan benar dan boleh saja dilakukan. Kita bahkan bisa 
 
 Sebelum melakukan test pada `props`, kita mesti mengetahui terlebih dahulu bahwa `props` adalah sebuah nilai yang dioper oleh komponen lain, nilainya berupa satu arah yang artinya tidak bisa kita ubah secara langsung dari komponen yang menerima `props`, beberapa props sudah didefinisikan tipe data maupun struktur data yang diperbolehkan. Pada unit test kita bisa menggunakan fitur `propsData` untuk melempar `props` pada komponen tanpa perlu membuat komponen induk terlebih dahulu, berikut contoh membuat unit test pada `props`:
 
-
 ```html
 <template>
   <div class="hello">
@@ -456,8 +459,11 @@ Sebelum melakukan test pada `props`, kita mesti mengetahui terlebih dahulu bahwa
     <h3>{{ obj.name }}</h3>
     <h4>{{ obj.desc }}</h4>
 </template>
+```
 
-<script>
+Dengan kode bagian `script` sebagai berikut:
+
+```javascript
 export default {
   name: 'HelloWorld',
   props: {
@@ -475,7 +481,6 @@ export default {
     },
   }
 }
-</script>
 ```
 
 Maka kita bisa membuat unit test dari kode diatas sebagai berikut:
@@ -551,14 +556,17 @@ export default {
 
 Dari contoh kode diatas, kita bisa tau bahwa `computed` akan mengkalkulasikan ulang nilainya pada saat suatu variabel yang digunakan dibawah fungsi `computed` mengalami perubahan. Ciri khas dari `computed` sendiri adalah selalu mengambalikan nilai baru yang akan menjadi bagian dari `data`, meskipun begitu nilai dari `computed` tidak bisa kita ubah secara langsung. Nilainya hanya bisa diubah dengan melakukan perubahan pada variabel yang digunakan oleh `computed` tersebut. Sedangkan pada `watch` sama-sama akan dijalankan ketika terjadi perubahan pada variabel di dalamnya, hanya saja `watch` tidak akan mengembalikan nilai baru yang bisa kita gunakan.
 
-Berikut contoh kode untuk membuat unit test pada `computed` dan `watch`:
+Berikut contoh kode untuk membuat unit test pada `computed`:
 
-```javascript
+```html
 <template>
   <h1>{{ fullName }}</h1>
 </template>
+```
 
-<script>
+Dengan bagian `script` berisi kode berikut:
+
+```javascript
 export default {
   data () {
     return {
@@ -572,7 +580,6 @@ export default {
     }
   }
 }
-</script>
 ```
 
 Dari kode tersebut kita membuat unit test berikut:
@@ -596,14 +603,17 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-Pada kasus menggunakan `watch` bisa dilihat pada contoh kasus berikut:
+Pada kasus menggunakan `watch` bisa dilihat perubahan kodenya menjadi pada contoh kasus berikut:
 
-```javascript
+```html
 <template>
   <h1>{{ fullName }}</h1>
 </template>
+```
 
-<script>
+Dengan bagian `script` berisikan kode:
+
+```javascript
 export default {
   data () {
     return {
@@ -621,7 +631,6 @@ export default {
     }
   }
 }
-</script>
 ```
 
 Dari kode tersebut kita membuat unit test berikut:
@@ -647,7 +656,7 @@ describe('HelloWorld.vue', () => {
 
 ## Testing Event Emitter
 
-Seringkali pada sebuah komponen kita harus melakukan `$emit` terhadap *event* yang dilempar oleh komponen induknya. Masalahnya adalah ketika kita mengetest komponen anak yang seperti ini, kita sebenarnya tidak pernah tau *event* seperti apa yang akan dilempar oleh komponen induknya. Ketidakpunyaan penglihatan kita terhadap aksi sejenis ini membuat kita tidak bisa melakukan test yang bisa kita pastikan hasilnya, karenanya kita biasanya cuma akan melakukan `Spy` terhadap fungsi seperti ini. Untungnya dari `@vue/test-utils` sudah menyediakan API yang memudahkan kita melakukan ini yakni [emitted](https://vue-test-utils.vuejs.org/api/wrapper/emitted.html).
+Seringkali pada sebuah komponen kita harus melakukan `$emit` terhadap *event* yang dilempar oleh komponen induknya. Masalahnya adalah ketika kita mengetest komponen anak yang seperti ini, kita sebenarnya tidak pernah tau *event* seperti apa yang akan dilempar oleh komponen induknya. Ketidakpunyaan penglihatan kita terhadap aksi sejenis ini membuat kita tidak bisa melakukan test yang bisa kita pastikan hasilnya, karenanya kita biasanya cuma akan melakukan `Spy` terhadap fungsi seperti ini. Untungnya dari `@vue/test-utils` sudah menyediakan API yang memudahkan kita melakukan ini yakni [emitted ↗️](https://vue-test-utils.vuejs.org/api/wrapper/emitted.html).
 
 Contoh menggunakan `emitted` sebagai berikut, misalkan kita memiliki kode:
 
@@ -775,9 +784,167 @@ Sebagai catatan, `Vue Router` mungkin tidak akan memberikan error ketika kita me
 
 ## Testing Vuex
 
+[Vuex ↗️](https://vuex.vuejs.org/) merupakan salah satu pustaka yang sering sekali kita gunakan dalam suatu projek. Vuex menjadi satu-satunya pilihan yang paling mumpuni sebagai manajemen state pada Vue untuk saat ini. Berikut beberapa hal yang akan sering kita jumpai saat melakukan test pada aplikasi Vue yang menggunakan Vuex di dalamnya:
+
 ### Testing Getters
 
+`Getters` biasanya digunakan ketika kita ingin melakukan manipulasi pada state sebelum digunakan di sebuah komponen tanpa mengubah nilai asli dari state tersebut.
+
+Contoh kode `getters` seperti berikut:
+
+```javascript
+export default {
+  state: {
+    messages: []
+  },
+  getters: {
+    unreadMessages(state) {
+      return state.messages.filter(item => item.read === 0)
+    },
+    readMessages(state) {
+      return state.messages.filter(item => item.read === 1)
+    }
+  },
+  mutations: {
+    setMessageList: (state, data) => {
+      state.messages = data
+    }
+  }
+}
+```
+
+Dari kode diatas kita mempunyai dua `getters` yakni `unreadMessages` dan `readMessages`. Keduanya digunakan untuk mengambil spesifik nilai dari sebuah daftar di state `messages`. Getters bisa di test seperti kode JavaScript biasa tanpa perlu melakukan *instance* Vuex Store terlebih dahulu, namun bisa juga kita test lewat *instance* Vuex Store bila memang dibutuhkan.
+
+Berikut contoh unit test untuk kode `getters` diatas:
+
+```javascript
+import store from '@/store/messages'
+
+const messages = [{
+  id: 'pesan-1',
+  text: 'sebuah pesan',
+  read: 0
+}, {
+  id: 'pesan-2',
+  text: 'sebuah pesan 2',
+  read: 1
+}, {
+  id: 'pesan-3',
+  text: 'sebuah pesan 3',
+  read: 1
+}]
+
+describe('Vuex Store: Messages', () => {
+  it('unreadMessages harus mengembalikan nilai yang benar', () => {
+    const result = store.getters.unreadMessages({
+      messages
+    })
+    const expectedResult = [{
+      id: 'pesan-1',
+      text: 'sebuah pesan',
+      read: 0
+    }]
+
+    expect(result).toEqual(expectedResult)
+  })
+
+  it('readMessages harus mengembalikan nilai yang benar', () => {
+    const result = store.getters.readMessages({
+      messages
+    })
+    const expectedResult = [{
+      id: 'pesan-2',
+      text: 'sebuah pesan 2',
+      read: 1
+    }, {
+      id: 'pesan-3',
+      text: 'sebuah pesan 3',
+      read: 1
+    }]
+
+    expect(result).toEqual(expectedResult)
+  })
+})
+```
+
 ### Testing Mutations
+
+`Mutations` digunakan untuk mengubah nilai state, seperti kita tau bersama bahwa di Vuex terlarang untuk mengubah nilai state secara langsung. Semua perubahan state diharuskan untuk lewat `mutations`.
+
+Contoh kode `mutations` sebagai berikut:
+
+```javascript
+export default {
+  state: {
+    messages: []
+  },
+  mutations: {
+    setMessageList: (state, data) => {
+      state.messages = data
+    }
+  }
+}
+```
+
+Dari kode diatas kita bisa membuatkan unit test seperti berikut:
+
+```javascript
+import store from '@/store/messages'
+
+const messages = [{
+  id: 'pesan-1',
+  text: 'sebuah pesan',
+  read: 0
+}, {
+  id: 'pesan-2',
+  text: 'sebuah pesan 2',
+  read: 1
+}, {
+  id: 'pesan-3',
+  text: 'sebuah pesan 3',
+  read: 1
+}]
+
+describe('Vuex Store: Messages', () => {
+  it('setMessageList harus mengubah nilai state messages', () => {
+    let dummyState = {
+      messages: []
+    }
+    store.mutations.setMessageList(dummyState, messages)
+    expect(dummyState.messages).toEqual(messages)
+  })
+})
+```
+
+Kita bisa juga melakukan test dengan menggunakan *instance* Vuex Store untuk mengakses `mutations` seperti berikut:
+
+```javascript
+import Vuex from 'vuex';
+import store from '@/store/messages'
+
+const $storeInstance = new Vuex.Store(store)
+
+const messages = [{
+  id: 'pesan-1',
+  text: 'sebuah pesan',
+  read: 0
+}, {
+  id: 'pesan-2',
+  text: 'sebuah pesan 2',
+  read: 1
+}, {
+  id: 'pesan-3',
+  text: 'sebuah pesan 3',
+  read: 1
+}]
+
+describe('Vuex Store: Messages', () => {
+  it('setMessageList harus mengubah nilai state messages', () => {
+    $storeInstance.commit('setMessageList', messages)
+    expect($storeInstance.state.messages).toEqual(messages)
+  })
+})
+```
 
 ### Testing Mutations di Komponen
 
@@ -787,14 +954,147 @@ Sebagai catatan, `Vue Router` mungkin tidak akan memberikan error ketika kita me
 
 ## Testing Dengan Vue-i18n
 
-## Testing Pemanggilan API
+[Vue-i18n ↗️](http://kazupon.github.io/vue-i18n/) menjadi salah satu pilihan terbaik bila kita ingin mendukung beberapa bahasa dalam sebuah projek Vue kita. Dengan Menggunakan Vue-i18n akan membuat cara kita melakukan unit test sedikit berbeda dibandingkan ketika tidak menggunakannya.
 
-## Melakukan Mocking Module
+## Testing Pemanggilan Rest API
 
----
+Memanggil sebuah Rest API menjadi tulang punggung yang banyak digunakan saat ini sebagai media komunikasi frontend-backend. Semakin kompleks aplikasi biasanya semakin banyak pula pemanggilan ini tersebar di berbagai tempat pada projek kita.
 
-References:
+Secara bawaan, berbagai peramban teranyar sudah mendukung Fetch API sebagai alat untuk melakukan komunikasi lewat Rest API. Namun masih populernya pustaka seperti Axios membuat kita juga perlu memberikan contoh bagaimana melakukan test pada projek yang memilih menggunakan Axios untuk melakukan komunikasi dengan Rest API.
 
-1. [https://www.guru99.com/unit-testing-guide.html](https://www.guru99.com/unit-testing-guide.html)
-2. [https://lmiller1990.github.io/vue-testing-handbook/](https://lmiller1990.github.io/vue-testing-handbook/)
-3. [https://vue-test-utils.vuejs.org/](https://vue-test-utils.vuejs.org/)
+Beberapa hal yang mesti kalian tau mengenai Fetch API dan pustaka Axios berkaitan dengan unit test yang akan dibuat nantinya antara lain:
+
++ Fetch API akan mengembalikan dua level `Promise` yang bersarang, kalian perlu memanggil `response.json()` untuk mendapatkan Promise yang kedua, barulah di dalam Promise kedua ini kalian bisa mendapati nilai yang diinginkan.
++ Fetch API merupakan API bawaan dari peramban, bisa diakses lewat objek `window` yang direfreksikan lewat objek `global` di dalam Jest.
++ Menggunakan Axios kita tidak perlu menggunakan Promise dua kali.
++ Response dari Axios terletak di properti `data` dari objek `response`.
++ Dalam unit test sebisa mungkin kita tidak melakukan pemanggilan Rest API yang sesungguhnya, kita cukup melakukan simulasi terjadinya pemanggilan Rest API.
+
+Berikut contoh kode ketika kita melakukan pemanggilan Rest API menggunakan Fetch API:
+
+```javascript
+const URL = 'https://ghibliapi.herokuapp.com/films/'
+
+export default {
+  data () {
+    return {
+      dataResponse: []
+    }
+  },
+  methods: {
+    async fetchData () {
+      try {
+        const response = await fetch(URL)
+        const data = await response.json()
+        this.dataResponse = data
+      } catch (error) {
+        this.dataResponse = []
+      }
+    }
+  }
+}
+```
+
+Dari kode diatas, kita bisa membuatkan unit test seperti berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  // reset semua pemalsuan (mock) setiap selesai test
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('memanggil Rest API dengan Fetch API', async (done) => {
+    const mockSuccessResponse = [
+      'a', 'b', 'c'
+    ];
+    const mockFetchPromise = Promise.resolve({
+      json: () => Promise.resolve(mockSuccessResponse),
+    });
+    // memalsukan fungsi fetch API
+    // selalu mengembalikan nilai sesuai yang diinginkan
+    global.fetch = jest.fn().mockResolvedValue(mockFetchPromise)
+
+    const wrapper = shallowMount(HelloWorld)
+    await wrapper.vm.fetchData()
+
+    // memastikan fungsi fetch dipanggil sekali
+    expect(global.fetch).toHaveBeenCalledTimes(1)
+    // memastikan fungsi dipanggil dengan URL yang benar
+    expect(global.fetch).toHaveBeenCalledWith('https://ghibliapi.herokuapp.com/films/')
+    expect(wrapper.vm.dataResponse).toEqual(mockSuccessResponse)
+    done()
+  })
+})
+```
+
+Sedangkan kode berikut ini adalah contoh kode untuk melakukan pemanggilan Rest API menggunakan pustaka Axios:
+
+```javascript
+import axios from 'axios'
+const URL = 'https://ghibliapi.herokuapp.com/films/'
+
+export default {
+  data () {
+    return {
+      dataResponse: []
+    }
+  },
+  methods: {
+    async fetchDataAxios () {
+      try {
+        const response = await axios.get(URL)
+        this.dataResponse = response.data
+      } catch (error) {
+        this.dataResponse = []
+      }
+    }
+  }
+}
+```
+
+Dengan kode diatas kita bisa membuatkan unit test sebagai berikut:
+
+```javascript
+import { shallowMount } from '@vue/test-utils'
+import axios from 'axios'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+describe('HelloWorld.vue', () => {
+  // reset semua pemalsuan (mock) setiap selesai test
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
+  it('memanggil Rest API dengan Axios', async (done) => {
+    const mockSuccessResponse = [
+      'a', 'b', 'c'
+    ];
+    const mockFetchPromise = Promise.resolve({
+      data: mockSuccessResponse,
+    });
+    // memalsukan fungsi fetch API
+    // selalu mengembalikan nilai sesuai yang diinginkan
+    axios.get = jest.fn().mockResolvedValue(mockFetchPromise)
+
+    const wrapper = shallowMount(HelloWorld)
+    await wrapper.vm.fetchDataAxios()
+
+    // memastikan fungsi fetch dipanggil sekali
+    expect(axios.get).toHaveBeenCalledTimes(1)
+    // memastikan fungsi dipanggil dengan URL yang benar
+    expect(axios.get).toHaveBeenCalledWith('https://ghibliapi.herokuapp.com/films/')
+    expect(wrapper.vm.dataResponse).toEqual(mockSuccessResponse)
+    done()
+  })
+})
+```
+
+## Referensi
+
+1. [https://www.guru99.com/unit-testing-guide.html ↗️](https://www.guru99.com/unit-testing-guide.html)
+2. [https://lmiller1990.github.io/vue-testing-handbook/ ↗️](https://lmiller1990.github.io/vue-testing-handbook/)
+3. [https://vue-test-utils.vuejs.org/ ↗️](https://vue-test-utils.vuejs.org/)

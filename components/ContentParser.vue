@@ -47,4 +47,8 @@ img{
   border-radius: 10px;
   box-shadow: 1px 1px 8px 5px rgba(0, 0, 0, 0.2);
 }
+
+ul, ol > li {
+  line-height: 2;
+}
 </style>
