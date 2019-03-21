@@ -28,7 +28,7 @@
     "firebase": "^5.8.4",
     "intersection-observer": "^0.5.1",
     "modern-normalize": "0.5.0",
-    "nuxt": "^2.4.3",
+    "nuxt": "^2.5.1",
     "nuxt-webfontloader": "^1.0.0",
     "prism-themes": "^1.0.1",
     "prismjs": "^1.15.0",
