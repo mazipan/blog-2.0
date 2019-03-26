@@ -6,13 +6,20 @@ minute2read: 20
 description: Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan Nuxt.js dengan belajar dari berbagai kasus yang terjadi pada proyek nyata
 ---
 
-## Mengenai Unit Testing
+<h2 id="navigasi">Navigasi</h3>
+
++ [Mengenai Unit Testing](#Mengenai-Unit-Testing)
++ [Prinsip Utama](#Prinsip-Utama)
++ [Beberapa Siklus Hidup Umum di Unit Test](#Beberapa-Siklus-Hidup-Umum-di-Unit-Test)
++ [Memasang Unit Testing di Vue dan Nuxt](#Memasang-Unit-Testing-di-Vue-dan-Nuxt)
+
+<h2 id="Mengenai-Unit-Testing">Mengenai Unit Testing</h2>
 
 Unit testing (UT) merupakan bagian terkecil dari proses pengetesan sebuah aplikasi perangkat lunak. UT berfokus untuk mengetest bagian terkecil sebuah aplikasi yakni potongan-potongan kode yang dibuat oleh pengembangnya, itu mengapa UT paling ideal dibuat oleh pengembang itu sendiri. Dengan mengetest kode-kode kecil di dalam sebuah aplikasi diharapkan kita bisa menghasilkan aplikasi perangkat lunak dengan kualitas yang lebih bisa dijamin.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="https://www.commitstrip.com/wp-content/uploads/2017/02/Strip-Ou-sont-les-tests-unitaires-english650-final.jpg" alt="Unit Test Meme by commitstrip">
 
-## Prinsip Utama
+<h2 id="Prinsip-Utama">Prinsip Utama</h2>
 
 Ada beberapa prinsip utama dalam melakukan unit testing, beberapa diantaranya yang dikenal dengan **FIRST**
 
@@ -22,13 +29,13 @@ Ada beberapa prinsip utama dalam melakukan unit testing, beberapa diantaranya ya
 4. **S - Self-Validating** (Validasi Diri Sendiri), setipa test harus bisa menentukan sendiri apakah gagal atau berhasil menjalankan test tanpa perlu dilakukan verifikasi secara manual.
 5. **T - Timely** (Tepat Waktu), test ditulis pada waktu yang tepat segera setelah kodenya selesai dibuat atau dalam praktik TDD, test dibuat terlebih dahulu untuk bisa memberi arahan yang lebih baik pada saat menulis kode.
 
-## Beberapa Siklus Hidup Umum di Unit Test
+<h2 id="Beberapa-Siklus-Hidup-Umum-di-Unit-Test">Beberapa Siklus Hidup Umum di Unit Test</h2>
 
 1. **Setup** adalah siklus dimana kita menyiapkan berbagai kebutuhan skenario test yang akan dijalankan, di Jest mungkin kita akan menggunakan sintaksis seperti `BeforeAll` atau `BeforeEach` untuk melakukan setup sebelum skenario test dijalankan.
 2. **Test Execution** siklus dimana test dijalankan dengan segala setup yang telah didefinisikan sebelumnya. Di Jest kita bisa menggunakan `test()` atau `it()` untuk mendefinisikan masing-masing skenario dan bisa dikelompokkan ke dalam satu grup menggunakan `describe()`.
 3. **Teardown** siklus dimana unit test selesai dijalankan, pada tahap ini biasanya dilakukan pembersihan dari segala macam hal yang mungkin akan mengganggu proses test selanjutnya. Hal ini dikarenakan seringkali kita akan melakukan berbagai macam trik seperti `mock`, `spy`, dan lainnya yang kalau tidak dibersihkan dikhawatirkan akan mengganggu ketika skenario selanjutnya dijalankan. Di Jest kita bisa menggunakan kait `afterEach` maupun `afterAll`.
 
-## Memasang Unit Testing di Vue dan Nuxt
+<h2 id="Memasang-Unit-Testing-di-Vue-dan-Nuxt">Memasang Unit Testing di Vue dan Nuxt</h2>
 
 Saya akan spesifik membahas bagaimana cara memasang Unit Test pada *framework* [Jest ↗️](https://jestjs.io/en/) beberapa kode yang akan saya sertakan pun akan spesifik pada Jest, bila Anda menggunakan *framework* lain, bisa melihat pada referensi yang akan saya sertakan berikut:
 
