@@ -16,26 +16,29 @@ description: Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan
   - [Memasang Jest tanpa Vue-CLI](#Memasang-Jest-tanpa-Vue-CLI)
   - [Memasang Jest pada Nuxt dengan create-nuxt-app](#Memasang-Jest-pada-Nuxt-dengan-create-nuxt-app)
   - [Memasang Jest pada Nuxt secara manual](#Memasang-Jest-pada-Nuxt-secara-manual)
-+ [Perbedaan Dasar Soal Nuxt dengan Vue](#Perbedaan-Dasar-Soal-Nuxt-dengan-Vue)</h2>
-+ [Testing JavaScript File Sederhana](#Testing-JavaScript-File-Sederhana)</h2>
-+ [Testing Mounting Komponen Vue](#Testing-Mounting-Komponen-Vue)</h2>
-+ [Testing Method di Komponen Vue](#Testing-Method-di-Komponen-Vue)</h2>
-+ [Mensimulasikan Aksi Klik Elemen](#Mensimulasikan-Aksi-Klik-Elemen)</h2>
-+ [Testing Props di Komponen Vue](#Testing-Props-di-Komponen-Vue)</h2>
-+ [Testing Computed dan Watcher](#Testing-Computed-dan-Watcher)</h2>
-+ [Testing Event Emitter](#Testing-Event-Emitter)</h2>
-+ [Testing Perpindahan Route](#Testing-Perpindahan-Route)</h2>
-+ [Testing Vuex](#Testing-Vuex)</h2>
-  - [Testing Getters](#Testing-Getters)</h3>
-  - [Testing Mutations](#Testing-Mutations)</h3>
-  - [Testing Actions](#Testing-Actions)</h3>
-  - [Testing Vuex di Komponen](#Testing-Vuex-di-Komponen)</h3>
-+ [Testing dengan Vue-i18n](#Testing-dengan-Vue-i18n)</h2>
-+ [Testing Pemanggilan Rest API](#Testing-Pemanggilan-Rest-API)</h2>
++ [Perbedaan Dasar Soal Nuxt dengan Vue](#Perbedaan-Dasar-Soal-Nuxt-dengan-Vue)
++ [Testing JavaScript File Sederhana](#Testing-JavaScript-File-Sederhana)
++ [Testing Mounting Komponen Vue](#Testing-Mounting-Komponen-Vue)
++ [Testing Method di Komponen Vue](#Testing-Method-di-Komponen-Vue)
++ [Mensimulasikan Aksi Klik Elemen](#Mensimulasikan-Aksi-Klik-Elemen)
++ [Testing Props di Komponen Vue](#Testing-Props-di-Komponen-Vue)
++ [Testing Computed dan Watcher](#Testing-Computed-dan-Watcher)
++ [Testing Event Emitter](#Testing-Event-Emitter)
++ [Testing Perpindahan Route](#Testing-Perpindahan-Route)
++ [Testing Vuex](#Testing-Vuex)
+  - [Testing Getters](#Testing-Getters)
+  - [Testing Mutations](#Testing-Mutations)
+  - [Testing Actions](#Testing-Actions)
+  - [Testing Vuex di Komponen](#Testing-Vuex-di-Komponen)
++ [Testing dengan Vue-i18n](#Testing-dengan-Vue-i18n)
++ [Testing Pemanggilan Rest API](#Testing-Pemanggilan-Rest-API)
+
+
+<h2 id="Mengenai-Unit-Testing">Mengenai Unit Testing</h2>
 
 Unit testing (UT) merupakan bagian terkecil dari proses pengetesan sebuah aplikasi perangkat lunak. UT berfokus untuk mengetest bagian terkecil sebuah aplikasi yakni potongan-potongan kode yang dibuat oleh pengembangnya, itu mengapa UT paling ideal dibuat oleh pengembang itu sendiri. Dengan mengetest kode-kode kecil di dalam sebuah aplikasi diharapkan kita bisa menghasilkan aplikasi perangkat lunak dengan kualitas yang lebih bisa dijamin.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://www.commitstrip.com/wp-content/uploads/2017/02/Strip-Ou-sont-les-tests-unitaires-english650-final.jpg" alt="Unit Test Meme by commitstrip">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/panduan-unit-testing-di-vuejs/commitstrip.jpg" alt="Unit Test Meme by commitstrip">
 
 [🔼 Kembali ke navigasi](#navigasi)
 
@@ -413,6 +416,8 @@ describe('HelloWorld.vue', () => {
 ```
 
 Dari kode unit test diatas kita bisa mengetahui bahwa kita bisa langsung mengakses berbagai fitur Vue komponen lewat `wrapper.vm`, ini sama saja seperti `this` pada **SFC** yang merujuk pada *instance* dari komponen tersebut. Kita bisa mengakses *data*, `method`, *props*, hasil dari *computed* dan lainnya menggunakan `wrapper.vm` yang merupakan fitur `@vue/test-utils`.
+
+[🔼 Kembali ke navigasi](#navigasi)
 
 <h2 id="Mensimulasikan-Aksi-Klik-Elemen">Mensimulasikan Aksi Klik Elemen</h2>
 
