@@ -196,6 +196,7 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    cssSourceMap: false,
     postcss: {
       plugins: [
         require('autoprefixer')({

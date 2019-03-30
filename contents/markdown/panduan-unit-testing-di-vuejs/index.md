@@ -6,29 +6,63 @@ minute2read: 20
 description: Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan Nuxt.js dengan belajar dari berbagai kasus yang terjadi pada proyek nyata
 ---
 
-## Mengenai Unit Testing
+<h2 id="navigasi">Navigasi</h2>
+
++ [Mengenai Unit Testing](#Mengenai-Unit-Testing)
++ [Prinsip Utama](#Prinsip-Utama)
++ [Beberapa Siklus Hidup Umum di Unit Test](#Beberapa-Siklus-Hidup-Umum-di-Unit-Test)
++ [Memasang Unit Testing di Vue dan Nuxt](#Memasang-Unit-Testing-di-Vue-dan-Nuxt)
+  - [Memasang Jest menggunakan Vue-CLI 3](#Memasang-Jest-menggunakan-Vue-CLI-3)
+  - [Memasang Jest tanpa Vue-CLI](#Memasang-Jest-tanpa-Vue-CLI)
+  - [Memasang Jest pada Nuxt dengan create-nuxt-app](#Memasang-Jest-pada-Nuxt-dengan-create-nuxt-app)
+  - [Memasang Jest pada Nuxt secara manual](#Memasang-Jest-pada-Nuxt-secara-manual)
++ [Perbedaan Dasar Soal Nuxt dengan Vue](#Perbedaan-Dasar-Soal-Nuxt-dengan-Vue)
++ [Testing JavaScript File Sederhana](#Testing-JavaScript-File-Sederhana)
++ [Testing Mounting Komponen Vue](#Testing-Mounting-Komponen-Vue)
++ [Testing Method di Komponen Vue](#Testing-Method-di-Komponen-Vue)
++ [Mensimulasikan Aksi Klik Elemen](#Mensimulasikan-Aksi-Klik-Elemen)
++ [Testing Props di Komponen Vue](#Testing-Props-di-Komponen-Vue)
++ [Testing Computed dan Watcher](#Testing-Computed-dan-Watcher)
++ [Testing Event Emitter](#Testing-Event-Emitter)
++ [Testing Perpindahan Route](#Testing-Perpindahan-Route)
++ [Testing Vuex](#Testing-Vuex)
+  - [Testing Getters](#Testing-Getters)
+  - [Testing Mutations](#Testing-Mutations)
+  - [Testing Actions](#Testing-Actions)
+  - [Testing Vuex di Komponen](#Testing-Vuex-di-Komponen)
++ [Testing dengan Vue-i18n](#Testing-dengan-Vue-i18n)
++ [Testing Pemanggilan Rest API](#Testing-Pemanggilan-Rest-API)
+
+
+<h2 id="Mengenai-Unit-Testing">Mengenai Unit Testing</h2>
 
 Unit testing (UT) merupakan bagian terkecil dari proses pengetesan sebuah aplikasi perangkat lunak. UT berfokus untuk mengetest bagian terkecil sebuah aplikasi yakni potongan-potongan kode yang dibuat oleh pengembangnya, itu mengapa UT paling ideal dibuat oleh pengembang itu sendiri. Dengan mengetest kode-kode kecil di dalam sebuah aplikasi diharapkan kita bisa menghasilkan aplikasi perangkat lunak dengan kualitas yang lebih bisa dijamin.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://www.commitstrip.com/wp-content/uploads/2017/02/Strip-Ou-sont-les-tests-unitaires-english650-final.jpg" alt="Unit Test Meme by commitstrip">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/panduan-unit-testing-di-vuejs/commitstrip.jpg" alt="Unit Test Meme by commitstrip">
 
-## Prinsip Utama
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Prinsip-Utama">Prinsip Utama</h2>
 
 Ada beberapa prinsip utama dalam melakukan unit testing, beberapa diantaranya yang dikenal dengan **FIRST**
 
 1. **F - Fast** (Cepat), unit test harus bisa dieksekusi dengan cepat, tidak memakan waktu yang lebih lama dibandingkan ketika harus menjalankan aplikasi secara utuh untuk melakukan test manual.
 2. **I - Isolated** (Dapat Diisolasi), unit test harus bisa diisolasi antar satu dengan yang lain, ketika terjadi kegagalan maka harus bisa dipastikan tidak merembet ke berkas testing pada bagian lain.
 3. **R - Repeatable** (Dapat Diulang), unit testing harus bisa dijalankan kapan saja dan menghasilkan hasil yang sama. Tidak terikat pada hari tertentu, waktu tertentu atau zona waktu tertentu.
-4. **S - Self-Validating** (Validasi Diri Sendiri), setipa test harus bisa menentukan sendiri apakah gagal atau berhasil menjalankan test tanpa perlu dilakukan verifikasi secara manual.
+4. **S - Self-Validating** (Validasi Diri Sendiri), setiap test harus bisa menentukan sendiri apakah gagal atau berhasil menjalankan test tanpa perlu dilakukan verifikasi secara manual.
 5. **T - Timely** (Tepat Waktu), test ditulis pada waktu yang tepat segera setelah kodenya selesai dibuat atau dalam praktik TDD, test dibuat terlebih dahulu untuk bisa memberi arahan yang lebih baik pada saat menulis kode.
 
-## Beberapa Siklus Hidup Umum di Unit Test
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Beberapa-Siklus-Hidup-Umum-di-Unit-Test">Beberapa Siklus Hidup Umum di Unit Test</h2>
 
 1. **Setup** adalah siklus dimana kita menyiapkan berbagai kebutuhan skenario test yang akan dijalankan, di Jest mungkin kita akan menggunakan sintaksis seperti `BeforeAll` atau `BeforeEach` untuk melakukan setup sebelum skenario test dijalankan.
-2. **Test Execution** siklus dimana test dijalankan dengan segala setup yang telah didefinisikan sebelumnya. Di Jest kita bisa menggunakan `test()` atau `it()` untuk mendefinisikan masing-masing skenario dan bisa dikelompokkan ke dalam satu grup menggunakan `describe()`.
-3. **Teardown** siklus dimana unit test selesai dijalankan, pada tahap ini biasanya dilakukan pembersihan dari segala macam hal yang mungkin akan mengganggu proses test selanjutnya. Hal ini dikarenakan seringkali kita akan melakukan berbagai macam trik seperti `mock`, `spy`, dan lainnya yang kalau tidak dibersihkan dikhawatirkan akan mengganggu ketika skenario selanjutnya dijalankan. Di Jest kita bisa menggunakan kait `afterEach` maupun `afterAll`.
+2. **Test Execution** adalah siklus dimana test dijalankan dengan segala setup yang telah didefinisikan sebelumnya. Di Jest kita bisa menggunakan `test()` atau `it()` untuk mendefinisikan masing-masing skenario dan bisa dikelompokkan ke dalam satu grup menggunakan `describe()`.
+3. **Teardown** adalah siklus dimana unit test selesai dijalankan, pada tahap ini biasanya dilakukan pembersihan dari segala macam hal yang mungkin akan mengganggu proses test selanjutnya. Hal ini dikarenakan seringkali kita akan melakukan berbagai macam trik seperti *mock*, *spy*, dan lainnya yang kalau tidak dibersihkan dikhawatirkan akan mengganggu ketika skenario selanjutnya dijalankan. Di Jest kita bisa menggunakan kait `afterEach` maupun `afterAll`.
 
-## Memasang Unit Testing di Vue dan Nuxt
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Memasang-Unit-Testing-di-Vue-dan-Nuxt">Memasang Unit Testing di Vue dan Nuxt</h2>
 
 Saya akan spesifik membahas bagaimana cara memasang Unit Test pada *framework* [Jest ↗️](https://jestjs.io/en/) beberapa kode yang akan saya sertakan pun akan spesifik pada Jest, bila Anda menggunakan *framework* lain, bisa melihat pada referensi yang akan saya sertakan berikut:
 
@@ -37,32 +71,30 @@ Saya akan spesifik membahas bagaimana cara memasang Unit Test pada *framework* [
 
 Untuk Jest sendiri berikut cara memasang Unit Test pada beberapa projek:
 
-### Memasang Jest menggunakan Vue-CLI 3
+<h3 id="Memasang-Jest-menggunakan-Vue-CLI-3">Memasang Jest menggunakan Vue-CLI 3</h3>
 
 + Pasang Vue-CLI 3 dengan perintah
 
 ```bash
-yarn add @vue/cli
-
+$ yarn add @vue/cli
 #atau
-
-npm i -g @vue/cli
+$ npm i -g @vue/cli
 ```
 
 + Buat projek baru dengan `vue create my-project-name`. Pilih *"Manually select features"* dan centang "Unit Testing" dan "Jest" untuk runner unit testnya, silakan lihat artikel resmi [membuat project baru dengan Vue-CLI ↗️](https://cli.vuejs.org/guide/creating-a-project.html) untuk lebih jelasnya.
 
 + Jalankan unit test dengan perintah `yarn test:unit` dan semua konfigurasi sudah dibuatkan oleh Vue-CLI tanpa kita harus melakukan secara manual.
 
-### Memasang Jest tanpa Vue-CLI
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h3 id="Memasang-Jest-tanpa-Vue-CLI">Memasang Jest tanpa Vue-CLI</h3>
 
 Pasang beberapa dependency untuk menjalankan unit test dengan jest berikut:
 
 ```bash
-yarn add jest babel-jest vue-jest @vue/test-utils -D
-
+$ yarn add jest babel-jest vue-jest @vue/test-utils -D
 # atau
-
-npm i jest babel-jest vue-jest @vue/test-utils --dev
+$ npm i jest babel-jest vue-jest @vue/test-utils --dev
 ```
 
 Perintah tersebut akan menambahkan dependency berikut pada projek kita:
@@ -104,7 +136,7 @@ module.exports = {
 };
 ```
 
-Selanjutnya kita bisa memasang `script` tambahan pada `package.json` kita seperti berikut:
+Selanjutnya kita bisa memasang kode tambahan pada `package.json` kita seperti berikut:
 
 ```javascript
 {
@@ -114,32 +146,31 @@ Selanjutnya kita bisa memasang `script` tambahan pada `package.json` kita sepert
 }
 ```
 
-Secara default, jest akan menganggap semua file yang berekstensi `.spec.js` atau `.test.js` sebagai file unit test yang akan dijalankan pada saat perintah `jest` diketikkan.
+Secara bawaan, Jest akan menganggap semua berkas yang berekstensi `.spec.js` atau `.test.js` sebagai berkas unit test yang akan dijalankan pada saat perintah `jest` diketikkan.
 
-### Memasang Jest pada Nuxt dengan create-nuxt-app
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h3 id="Memasang-Jest-pada-Nuxt-dengan-create-nuxt-app">Memasang Jest pada Nuxt dengan create-nuxt-app</h3>
 
 Untuk memasang Jest pada Nuxt, bisa melalui `create-nuxt-app` yang bisa dilakukan dengan perintah:
 
 ```bash
-yarn create nuxt-app my-project-name
-
+$ yarn create nuxt-app my-project-name
 # atau
-
-npm init nuxt-app my-project-name
-
+$ npm init nuxt-app my-project-name
 # atau
-
-npx create-nuxt-app my-project-name
+$ npx create-nuxt-app my-project-name
 ```
 
 Pada pilihan "Choose your favorite test framework:", silakan pilih "Jest" sebagai unit test yang akan digunakan.
 
 Jalankan unit test dengan perintah `yarn test`.
 
+[🔼 Kembali ke navigasi](#navigasi)
 
-### Memasang Jest pada Nuxt secara manual
+<h3 id="Memasang-Jest-pada-Nuxt-secara-manual">Memasang Jest pada Nuxt secara manual</h3>
 
-Hampir tidak ada perbedaan dengan bagian [Memasang Jest pada tanpa Vue-CLI ↗️](#memasang-jest-tanpa-vue-cli) pada projek Vue biasa tanpa Nuxt. Perbedaan mungkin hanya ada pada konfigurasi `babel`, karena pada Vue-CLI kita memanfaatkan babel presets dari Vue yang telah terpasang pada saat membuat projek Vue.
+Hampir tidak ada perbedaan dengan bagian [Memasang Jest pada tanpa Vue-CLI ↗️](#Memasang-Jest-pada-tanpa-Vue-CLI) pada projek Vue biasa tanpa Nuxt. Perbedaan mungkin hanya ada pada konfigurasi `babel`, karena pada Vue-CLI kita memanfaatkan babel presets dari Vue yang telah terpasang pada saat membuat projek Vue.
 
 Kita cukup melakukan konfigurasi babel untuk environment "test" karena projek Nuxt sudah memiliki konfigurasi babel bawaan, seperti berikut contohnya:
 
@@ -159,9 +190,11 @@ Kita cukup melakukan konfigurasi babel untuk environment "test" karena projek Nu
 }
 ```
 
-## Perbedaan Dasar Soal Nuxt dengan Vue
+[🔼 Kembali ke navigasi](#navigasi)
 
-Pada saat ingin membuat unit test untuk projek Nuxt dengan Vue ada beberapa perbedaan yang mesti kalian tau sebelumnya. Seperti kita tau bahwa Nuxt dibangun diatas Vue namun dengan banyak fitur bawaan yang mungkin saja tidak akan kalian temui pada projek Vue yang tanpa Nuxt. Beberapa perbedaan adalah Nuxt punya beberapa `tag` spesial yang mirip dengan Vue namun tidak akan kalian temui disana, seperti beberapa tag berikut:
+<h2 id="Perbedaan-Dasar-Soal-Nuxt-dengan-Vue">Perbedaan Dasar Soal Nuxt dengan Vue</h2>
+
+Pada saat ingin membuat unit test untuk projek Nuxt dengan Vue ada beberapa perbedaan yang mesti kalian tau sebelumnya. Seperti kita tau bahwa Nuxt dibangun diatas Vue namun dengan banyak fitur bawaan yang mungkin saja tidak akan kalian temui pada projek Vue yang tanpa Nuxt. Beberapa perbedaan adalah Nuxt punya beberapa tag spesial yang mirip dengan Vue namun tidak akan kalian temui disana, seperti beberapa tag berikut:
 
 ```html
 <nuxt></nuxt>
@@ -182,9 +215,9 @@ export default {
 }
 ```
 
-Projek Nuxt tidak memiliki `router.js` seperti yang biasanya kita buat di projek Vue, Nuxt akan menggunakan struktur folder untuk men-*generate* berkas `router.js` untuk projek kita yang letaknya ada di direktori `.nuxt`.
+Projek Nuxt tidak memiliki `router.js` seperti yang biasanya kita buat di projek Vue, Nuxt akan menggunakan struktur folder untuk men-*generate* berkas router.js untuk projek kita yang letaknya ada di direktori `.nuxt`.
 
-Beberapa projek Nuxt juga tidak melakukan *instance* secara manual terhadap storenya, seperti biasa kita lakukan dengan script seperti ini misalnya:
+Beberapa projek Nuxt juga tidak melakukan *instance* secara manual terhadap storenya, seperti biasa kita lakukan dengan kode seperti ini misalnya:
 
 ```javascript
 import Vuex from 'vuex'
@@ -205,11 +238,13 @@ const createStore = () => {
 export default createStore
 ```
 
-Dengan mengetahui beberapa perbedaan mendasar ini, nantinya akan berguna ketika kita menemui error yang sebelumnya tidak kita temui pada projek Vue namun ternyata kita temui pada projek Nuxt.
+Dengan mengetahui beberapa perbedaan mendasar ini, nantinya akan berguna ketika kita menemui galat yang sebelumnya tidak kita temui pada projek Vue namun ternyata kita temui pada projek Nuxt.
 
-## Testing JavaScript File Sederhana
+[🔼 Kembali ke navigasi](#navigasi)
 
-Untuk mengetest berkas JavaScript biasa tentu lebih mudah dibandingkan untuk melakukan test pada file **SFC** Vue. Misalnya saja kita punya berkas `helper` dengan nama berkas `math-util.js`, di dalamnya terdapat kode seperti berikut:
+<h2 id="Testing-JavaScript-File-Sederhana">Testing JavaScript File Sederhana</h2>
+
+Untuk mengetes berkas JavaScript biasa tentu lebih mudah dibandingkan untuk melakukan test pada file **SFC** Vue. Misalnya saja kita punya berkas `helper` dengan nama berkas `math-util.js`, di dalamnya terdapat kode seperti berikut:
 
 ```javascript
 export function add (a, b) {
@@ -265,9 +300,11 @@ describe('math-util.js', () => {
 })
 ```
 
-## Testing Mounting Komponen Vue
+[🔼 Kembali ke navigasi](#navigasi)
 
-Dalam melakukan unit testing pada **SFC**, hal pertama yang harus kita lakukan adalah memastikan kita berhasil memasang atau *mounting* komponen tersebut ke dalam Virtual DOM yang ada di unit test runner. Terdengar mudah memang, tapi seringkali justru ini menjadi hal yang tersulit untuk dikerjakan karena setelah berhasil melakukan bagian ini biasanya bagian selanjutnya akan terasa lebih mudah. Untuk bisa melakukan *mounting* kita diharuskan menyiapkan semua kebutuhan awal sebuah komponen tersebut agar bisa di-*mounting*. Cara paling bar-bar yang biasa saya lakukan adalah dengan *trial and error*, tapi bila kita telah terbiasa nanti kita bisa lebih mendeteksi lebih awal kebutuhan apa saja yang harus kita siapkan untuk *mounting* komponen tersebut.
+<h2 id="Testing-Mounting-Komponen-Vue">Testing Mounting Komponen Vue</h2>
+
+Dalam melakukan unit testing pada **SFC**, hal pertama yang harus kita lakukan adalah memastikan kita berhasil memasang atau *mounting* komponen tersebut ke dalam Virtual DOM yang ada di unit test. Terdengar mudah memang, tapi seringkali justru ini menjadi hal yang tersulit untuk dikerjakan karena setelah berhasil melakukan bagian ini biasanya bagian selanjutnya akan terasa lebih mudah. Untuk bisa melakukan *mounting* kita diharuskan menyiapkan semua kebutuhan awal sebuah komponen tersebut agar bisa di-*mounting*. Cara paling bar-bar yang biasa saya lakukan adalah dengan mencoba sampai menemukan galat dan mencoba lagi sampai berhasil, tapi bila kita telah terbiasa nanti kita bisa lebih mendeteksi lebih awal kebutuhan apa saja yang harus kita siapkan untuk *mounting* komponen tersebut.
 
 Saya beri contoh misalkan ada komponen dengan templat seperti berikut:
 
@@ -277,9 +314,9 @@ Saya beri contoh misalkan ada komponen dengan templat seperti berikut:
 </template>
 ```
 
-Dari templat tersebut, kita mesti mencari tau darimana datangnya nilai `{{ message }}` karena ini dibutuhkan pada saat pertama kali komponen tersebut nantinya dipasang. Bila datang dari `data ()` bisa jadi aman karena data akan otomatis terbuat ketika komponen dipasang, bila datang dari `props` berarti kita perlu mengoper props tersebut juga pada unit test kita.
+Dari templat tersebut, kita mesti mencari tau darimana datangnya nilai `{{ message }}` karena ini dibutuhkan pada saat pertama kali komponen tersebut nantinya dipasang. Bila datang dari `data ()` bisa jadi aman karena data akan otomatis terbuat ketika komponen dipasang, bila datang dari *props* berarti kita perlu mengoper *props* tersebut juga pada unit test kita.
 
-Untuk contoh yang akan kita gunakan dalam melakukan *mounting* komponen di unit test akan mengikuti dari contoh yang dibuat oleh tim Vue melalui Vue-CLI yang di generate pada saat awal kita membuat projek baru, berikut contoh melakukan *mounting* komponen di unit test:
+Untuk contoh yang akan kita gunakan dalam melakukan *mounting* komponen di unit test akan mengikuti dari contoh yang dibuat oleh tim Vue melalui Vue-CLI yang dibuatkan pada saat awal kita membuat projek baru, berikut contoh melakukan *mounting* komponen di unit test:
 
 katakanlah kita mempunyai berkas dengan nama `HelloWorld.vue` yang berisi templat berikut:
 
@@ -318,9 +355,11 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-Dari kode diatas kita belajar dasar-dasar memasang komponen pada unit test menggunakan `@vue/test-utils`, kita menggunakan API `shallowMount` dibandingkan `mount` karena kemampuan untuk memalsukan komponen anak sehingga kita tidak perlu mendefinisikan kebutuhan dari komponen anak dari komponen tersebut dan cukup fokus untuk mendefinisikan kebutuhan komponen terkait saja. Hal ini tentu selaras dengan prinsip *isolated* pada unit testing. Pada contoh diatas kita menambahkan opsi `propsData` untuk mengoper `props` yang nanti akan kita bahas di bagian terpisah dibawah nanti.
+Dari kode diatas kita belajar dasar-dasar memasang komponen pada unit test menggunakan `@vue/test-utils`, kita menggunakan API `shallowMount` dibandingkan `mount` karena kemampuan untuk memalsukan komponen anak sehingga kita tidak perlu mendefinisikan kebutuhan dari komponen anak dari komponen tersebut dan cukup fokus untuk mendefinisikan kebutuhan komponen terkait saja. Hal ini tentu selaras dengan prinsip *isolated* pada unit testing. Pada contoh diatas kita menambahkan opsi `propsData` untuk mengoper *props* yang nanti akan kita bahas di bagian terpisah dibawah nanti.
 
-## Testing Method di Komponen Vue
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Testing-Method-di-Komponen-Vue">Testing Method di Komponen Vue</h2>
 
 Setelah sebelumnya kita berhasil melakukan *mounting*, maka tugas berikutnya akan lebih mudah seperti yang sudah kita bahas sebelumnya. Pada bagian sebelumnya kita hanya melakukan *mounting* komponen tanpa memanggil *method* apapun, berikut contoh memanggil *method* dalam Vue **SFC** melalui unit test:
 
@@ -376,9 +415,11 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-Dari kode unit test diatas kita bisa mengetahui bahwa kita bisa langsung mengakses berbagai fitur Vue komponen lewat `wrapper.vm`, ini sama saja seperti `this` pada **SFC** yang merujuk pada *instance* dari komponen tersebut. Kita bisa mengakses `data`, `method`, `props`, hasil dari `computed` dan lainnya menggunakan `wrapper.vm` yang merupakan fitur `@vue/test-utils`.
+Dari kode unit test diatas kita bisa mengetahui bahwa kita bisa langsung mengakses berbagai fitur Vue komponen lewat `wrapper.vm`, ini sama saja seperti `this` pada **SFC** yang merujuk pada *instance* dari komponen tersebut. Kita bisa mengakses *data*, `method`, *props*, hasil dari *computed* dan lainnya menggunakan `wrapper.vm` yang merupakan fitur `@vue/test-utils`.
 
-## Mensimulasikan Aksi Klik Elemen
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Mensimulasikan-Aksi-Klik-Elemen">Mensimulasikan Aksi Klik Elemen</h2>
 
 Beberapa programmer tidak senang melakukan akses langsung ke *method* tanpa melalui akses ke tampilan pengguna. Seperti pada contoh sebelumnya, unit test tersebut menjadi tidak masuk akal karena method `changeMessage` pada dasarnya tidak pernah digunakan oleh templat dan menjadi hal yang sia-sia karena kode tersebut tidak pernah mempengaruhi pengguna pada akhirnya.
 
@@ -449,9 +490,11 @@ Bisa dilihat perbedaanya dari cara kita melakukan test pada bagian sebelumnya de
 
 Kedua cara yang kita contohkan benar dan boleh saja dilakukan. Kita bahkan bisa mengerjakan kedua cara tersebut dalam satu berkas unit test. Pilihan terserah pada Anda masing-masing. Cara pertama tentu lebih cepat apalagi kalau mengejar `coverage`, cara kedua lebih baik dan lebih berorientasi pada pengguna tapi seringkali menghabiskan lebih banyak waktu untuk dibuat.
 
-## Testing Props di Komponen Vue
+[🔼 Kembali ke navigasi](#navigasi)
 
-Sebelum melakukan test pada `props`, kita mesti mengetahui terlebih dahulu bahwa `props` adalah sebuah nilai yang dioper oleh komponen lain, nilainya berupa satu arah yang artinya tidak bisa kita ubah secara langsung dari komponen yang menerima `props`, beberapa props sudah didefinisikan tipe data maupun struktur data yang diperbolehkan. Pada unit test kita bisa menggunakan fitur `propsData` untuk melempar `props` pada komponen tanpa perlu membuat komponen induk terlebih dahulu, berikut contoh membuat unit test pada `props`:
+<h2 id="Testing-Props-di-Komponen-Vue">Testing Props di Komponen Vue</h2>
+
+Sebelum melakukan test pada *props*, kita mesti mengetahui terlebih dahulu bahwa *props* adalah sebuah nilai yang dioper oleh komponen lain, nilainya berupa satu arah yang artinya tidak bisa kita ubah secara langsung dari komponen yang menerima *props*, beberapa props sudah didefinisikan tipe data maupun struktur data yang diperbolehkan. Pada unit test kita bisa menggunakan fitur `propsData` untuk melempar *props* pada komponen tanpa perlu membuat komponen induk terlebih dahulu, berikut contoh membuat unit test pada *props*:
 
 ```html
 <template>
@@ -514,9 +557,11 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-## Testing Computed dan Watcher
+[🔼 Kembali ke navigasi](#navigasi)
 
-Untuk melakukan test pada `computed` dan `watch` kita perlu mengetahui apa yang sebenarnya dilakukan keduanya di dalam Vue **SFC**. Kita akan memahami mengenai dua hal ini lewat contoh kode berikut:
+<h2 id="Testing-Computed-dan-Watcher">Testing Computed dan Watcher</h2>
+
+Untuk melakukan test pada *computed* dan *watch* kita perlu mengetahui apa yang sebenarnya dilakukan keduanya di dalam Vue **SFC**. Kita akan memahami mengenai dua hal ini lewat contoh kode berikut:
 
 ```javascript
 export default {
@@ -534,7 +579,7 @@ export default {
 }
 ```
 
-Kode yang sama bila kita selesaikan dengan `watch` akan menjadi:
+Kode yang sama bila kita selesaikan dengan *watch* akan menjadi:
 
 ```javascript
 export default {
@@ -556,9 +601,9 @@ export default {
 }
 ```
 
-Dari contoh kode diatas, kita bisa tau bahwa `computed` akan mengkalkulasikan ulang nilainya pada saat suatu variabel yang digunakan dibawah fungsi `computed` mengalami perubahan. Ciri khas dari `computed` sendiri adalah selalu mengambalikan nilai baru yang akan menjadi bagian dari `data`, meskipun begitu nilai dari `computed` tidak bisa kita ubah secara langsung. Nilainya hanya bisa diubah dengan melakukan perubahan pada variabel yang digunakan oleh `computed` tersebut. Sedangkan pada `watch` sama-sama akan dijalankan ketika terjadi perubahan pada variabel di dalamnya, hanya saja `watch` tidak akan mengembalikan nilai baru yang bisa kita gunakan.
+Dari contoh kode diatas, kita bisa tau bahwa *computed* akan mengkalkulasikan ulang nilainya pada saat suatu variabel yang digunakan dibawah fungsi *computed* mengalami perubahan. Ciri khas dari *computed* sendiri adalah selalu mengambalikan nilai baru yang akan menjadi bagian dari *data*, meskipun begitu nilai dari *computed* tidak bisa kita ubah secara langsung. Nilainya hanya bisa diubah dengan melakukan perubahan pada variabel yang digunakan oleh *computed* tersebut. Sedangkan pada *watch* sama-sama akan dijalankan ketika terjadi perubahan pada variabel di dalamnya, hanya saja *watch* tidak akan mengembalikan nilai baru yang bisa kita gunakan.
 
-Berikut contoh kode untuk membuat unit test pada `computed`:
+Berikut contoh kode untuk membuat unit test pada *computed*:
 
 ```html
 <template>
@@ -605,7 +650,7 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-Pada kasus menggunakan `watch` bisa dilihat perubahan kodenya menjadi pada contoh kasus berikut:
+Pada kasus menggunakan *watch* bisa dilihat perubahan kodenya menjadi pada contoh kasus berikut:
 
 ```html
 <template>
@@ -656,7 +701,9 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-## Testing Event Emitter
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Testing-Event-Emitter">Testing Event Emitter</h2>
 
 Seringkali pada sebuah komponen kita harus melakukan `$emit` terhadap *event* yang dilempar oleh komponen induknya. Masalahnya adalah ketika kita mengetest komponen anak yang seperti ini, kita sebenarnya tidak pernah tau *event* seperti apa yang akan dilempar oleh komponen induknya. Ketidakpunyaan penglihatan kita terhadap aksi sejenis ini membuat kita tidak bisa melakukan test yang bisa kita pastikan hasilnya, karenanya kita biasanya cuma akan melakukan `Spy` terhadap fungsi seperti ini. Untungnya dari `@vue/test-utils` sudah menyediakan API yang memudahkan kita melakukan ini yakni [emitted ↗️](https://vue-test-utils.vuejs.org/api/wrapper/emitted.html).
 
@@ -688,11 +735,13 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-## Testing Perpindahan Route
+[🔼 Kembali ke navigasi](#navigasi)
 
-Terkadang pada sebuah projek kita diharuskan melakukan manipulasi `route` pada sebuah seperti menggunakan `router.push`, `router.go` atau lainnya. Sebelum kita melakukan test pada kode seperti ini, kita paling tidak mesti tau apa yang terjadi ketika kita melakukan manipulasi `router` di Vue. Vue memanfaatkan pustaka tambahan yakni `Vue Router` untuk melakukan manipulasi `router` yang mana diurus secara resmi oleh tim yang sama dengan yang membuat Vue inti.
+<h2 id="Testing-Perpindahan-Route">Testing Perpindahan Route</h2>
 
-Ada dua objek yang harus kita tau ketika menggunakan `Vue Router` yakni, `route` yang bisa diakses lewat **SFC** melalui `this.$route` dan juga `router` yang bisa diakses melalui `this.$router`. `Route` adalah representasi posisi halaman saat ini, berupa objek yang berisi `path`, `name`, `query` dan sebagainya. Sementara `Router` merupakan objek yang bisa memanipulasi posisi `route` tersebut. Jadi kita akan mengakses `router` untuk mengubah `route` dan akan mengecek `route` untuk mengetahui apakah manipulasi tersebut berhasil ataukah tidak.
+Terkadang pada sebuah projek kita diharuskan melakukan manipulasi *route* pada sebuah seperti menggunakan `router.push`, `router.go` atau lainnya. Sebelum kita melakukan test pada kode seperti ini, kita paling tidak mesti tau apa yang terjadi ketika kita melakukan manipulasi *router* di Vue. Vue memanfaatkan pustaka tambahan yakni **Vue Router** untuk melakukan manipulasi *router* yang mana diurus secara resmi oleh tim yang sama dengan yang membuat Vue inti.
+
+Ada dua objek yang harus kita tau ketika menggunakan **Vue Router** yakni, *route* yang bisa diakses lewat **SFC** melalui `this.$route` dan juga *router* yang bisa diakses melalui `this.$router`. *Route* adalah representasi posisi halaman saat ini, berupa objek yang berisi `path`, `name`, `query` dan sebagainya. Sementara *router* merupakan objek yang bisa memanipulasi posisi *route* tersebut. Jadi kita akan mengakses *router* untuk mengubah *route* dan akan mengecek *route* untuk mengetahui apakah manipulasi tersebut berhasil ataukah tidak.
 
 Contoh kode berikut akan memberikan gambaran mengenai dua hal tersebut:
 
@@ -760,7 +809,7 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-Dari contoh kode unit test diatas, kita belajar untuk menggunakan `localVue` dari `@vue/test-utils`. API ini digunakan untuk menamabahkan plugin ke dalam unit test kita, seperti dijelaskan sebelumnya bahwa Vue Router merupakan pustaka luar yang harus digunakan lewat `Vue.use` ke dalam *instance* utama dari Vue. Maka pada unit test kita memanfaatkan `localVue` untuk melakukan hal yang sama namun dalam lingkungan unit test. Selain mengoper opsi `localVue`, kita juga diharuskan melempar opsi `router` seperti saat kita melakukan *instance*  Vue ketika menggunakan `Vue Router` seperti contoh potongan kode berikut:
+Dari contoh kode unit test diatas, kita belajar untuk menggunakan `localVue` dari `@vue/test-utils`. API ini digunakan untuk menamabahkan plugin ke dalam unit test kita, seperti dijelaskan sebelumnya bahwa Vue Router merupakan pustaka luar yang harus digunakan lewat `Vue.use` ke dalam *instance* utama dari Vue. Maka pada unit test kita memanfaatkan `localVue` untuk melakukan hal yang sama namun dalam lingkungan unit test. Selain mengoper opsi `localVue`, kita juga diharuskan melempar opsi *router* seperti saat kita melakukan *instance*  Vue ketika menggunakan **Vue Router** seperti contoh potongan kode berikut:
 
 ```javascript
 const Foo = { template: '<div>foo</div>' }
@@ -782,17 +831,19 @@ const app = new Vue({
 
 Pada contoh kode unit test yang kita buat sebelumnya kita memalsukan `routes` yang ada, pada projek Vue mungkin hal ini tidak diperlukan karena kita bisa langsung impor dari berkas `router.js` yang kita buat sebelumnya tapi pada projek Nuxt yang tidak memiliki `router.js` hal ini menjadi dibutuhkan. Namun tidak menutup kemungkinan juga kita melakukan hal seperti ini pada projek Vue, kembali pada preferensi masing-masing lebih memilih kode yang mana.
 
-Sebagai catatan, `Vue Router` mungkin tidak akan memberikan error ketika kita memindahkan sebuah `route` ke alamat yang tidak dikenal atau belum didefinisikan sebelumnya, namun kita bisa mengetahui apakah proses pemindahan itu berhasil atau tidak dari posisi `route` setelah pemindahan tersebut. Bila gagal, maka posisi `route` akan tetap sama seperti sebelumnya atau dalam kata lain tidak terjadi apa-apa pada objek `route` tersebut.
+Sebagai catatan, **Vue Router** mungkin tidak akan memberikan error ketika kita memindahkan sebuah *route* ke alamat yang tidak dikenal atau belum didefinisikan sebelumnya, namun kita bisa mengetahui apakah proses pemindahan itu berhasil atau tidak dari posisi *route* setelah pemindahan tersebut. Bila gagal, maka posisi *route* akan tetap sama seperti sebelumnya atau dalam kata lain tidak terjadi apa-apa pada objek *route* tersebut.
 
-## Testing Vuex
+<h2 id="Testing-Vuex">Testing Vuex</h2>
 
 [Vuex ↗️](https://vuex.vuejs.org/) merupakan salah satu pustaka yang sering sekali kita gunakan dalam suatu projek. Vuex menjadi satu-satunya pilihan yang paling mumpuni sebagai manajemen state pada Vue untuk saat ini. Berikut beberapa hal yang akan sering kita jumpai saat melakukan test pada aplikasi Vue yang menggunakan Vuex di dalamnya:
 
-### Testing Getters
+[🔼 Kembali ke navigasi](#navigasi)
 
-`Getters` biasanya digunakan ketika kita ingin melakukan manipulasi pada state sebelum digunakan di sebuah komponen tanpa mengubah nilai asli dari state tersebut.
+<h3 id="Testing-Getters">Testing Getters</h3>
 
-Contoh kode `getters` seperti berikut:
+*Getters* biasanya digunakan ketika kita ingin melakukan manipulasi pada state sebelum digunakan di sebuah komponen tanpa mengubah nilai asli dari state tersebut.
+
+Contoh kode *getters* seperti berikut:
 
 ```javascript
 export default {
@@ -815,9 +866,9 @@ export default {
 }
 ```
 
-Dari kode diatas kita mempunyai dua `getters` yakni `unreadMessages` dan `readMessages`. Keduanya digunakan untuk mengambil spesifik nilai dari sebuah daftar di state `messages`. Getters bisa di test seperti kode JavaScript biasa tanpa perlu melakukan *instance* Vuex Store terlebih dahulu, namun bisa juga kita test lewat *instance* Vuex Store bila memang dibutuhkan.
+Dari kode diatas kita mempunyai dua *getters* yakni `unreadMessages` dan `readMessages`. Keduanya digunakan untuk mengambil spesifik nilai dari sebuah daftar di state `messages`. Getters bisa di test seperti kode JavaScript biasa tanpa perlu melakukan *instance* Vuex Store terlebih dahulu, namun bisa juga kita test lewat *instance* Vuex Store bila memang dibutuhkan.
 
-Berikut contoh unit test untuk kode `getters` diatas:
+Berikut contoh unit test untuk kode *getters* diatas:
 
 ```javascript
 import store from '@/store/messages'
@@ -869,11 +920,13 @@ describe('Vuex Store: Messages', () => {
 })
 ```
 
-### Testing Mutations
+[🔼 Kembali ke navigasi](#navigasi)
 
-`Mutations` digunakan untuk mengubah nilai state, seperti kita tau bersama bahwa di Vuex terlarang untuk mengubah nilai state secara langsung. Semua perubahan state diharuskan untuk lewat `mutations`.
+<h3 id="Testing-Mutations">Testing Mutations</h3>
 
-Contoh kode `mutations` sebagai berikut:
+*Mutations* digunakan untuk mengubah nilai state, seperti kita tau bersama bahwa di Vuex terlarang untuk mengubah nilai state secara langsung. Semua perubahan state diharuskan untuk lewat *mutations*.
+
+Contoh kode *mutations* sebagai berikut:
 
 ```javascript
 export default {
@@ -918,7 +971,7 @@ describe('Vuex Store: Messages', () => {
 })
 ```
 
-Kita bisa juga melakukan test dengan menggunakan *instance* Vuex Store untuk mengakses `mutations` seperti berikut:
+Kita bisa juga melakukan test dengan menggunakan *instance* Vuex Store untuk mengakses *mutations* seperti berikut:
 
 ```javascript
 import Vuex from 'vuex';
@@ -950,9 +1003,11 @@ describe('Vuex Store: Messages', () => {
 })
 ```
 
-### Testing Actions
+[🔼 Kembali ke navigasi](#navigasi)
 
-`Actions` digunakan untuk mengeksekusi berbagai fungsi yang tidak berjalan sinkron (*asynchronous*), berikut contoh kode Actions:
+<h3 id="Testing-Actions">Testing Actions</h3>
+
+*Actions* digunakan untuk mengeksekusi berbagai fungsi yang tidak berjalan sinkron (*asynchronous*), berikut contoh kode Actions:
 
 ```javascript
 import axios from 'axios'
@@ -1048,7 +1103,9 @@ describe('Vuex Store: Messages', () => {
 })
 ```
 
-### Testing Vuex di Komponen
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h3 id="Testing-Vuex-di-Komponen">Testing Vuex di Komponen</h3>
 
 Bila sebelumnya kita melakukan test langsung pada berkas Vuex itu sendiri, berikutnya kita akan memberikan contoh ketika kita menggunakan Vuex di komponen. Pada dasarnya sama saja, kita hanya perlu melakukan *instance* Vuex Store agar bisa menggunakan berbagai fitur Vuex di komponen. Bedanya hanya kita harus menambahkan `localVue` dari `@vue/test-utils` untuk memasangkan Vuex ke dalam komponen yang akan kita test. Berikut contoh kodenya:
 
@@ -1217,7 +1274,9 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-## Testing Dengan Vue-i18n
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Testing-dengan-Vue-i18n">Testing dengan Vue-i18n</h2>
 
 [Vue-i18n ↗️](http://kazupon.github.io/vue-i18n/) menjadi salah satu pilihan terbaik bila kita ingin mendukung beberapa bahasa dalam sebuah projek Vue kita. Dengan Menggunakan Vue-i18n akan membuat cara kita melakukan unit test sedikit berbeda dibandingkan ketika tidak menggunakannya.
 
@@ -1294,7 +1353,9 @@ describe("HelloWorld", () => {
 })
 ```
 
-## Testing Pemanggilan Rest API
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Testing-Pemanggilan-Rest-API">Testing Pemanggilan Rest API</h2>
 
 Memanggil sebuah Rest API menjadi tulang punggung yang banyak digunakan saat ini sebagai media komunikasi frontend-backend. Semakin kompleks aplikasi biasanya semakin banyak pula pemanggilan ini tersebar di berbagai tempat pada projek kita.
 
@@ -1305,7 +1366,7 @@ Beberapa hal yang mesti kalian tau mengenai Fetch API dan pustaka Axios berkaita
 + Fetch API akan mengembalikan dua level `Promise` yang bersarang, kalian perlu memanggil `response.json()` untuk mendapatkan Promise yang kedua, barulah di dalam Promise kedua ini kalian bisa mendapati nilai yang diinginkan.
 + Fetch API merupakan API bawaan dari peramban, bisa diakses lewat objek `window` yang direfreksikan lewat objek `global` di dalam Jest.
 + Menggunakan Axios kita tidak perlu menggunakan Promise dua kali.
-+ Response dari Axios terletak di properti `data` dari objek `response`.
++ Response dari Axios terletak di properti *data* dari objek `response`.
 + Dalam unit test sebisa mungkin kita tidak melakukan pemanggilan Rest API yang sesungguhnya, kita cukup melakukan simulasi terjadinya pemanggilan Rest API.
 
 Berikut contoh kode ketika kita melakukan pemanggilan Rest API menggunakan Fetch API:
@@ -1431,9 +1492,11 @@ describe('HelloWorld.vue', () => {
 })
 ```
 
-## Referensi
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Referensi">Referensi</h2>
 
 1. [https://www.guru99.com/unit-testing-guide.html ↗️](https://www.guru99.com/unit-testing-guide.html)
-2. [https://howtodoinjava.com/best-practices/first-principles-for-good-tests/](https://howtodoinjava.com/best-practices/first-principles-for-good-tests/)
+2. [https://howtodoinjava.com/best-practices/first-principles-for-good-tests/ ↗️](https://howtodoinjava.com/best-practices/first-principles-for-good-tests/)
 3. [https://lmiller1990.github.io/vue-testing-handbook/ ↗️](https://lmiller1990.github.io/vue-testing-handbook/)
 4. [https://vue-test-utils.vuejs.org/ ↗️](https://vue-test-utils.vuejs.org/)

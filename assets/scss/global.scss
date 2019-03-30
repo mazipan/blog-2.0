@@ -1,3 +1,5 @@
+$mobile-breakpoint: 640px;
+
 :root {
   /* color pallete from https://github.com/dracula/dracula-theme */
   --bg: #282a36;
@@ -15,7 +17,6 @@
 body {
   font-family: 'Merriweather Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
-
 
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -56,21 +57,6 @@ blockquote {
   font-size: 110%;
 }
 
-:not(pre)>code[class*="language-"],
-pre[class*="language-"] {
-  border-radius: 10px !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: var(--bgLighter) !important;
-  border: 4px solid var(--textLink);
-}
-
-code:not([class*="language-"]) {
-  background-color: var(--bgLighter);
-  color: var(--textLink);
-  padding: .10em .5em;
-  border-radius: .25em;
-}
-
 small {
   font-size: 80%;
 }
@@ -89,47 +75,25 @@ small {
 .meta {
   display: flex;
   align-items: center;
+
   &__date {
     color: var(--textSubtitle);
   }
-}
 
-/* Color */
-
-.text-normal {
-  color: var(--textNormal);
-}
-
-.text-title {
-  color: var(--textTitle);
-}
-
-.text-subtitle {
-  color: var(--textSubtitle);
-}
-
-.text-link {
-  color: var(--textLink);
-}
-
-.text-highlight {
-  color: var(--textHighlight);
-}
-
-.text-warning {
-  color: var(--textWarning);
-}
-
-.text-danger {
-  color: var(--textDanger);
-}
-
-.text-secondary {
-  color: var(--textSecondary);
+  &--desktop {
+    @media screen and (max-width: $mobile-breakpoint){
+      display: none;
+    }
+  }
+  &--mobile {
+    display: none;
+    @media screen and (max-width: $mobile-breakpoint){
+      display: block;
+    }
+  }
 }
 
 /* Spacing */
-
 .space-bottom {
   margin-bottom: 1em;
 }
@@ -165,28 +129,14 @@ small {
   animation-fill-mode: both;
 }
 
-/* override prism theme */
-.token.keyword {
-  color: var(--textLink) !important;
-  font-style: italic;
-}
-.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string, .token.variable,
-.token.boolean, .token.number {
-  color: var(--textSubtitle) !important;
-}
-.token.property, .token.tag, .token.constant, .token.symbol, .token.deleted {
-  color: var(--textHighlight) !important;
-}
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: var(--textTitle) !important;
+
+/* Query for mobile only*/
+@media screen and (max-width: $mobile-breakpoint){
 }
 
-.token.comment, .token.prolog, .token.doctype, .token.cdata {
-  color: var(--textSecondary) !important;
-  font-style: italic;
+/* Query for desktop only*/
+@media screen and (min-width: $mobile-breakpoint){
 }
+
+@import 'text';
+@import 'prism-custom';
