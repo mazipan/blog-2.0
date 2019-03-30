@@ -4,7 +4,13 @@
       <h1>About</h1>
     </div>
     <div>
-      Hello, my name is Irfan Maulana, software engineer from Indonesia.
+      Hi, I am Irfan Maulana. Software Architect in Bizzy Indonesia, former Software Engineer in Blibli.com and SML Technologies.
+      <br>
+      An experience software engineer especially in frontend side. Having deep knowledge in HTML, CSS (with it's pre-processor) and JavaScript with various framework. Write good quality, well tested, and fast delivered code.
+      <br>
+      Experience in architecting frontend codebase.
+      <br>
+      Well known figure in programming community, open-source creator, and writer for many technical article.
     </div>
   </div>
 </template>
