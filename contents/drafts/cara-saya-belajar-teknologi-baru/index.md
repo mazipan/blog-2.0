@@ -24,7 +24,6 @@ Saya orangnya malesan untuk belajar hal baru kalau gak ada sebabnya, makanya nya
 + Saya belajar SASS (CSS Pre-processor) dan konvensi BEM karena permasalahan pada saat itu membutuhkan dua teknologi ini untuk pemecahannya
 + Saya belajar Vue karena digunakan di kantor, saya gak mau kalau saya tidak paham dengan apa yang saya kerjakan sehari-hari
 + Saya belajar TypeScript karena sadar kalau saya lebih senang dengan sintaksis yang *type safe*
-+ Saya belajar React karena tau kalau saya akan kesulitan mencari pekerjaan ketika "cuma" mengandalkan Vue
 + Dan berbagai motivasi lain yang berbeda-beda
 
 ## Cari Waktu Luang
@@ -33,7 +32,7 @@ Cari waktu yang pas untuk belajar karena saya masih *full time employee* di peru
 
 Saya biasanya nyari waktu yang santai, kaya pas malem hari atau waktu sore menjelang maghrib untuk baca-baca hal yang ringan dan bisa *nyambi* seperti baca dokumentasi resmi atau sekedar artikel yang bisa jadi *trigger* untuk belajar lebih lanjut.
 
-Sedangkan untuk belajar dengan lebih intens tentu saya butuh waktu yang lebih kondusif seperti sehabis maghrib atau kapanpun ketika lagi *magabut*.
+Sedangkan untuk belajar dengan lebih intens tentu saya butuh waktu yang lebih kondusif seperti sehabis maghrib atau kapanpun ketika lagi *magabut* seharian.
 
 ## Pahami Esensinya
 
@@ -45,6 +44,6 @@ Sedangkan untuk belajar dengan lebih intens tentu saya butuh waktu yang lebih ko
 
 ## Meminta Umpan Balik
 
-## Iterasikan
+## Jangan Mudah Puas
 
 Semoga bermanfaat...
