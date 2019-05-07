@@ -23,7 +23,7 @@
   "dependencies": {
     "@nuxtjs/dotenv": "1.3.0",
     "@nuxtjs/google-analytics": "2.2.0",
-    "@nuxtjs/pwa": "3.0.0-beta.14",
+    "@nuxtjs/pwa": "3.0.0-beta.16",
     "@nuxtjs/sitemap": "1.1.0",
     "firebase": "5.11.1",
     "modern-normalize": "0.5.0",
