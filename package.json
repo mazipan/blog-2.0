@@ -25,7 +25,7 @@
     "@nuxtjs/google-analytics": "2.2.0",
     "@nuxtjs/pwa": "3.0.0-beta.16",
     "@nuxtjs/sitemap": "1.1.0",
-    "firebase": "6.0.1",
+    "firebase": "6.0.2",
     "modern-normalize": "0.5.0",
     "nuxt": "2.6.3",
     "nuxt-webfontloader": "1.0.0",
