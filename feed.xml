@@ -9,7 +9,7 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 14 May 2019 19:44:31 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 May 2019 06:29:48 GMT</lastBuildDate>
         <item>
             <title><![CDATA[Panduan Unit Testing di Vue.js]]></title>
             <description><![CDATA[Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan Nuxt.js dengan belajar dari berbagai kasus yang terjadi pada proyek nyata]]></description>
@@ -49,14 +49,6 @@
             <guid isPermaLink="false">eslint-formatter-html-extended</guid>
             <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
             <pubDate>Tue, 19 Feb 2019 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Developing Blog 2.0 with Nuxt.js]]></title>
-            <description><![CDATA[Explaining how static site called Blog 2.0 was built using Nuxt.js]]></description>
-            <link>https://www.mazipan.xyz/blog-2-0-in-nuxtjs</link>
-            <guid isPermaLink="false">blog-2-0-in-nuxtjs</guid>
-            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
-            <pubDate>Mon, 18 Feb 2019 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
