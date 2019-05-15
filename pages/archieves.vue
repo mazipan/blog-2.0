@@ -61,7 +61,7 @@ export default {
   },
   async asyncData ({ store }) {
     async function asyncImport (blogName) {
-      const allMarkdown = await import(`~/contents/markdown/${blogName}/index.md`)
+      const allMarkdown = await import(`~/contents/published/${blogName}/index.md`)
       return allMarkdown.attributes
     }
     return Promise.all(Contents.map(blog => asyncImport(blog)))

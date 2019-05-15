@@ -43,7 +43,7 @@ export default {
   },
   async asyncData ({ store }) {
     async function asyncImport (blogSlug) {
-      const allMarkdown = await import(`~/contents/markdown/${blogSlug}/index.md`)
+      const allMarkdown = await import(`~/contents/published/${blogSlug}/index.md`)
       return allMarkdown.attributes
     }
 

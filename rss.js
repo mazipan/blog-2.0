@@ -18,7 +18,7 @@ let FEED_RSS = new RSS({
 
 function generateFeedData (data) {
   data.forEach(item => {
-    const file = path.resolve(__dirname, `./contents/markdown/${item}/index.md`)
+    const file = path.resolve(__dirname, `./contents/published/${item}/index.md`)
     const fileContent = fs.readFileSync(file, 'utf8')
     markdown(fileContent, function (err, result) {
       if (err) {

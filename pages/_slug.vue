@@ -188,7 +188,7 @@ export default {
     }
   },
   async asyncData ({ params }) {
-    const fileContent = await import(`~/contents/markdown/${params.slug}/index.md`)
+    const fileContent = await import(`~/contents/published/${params.slug}/index.md`)
 
     const attr = fileContent.attributes
     return {

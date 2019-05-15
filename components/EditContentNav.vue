@@ -32,7 +32,7 @@ export default {
       if (this.isDraft) {
         return `https://github.com/mazipan/blog-2.0/edit/master/contents/drafts/${this.slug}/index.md`
       }
-      return `https://github.com/mazipan/blog-2.0/edit/master/contents/markdown/${this.slug}/index.md`
+      return `https://github.com/mazipan/blog-2.0/edit/master/contents/published/${this.slug}/index.md`
     }
   }
 }
