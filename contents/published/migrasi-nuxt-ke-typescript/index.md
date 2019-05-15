@@ -286,4 +286,8 @@ module.exports = {
 }
 ```
 
+## Repository sumber
+
+[🐙 https://github.com/mazipan/quran-offline ↗️](https://github.com/mazipan/quran-offline)
+
 ### Demikian artikel kali ini, semoga bermanfaat...
