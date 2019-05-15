@@ -261,7 +261,7 @@ export default class DefaultLayout extends Vue {
 
 Seperti bisa kalian lihat dari contoh kode diatas, saya menggunakan [vue-property-decorator ↗️](https://github.com/kaorun343/vue-property-decorator) untuk mendefinisikan komponen tersebut serta menggunakan [vuex-class ↗️](https://github.com/ktsn/vuex-class) untuk melakukan binding terhadap Vuex Store yang telah dibuat sebelumnya agar bisa digunakan di dalam komponen. Silakan kunjungi tautan masing-masing untuk mempelajari lebih lanjut mengenai apa saja yang bisa dan tidak bisa kita lakukan dengan `vue-property-decorator` maupun `vuex-class`.
 
-## Refactor Jets Config
+## Refactor Jest Config
 
 Unit test hampir tidak diperlukan perubahan sama sekali selain dari path dan nama file yang kemungkinan besar kita ubah nama dan letaknya. Kita hanya perlu mencocokan konfigurasi Jest agar mendukung TypeScript seperti pada contoh kode berikut:
 
