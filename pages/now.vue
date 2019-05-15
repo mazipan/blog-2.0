@@ -4,10 +4,13 @@
       <h1>Now</h1>
     </div>
     <ul>
+      <li>Step out from Facebook, Instagram and Twitter for temporary</li>
       <li>Helping Vue.js Indonesia translating official documentation to Bahasa Indonesia</li>
-      <li>Doing cool things in Bizzy Indonesia</li>
+      <li>Learning about TypeScript</li>
+      <li>Learning about React and it's ecosystems</li>
+      <li>Preparing next journey</li>
+      <li>Try to reading some non-technical books</li>
       <li>Spending time with my two child as much as I can</li>
-      <li>Learning about Monorepo and create POC for that</li>
     </ul>
   </div>
 </template>
