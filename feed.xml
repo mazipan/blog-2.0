@@ -9,7 +9,7 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 15 May 2019 08:10:36 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 May 2019 08:33:34 GMT</lastBuildDate>
         <item>
             <title><![CDATA[Migrasi Nuxt ke TypeScript]]></title>
             <description><![CDATA[Menceritakan beberapa langkah yang saya kerjakan ketika melakukan migrasi project Nuxt dari menggunakan JavaScript vanilla menjadi menggunakan TypeScript]]></description>
