@@ -6,7 +6,7 @@
         <nuxt-link
           to="/">
           <img
-            src="/images/profile-rounded.png"
+            src="/images/profile.png"
             alt="@mazipan"
             class="profile__img">
         </nuxt-link>
