@@ -4,6 +4,7 @@ slug: eslint-formatter-html-extended
 date: '2019-02-19'
 minute2read: 3
 description: Why I decide to extending official ESLint's HTML formatter
+categories: [javascript, eslint]
 ---
 
 ## Background Story ⛈

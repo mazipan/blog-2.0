@@ -4,6 +4,7 @@ slug: membuat-blog-keren-dengan-gridsome
 date: '2019-03-14'
 minute2read: 10
 description: Bagaimana memulai membuat Blog statis keren menggunakan Vue.js static site generator Gridsome dalam waktu yang singkat
+categories: [javascript, gridsome]
 ---
 
 ## Mengenal Blog Statis
