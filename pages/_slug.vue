@@ -175,7 +175,7 @@ export default {
       return encodeURIComponent(`${this.meta.description}`)
     },
     encodedUrl () {
-      return encodeURIComponent(`${this.productionUrl}/${this.meta.slug}`)
+      return encodeURIComponent(`${this.productionUrl}/${this.meta.slug}?utm_source=sosial-share`)
     },
     fbLinkShare () {
       return `https://www.facebook.com/sharer/sharer.php?u=${this.encodedUrl}&title=${this.encodedTitle}&description=${this.encodedDesc}&quote=${this.encodedDesc}`
