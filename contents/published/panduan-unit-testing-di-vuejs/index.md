@@ -171,7 +171,7 @@ Jalankan unit test dengan perintah `yarn test`.
 
 <h3 id="Memasang-Jest-pada-Nuxt-secara-manual">Memasang Jest pada Nuxt secara manual</h3>
 
-Hampir tidak ada perbedaan dengan bagian [Memasang Jest pada tanpa Vue-CLI ↗️](#Memasang-Jest-pada-tanpa-Vue-CLI) pada projek Vue biasa tanpa Nuxt. Perbedaan mungkin hanya ada pada konfigurasi `babel`, karena pada Vue-CLI kita memanfaatkan babel presets dari Vue yang telah terpasang pada saat membuat projek Vue.
+Hampir tidak ada perbedaan dengan bagian [Memasang Jest tanpa Vue-CLI ↗️](#Memasang-Jest-tanpa-Vue-CLI) pada projek Vue biasa tanpa Nuxt. Perbedaan mungkin hanya ada pada konfigurasi `babel`, karena pada Vue-CLI kita memanfaatkan babel presets dari Vue yang telah terpasang pada saat membuat projek Vue.
 
 Kita cukup melakukan konfigurasi babel untuk environment "test" karena projek Nuxt sudah memiliki konfigurasi babel bawaan, seperti berikut contohnya:
 
