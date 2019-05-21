@@ -8,7 +8,7 @@
         src="/images/profile-rounded.png"
         alt="@mazipan">
 
-      <br>Hi, I am Irfan Maulana. 
+      <br><br>Hi, I am Irfan Maulana. 
       <br><br>Software Architect in Bizzy Indonesia, former Software Engineer in Blibli.com and SML Technologies.
       <br><br>An experience software engineer especially in frontend side. 
       <br>Having deep knowledge in HTML, CSS (with it's pre-processor) and JavaScript with various framework. 
