@@ -10,7 +10,6 @@
       <li>Learning about React and it's ecosystems 🍜</li>
       <li>Preparing next journey 🚀</li>
       <li>Try to reading some non-technical books 📚</li>
-  
     </ul>
   </div>
 </template>
