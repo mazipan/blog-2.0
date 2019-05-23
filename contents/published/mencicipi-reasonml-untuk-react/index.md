@@ -62,10 +62,50 @@ Membuat proyek sendiri berdasarkan proyek yang sudah jadi lebih mudah bagi saya 
 
 ## Yang saya pelajari sampai saat ini
 
-### Mengatur tipe data
+### Menentukan tipe data
+
+Karena type safe, jadi kita mesti tau bagaimana membuat tipe data yang benar agar efektif. Meskipun pada ReasonML kita hampir tidak perlu menyebutkan tipe data yang dibutuhkan pada setiap fungsi yang dibuat, namun ReasonML akan selalu mengecek validitas tipe data yang digunakan pada setiap build.
+
+Tentu proyek pertama saya sangat cupu, jauh dari kata benar. Termasuk penentuan tipe data, seperti ada satu bagian yang saya menentukan menggunakan List padahal seharusnya lebih efektif bila menggunakan Map. Saya juga harus membuat definisi tipe data dari berbagai response yang saya ambil dari pihak ketiga agar mudah ketika dibaca di tempat lain.
+
 ### "Return" yang tidak terlihat
-### Mengatur struktur folder pada projek ReasonML
+
+Setiap fungsi di ReasonML harus mengembalikan nilai meskipun kita tidak perlu secara langsung menentukan baris mana yang menjadi balikan. ReasonML secara otomatis akan membaca baris terakhir sebagai balikan dari fungsi yang kalian buat. Ini seringkali terlupakan oleh saya yang terlalu terbiasa ngoding JavaScript.
+
+### Immutable Data
+
+Temen-temen yang terbiasa dengan React sebenarnya mestinya sudah terbiasa dengan immutable data, namun tidak dengan saya yang biasanya menggunakan Vue sebagai framework utama sehari-hari. Vue yang mengedepankan Reactivitynya menjadi susah untuk implementasi immutable data. Di ReasonML hal ini secara native didukung oleh bahasanya, meskipun sebenarnya kita masih bisa mengubah nilai variable menggunakan `ref` dari variable tersebut.
+
+### Dukungan "Hooks" secara bawaan
+
+Reason dengan ReasonReact-nya secara bawaan sudah mendukung dan merekomendasikan menggunakan Hooks di komponennya, sehingga memaksa kita secara tidak langsung untuk belajar dan menggunakan lebih banyak fitur ini.
+
+### Perbedaan sintaksis pada Siklus Hidup
+
+Bila pada React kita menggunakan `componentDidMount` di ReasonReact kita bisa menggunakan `didMount` saja. Ya, cuma beda sintaksis aja sih. Tapi bisa cukup bikin bingung pas pertama kali. Berikut beberapa siklus hidup yang didukung di ReasonReact:
+
+| Siklus Hidup           | Parameter     |
+| ---------------------- |:-------------:|
+| `didMount`             | self          |
+| `willReceiveProps`     | self          |
+| `shouldUpdate`         | {oldSelf, newSelf} |
+| `willUpdate`           | {oldSelf, newSelf} |
+| `didUpdate`            | {oldSelf, newSelf} |
+| `willUnmount`          | self          |
+
+Selengkapnya baca [disini ↗️](https://github.com/reasonml/reason-react/blob/master/docs/lifecycles.md)
+
+### Mengatur struktur direktori pada projek ReasonML
+
+Awalnya saya mengikuti contoh pada HackerNews yang menerapkan Flat Structure diaman semua file ada pada satu direktori yang sama, namun memang menjadi "kotor" dan berantakan seiring semakin banyaknya berkas di dalamnya.
+
+Untungnya mas [Muhammad Ridho Assuryadi ↗️](https://github.com/muhammadridho) membantu saya untuk merapikan dan memperbaiki struktur dari proyek ini. Memisahkan berkas ke direktori yang berbeda-beda tergantung fungsinya. Hal ini memang sempat membingungankan saya, sebab di ReasonML kita tidak melakukan *import* berdasarkan lokasi *Path* sebuah berkas seperti yang biasa kita lakukan di JavaScript sehingga bisa menimbulkan kerancuan bila tidak menerapkan *namespace* dengan benar pada dua berkas yang sama namanya.
+
 ### Konvensi
+
+Saya sampai sekarang belum menemukan referensi yang pas untuk belajar mengenai konvensi yang benar dan umum di terapkan di ReasonML, seperti penggunaan case apakah menggunakan camelCase atau kebab-case. Sementara berdasarkan dari kode yang di push oleh mas [Muhammad Ridho Assuryadi ↗️](https://github.com/muhammadridho) sendiri masih menggunakan dua hal yang berbeda ini di beberapa tempatnya.
+
+Nanti saya akan perbarui post ini bila sudah menemukan referensi yang tepat untuk hal ini.
 
 ## Repositori hasil belajar
 

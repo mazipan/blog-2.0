@@ -61,6 +61,32 @@ small {
   font-size: 80%;
 }
 
+table{
+  display: block;
+  overflow: auto;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th{
+    border: 1px solid #dfe2e5;
+    padding: 13px;
+    font-weight: 600;
+  }
+
+  tr{
+    td{
+      border: 1px solid #c6cbd1;
+      padding: 8px 13px;
+      text-align: left;
+    }
+  }
+
+  tr:nth-child(2n) {
+    background-color: #3c3e50;
+  }
+}
+
 .flex {
   display: flex;
   &--center {

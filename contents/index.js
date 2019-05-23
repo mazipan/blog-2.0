@@ -3,6 +3,7 @@
  * Should sort based on newest published date
  */
 module.exports = [
+  'mencicipi-reasonml-untuk-react',
   'migrasi-nuxt-ke-typescript',
   'panduan-unit-testing-di-vuejs',
   'membuat-blog-keren-dengan-gridsome',
