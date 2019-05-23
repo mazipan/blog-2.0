@@ -814,166 +814,166 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@firebase/app-types@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.4.0.tgz#bb2c651f3b275fef549050cff28af752839c75c0"
-  integrity sha512-8erNMHc0V26gA6Nj4W9laVrQrXHsj9K2TEM7eL2IQogGSHLL4vet3UNekYfcGQ2cjfvwUjMzd+BNS/8S7GnfiA==
+"@firebase/app-types@0.4.0-canary.412cff9":
+  version "0.4.0-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.4.0-canary.412cff9.tgz#b46a5955dfc878900ccc782565118c2bbdc390ea"
+  integrity sha512-X7GACcRoutvu5SBSrA4rcQ2E78A0ujp1aD2IJUcrONVq/pG8Kd/cMHeDr/D2S+PXd/e/VsRcKl6N9AMUbv8dog==
 
-"@firebase/app@0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@firebase/app/-/app-0.4.2.tgz#8393aafcff8578aad0a1c5089c2c190b50572fac"
-  integrity sha512-dRwmlc0l72KrQX1qlLWrLCfi+KVjD+e8iGwZiCQWwt6e+pxSqGjxfTfYEflNE9U77iinBZg5B3JRAp4xHtl7/Q==
+"@firebase/app@0.4.2-canary.412cff9":
+  version "0.4.2-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/app/-/app-0.4.2-canary.412cff9.tgz#3383658cd90846e383c598bbe87595fbaf025607"
+  integrity sha512-WOlNJs0u8dgLgAlJh3J1Zryzleq0Krp5AcA0lMdfjPCP8vWMKuI1HeIKWB3L0im+GbjsPTs1kQFKZl5siC4LSA==
   dependencies:
-    "@firebase/app-types" "0.4.0"
-    "@firebase/logger" "0.1.14"
-    "@firebase/util" "0.2.16"
+    "@firebase/app-types" "0.4.0-canary.412cff9"
+    "@firebase/logger" "0.1.14-canary.412cff9"
+    "@firebase/util" "0.2.16-canary.412cff9"
     dom-storage "2.1.0"
     tslib "1.9.3"
     xmlhttprequest "1.8.0"
 
-"@firebase/auth-types@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@firebase/auth-types/-/auth-types-0.7.0.tgz#8aac4b9c04aff61362827c35b5ad36db16a837ba"
-  integrity sha512-QEG9azYwssGWcb4NaKFHe3Piez0SG46nRlu76HM4/ob0sjjNpNTY1Z5C3IoeJYknp2kMzuQi0TTW8tjEgkUAUA==
+"@firebase/auth-types@0.7.0-canary.412cff9":
+  version "0.7.0-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/auth-types/-/auth-types-0.7.0-canary.412cff9.tgz#8c1c07df83a9f2805ce4d8124da58d61c6cff467"
+  integrity sha512-dPCpGrDxbsUr/fBoFhIDH10IroQ3lIbZ1Ch8VBBGxJJMBiEECK9lbYe9DXm4eC9/HlrRPFuKkwRQA7w6VIc/Xg==
 
-"@firebase/auth@0.11.2":
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/@firebase/auth/-/auth-0.11.2.tgz#a75fd7d7be11d670c23d56395458f92d0cc205bd"
-  integrity sha512-vx8rP85rxKg4oOhPROrQqXvFhFNCy2jCHd359mugfm3VBezBGqs15KHTFGL+agQY9hdhVbGw+EIGk3Y/ou/9zw==
+"@firebase/auth@0.11.2-canary.412cff9":
+  version "0.11.2-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/auth/-/auth-0.11.2-canary.412cff9.tgz#f522e14f27062e9f1e3c64445bcfa41220d715d1"
+  integrity sha512-lyx72xEFGCjwalEYqMYrdf+3ex2YvWQvdK8j8JzCueUemNYiRJT+jhqo6R6ZTrjTxRRQjcNI+HjfcH+539db9w==
   dependencies:
-    "@firebase/auth-types" "0.7.0"
+    "@firebase/auth-types" "0.7.0-canary.412cff9"
 
-"@firebase/database-types@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@firebase/database-types/-/database-types-0.4.0.tgz#71a711a3f666fac905422e130731930e2bcca582"
-  integrity sha512-2piRYW7t+2s/P1NPpcI/3+8Y5l2WnJhm9KACoXW5zmoAPlya8R1aEaR2dNHLNePTMHdg04miEDD9fEz4xUqzZA==
+"@firebase/database-types@0.4.0-canary.412cff9":
+  version "0.4.0-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/database-types/-/database-types-0.4.0-canary.412cff9.tgz#7e59fb56253a65ce0e2105838282005f3428ca53"
+  integrity sha512-/JH9hLE6sYQs1ZXj26Yjo/Ql+y0BG1QKpbnQ7Zg0f/5p6QlHxQt98Ao9qTyWiO7m4aLo7+2LtSryno09Q7ax3Q==
 
-"@firebase/database@0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@firebase/database/-/database-0.4.2.tgz#cd90243f43b30f4a8aa03546e64b1bada34b82a0"
-  integrity sha512-pECztfLOBOmhWhzieUn07HcMJNA72IQp9fiy5/LXKky68gTLXI2ZOxWehWaN8ljTykVv8ZHpk8DZLK+PN98+QQ==
+"@firebase/database@0.4.2-canary.412cff9":
+  version "0.4.2-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/database/-/database-0.4.2-canary.412cff9.tgz#2136076fbd6f29f559805bdc615f834e1ed7e7bd"
+  integrity sha512-8bKC7iRunhZAJVH708lwWJwK2CF4tGpSGA53qw/fjy0C9juGTi0+lXDi1MpduM9ps51FreuKwMEExwN73tEOkw==
   dependencies:
-    "@firebase/database-types" "0.4.0"
-    "@firebase/logger" "0.1.14"
-    "@firebase/util" "0.2.16"
+    "@firebase/database-types" "0.4.0-canary.412cff9"
+    "@firebase/logger" "0.1.14-canary.412cff9"
+    "@firebase/util" "0.2.16-canary.412cff9"
     faye-websocket "0.11.1"
     tslib "1.9.3"
 
-"@firebase/firestore-types@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-1.3.0.tgz#a32c132fff2bc77d36b6e864a3cc76c9cb75c965"
-  integrity sha512-XPnfAaYsKgYivgl/U1+M5ulBG9Hxv52zrZR5TuaoKCU791t/E3K85rT1ZGtEHu9Fj4CPTep2NSl8I30MQpUlHA==
+"@firebase/firestore-types@1.3.0-canary.412cff9":
+  version "1.3.0-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-1.3.0-canary.412cff9.tgz#5fb71086b2ef6cbdb52ad77f3b02b5f75d7097ed"
+  integrity sha512-SsAHrPJkVpXGVuWV9lJpCGzSSjtrnGzcYpDXtJB/Ys/moFbv9sBRlg7DTAcvtqoDrjDCYWR7riE0z0eO7LB0bg==
 
-"@firebase/firestore@1.3.2":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-1.3.2.tgz#c34993cbead76a9a4bfa75b811d6079e9551eb81"
-  integrity sha512-dyAYlSZbjkEuZEb4XdDi3LGVF6SVZxaeXvVpCmhYeZ7o5TUr32KjS6RmOsFz+Ps+CyfYoKiXUHzjLMnilarG9w==
+"@firebase/firestore@1.3.2-canary.412cff9":
+  version "1.3.2-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-1.3.2-canary.412cff9.tgz#270b141845a271500489f63b84a0f03a6cfe3668"
+  integrity sha512-oSPLrQMbJRGWFnRMHdGAYfXh0x9PjWvRw6wq1sHLn+Qab3xm24D6emTwIIGU2VoQaTrrPKlqKCrh+MVkeVq16A==
   dependencies:
-    "@firebase/firestore-types" "1.3.0"
-    "@firebase/logger" "0.1.14"
-    "@firebase/webchannel-wrapper" "0.2.20"
+    "@firebase/firestore-types" "1.3.0-canary.412cff9"
+    "@firebase/logger" "0.1.14-canary.412cff9"
+    "@firebase/webchannel-wrapper" "0.2.20-canary.412cff9"
     "@grpc/grpc-js" "0.4.0"
     "@grpc/proto-loader" "^0.5.0"
     tslib "1.9.3"
 
-"@firebase/functions-types@0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@firebase/functions-types/-/functions-types-0.3.5.tgz#1fae28b0bbb89fd0629a353eafbc53e8d6e073e2"
-  integrity sha512-3hTMqfSugCfxzT6vZPbzQ58G4941rsFr99fWKXGKFAl2QpdMBCnKmEKdg/p5M47xIPyzIQn6NMF5kCo/eICXhA==
+"@firebase/functions-types@0.3.5-canary.412cff9":
+  version "0.3.5-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/functions-types/-/functions-types-0.3.5-canary.412cff9.tgz#774e407708c31005bb081cb6c257b6409bffad2b"
+  integrity sha512-E/HowJUaaJMKWtr+aJdYwhNeHN180AkSdOPUzJCbyau1rkHo7DXekZcxncUC5OlxHVpby7h6Fi4qtCKKmasm7Q==
 
-"@firebase/functions@0.4.7":
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/@firebase/functions/-/functions-0.4.7.tgz#e4dc4994adf01ceb0ede11bf953ceb13761c23fa"
-  integrity sha512-k0Rn2c1Nsb90Qwk9O2JCSPoH6ozxyp0WZgIPU2OoLzYrrg+fVdcEnG3Sb1YhlOU5yRA9Nuxh1pPBQA3/e/A98g==
+"@firebase/functions@0.4.7-canary.412cff9":
+  version "0.4.7-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/functions/-/functions-0.4.7-canary.412cff9.tgz#a27f9114bc177c2e123a93f9340a94f2854d5d5c"
+  integrity sha512-tk1Vm2yxxeLhM2dvSgSyEVBo+Dx6Bhq6rTqfsD6WEDCgAamUxf06jRC+7/GAsU9lloSB261sJckQq72dwwef0g==
   dependencies:
-    "@firebase/functions-types" "0.3.5"
-    "@firebase/messaging-types" "0.2.11"
+    "@firebase/functions-types" "0.3.5-canary.412cff9"
+    "@firebase/messaging-types" "0.2.11-canary.412cff9"
     isomorphic-fetch "2.2.1"
     tslib "1.9.3"
 
-"@firebase/installations-types@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@firebase/installations-types/-/installations-types-0.1.0.tgz#51c2d93d91ae6539f1a292f8d58d3d83e98cc9a2"
-  integrity sha512-cw2UIvPa3+umy6w7dGj0LqQQ9v7WEOro5s+6B+v54Tw25WyLnR6cBIkyyahv3Uu9QPnGZCIsemlQwxIaIOMb9g==
+"@firebase/installations-types@0.1.0-canary.412cff9":
+  version "0.1.0-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/installations-types/-/installations-types-0.1.0-canary.412cff9.tgz#a9014c999e580043ee741f045fd3b3b844bc2995"
+  integrity sha512-IJnQuOLeHO3b9iqtsCILISZ+OwUpylzTHe0hyv6GCgjyH3zvMOr3lGdk8SuefKObMa/SW/X0u2Df4cJLW8a4MQ==
 
-"@firebase/installations@0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@firebase/installations/-/installations-0.1.2.tgz#2503f758e61e5b50561f559d50af02c72eb4b11c"
-  integrity sha512-aDCCnude1Mb9Z9sPkF1rCclk+RztNuMIhAn0VxU9cjWqxj2CsgYvdRa9W5oDzfJv6QJQ30AzLCvwIxb5gOeoCQ==
+"@firebase/installations@0.1.2-canary.412cff9":
+  version "0.1.2-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/installations/-/installations-0.1.2-canary.412cff9.tgz#8507d5fa8ce2901a1fea6331c92532021e708996"
+  integrity sha512-paCaTniuVSY66jEc96O8BBM3RfXMbpgLB1KMbErrhiBiTKon7bGhu0BESdJNG4r9sAtJBLOLPMuq/YkpIIgGmA==
   dependencies:
-    "@firebase/installations-types" "0.1.0"
-    "@firebase/util" "0.2.16"
+    "@firebase/installations-types" "0.1.0-canary.412cff9"
+    "@firebase/util" "0.2.16-canary.412cff9"
     idb "3.0.2"
     tslib "1.9.3"
 
-"@firebase/logger@0.1.14":
-  version "0.1.14"
-  resolved "https://registry.yarnpkg.com/@firebase/logger/-/logger-0.1.14.tgz#e65e1f6bf86225b98a57018a2037b18dc4d79fae"
-  integrity sha512-WREaY2n6HzypeoovOjYefjLJqT9+zlI1wQlLMXnkSPhwuM+udIQ87orjVL6tfmuHW++u5bZh3JJAyvuRv/nciA==
+"@firebase/logger@0.1.14-canary.412cff9":
+  version "0.1.14-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/logger/-/logger-0.1.14-canary.412cff9.tgz#65252b9b1fd51d2a99034a5325fb1f35c1c29361"
+  integrity sha512-rO9RjPzLUbuDfuneq7Qd9JZW9P9HgxG/Gc6J851Dmcqph0ABxQSEkXKXhZUtp+INh5chNO5DZNNAzWe+kDRisA==
 
-"@firebase/messaging-types@0.2.11":
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/@firebase/messaging-types/-/messaging-types-0.2.11.tgz#b81d09c0aa6be7dbac421edff8100971c56d64e0"
-  integrity sha512-uWtzPMj1mAX8EbG68SnxE12Waz+hRuO7vtosUFePGBfxVNNmPx5vJyKZTz+hbM4P77XddshAiaEkyduro4gNgA==
+"@firebase/messaging-types@0.2.11-canary.412cff9":
+  version "0.2.11-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/messaging-types/-/messaging-types-0.2.11-canary.412cff9.tgz#ab30bd43691ca0937a641073b8cafc69d34d4996"
+  integrity sha512-JFQZachX3McPpdrbE5hdV4IQ7vRWGfNtPZJPjRR8qqHpyKNpYPb8SK24JIwsL4OtIFsPnK8AVHKYadK14NaRIg==
 
-"@firebase/messaging@0.3.21":
-  version "0.3.21"
-  resolved "https://registry.yarnpkg.com/@firebase/messaging/-/messaging-0.3.21.tgz#e1fe0935c012ee9eac6e18971985b0d212762a1f"
-  integrity sha512-yybhJzppmzqCxwwvVfkSymqZ/rhPrB6KXduaVOHkEmXG0YAdeSUHZqxjK+GfTMel0oBDrGvNNVaOWsXbuingqg==
+"@firebase/messaging@0.3.21-canary.412cff9":
+  version "0.3.21-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/messaging/-/messaging-0.3.21-canary.412cff9.tgz#69570faa1f7ca358b3bdc21441f0ec060eeac7a4"
+  integrity sha512-q7Q3Ue4lpkoJTJiQ5puz9hMkdKwioCupyDOul6gDWmRWlpdQ5qsNvrRy4d0V0Oer1+0nqURqBmLX+5b0ZSiEGA==
   dependencies:
-    "@firebase/messaging-types" "0.2.11"
-    "@firebase/util" "0.2.16"
+    "@firebase/messaging-types" "0.2.11-canary.412cff9"
+    "@firebase/util" "0.2.16-canary.412cff9"
     tslib "1.9.3"
 
-"@firebase/performance-types@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@firebase/performance-types/-/performance-types-0.0.1.tgz#749b6351f5f802ec7a9be5737546eeda18e7ac4a"
-  integrity sha512-U45GbVAnPyz7wPLd3FrWdTeaFSvgsnGfGK58VojfEMmFnMAixCM3qBv1XJ0xfhyKbK1xZN4+usWAR8F3CwRAXw==
+"@firebase/performance-types@0.0.1-canary.412cff9":
+  version "0.0.1-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/performance-types/-/performance-types-0.0.1-canary.412cff9.tgz#39d7619f842603f408d996197f6fb980d3c6c404"
+  integrity sha512-D6fbntbAsRLMqWr1YUU5YNkxIAa8/yQ/Mj5o+i9nhb8eG5QpsUO38zcoUQQHeY0MaRuSR8ZhI+5pOlHhslamcQ==
 
-"@firebase/performance@0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@firebase/performance/-/performance-0.2.3.tgz#64a11ccd9fd5073a77b1b9317bbf123d616ea4a8"
-  integrity sha512-+9aZZBPmENbzpief1NK+QTACHbOCwOu0E9coKipurQA7XidPO0oZvENtjJt+R/kDaYTJf1GXud181RDBWx3w9Q==
+"@firebase/performance@0.2.3-canary.412cff9":
+  version "0.2.3-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/performance/-/performance-0.2.3-canary.412cff9.tgz#ab54d283c4adc82623d5f7da4ddea8998a068408"
+  integrity sha512-+oh8K1HObXZeIlC6MPomI6b8W7LW7KEdzzF3XUMM0gZ2mAuMIvKXIiwfJbsyntrHtm0EAqEYRkpZrw3Hc5HmzQ==
   dependencies:
-    "@firebase/installations" "0.1.2"
-    "@firebase/logger" "0.1.14"
-    "@firebase/performance-types" "0.0.1"
-    "@firebase/util" "0.2.16"
+    "@firebase/installations" "0.1.2-canary.412cff9"
+    "@firebase/logger" "0.1.14-canary.412cff9"
+    "@firebase/performance-types" "0.0.1-canary.412cff9"
+    "@firebase/util" "0.2.16-canary.412cff9"
     tslib "1.9.3"
 
-"@firebase/polyfill@0.3.14":
-  version "0.3.14"
-  resolved "https://registry.yarnpkg.com/@firebase/polyfill/-/polyfill-0.3.14.tgz#2a3fe0bff207b5145902fe98d86098980eeb6704"
-  integrity sha512-MnJRIS2iqGfQ4SGFFZ441B1VBHgmHiGznpA3gN+FzSdqg9di4sIHw2gM0VOGS6e7jRJxYeyHL3rwzzU43kP+UQ==
+"@firebase/polyfill@0.3.14-canary.412cff9":
+  version "0.3.14-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/polyfill/-/polyfill-0.3.14-canary.412cff9.tgz#dd5f4fa33b244029d93e106cce8af980dcbb02fc"
+  integrity sha512-de+QtIiwgxcUPbVStykHDcxtDTnJwntq5d7mx3doB9vPmvPjgTL1vR/ZZKHqGzaysN/ECG1hiNwostKRkkdmoA==
   dependencies:
     core-js "3.0.1"
     promise-polyfill "8.1.0"
     whatwg-fetch "2.0.4"
 
-"@firebase/storage-types@0.2.11":
-  version "0.2.11"
-  resolved "https://registry.yarnpkg.com/@firebase/storage-types/-/storage-types-0.2.11.tgz#cbbcdca9bbd68c527ca2c2be2241d619126cb5b3"
-  integrity sha512-vGTFJmKbfScmCAVUamREIBTopr5Uusxd8xPAgNDxMZwICvdCjHO0UH0pZZj6iBQuwxLe/NEtFycPnu1kKT+TPw==
+"@firebase/storage-types@0.2.11-canary.412cff9":
+  version "0.2.11-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/storage-types/-/storage-types-0.2.11-canary.412cff9.tgz#eebcb2e4a8acc81c7e488c98c867c12e95e4ae80"
+  integrity sha512-Yb/Qn150ro78e2lai7pq/FejGDiOAPeiUziRpGZFgLwRvxTO7zmKVXoES6lWV59ObkJu1x1hk4mTT7VF9z9VUw==
 
-"@firebase/storage@0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@firebase/storage/-/storage-0.2.16.tgz#dee8c4aa2a1b25974687d763622300668ad384b0"
-  integrity sha512-R/qLIqp7ht7T0P2w3LWB5JvXUZMCWzrHOyublAa4iSVcuqN2SLMIpqnYXNKYk+o/NcW7jO8DE8c62mnpvsS+pw==
+"@firebase/storage@0.2.16-canary.412cff9":
+  version "0.2.16-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/storage/-/storage-0.2.16-canary.412cff9.tgz#e383cdabbb8992497e473b0350d71f5546abb38d"
+  integrity sha512-pHmXrNs7Z2vADsqyTSySD5Hdtw/sdOG8T/rMbKyIOhMO0uyWBH7rKp7kvFR+4MTPANJgRR7CRzlbIk7dR33tyg==
   dependencies:
-    "@firebase/storage-types" "0.2.11"
+    "@firebase/storage-types" "0.2.11-canary.412cff9"
     tslib "1.9.3"
 
-"@firebase/util@0.2.16":
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-0.2.16.tgz#3794f0def8b33d67f48adbe29d204b47f97d972f"
-  integrity sha512-IgmQzxIqHqyWC3RPlhm01zq0AReDzQij7qG+GtOMbSwFcplyyrW3lD+rxaobrxYzrZA/uMen5yEVGijyTCGmzA==
+"@firebase/util@0.2.16-canary.412cff9":
+  version "0.2.16-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-0.2.16-canary.412cff9.tgz#56ccabee6455d3e1d8509570655cd763b0e4e631"
+  integrity sha512-1dhnpTS29vMW7eQt0anYe22r1mkIOY5iCTurZLYh8ArizBr45+lfj/lxRVI5Sef5g432yz2Wl3Db84eOemDw8w==
   dependencies:
     tslib "1.9.3"
 
-"@firebase/webchannel-wrapper@0.2.20":
-  version "0.2.20"
-  resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.20.tgz#d8b25b23e532c67bd56c614025b24cb2a65e25db"
-  integrity sha512-TpqR1qCn117fY4mrxSGqv/CT/iAM58sHdlS8ujj0Roa7DoleAHJzqOhNNoHCNncwvNDWcvygLsEiTBuDQZsv3A==
+"@firebase/webchannel-wrapper@0.2.20-canary.412cff9":
+  version "0.2.20-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.20-canary.412cff9.tgz#378ef01e1a3b839cd3c7090e181173724be47d4e"
+  integrity sha512-DfoTOlVdKDFCJOM8EwBNDY3HoR4+xee58Ti2aBl6o0vSwza2+oYCL/K2Sj1SdXvPlunBejeigIQe3E2eaY+Q0g==
 
 "@grpc/grpc-js@0.4.0":
   version "0.4.0"
@@ -4939,22 +4939,23 @@ find-up@^3.0.0:
   dependencies:
     locate-path "^3.0.0"
 
-firebase@6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-6.0.3.tgz#030232e14252b4859431f4cc7f0a5d2d59db54ef"
-  integrity sha512-Gd3gYRI/lxGQt+Y7R1KcXfKaGhQv3ktvZ1mDzb8Fe+3eik99Cdkg1w6jM8o0T3m0I5nENQmjQPE80jKZswKTGw==
+firebase@6.0.3-canary.412cff9:
+  version "6.0.3-canary.412cff9"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-6.0.3-canary.412cff9.tgz#18ccf7555a87bf2933f2e7b37db4175a8faf0f80"
+  integrity sha512-EI7Jc7B5DFs4BQMtL+0Mh7eK1H7p+sOZJAQ++zuoxHrAzocR6n7BDwMtl6QE26LABjjUl5labp0cFb7RzECcmQ==
   dependencies:
-    "@firebase/app" "0.4.2"
-    "@firebase/app-types" "0.4.0"
-    "@firebase/auth" "0.11.2"
-    "@firebase/database" "0.4.2"
-    "@firebase/firestore" "1.3.2"
-    "@firebase/functions" "0.4.7"
-    "@firebase/messaging" "0.3.21"
-    "@firebase/performance" "0.2.3"
-    "@firebase/polyfill" "0.3.14"
-    "@firebase/storage" "0.2.16"
-    "@firebase/util" "0.2.16"
+    "@firebase/app" "0.4.2-canary.412cff9"
+    "@firebase/app-types" "0.4.0-canary.412cff9"
+    "@firebase/auth" "0.11.2-canary.412cff9"
+    "@firebase/database" "0.4.2-canary.412cff9"
+    "@firebase/firestore" "1.3.2-canary.412cff9"
+    "@firebase/functions" "0.4.7-canary.412cff9"
+    "@firebase/installations" "0.1.2-canary.412cff9"
+    "@firebase/messaging" "0.3.21-canary.412cff9"
+    "@firebase/performance" "0.2.3-canary.412cff9"
+    "@firebase/polyfill" "0.3.14-canary.412cff9"
+    "@firebase/storage" "0.2.16-canary.412cff9"
+    "@firebase/util" "0.2.16-canary.412cff9"
 
 flat-cache@^2.0.1:
   version "2.0.1"
