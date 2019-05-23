@@ -9,7 +9,15 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Thu, 23 May 2019 06:52:08 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 23 May 2019 08:12:01 GMT</lastBuildDate>
+        <item>
+            <title><![CDATA[Mencicipi ReasonML untuk React]]></title>
+            <description><![CDATA[Menceritakan bagaimana rasanya mencicipi sintaksis ReasonML untuk membangun antarmuka sebuah website]]></description>
+            <link>https://www.mazipan.xyz/mencicipi-reasonml-untuk-react</link>
+            <guid isPermaLink="false">mencicipi-reasonml-untuk-react</guid>
+            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
+            <pubDate>Sun, 19 May 2019 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Migrasi Nuxt ke TypeScript]]></title>
             <description><![CDATA[Menceritakan beberapa langkah yang saya kerjakan ketika melakukan migrasi project Nuxt dari menggunakan JavaScript vanilla menjadi menggunakan TypeScript]]></description>
