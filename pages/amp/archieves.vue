@@ -32,6 +32,7 @@ const Contents = require('../../contents/index.js')
 
 export default {
   name: 'ArchievesPage',
+  layout: 'amp-default',
   head () {
     const title = `Archieves | @mazipan`
     const description = `Page Archieves`

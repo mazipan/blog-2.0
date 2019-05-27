@@ -31,7 +31,7 @@ import MetaData from '../../components/MetaData'
 
 export default {
   name: 'Homepage',
-  layout: 'homepage',
+  layout: 'amp-homepage',
   components: {
     MetaData
   },

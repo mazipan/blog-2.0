@@ -29,6 +29,7 @@ import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
 
 export default {
   name: 'SlugPage',
+  layout: 'amp-default',
   components: {
     MetaData,
     EditContentNav,

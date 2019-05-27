@@ -17,6 +17,7 @@
 <script>
 export default {
   name: 'NowPage',
+  layout: 'amp-default',
   head () {
     const title = `Now | @mazipan`
     const description = `Page Now`
