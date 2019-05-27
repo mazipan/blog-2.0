@@ -1,12 +1,8 @@
 <template>
   <div class="container app">
-    <BaseHeader :amp="true"/>
+    <BaseHeader :amp="true" />
     <nuxt class="wrapper clearfix" />
     <hr>
-    <div
-      class="clearfix"
-      style="margin-bottom: 2em;">
-    </div>
     <BaseFooter />
   </div>
 </template>
@@ -21,9 +17,6 @@ export default {
   components: {
     BaseHeader,
     BaseFooter
-  },
-  mounted () {
-    trackJSPerf()
   }
 }
 </script>

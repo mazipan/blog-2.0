@@ -4,10 +4,6 @@
     <nuxt class="wrapper clearfix" />
 
     <hr>
-    <div
-      class="clearfix"
-      style="margin-bottom: 2em;">
-    </div>
     <BaseFooter />
   </div>
 </template>
