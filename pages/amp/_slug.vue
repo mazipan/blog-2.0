@@ -111,7 +111,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .page {
   &__title {
     font-size: 2em;
@@ -154,4 +154,8 @@ export default {
     align-items: center;
   }
 }
+</style>
+
+<style lang="scss" scoped>
+@import "~/assets/scss/_prism-custom.scss";
 </style>

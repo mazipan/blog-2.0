@@ -1,7 +1,8 @@
+import publisedContents from './contents/index.js'
+
 const path = require('path')
 const pkg = require('./package')
 const ampify = require('./plugins/amplify')
-const publisedContents = require('./contents/index.js')
 const draftContents = require('./contents/drafts/index.js')
 
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
@@ -13,7 +14,7 @@ const drafts = draftContents.map(item => {
   return item
 })
 
-let routes = publisedContents.reduce((list, item) => list.concat([`/${item}`, `/amp/${item}`]), [])
+let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/amp/${item}`]), [])
   .concat(drafts).concat([
     '/success-subscribed',
     '/amp',

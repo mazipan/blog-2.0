@@ -10,7 +10,6 @@
 <script>
 import BaseHeader from '../components/BaseHeader'
 import BaseFooter from '../components/BaseFooter'
-require('vue-ionicons/ionicons.css')
 
 export default {
   name: 'HomepageLayout',
@@ -20,10 +19,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.wrapper{
-  margin: 1em 0 0 0;
-  min-height: 60vh;
-}
-</style>

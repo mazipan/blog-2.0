@@ -1,6 +1,6 @@
 <template>
   <div class="container app">
-    <BaseHeader />
+    <BaseHeader :amp="false" />
     <nuxt class="wrapper clearfix" />
     <hr>
     <div
@@ -31,10 +31,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.wrapper{
-  margin: 1em 0 0 0;
-  min-height: 60vh;
-}
-</style>

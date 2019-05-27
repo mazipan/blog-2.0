@@ -28,7 +28,7 @@
 
 <script>
 import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
-const Contents = require('../../contents/index.js')
+import Contents from '../../contents/index.js'
 
 export default {
   name: 'ArchievesPage',
@@ -68,7 +68,7 @@ export default {
       const allMarkdown = await import(`~/contents/published/${blogName}/index.md`)
       return allMarkdown.attributes
     }
-    return Promise.all(Contents.map(blog => asyncImport(blog)))
+    return Promise.all(Contents.data.map(blog => asyncImport(blog)))
       .then((res) => {
         return {
           blogs: res
@@ -77,7 +77,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

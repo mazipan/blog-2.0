@@ -98,6 +98,11 @@ table{
   padding: 0 .5em;
 }
 
+.wrapper{
+  margin: 1em 0 0 0;
+  min-height: 60vh;
+}
+
 .meta {
   display: flex;
   align-items: center;
@@ -122,6 +127,12 @@ table{
 /* Spacing */
 .space-bottom {
   margin-bottom: 1em;
+}
+
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 @-webkit-keyframes zoomIn {
@@ -165,4 +176,4 @@ table{
 }
 
 @import 'text';
-@import 'prism-custom';
+@import 'component';

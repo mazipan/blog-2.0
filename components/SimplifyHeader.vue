@@ -1,5 +1,5 @@
 <template>
-  <header class="header clearfix">
+  <header class="header header--simplify clearfix">
     <div
       class="header__block">
       <div class="header__child">
@@ -30,9 +30,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.header{
-  margin-bottom: 1rem;
-}
-</style>

@@ -26,29 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-h2 {
-  color: var(--textSubtitle);
-}
-h3 {
-  color: var(--textWarning);
-}
-a {
-  color: var(--textHighlight);
-  text-decoration: underline;
-}
-p {
-  line-height: 1.5;
-}
-img{
-  width: 90%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 1px 1px 8px 5px rgba(0, 0, 0, 0.2);
-}
-
-ul, ol > li {
-  line-height: 2;
-}
-</style>
