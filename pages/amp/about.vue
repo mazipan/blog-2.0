@@ -52,7 +52,7 @@ export default {
         },
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
-      links: [
+      link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }

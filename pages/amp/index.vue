@@ -38,7 +38,7 @@ export default {
   head () {
     const url = `${this.productionUrl}/`
     return {
-      links: [
+      link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }

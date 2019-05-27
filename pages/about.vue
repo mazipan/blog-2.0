@@ -53,7 +53,7 @@ export default {
         },
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
-      links: [
+      link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
     }

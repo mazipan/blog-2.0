@@ -38,7 +38,7 @@ export default {
   head () {
     const ampUrl = `${this.productionUrl}/amp/`
     return {
-      links: [
+      link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
     }

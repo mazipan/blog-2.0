@@ -35,7 +35,7 @@ export default {
         { hid: 'twitter:description', name: 'twitter:description', content: description },
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
-      links: [
+      link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }
