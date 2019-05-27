@@ -1,4 +1,4 @@
-const allMarkdownContent = require('./contents/index.js')
+const allMarkdownContent = require('./contents/node-index.js')
 
 const fs = require('fs-extra')
 const path = require('path')
