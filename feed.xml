@@ -9,7 +9,7 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 27 May 2019 05:14:51 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 27 May 2019 05:26:44 GMT</lastBuildDate>
         <item>
             <title><![CDATA[Mencicipi ReasonML untuk React]]></title>
             <description><![CDATA[Menceritakan bagaimana rasanya mencicipi sintaksis ReasonML untuk membangun antarmuka sebuah website]]></description>
@@ -59,7 +59,7 @@
             <pubDate>Thu, 21 Feb 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Extending official ESLint's HTML formatter]]></title>
+            <title><![CDATA[Extending an official ESLint's HTML Formatter]]></title>
             <description><![CDATA[Why I decide to extending official ESLint's HTML formatter]]></description>
             <link>https://www.mazipan.xyz/eslint-formatter-html-extended</link>
             <guid isPermaLink="false">eslint-formatter-html-extended</guid>
