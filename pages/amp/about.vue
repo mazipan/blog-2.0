@@ -26,7 +26,6 @@ export default {
     const title = `About | @mazipan`
     const description = `Page About`
     const url = `${this.productionUrl}/about/`
-    const ampUrl = `${this.productionUrl}/amp/about/`
     return {
       title,
       meta: [
@@ -54,7 +53,7 @@ export default {
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
       links: [
-        { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
+        { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }
   },

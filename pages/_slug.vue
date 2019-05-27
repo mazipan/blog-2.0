@@ -137,6 +137,7 @@ export default {
     const title = `${this.meta.title}`
     const description = `${this.meta.description}`
     const url = `${this.productionUrl}/${this.meta.slug}/`
+    const ampUrl = `${this.productionUrl}/amp/${this.meta.slug}/`
     return {
       title,
       meta: [
@@ -153,6 +154,9 @@ export default {
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         { hid: 'twitter:description', name: 'twitter:description', content: description },
         { hid: 'twitter:url', name: 'twitter:url', content: url }
+      ],
+      links: [
+        { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
     }
   },

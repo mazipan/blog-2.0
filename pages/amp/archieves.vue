@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Contents from '../contents/index.js'
-import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
+import Contents from '../../contents/index.js'
+import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
 
 export default {
   name: 'ArchievesPage',
@@ -36,7 +36,6 @@ export default {
     const title = `Archieves | @mazipan`
     const description = `Page Archieves`
     const url = `${this.productionUrl}/archieves/`
-    const ampUrl = `${this.productionUrl}/amp/archieves/`
     return {
       title,
       meta: [
@@ -52,7 +51,7 @@ export default {
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
       links: [
-        { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
+        { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }
   },

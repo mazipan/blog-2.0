@@ -3,6 +3,7 @@ import draftContents from './contents/drafts/index.js'
 
 const path = require('path')
 const pkg = require('./package')
+const ampify = require('./plugins/amplify')
 
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'
@@ -13,15 +14,17 @@ const drafts = draftContents.map(item => {
   return item
 })
 
-let routes = publisedContents.map(item => {
-  item = `/${item}`
-  return item
-}).concat(drafts).concat([
-  '/success-subscribed',
-  '/about',
-  '/archieves',
-  '/now'
-])
+let routes = publisedContents.reduce((list, item) => list.concat([`/${item}`, `/amp/${item}`]), [])
+  .concat(drafts).concat([
+    '/success-subscribed',
+    '/amp',
+    '/about',
+    '/amp/about',
+    '/archieves',
+    '/amp/archieves',
+    '/now',
+    '/amp/now'
+  ])
 
 const routesSitemap = () => {
   let res = []
@@ -142,9 +145,6 @@ module.exports = {
     height: '4px',
     continuous: true
   },
-  router: {
-    // middleware: ['static']
-  },
   /*
    ** Global CSS
    */
@@ -191,6 +191,24 @@ module.exports = {
     }
   },
   /*
+  ** Hooks configuration
+  */
+  hooks: {
+    // This hook is called before saving the html to flat file
+    'generate:page': (page) => {
+      if (/^\/amp\//gi.test(page.route)) {
+        console.log('processing amp file: ', page.route)
+        page.html = ampify(page.html)
+      }
+    },
+    // This hook is called before serving the html to the browser
+    'render:route': (url, page, { req, res }) => {
+      if (/^\/amp\//gi.test(url)) {
+        page.html = ampify(page.html)
+      }
+    }
+  },
+  /*
    ** Build configuration
    */
   build: {
@@ -221,7 +239,7 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) {
+    extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({

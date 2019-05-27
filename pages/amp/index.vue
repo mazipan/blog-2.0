@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import Contents from '../contents/index.js'
-import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
-import MetaData from '../components/MetaData'
+import Contents from '../../contents/index.js'
+import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
+import MetaData from '../../components/MetaData'
 
 export default {
   name: 'Homepage',
@@ -36,10 +36,10 @@ export default {
     MetaData
   },
   head () {
-    const ampUrl = `${this.productionUrl}/amp/`
+    const url = `${this.productionUrl}/`
     return {
       links: [
-        { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
+        { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }
   },
