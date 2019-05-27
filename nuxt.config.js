@@ -1,9 +1,8 @@
-import publisedContents from './contents/index.js'
-import draftContents from './contents/drafts/index.js'
-
 const path = require('path')
 const pkg = require('./package')
 const ampify = require('./plugins/amplify')
+const publisedContents = require('./contents/index.js')
+const draftContents = require('./contents/drafts/index.js')
 
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'

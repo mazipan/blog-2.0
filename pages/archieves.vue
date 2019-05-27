@@ -16,7 +16,7 @@
         </td>
         <td>
           <nuxt-link
-            :to="`/${blog.slug}/`"
+            :to="`/${blog.slug}/?utm_source=archieves`"
             :title="blog.title">
             {{ blog.title }}
           </nuxt-link>
@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import Contents from '../contents/index.js'
 import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
+const Contents = require('../contents/index.js')
 
 export default {
   name: 'ArchievesPage',

@@ -5,7 +5,7 @@
       :key="meta.title"
       class="pages__item">
       <nuxt-link
-        :to="`/${meta.slug}/`"
+        :to="`/${meta.slug}/?utm_source=home`"
         :title="meta.title"
         class="pages__link">
         <h2 class="pages__title">

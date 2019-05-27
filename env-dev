@@ -5,3 +5,4 @@ FIREBASE_DATABASE_URL=https://mazipan-blog-dev.firebaseio.com
 FIREBASE_PROJECT_ID=mazipan-blog-dev
 FIREBASE_STORAGE_BUCKET=mazipan-blog-dev.appspot.com
 FIREBASE_MESSAGING_SENDER_ID=9273133186
+DOMAIN=mazipan.xyz
