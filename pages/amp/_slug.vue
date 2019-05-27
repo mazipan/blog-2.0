@@ -155,7 +155,3 @@ export default {
   }
 }
 </style>
-
-<style lang="scss" scoped>
-@import "~/assets/scss/_prism-custom.scss";
-</style>
