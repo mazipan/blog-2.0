@@ -6,7 +6,7 @@
     <MetaData
       :meta-date="meta.date"
       :meta-minute-to-read="meta.minute2read"
-      :is-show-stats="false"/>
+      :is-show-stats="false" />
     <div class="page__content">
       <ContentParser
         :render-fn="renderFn"
@@ -22,12 +22,6 @@
 </template>
 
 <script>
-import FacebookIcon from 'vue-ionicons/dist/js/logo-facebook'
-import TwitterIcon from 'vue-ionicons/dist/js/logo-twitter'
-import LinkedinIcon from 'vue-ionicons/dist/js/logo-linkedin'
-import HeartIcon from 'vue-ionicons/dist/js/md-heart'
-import ShareIcon from 'vue-ionicons/dist/js/md-share'
-
 import MetaData from '../../components/MetaData'
 import ContentParser from '../../components/ContentParser'
 import EditContentNav from '../../components/EditContentNav'
@@ -36,11 +30,6 @@ import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
 export default {
   name: 'SlugPage',
   components: {
-    FacebookIcon,
-    TwitterIcon,
-    LinkedinIcon,
-    HeartIcon,
-    ShareIcon,
     MetaData,
     EditContentNav,
     ContentParser
