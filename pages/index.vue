@@ -4,7 +4,9 @@
       v-for="meta in metas"
       :key="meta.title"
       class="pages__item">
-      <span v-if="meta.sponsored" class="pages__sponsored">sponsored</span>
+      <span
+        v-if="meta.sponsored"
+        class="pages__sponsored">sponsored</span>
       <nuxt-link
         :to="`/${meta.slug}/?utm_source=home`"
         :title="meta.title"
