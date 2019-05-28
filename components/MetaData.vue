@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { formatReadingTime, formatPostDate } from '../utils/helpers.js'
+import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 
 export default {
   name: 'MetaData',

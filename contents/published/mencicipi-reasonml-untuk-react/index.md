@@ -4,6 +4,7 @@ slug: mencicipi-reasonml-untuk-react
 date: '2019-05-19'
 minute2read: 10
 description: Menceritakan bagaimana rasanya mencicipi sintaksis ReasonML untuk membangun antarmuka sebuah website
+categories: [javascript, react, reasonml]
 ---
 
 ## ReasonML, makanan apa ya?

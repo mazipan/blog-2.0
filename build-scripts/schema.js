@@ -1,4 +1,4 @@
-const allMarkdownContent = require('./contents/node-index.js')
+const allMarkdownContent = require('../contents/node-index.js')
 
 const fs = require('fs-extra')
 const path = require('path')
@@ -18,7 +18,7 @@ function generateData () {
 }
 
 function writeFile (content) {
-  const stream = fs.createWriteStream(path.resolve('./firebase-db-export.json'))
+  const stream = fs.createWriteStream(path.resolve('../firebase-db-export.json'))
   stream.write(content)
   stream.end()
 }

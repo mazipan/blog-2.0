@@ -2,8 +2,8 @@ const fs = require('fs-extra')
 const path = require('path')
 const markdown = require('markdown-parse')
 const RSS = require('rss')
-const pkg = require('./package')
-const allMarkdownContent = require('./contents/node-index.js')
+const pkg = require('../package')
+const allMarkdownContent = require('../contents/node-index.js')
 
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'
@@ -17,9 +17,8 @@ let FEED_RSS = new RSS({
 })
 
 function generateFeedData (data) {
-  console.log(data)
   data.forEach(item => {
-    const file = path.resolve(__dirname, `./contents/published/${item}/index.md`)
+    const file = path.resolve(__dirname, `../contents/published/${item}/index.md`)
     const fileContent = fs.readFileSync(file, 'utf8')
     markdown(fileContent, function (err, result) {
       if (err) {
@@ -42,7 +41,7 @@ function generateFeedData (data) {
 generateFeedData(allMarkdownContent)
 
 var feedXml = FEED_RSS.xml({ indent: true })
-const stream = fs.createWriteStream(path.resolve(__dirname, `./dist/feed.xml`))
+const stream = fs.createWriteStream(path.resolve(__dirname, `../dist/feed.xml`))
 stream.write(feedXml)
 stream.end()
 

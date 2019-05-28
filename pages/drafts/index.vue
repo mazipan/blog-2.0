@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import Contents from '../../contents/drafts/index.js'
-import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
-import MetaData from '../../components/MetaData'
+import Contents from '~/contents/drafts/index.js'
+import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
+import MetaData from '~/components/MetaData'
 
 export default {
   name: 'Homepage',

@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import SimplifyHeader from '../components/SimplifyHeader'
-import BaseFooter from '../components/BaseFooter'
+import SimplifyHeader from '~/components/SimplifyHeader'
+import BaseFooter from '~/components/BaseFooter'
 require('vue-ionicons/ionicons.css')
 
 export default {

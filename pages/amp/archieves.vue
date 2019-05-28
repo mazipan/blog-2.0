@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
-import Contents from '../../contents/index.js'
+import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
+import Contents from '~/contents/index.js'
 
 export default {
   name: 'ArchievesPage',

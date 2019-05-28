@@ -1,18 +1,3 @@
-:not(pre)>code[class*="language-"],
-pre[class*="language-"] {
-  border-radius: 10px !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: var(--bgLighter) !important;
-  border: 4px solid var(--textLink);
-}
-
-code:not([class*="language-"]) {
-  background-color: var(--bgLighter);
-  color: var(--textLink);
-  padding: .10em .5em;
-  border-radius: .25em;
-}
-
 /* override prism theme */
 .token.keyword {
   color: var(--textLink) !important;

@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import BaseHeader from '../components/BaseHeader'
-import BaseFooter from '../components/BaseFooter'
-import FormSubsription from '../components/FormSubsription'
-import { trackJSPerf } from '../utils/analitycs.js'
+import BaseHeader from '~/components/BaseHeader'
+import BaseFooter from '~/components/BaseFooter'
+import FormSubsription from '~/components/FormSubsription'
+import { trackJSPerf } from '~/utils/analitycs.js'
 require('vue-ionicons/ionicons.css')
 
 export default {

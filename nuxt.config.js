@@ -1,4 +1,5 @@
 import publisedContents from './contents/index.js'
+import publisedCategories from './contents/categories.js'
 
 const path = require('path')
 const pkg = require('./package')
@@ -24,7 +25,9 @@ let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}
     '/amp/archieves',
     '/now',
     '/amp/now'
-  ])
+  ]).concat(
+    publisedCategories.data.reduce((list, item) => list.concat([`/category/${item}`, `/amp/category/${item}`]), [])
+  )
 
 const routesSitemap = () => {
   let res = []
@@ -242,12 +245,12 @@ module.exports = {
     extend (config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+        // config.module.rules.push({
+        //   enforce: 'pre',
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /(node_modules)/
+        // })
       }
 
       config.module.rules.push({

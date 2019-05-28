@@ -1,0 +1,14 @@
+node_modules/
+.sonarlint
+.npm
+.eslintcache
+.env
+.nuxt
+assets/
+dist
+sw.*
+__mocks__
+./contents/categories.js
+coverage
+./drafts/index.js
+test/

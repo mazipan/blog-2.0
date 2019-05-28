@@ -19,10 +19,10 @@
 </template>
 
 <script>
-import MetaData from '../../components/MetaData'
-import ContentParser from '../../components/ContentParser'
-import EditContentNav from '../../components/EditContentNav'
-import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
+import MetaData from '~/components/MetaData'
+import ContentParser from '~/components/ContentParser'
+import EditContentNav from '~/components/EditContentNav'
+import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 
 export default {
   name: 'DraftPage',

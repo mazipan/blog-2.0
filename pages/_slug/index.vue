@@ -1,6 +1,6 @@
 <template>
-  <section class="page">
-    <h1 class="page__title text-title">
+  <section class="pages">
+    <h1 class="pages__title pages__title--small text-title">
       {{ meta.title }}
     </h1>
     <MetaData
@@ -9,15 +9,30 @@
       :is-show-stats="true"
       :stats-likes="claps"
       :stats-read="hits" />
-    <div class="page__content">
+
+    <div class="pages__tags pages__tags--spacetop">
+      <div
+        v-for="category in meta.categories"
+        :key="category"
+        class="pages__tag">
+        <nuxt-link
+          :to="`/category/${category}?utm_source=home`"
+          :title="category">
+          #{{ category }}
+        </nuxt-link>
+      </div>
+    </div>
+
+    <div class="pages__content">
       <ContentParser
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />
       <EditContentNav
         :slug="meta.slug" />
     </div>
+
     <hr>
-    <div class="page__footer">
+    <div class="pages__footer">
       🚨Do you like this article? help me to click ❤️ button, share to your followers and subscribe the newsletter.
 
       <div class="block-wrap">
@@ -103,11 +118,11 @@ import LinkedinIcon from 'vue-ionicons/dist/js/logo-linkedin'
 import HeartIcon from 'vue-ionicons/dist/js/md-heart'
 import ShareIcon from 'vue-ionicons/dist/js/md-share'
 
-import MetaData from '../components/MetaData'
-import ContentParser from '../components/ContentParser'
-import EditContentNav from '../components/EditContentNav'
-import { formatReadingTime, formatPostDate, debounce } from '../utils/helpers.js'
-import { trackLike, trackUniversalShare, trackShare } from '../utils/analitycs.js'
+import MetaData from '~/components/MetaData'
+import ContentParser from '~/components/ContentParser'
+import EditContentNav from '~/components/EditContentNav'
+import { formatReadingTime, formatPostDate, debounce } from '~/utils/helpers.js'
+import { trackLike, trackUniversalShare, trackShare } from '~/utils/analitycs.js'
 import {
   initFirebase,
   getHitsUrl,
@@ -118,7 +133,7 @@ import {
   setClapsData,
   subscribeClapsData,
   createNewRef
-} from '../utils/firebase.js'
+} from '~/utils/firebase.js'
 let firebaseInstance = null
 
 export default {
@@ -196,13 +211,7 @@ export default {
 
     const attr = fileContent.attributes
     return {
-      meta: {
-        title: attr.title,
-        slug: attr.slug,
-        date: attr.date,
-        minute2read: attr.minute2read,
-        description: attr.description
-      },
+      meta: attr,
       renderFn: fileContent.vue.render,
       staticRenderFn: fileContent.vue.staticRenderFns
     }
@@ -280,51 +289,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.page {
-  &__title {
-    font-size: 2em;
-    margin-bottom: .25em;
-  }
-  &__content {
-    width: 100%;
-    word-break: break-word;
-    margin: 2em 0;
-  }
-  &__date {
-    color: var(--textSubtitle);
-  }
-  &__footer{
-    margin: 1em 0;
-  }
-}
-
-.block-wrap{
-  margin: 1em 0;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-}
-
-.like, .share{
-  display: flex;
-  &-btn{
-    color: var(--textNormal);
-    background: var(--textLink);
-    padding: .25em 1em;
-    border-radius: .25em;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    margin-right: 1em;
-    text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-</style>
-
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~/assets/scss/_prism-custom.scss";
 </style>

@@ -4,6 +4,7 @@
       v-for="meta in metas"
       :key="meta.title"
       class="pages__item">
+      <span v-if="meta.sponsored" class="pages__sponsored">sponsored</span>
       <nuxt-link
         :to="`/amp/${meta.slug}/?utm_source=home`"
         :title="meta.title"
@@ -20,14 +21,27 @@
           {{ meta.description }}
         </p>
       </div>
+
+      <div class="pages__tags">
+        <div
+          v-for="category in meta.categories"
+          :key="category"
+          class="pages__tag">
+          <nuxt-link
+            :to="`/amp/category/${category}?utm_source=home`"
+            :title="category">
+            #{{ category }}
+          </nuxt-link>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import Contents from '../../contents/index.js'
-import { formatReadingTime, formatPostDate } from '../../utils/helpers.js'
-import MetaData from '../../components/MetaData'
+import Contents from '~/contents/index.js'
+import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
+import MetaData from '~/components/MetaData'
 
 export default {
   name: 'Homepage',
@@ -65,17 +79,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.pages {
-  &__title {
-    margin-bottom: .25em;
-  }
-  &__date {
-    color: var(--textSubtitle);
-  }
-  &__item {
-    margin-bottom: 3.5em;
-  }
-}
-</style>

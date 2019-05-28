@@ -1,7 +1,7 @@
 <template>
-  <div class="archieves">
+  <div class="category">
     <div class="space-bottom text-title">
-      <h1>Archieves</h1>
+      <h1>Category #{{ category }}</h1>
     </div>
     <table width="100%">
       <tr
@@ -16,7 +16,7 @@
         </td>
         <td>
           <nuxt-link
-            :to="`/${blog.slug}/?utm_source=archieves`"
+            :to="`/amp/${blog.slug}/?utm_source=archieves`"
             :title="blog.title">
             {{ blog.title }}
           </nuxt-link>
@@ -31,12 +31,12 @@ import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
 
 export default {
-  name: 'ArchievesPage',
+  name: 'CategoryPage',
   head () {
-    const title = `Archieves | @mazipan`
-    const description = `Page Archieves`
-    const url = `${this.productionUrl}/archieves/`
-    const ampUrl = `${this.productionUrl}/amp/archieves/`
+    const title = `Category ${this.category} | @mazipan`
+    const description = `All article with ${this.category} category`
+    const url = `${this.productionUrl}/category/${this.category}`
+    const ampUrl = `${this.productionUrl}/amp/category/${this.category}`
     return {
       title,
       meta: [
@@ -63,21 +63,22 @@ export default {
       productionUrl: 'https://www.mazipan.xyz'
     }
   },
-  async asyncData ({ store }) {
+  async asyncData ({ params }) {
     async function asyncImport (blogName) {
       const allMarkdown = await import(`~/contents/published/${blogName}/index.md`)
       return allMarkdown.attributes
     }
     return Promise.all(Contents.data.map(blog => asyncImport(blog)))
-      .then((res) => {
+      .then((response) => {
         return {
-          blogs: res
+          category: params.category,
+          blogs: response.filter(item => item.categories.includes(params.category))
         }
       })
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 </style>
