@@ -7,19 +7,19 @@ description: Sharing experiences using Firebase Realtime Database to make simple
 categories: [javascript, nuxt, firebase]
 ---
 
-## Latar Belakang
+## Background Story
 
-Seperti sudah saya jelaskan pada tulisan sebelumnya bahwa [Blog 2.0 ↗️](/blog-2-0-in-nuxtjs) ini hanyalah sebuah static Blog tanpa Backend, pun saya hanya menggunakan jasa static hosting dari Netlify untuk meletakan dan meyajikan file hasil build. Karena saya tidak menggunakan Backend dan tidak ingin menggunakannya, maka saya kesulitan ketika ingin menambahkan fitur yang mengharuskan saya menyimpan data di basis data (*database* -DB) seperti jumlah orang yang *like* suatu artikel. Data seperti itu jelas bukan data yang bisa disimpan di *browser* masing-masing. Datanya harus terpusat dan semua pengunjung melihat jumlah yang sama. Data seperti ini paling ideal ada di DB, apapun jenis DB yang digunakan.
+As I explained in the previous article that Blog 2.0 is just a static Blog without Backend, I only use static hosting services from Netlify to place and present the build files. Because I do not use Backend and do not want to use it, I have difficulty when adding features that require me to store data in the database like the number of people who like an article. Such data is clearly not data that can be stored in each browser. The data must be centered and all visitors see the same amount. Data like this is most ideal in the DB, whatever type of DB is used.
 
-Dewasa ini untunglah ada platform seperti [Firebase ↗️](https://firebase.google.com/) yang membantu orang-orang yang males bikin Backend namun tetap bisa menyimpan data secara terpusat. Firebase bukan cuma menyediakan DB untuk kita tapi juga jasa lainnya seperti hosting, otentikasi, cloud storage, analytics, A/B testing, remote config, dynamic link dan berbagai hal keren lainnya. Firebase ini ibarat paket komplit kalau kita mau beli makan siang.
+Today fortunately there is a platform like [Firebase ↗️](https://firebase.google.com/) that helps lazy people make Backends but still can store data centrally. Firebase not only provides DB for us but also other services such as hosting, authentication, cloud storage, analytics, A / B testing, remote config, dynamic links and various other cool things. Firebase is like a complete package if we want to buy lunch.
 
-Kali ini kita hanya akan menggunakan fitur real-time databasenya saja.
+This time we will only use the real-time database feature.
 
-## Membuat Projek di Firebase
+## Creating project in Firebase
 
-Pertama kalian harus membuat projek di [Firebase Console ↗️](https://console.firebase.google.com/), kalian bisa memberi nama apapun pada projek kalian tapi nama ini memang harus unik dan belum pernah digunakan oleh orang lain.
+First you have to make a project in [Firebase Console ↗️](https://console.firebase.google.com/), you can give any name to your project but this name must be unique and has never been used by anyone else.
 
-Berikutnya kalian akan disuguhi pilihan untuk melakukan setup pada Firebase yang berbeda-beda tergantung jenis projek kalian, kita bisa memilih untuk web dan akan diberikan kode untuk memasang Firebase seperti berikut:
+Next you will be offered the option to setup Firebase that varies depending on the type of your project, we can choose for the web and will be given a code to install Firebase like this:
 
 ```html
 <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
@@ -37,11 +37,11 @@ Berikutnya kalian akan disuguhi pilihan untuk melakukan setup pada Firebase yang
 </script>
 ```
 
-Kita tidak bisa *copy-paste* kode ini mentah-mentah, karena projek Blog 2.0 menggunakan Nuxt sebagai framework dan tentu berbeda sedikit cara menggunakannya.
+We can't do a copy-paste this code completely, because the Blog 2.0 project uses Nuxt as a framework and of course there are a few different ways to use it.
 
-Sebelum mulai menyiapkan konfigurasi, saya memilih untuk meletakan nilai-nilai konfigurasi ini kedalam file `.env` agar mudah diubah-ubah nantinya.
+Before starting to set up the configuration, I chose to put these configuration values into the `.env` file so that it can be easily changed later.
 
-Saya membuat file `.env` dengan isi berdasarkan konfigurasi yang didapat dari Firebase seperti berikut:
+I created the `.env` file with the contents based on the configuration obtained from Firebase as follows:
 
 ```bash
 FIREBASE_API_KEY= your firebase `apiKey` config
@@ -52,7 +52,7 @@ FIREBASE_STORAGE_BUCKET= your firebase `storageBucket` config
 FIREBASE_MESSAGING_SENDER_ID= your firebase `messagingSenderId` config
 ```
 
-Di Nuxt.js saya menambahkan module `@nuxtjs/dotenv` di file `nuxt.config.js` agar bisa membaca nilai dari `.env` ini, namun belakangan saya mendapati kalau nilai ini tidak diganti ketika proses generate file static dilakukan oleh Nuxt. Saya perlu menambahkan kode berikut pada file `nuxt.config.js` saya:
+On Nuxt.js I added the `@nuxtjs/dotenv` module in the` nuxt.config.js` file to be able to read the value of this `.env`, but later I found that this value was not replaced when the process of generating static files was done by Nuxt . I need to add the following code to my `nuxt.config.js` file:
 
 ```javascript
 module.exports = {
@@ -67,9 +67,9 @@ module.exports = {
 }
 ```
 
-## Menyiapkan Kode Konfigurasi
+## Setup the Configuration Code
 
-Untuk membuka koneksi ke Firebase, saya membutuhkan dependency `firebase` yang bisa dipasang lewat perintah
+To open a connection to Firebase, I need the `firebase` dependency that can be installed via the command
 
 ```bash
 $ yarn add firebase
@@ -77,9 +77,9 @@ $ yarn add firebase
 $ npm i firebase
 ```
 
-Saya memilih untuk meletakan koneksi firebase ini ke dalam folder `plugins` di struktur Nuxt, ini artinya akan ditambahkan di semua halaman yang ada di dalam projek ini.
+I chose to put this firebase connection into the `plugins` folder in the Nuxt structure, this means that it will be added to all pages in this project.
 
-Saya membuat file `plugins/firebase.js` dan membuat koneksi ke Firebase dengan kode berikut:
+I created the `plugins/firebase.js` file and made a connection to Firebase with the following code:
 
 ```javascript
 import Vue from 'vue'
@@ -99,9 +99,9 @@ firebase.initializeApp(config)
 Vue.prototype.$firebase = firebase
 ```
 
-Selain membuka koneksi ke Firebase saya juga melakukan injeksi objek firebase yang telah disiapkan kedalam *instance* dari Vue agar mudah dipakai di Vue Component nantinya.
+In addition to opening a connection to Firebase I also injected the prepared firebase object into the instance of Vue so that it can be easily used in the later Vue Component.
 
-Saya perlu menambahkan plugins ini di file `nuxt.config.js` agar terbaca di projek ini dengan kode seperti berikut:
+I need to add these plugins in the `nuxt.config.js` file so that they are read in this project with the code like this:
 
 ```javascript
 module.exports = {
@@ -111,9 +111,9 @@ module.exports = {
 }
 ```
 
-Selain harus diinisialisasi, Firebase juga membutuhkan beberapa file seperti `firebase.json`, `.firebaserc` dan `database.rules.json`. File-file ini bisa didapatkan dengan perintah `firebase init` pada folder root projek kita. Namun sebelum itu kalian harus login ke dalam firebase terlebih dahulu dengan perintah `firebase login`.
+Besides having to be initialized, Firebase also requires several files such as `firebase.json`,` .firebaserc` and `database.rules.json`. These files can be obtained with the `firebase init` command in our project root folder. But before that you have to log in to Firebase first with the `firebase login` command.
 
-Berikut contoh file `firebase.json` yang bisa kalian temui juga di projek ini:
+The following is an example of the `firebase.json` file that you can also find in this project:
 
 ```javascript
 {
@@ -123,7 +123,7 @@ Berikut contoh file `firebase.json` yang bisa kalian temui juga di projek ini:
 }
 ```
 
-Dan file `database.rules.json` seperti berikut yang artinya saya membiarkan pengguna mengakses database saya tanpa perlu login terlebih dahulu.
+And the `database.rules.json` file as follows, which means I let users access my database without having to login first.
 
 ```javascript
 {
@@ -134,11 +134,11 @@ Dan file `database.rules.json` seperti berikut yang artinya saya membiarkan peng
 }
 ```
 
-## Menyiapkan Struktur Data
+## Setup a Data Structure
 
-Struktur data dari Firebase DB ini tidak seperti basis data relasional, Firebase DB lebih seperti file JSON file biasa.
+This data structure from Firebase DB is not like a relational database, Firebase DB is more like an ordinary JSON file.
 
-Saya membuat struktur data untuk menyimpan jumlah like pada setiap artikel seperti berikut:
+I structure the data to store the number of likes in each article as follows:
 
 ```javascript
 {
@@ -149,9 +149,9 @@ Saya membuat struktur data untuk menyimpan jumlah like pada setiap artikel seper
 }
 ```
 
-Jika kalian malas, kalian juga bisa melakukan import dari data JSON yang sudah saya siapkan di file `firebase-db-export.json` pada projek Blog 2.0.
+If you are lazy, you can also import from JSON data that I have prepared in the `firebase-db-export.json` file on the Blog 2.0 project.
 
-Jangan lupa untuk membuka akses untuk *read* dan *write* pada tab `Rules`:
+Don't forget to open access for read and write on the `Rules` tab:
 
 ```javascript
 {
@@ -162,11 +162,11 @@ Jangan lupa untuk membuka akses untuk *read* dan *write* pada tab `Rules`:
 }
 ```
 
-## Membaca dan Memperbarui Data
+## Read and Update Data
 
-Firebase terbilang cukup mudah untuk digunakan dengan Vue ataupun Nuxt, kita akan mencoba membaca data yang telah kita buat di Firebase DB di dalam Vue Component kita.
+Firebase is fairly easy to use with Vue or Nuxt, we will try to read the data that we have created in Firebase DB in our Vue Component.
 
-Saya meletakan di *life cycle* `mounted` di Vue Component kode berikut:
+I put it in the `mounted` life cycle in the following Vue Component code:
 
 ```javascript
 // this is vue component instance
@@ -178,9 +178,9 @@ __self.clapsRefs.once('value').then(function (snapshot) {
 })
 ```
 
-Sebelumnya tentu saya harus menyiapkan state `clapsRefs` dan `claps` di bagian `data ()` sebagai penampung nilai tersebut.
+Previously, of course I had to set up `clapsRefs` and `claps` states in the `data ()` section as a placeholder for that value.
 
-Kode diatas digunakan untuk menginisialisai nilai berdasarkan data yang ada di Firebase DB, bagaimana kalau ada perubahan nilai pada Firebase DB kita? karena kita menggunakan Firebase Realtime-DB maka akan sangat mudah bagi kita untuk mendengarkan setiap perubahan yang terjadi dan saar itu pula langsung bereaksi dengan memperbarui tampilan jumlah *like* yang ditampilkan. Kode untuk mendengarkan perubahan secara realtime kurang lebih sebagai berikut:
+The above code is used to initialize values based on data that is in Firebase DB, what if there is a change in value in our Firebase DB? because we use Firebase Realtime-DB, it will be very easy for us to listen to any changes that occur and so it immediately reacts by updating the display of the likes displayed. The code for listening to changes in realtime is more or less as follows:
 
 ```javascript
 // this is vue component instance
@@ -190,7 +190,7 @@ __self.clapsRefs.on('value', function (snapshot) {
 })
 ```
 
-Sementara untuk memperbarui nilai di DB kita juga tidak kalah mudahnya, cukup dengan kode `set` pada referensi yang telah kita dapatkan, seperti contoh berikut:
+While to update the value in our DB it is also no less easy, just by the `set` code in the reference we have got, like the following example:
 
 ```javascript
 // this is vue component instance
@@ -199,13 +199,13 @@ if (this.clapsRefs) {
 }
 ```
 
-## Travis CI Konfigurasi
+## Travis CI Configs
 
-Sentuhan terkhir adalah memastikan ketika proses build kita menyetel nilai *environment variable* dengan nilai asli sesuai dengan apa yang kita gunakan di prodcution. Bila pada saat di lokal kita bisa menggunakan file `.env` yang tidak mungkin kita push ke repository.
+The last touch is making sure when the build process we set the value of *environment variable* with the original value according to what we use in the prodcution. If at local time we can use the `.env` file which we cannot push into the repository.
 
-Di [Travis CI ↗️](https://travis-ci.org) kita juga bisa menyetel berbagai variabel dengan mudah. Cukup masuk ke bagian `settings` dan kita bisa menambahkan *key-value* sebagai variabel yang akan diikutkan saat proses *build*.
+In [Travis CI ↗️](https://travis-ci.org) we can also adjust various variables easily. Just enter the `settings' section and we can add * key-value * as a variable that will be included during the * build * process.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable">
 
-### Demikian artikel kali ini, semoga bermanfaat...
+### Thus this article, hopefully useful...
 
