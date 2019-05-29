@@ -1,5 +1,5 @@
 <template>
-  <section class="postdetail-ID">
+  <section class="postdetail-EN">
     <PostDetail
       :meta="meta"
       :render-fn="renderFn"
@@ -20,7 +20,7 @@ export default {
     PostDetailHead
   ],
   async asyncData ({ params }) {
-    const fileContent = await import(`~/contents/published/${params.slug}/index.md`)
+    const fileContent = await import(`~/contents/published/${params.slug}/en.md`)
 
     const attr = fileContent.attributes
     return {

@@ -1,21 +1,21 @@
 import publisedContents from './contents/index.js'
 import publisedCategories from './contents/categories.js'
+import draftContents from './contents/drafts/index.js'
 
 const path = require('path')
 const pkg = require('./package')
 const ampify = require('./plugins/amplify')
-const draftContents = require('./contents/drafts/index.js')
 
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'
 const iconUrl = `${productionUrl}/icon.png`
 
-const drafts = draftContents.map(item => {
+const drafts = draftContents.data.map(item => {
   item = `/drafts/${item}`
   return item
 })
 
-let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/amp/${item}`]), [])
+let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`]), [])
   .concat(drafts).concat([
     '/success-subscribed',
     '/amp',

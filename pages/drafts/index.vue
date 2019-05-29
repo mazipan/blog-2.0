@@ -47,7 +47,7 @@ export default {
       return allMarkdown.attributes
     }
 
-    return Promise.all(Contents.map(blogSlug => asyncImport(blogSlug)))
+    return Promise.all(Contents.data.map(blogSlug => asyncImport(blogSlug)))
       .then((res) => {
         return {
           metas: res
