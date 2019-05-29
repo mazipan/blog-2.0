@@ -27,7 +27,7 @@ export default { data: ${JSON.stringify(result)} }
 }
 
 function writeFile (content) {
-  const stream = fs.createWriteStream(path.resolve('./contents/drafts/index.js'))
+  const stream = fs.createWriteStream(path.join(FOLDER_DRAFTS, 'index.js'))
   stream.write(content)
   stream.end()
 }

@@ -17,11 +17,11 @@ export function initFirebase () {
 }
 
 export function getClapsUrl (slug) {
-  return `${slug}/claps`
+  return `claps/${slug}`
 }
 
 export function getHitsUrl (slug) {
-  return `${slug}/hits`
+  return `hits/${slug}`
 }
 
 export function getClapsRefs (firebaseInstance, slug) {

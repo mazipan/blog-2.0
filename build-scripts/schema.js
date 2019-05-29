@@ -4,12 +4,17 @@ const fs = require('fs-extra')
 const path = require('path')
 
 function generateData () {
-  let resultObj = {}
-  allMarkdownContent.map(item => {
-    resultObj[item] = {
-      claps: 0,
-      hits: 0
+  let resultObj = {
+    claps: {
+
+    },
+    hits: {
+
     }
+  }
+  allMarkdownContent.map(item => {
+    resultObj.claps[item] = 0
+    resultObj.hits[item] = 0
 
     return item
   })
@@ -18,7 +23,7 @@ function generateData () {
 }
 
 function writeFile (content) {
-  const stream = fs.createWriteStream(path.resolve('../firebase-db-export.json'))
+  const stream = fs.createWriteStream(path.resolve(__dirname, './firebase-db-export.json'))
   stream.write(content)
   stream.end()
 }
