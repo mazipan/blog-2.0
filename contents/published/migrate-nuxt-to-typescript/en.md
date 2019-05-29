@@ -7,11 +7,11 @@ description: Story telling about the steps that I worked on when migrating the N
 categories: [javascript, nuxt, typescript]
 ---
 
-Seperti kita tau bersama bahwa bawaan dari project Nuxt akan membuat kode dengan basis JavaScript Vanilla. Sedangkan dengan makin maraknya penggunaan TypeScript di kalangan para pengembang JavaScript membuat saya pribadi ikut kepincut untuk mengimplementasikan penggunaan TypeScript pada projek kode sumber terbuka saya.
+As we all know that the default from the Nuxt project will be to create a code based on JavaScript Vanilla. Whereas the increasingly widespread use of TypeScript among JavaScript developers makes me personally interested in implementing the use of TypeScript on my open source code project.
 
-Berikut hal-hal yang saya kerjakan dalam proses migrasi tersebut:
+The following are the things I worked on in the migration process:
 
-## Menambahkan tsconfig.json
+## Adding tsconfig.json
 
 ```javascript
 {
@@ -46,7 +46,7 @@ Berikut hal-hal yang saya kerjakan dalam proses migrasi tersebut:
 }
 ```
 
-Untuk menambahkan berkas ini, saya juga perlu menambahkan beberapa dependencies berikut:
+To add this file, I also need to add the following dependencies:
 
 ```javascript
 {
@@ -57,7 +57,7 @@ Untuk menambahkan berkas ini, saya juga perlu menambahkan beberapa dependencies 
 }
 ```
 
-## Perbarui eslintrc.js
+## Update eslintrc.js
 
 ```javascript
 module.exports = {
@@ -91,7 +91,7 @@ module.exports = {
 }
 ```
 
-Dan menambahkan beberapa dependencies berikut:
+And add some of the following dependencies:
 
 ```javascript
 {
@@ -100,9 +100,9 @@ Dan menambahkan beberapa dependencies berikut:
 }
 ```
 
-## Ubah nuxt.config.js menjadi nuxt.config.ts
+## Rename nuxt.config.js to nuxt.config.ts
 
-Ubah ekstensi file dan buat sedikit perubahan menjadi seperti berikut:
+Change the file extension and make a few changes to the following:
 
 ```javascript
 import NuxtConfiguration from '@nuxt/config'
@@ -122,13 +122,13 @@ const config: NuxtConfiguration = {
 export default config
 ```
 
-## Refactor Vuex Store
+## Refactor the Vuex Store
 
-Karena hampir semua komponen dalam projek saya telah menggunakan Vuex Store maka dari itu saya meletakan hal ini sebagai yang pertama untuk saya refactor sebelum melakukan refactor pada komponen. Untuk menggunakan Vuex dengan TypeScript terdapat sedikit perubahan dibandingkan ketika menggunakan JavaScript biasa, berikut perubahan yang saya kerjakan:
+Because almost all the components in my project have used the Vuex Store, so I put this as the first for me to refactor before refactor the component. To use Vuex with TypeScript there are few changes compared to when using regular JavaScript, here are the changes that I am working on:
 
 ### Classic Store
 
-Pada projek ini saya masih menggunakan Classic Store yang mana sebenarnya sudah deprecated dan akan di remove pada Nuxt v3 kedepannya, berikut classic store yang saya buat dalam berkas `store/index.ts`:
+In this project I still use the Classic Store, which is actually deprecated and will be removed in Nuxt v3 in the future, the following classic store that I created in the `store/index.ts` file:
 
 ```javascript
 import Vuex from 'vuex'
@@ -150,7 +150,7 @@ export default createStore
 
 ### State
 
-Pada berkas `state.ts` saya membuat interface yang menjadi type definitions dari state yang akan dibuat dan membuat state dengan berbagai initial state yang sudah dibuat seperti contoh berikut:
+In the `state.ts` file, I create an interface that is the type definitions of the state and creates a state with various initial value like the following example:
 
 ```javascript
 export interface StateType {
@@ -165,7 +165,7 @@ export const state = (): StateType => ({
 
 ### Mutations
 
-Vuex sendiri sudah menyediakan dukungan untuk TypeScript dengan memberikan tipe data pada balikan untuk Mutations dengan cukup meng-import `MutationTree` dari Vuex, berikut contoh kodenya:
+Vuex itself has provided support for TypeScript by providing data types in return for Mutations by simply importing `MutationTree` from Vuex, following the sample code:
 
 ```javascript
 import { MutationTree } from 'vuex'
@@ -181,8 +181,7 @@ export const mutations: MutationTree<StateType> = {
 
 ### Actions
 
-Untuk actions sendiri hampir mirip dengan mutations yang mana sudah disediakan tipe data dari Vuex, seperti contoh kode berikut:
-
+For the actions themselves it is almost similar to the mutations in which the data type from Vuex has been provided, such as the following code example:
 
 ```javascript
 import { ActionTree } from 'vuex'
@@ -196,11 +195,11 @@ export const actions: ActionTree<StateType, StateType> = {
 }
 ```
 
-## Refactor Komponen
+## Refactor the Components
 
-Setelah berhasi melakukan refactor pada Vuex Store, selanjutnya kita akan melakukan refactor pada kode komponen kita agar mendukung TypeScript.
+After successfully refactor the Vuex Store, then we will refactor our component code to support TypeScript.
 
-Untuk mendukung TypeScript, kita perlu menambahkan beberapa dependencies baru seperti berikut:
+To support TypeScript, we need to add some new dependencies like the following:
 
 ```javascript
 {
@@ -210,7 +209,7 @@ Untuk mendukung TypeScript, kita perlu menambahkan beberapa dependencies baru se
 }
 ```
 
-Yang paling utama, tentu kita harus mengubah kode dalam single file komponen Vue yang sebelumnya hanya `<script></script>` menjadi `<script lang="ts"></script>` agar kita bisa mendukung kode TypeScript pada bagian script. Dan berikut contoh layout `default.vue` yang sudah saya refactor menggunakan TypeScript:
+First of all, of course we have to change the code in the single component file Vue that previously only `<script></script>` becomes `<script lang = "ts"> </script>`so we can support the TypeScript code in the script section . And here is the `default.vue` layout example that I refactor using TypeScript:
 
 ```javascript
 import { Component, Vue } from 'vue-property-decorator'
@@ -259,11 +258,11 @@ export default class DefaultLayout extends Vue {
 }
 ```
 
-Seperti bisa kalian lihat dari contoh kode diatas, saya menggunakan [vue-property-decorator ↗️](https://github.com/kaorun343/vue-property-decorator) untuk mendefinisikan komponen tersebut serta menggunakan [vuex-class ↗️](https://github.com/ktsn/vuex-class) untuk melakukan binding terhadap Vuex Store yang telah dibuat sebelumnya agar bisa digunakan di dalam komponen. Silakan kunjungi tautan masing-masing untuk mempelajari lebih lanjut mengenai apa saja yang bisa dan tidak bisa kita lakukan dengan `vue-property-decorator` maupun `vuex-class`.
+As you can see from the code example above, I use [vue-property-decorator ↗️](https://github.com/kaorun343/vue-property-decorator) to define the component and use [vuex-class ↗️](https://github.com/ktsn/vuex-class) to bind the Vuex Store that was made beforehand so that it can be used in the component. Please visit the respective links to learn more about what we can and cannot do with `vue-property-decorator` or` vuex-class`.
 
-## Refactor Jest Config
+## Refactor the Jest Config
 
-Unit test hampir tidak diperlukan perubahan sama sekali selain dari path dan nama file yang kemungkinan besar kita ubah nama dan letaknya. Kita hanya perlu mencocokan konfigurasi Jest agar mendukung TypeScript seperti pada contoh kode berikut:
+There is almost no need to change unit tests other than the path and file name that we are most likely to change the name and location. We only need to match the Jest configuration to support TypeScript as in the following code example:
 
 ```javascript
 module.exports = {
@@ -286,8 +285,8 @@ module.exports = {
 }
 ```
 
-## Repository sumber
+## Repository
 
 [🐙 https://github.com/mazipan/quran-offline ↗️](https://github.com/mazipan/quran-offline)
 
-### Demikian artikel kali ini, semoga bermanfaat...
+### Thus this article, hopefully useful...
