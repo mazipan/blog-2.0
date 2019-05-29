@@ -23,7 +23,7 @@ Sudah bukan hal baru bahwa ekosistem di Vue belum sekuat dan sekomplit di React,
 
 Nuxt pada dasarnya diperuntukkan untuk membuat aplikasi web di Vue yang membutuhkan rendering di server, Nuxt lebih khusus sangat disiapkan untuk menangani berbagai kebutuhan kompleks yang biasanya muncul ketika membuat sebuah aplikasi web. Meskipun Nuxt mempunyai kemampuan untuk men-*generate* file statis yang bisa kita gunakan juga untuk membuat blog statis, namun sebenarnya ini merupakan fungsi yang *nice-to-have* bagi Nuxt.
 
-Sementara Gridsome merupakan pemain yang punya spesialis di bagian ini. Gridsome sudah secara *default* memiliki fitur *generate* yang dipersenjatai dengan berbagai *built-in* fitur lain yang dibutuhkan ketika membuat blog statis seperti otomatis melakukan *code-splitting*, melakukan kompresi gambar, mendukung PWA secara penuh, dan tentunya sangat bersahabat dengan SEO. Kita juga bisa dengan mudah mengorganisasikan berkas konten kita dengan **Markdown** tanpa perlu tambahan konfigurasi apapun lagi. Bila kalian lihat di repository [Blog 2.0 ↗️](/blog-2-0-in-nuxtjs) yang saya buat dengan Nuxt tentu tau bahwa saya harus melakukan berbagai "kecurangan" untuk mengerjakan hal yang sama.
+Sementara Gridsome merupakan pemain yang punya spesialis di bagian ini. Gridsome sudah secara *default* memiliki fitur *generate* yang dipersenjatai dengan berbagai *built-in* fitur lain yang dibutuhkan ketika membuat blog statis seperti otomatis melakukan *code-splitting*, melakukan kompresi gambar, mendukung PWA secara penuh, dan tentunya sangat bersahabat dengan SEO. Kita juga bisa dengan mudah mengorganisasikan berkas konten kita dengan **Markdown** tanpa perlu tambahan konfigurasi apapun lagi. Bila kalian lihat di repository [Blog 2.0 ↗️](/blog-2-0-in-nuxtjs) yang saya buat dengan Nuxt tentu akan tau bahwa saya harus melakukan berbagai "kecurangan" untuk mengerjakan hal yang sama.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="https://gridsome.org/assets/how-it-works.gif" alt="How Gridsome Works">
 
@@ -75,7 +75,7 @@ Untuk deploy Gridsome ke Netlify juga sangat mudah, bahkan Gridsome juga menyedi
 
 ## Menambahkan Artikel Baru
 
-1) Semua artikel terletal di direktori `/content/posts` dengan format berkas menggunakan Markdown yang berekstensi `.md`.
+1) Semua artikel terletak di direktori `/content/posts` dengan format berkas menggunakan Markdown yang berekstensi `.md`.
 
 2) Kita tinggal menambahkan file baru dengan nama berkas yang nantinya akan menjadi url dari artikel tersebut.
 

@@ -1,39 +1,39 @@
 ---
-title: Membuat blog keren dengan Gridsome
+title: Create awesome blog with Gridsome
 slug: create-awesome-blog-with-gridsome
 date: '2019-03-14'
 minute2read: 10
-description: Bagaimana memulai membuat Blog statis keren menggunakan Vue.js static site generator Gridsome dalam waktu yang singkat
+description: How to start creating awesome static Blogs using Gridsome - a Vue.js static site generator in a short time
 categories: [javascript, gridsome]
 ---
 
-## Mengenal Blog Statis
+## About Static Blog
 
-"Blog statis" merupakan blog yang kita buat tanpa menggunakan *backend*, sehingga bisa kita deploy dengan mudah pada berbagai static host seperti Github Pages, Netlify, Firebase dan lainnya. Blog statis ini biasanya menggunakan templat seperti *Markdown* yang akan *build* sesaat sebelum *deploy* untuk menghasilkan file statis HTML, CSS dan JavaScript.
+"Static blog" is a blog that we create without using * backend *, so that we can deploy easily to various static hosts such as Github Pages, Netlify, Firebase, and others. This static blog usually uses templates like * Markdown * that will * build * shortly before * deploy * to produce static HTML, CSS, and JavaScript files.
 
-## Apa itu Gridsome?
+## What is Gridsome?
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="https://gridsome.org/assets/logo-poster.png" alt="Gridsome Logo">
 
-[Gridsome ↗️](https://gridsome.org/) merupakan anak baru di ekosistem Vue.js yang mengkhususkan dirinya sebagai pembuat halaman statis (*static site generator*). Bila kalian pengguna React.js, tentu sudah tidak asing dengan yang namanya [Gatsby ↗️](https://www.gatsbyjs.org/) sebagai salah satu pembuat halaman statis terbaik saat ini. Nah, Gridsome sangat terinspirasi dari apa yang dikerjakan oleh Gatsby di ekosistem React.js.
+[Gridsome ↗️](https://gridsome.org/) is a new kid in the Vue.js ecosystem that specializes in creating static pages. If you are a React.js user, of course you are familiar with the name [Gatsby ↗️](https://www.gatsbyjs.org/) as one of the best static page generator at the moment. Well, Gridsome was very inspired by Gatsby in the React.js ecosystem.
 
-Sudah bukan hal baru bahwa ekosistem di Vue belum sekuat dan sekomplit di React, namun saya pribadi selalu terkagum-kagum dengan mereka yang bersusah payah membuatkan alternatif bagi banyak hal hebat di React untuk Vue. Gridsome, seperti ingin mengekor pada kesuksesan Nuxt yang mencoba mengadopsi Next.js di React. Nuxt yang beberapa tahun lalu belum terdengar suaranya hari ini bahkan telah menjadi pilihan terbaik ketika akan membuat sebuah aplikasi diatas Vue.
+It's not new that the ecosystem in Vue is not as strong as and as complete as React, but I am always amazed by those who are struggling to make alternatives to many great things to react to Vue. Gridsome, like will follow the success of Nuxt in trying to adopt Next.js on React. Nuxt today has become the best choice when making an any application on Vue.
 
-## Mengapa Gridsome lebih baik dibandingkan Nuxt?
+## Why is Gridsome better than Nuxt?
 
-Nuxt pada dasarnya diperuntukkan untuk membuat aplikasi web di Vue yang membutuhkan rendering di server, Nuxt lebih khusus sangat disiapkan untuk menangani berbagai kebutuhan kompleks yang biasanya muncul ketika membuat sebuah aplikasi web. Meskipun Nuxt mempunyai kemampuan untuk men-*generate* file statis yang bisa kita gunakan juga untuk membuat blog statis, namun sebenarnya ini merupakan fungsi yang *nice-to-have* bagi Nuxt.
+Nuxt is basically intended to create web applications in Vue that require rendering on a server, Nuxt is more specifically very prepared to handle a variety of complex needs that usually arise when creating a web application. Although Nuxt has the ability to generate static files that we can use to create static blogs, actually this is a function that is nice to have for Nuxt.
 
-Sementara Gridsome merupakan pemain yang punya spesialis di bagian ini. Gridsome sudah secara *default* memiliki fitur *generate* yang dipersenjatai dengan berbagai *built-in* fitur lain yang dibutuhkan ketika membuat blog statis seperti otomatis melakukan *code-splitting*, melakukan kompresi gambar, mendukung PWA secara penuh, dan tentunya sangat bersahabat dengan SEO. Kita juga bisa dengan mudah mengorganisasikan berkas konten kita dengan **Markdown** tanpa perlu tambahan konfigurasi apapun lagi. Bila kalian lihat di repository [Blog 2.0 ↗️](/blog-2-0-in-nuxtjs) yang saya buat dengan Nuxt tentu tau bahwa saya harus melakukan berbagai "kecurangan" untuk mengerjakan hal yang sama.
+While Gridsome is a player who has specialists in this section. Gridsome has *generate* features that are armed with various *built-in* other features needed when creating static blogs such as automatic *code-splitting*, image compression, full PWA support, and of course the very friendly with SEO. We can also easily organize our content files with **Markdown** without the need for any additional configuration. If you look at the [Blog 2.0 repository↗️](/blog-2-0-in-nuxtjs) that I made with Nuxt, of course you will know that I have to do various "cheats" to do the same thing.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="https://gridsome.org/assets/how-it-works.gif" alt="How Gridsome Works">
 
-## Membuat Blog dengan Gridsome
+## Create awesome blog with Gridsome
 
-Membuat blog dengan Gridsome sekarang sangat dipermudah dengan adanya *starter template* yang menurut saya sudah cukup komplit untuk kebutuhan umum sebuah blog.
+Creating a blog with Gridsome is now made easier by the *starter template* which in my opinion is quite complete for the general needs of a blog.
 
-Gridsome membuat starter yakni [gridsome-starter-blog ↗️](https://github.com/gridsome/gridsome-starter-blog) yang bisa kalian gunakan dengan cepat dan mudah untuk pertama kali. Dengan menggunakan starter seperti ini akan mengurangi banyak beban di depan untuk melakukan banyak konfigurasi yang tentunya akan membingungkan bagi pemula seperti saya ini.
+Gridsome already make a starter [gridsome-starter-blog ↗️](https://github.com/gridsome/gridsome-starter-blog) that you can use quickly and easily for the first time. Using a starter like this will reduce a lot of burden up front to do many configurations which of course will be confusing for beginners like me.
 
-Berikut kurang lebih langkah-langkah untuk membuat blog dengan menggunakan starter template dari Gridsome ini:
+Here are more or less the steps to creating a blog using Gridsome's template starter:
 
 **1. Install Gridsome CLI**
 
@@ -41,76 +41,74 @@ Berikut kurang lebih langkah-langkah untuk membuat blog dengan menggunakan start
 $ npm install --global @gridsome/cli
 ```
 
-**2. Buat proyek baru dengan `gridsome-starter-blog`**
+**2. Create new project using `gridsome-starter-blog`**
 
 ```bash
 $ gridsome create gridsome-blog https://github.com/gridsome/gridsome-starter-blog.git
 ```
 
-**3. Menjalankan untuk pengembangan di lokal**
+**3. Running in local environment**
 
 ```bash
 $ gridsome develop
 ```
 
-**4. Men-*generate* berkas statis**
+**4. Generate static files**
 
 ```bash
 $ gridsome build
 ```
 
-Kalian bisa lihat hasil membuat Blog dengan gridsome starter di repository [https://github.com/mazipan/gridsome-blog ↗️](https://github.com/mazipan/gridsome-blog)
+You can see the results of creating a Blog with gridsome starter in the repository [https://github.com/mazipan/gridsome-blog ↗️](https://github.com/mazipan/gridsome-blog)
 
-## Deploy ke Netlify
+## Deploy to Netlify
 
-Untuk deploy Gridsome ke Netlify juga sangat mudah, bahkan Gridsome juga menyediakan dokumentasi resmi mengenai langkah-langkahnya di halaman [deploy-to-netlify ↗️](https://gridsome.org/docs/deploy-to-netlify), yang kurang lebih seperti berikut:
+To deploy Gridsome to Netlify is also very easy, even Gridsome also provides official documentation about the steps on the page [deploy-to-netlify ↗️](https://gridsome.org/docs/deploy-to-netlify), which are more or less the following:
 
-1) Buat halaman projek baru di Netlify
+1) Create new project in Netlify
 
-2) Tambahkan perintah `gridsome build` pada kolom *build command*
+2) Adding command `gridsome build` in *build command* field
 
-3) Dan tambahkan direktori `dist` pada kolom *publish directory*
+3) Add directory `dist` in *publish directory* field
 
-4) Kalian bisa lihat hasilnya di [https://gridsome-blog.netlify.com/ ↗️](https://gridsome-blog.netlify.com/)
+4) You can see the result in [https://gridsome-blog.netlify.com/ ↗️](https://gridsome-blog.netlify.com/)
 
-## Menambahkan Artikel Baru
+## Adding new article/post
 
-1) Semua artikel terletal di direktori `/content/posts` dengan format berkas menggunakan Markdown yang berekstensi `.md`.
+1) All articles are under `/content/posts` directory using Markdown file which has `.md` extension.
 
-2) Kita tinggal menambahkan file baru dengan nama berkas yang nantinya akan menjadi url dari artikel tersebut.
+2) We just add a new file with the file name which will later be the url of the article.
 
-3) Buat meta dari sebuah artikel, seperti berikut contohnya:
+3) Create a meta data for your new article, like the following example:
 
 ```yaml
 ---
-title: Membuat blog keren dengan Gridsome
+title: Create awesome blog with Gridsome
 slug: create-awesome-blog-with-gridsome
-date: 2019-03-14
-tags: ['Gridsome','JavaScript']
-cover_image: ./images/logo-poster.png
-canonical_url: false
-published: true
-description: Bagaimana memulai membuat Blog statis keren menggunakan Vue.js static site generator Gridsome dalam waktu yang singkat
+date: '2019-03-14'
+minute2read: 10
+description: How to start creating awesome static Blogs using Gridsome - a Vue.js static site generator in a short time
+categories: [javascript, gridsome]
 ---
 ```
 
-4) Kita bisa menambahkan gambar untuk artikel terkait pada direktori `/content/posts/images`, dan cukup menautkan dengan kode Markdown biasa seperti `![Image Alt](./images/logo-poster.png)`
+4) We can add images to related articles in the `/content/posts/images` directory, and simply link with the usual Markdown code like `![Image Alt](./images/logo-poster.png)`
 
-5) Kita bisa mengubah konfigurasi dari nama blog dan deskripsi blog pada file `gridsome.config.js`
+5) We can change the configuration of the blog name and blog description in the `gridsome.config.js` file
 
-## Menambahkan dukungan sitemap.xml
+## Adding sitemap.xml support
 
-Sayangnya dari bawaan templat belum disematkan dukungan untuk membuat `sitemap.xml`, karenanya di sini kita akan menambahkannya sendiri dengan cara seperti berikut:
+Unfortunately, the default template has not been embedded in support to create `sitemap.xml`, so here we will add it ourselves in the following way:
 
-1. Pasang dependency
+1. Adding dependency
 
 ```bash
 yarn add @gridsome/plugin-sitemap
 ```
 
-2. Tambahkan `siteUrl` di dalam berkas `gridsome.config.js` dengan nilai URL produksi dari blog kita
+2. Add `siteUrl` in the `gridsome.config.js` file with the production URL value from our blog
 
-3. Tambahkan konfigurasi untuk sitemap pada berkas `gridsome.config.js` pada properti `plugins`, seperti berikut contohnya:
+3. Add a configuration for the sitemap in the `gridsome.config.js` file on the `plugins` property, as shown below:
 
 ```javascript
 module.exports = {
@@ -136,4 +134,4 @@ module.exports = {
 }
 ```
 
-### Demikian artikel kali ini, semoga bermanfaat...
+### Thus this article, hopefully useful...
