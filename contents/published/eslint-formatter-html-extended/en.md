@@ -1,9 +1,9 @@
 ---
-title: Extending an official ESLint's HTML Formatter
+title: Extend an official ESLint's HTML Formatter
 slug: eslint-formatter-html-extended
 date: '2019-02-19'
 minute2read: 3
-description: Why I decide to extending official ESLint's HTML formatter
+description: Why we decide to extend an official ESLint's HTML formatter
 categories: [javascript, eslint]
 ---
 
@@ -40,3 +40,5 @@ $ eslint --ext .js . -f html-extended -o eslint-report.html
 ```
 
 This formatter is published as open source that you can see in [Github repository ↗️](https://github.com/mazipan/eslint-formatter-html-extended), feel free to fork or submit a new issue.
+
+### Thus this article, hopefully useful...
