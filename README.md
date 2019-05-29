@@ -20,6 +20,21 @@ Raw file in this [vectr.com link](https://vectr.com/mazipan/i7V7tBB5z.png?width=
 | :-----------------------------------: | :-------------------------------: |
 | ![Homepage](screenshoot-homepage.png) | ![Detail](screenshoot-detail.png) |
 
+
+## Features
+
+- Support AMP
+- Support PWA
+- Support english and bahasa Indonesia for posts
+- Generate RSS Feed and Sitemap.xml
+- Save as draft before publish
+- Support adding categories for each post
+- Support for sponsored post
+- Lazy load image in post page using [VueTinyLazyloadImg](https://github.com/mazipan/vue-tiny-lazyload-img)
+- Form for subscriber using NetlifyForm
+- Like and page view using Firebase real-time DB
+- Syntax highlighting using Prism.js
+
 ## Firebase Setup
 
 We use `Firebase` Real Time Database, so you need to create file `.env` before running this project in your local.
