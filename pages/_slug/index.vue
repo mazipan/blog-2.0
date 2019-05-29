@@ -1,6 +1,7 @@
 <template>
   <section class="postdetail-ID">
     <PostDetail
+      lang="ID"
       :meta="meta"
       :render-fn="renderFn"
       :static-render-fn="staticRenderFn" />

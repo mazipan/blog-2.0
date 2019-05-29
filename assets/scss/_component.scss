@@ -65,6 +65,14 @@
   &__item {
     margin-bottom: 3.5em;
   }
+  &__lang {
+    padding: .25em 1em;
+    border-radius: .25em;
+    background-color: var(--bgLighter);
+    margin-bottom: 1em;
+    display: table;
+    cursor: pointer;
+  }
   &__tags {
     display: flex;
     &--spacetop{
