@@ -207,5 +207,5 @@ In [Travis CI ↗️](https://travis-ci.org) we can also adjust various variable
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable">
 
-### Thus this article, hopefully useful...
+### Hopefully useful...
 
