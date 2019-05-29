@@ -9,44 +9,44 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 29 May 2019 05:59:22 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 29 May 2019 06:09:36 GMT</lastBuildDate>
         <item>
             <title><![CDATA[Mencicipi ReasonML untuk React]]></title>
             <description><![CDATA[Menceritakan bagaimana rasanya mencicipi sintaksis ReasonML untuk membangun antarmuka sebuah website]]></description>
-            <link>https://www.mazipan.xyz/mencicipi-reasonml-untuk-react</link>
-            <guid isPermaLink="false">mencicipi-reasonml-untuk-react</guid>
+            <link>https://www.mazipan.xyz/tasting-reasonml-for-react</link>
+            <guid isPermaLink="false">tasting-reasonml-for-react</guid>
             <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
             <pubDate>Sun, 19 May 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Migrasi Nuxt ke TypeScript]]></title>
             <description><![CDATA[Menceritakan beberapa langkah yang saya kerjakan ketika melakukan migrasi project Nuxt dari menggunakan JavaScript vanilla menjadi menggunakan TypeScript]]></description>
-            <link>https://www.mazipan.xyz/migrasi-nuxt-ke-typescript</link>
-            <guid isPermaLink="false">migrasi-nuxt-ke-typescript</guid>
+            <link>https://www.mazipan.xyz/migrate-nuxt-to-typescript</link>
+            <guid isPermaLink="false">migrate-nuxt-to-typescript</guid>
             <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
             <pubDate>Wed, 15 May 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Panduan Unit Testing di Vue.js]]></title>
             <description><![CDATA[Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan Nuxt.js dengan belajar dari berbagai kasus yang terjadi pada proyek nyata]]></description>
-            <link>https://www.mazipan.xyz/panduan-unit-testing-di-vuejs</link>
-            <guid isPermaLink="false">panduan-unit-testing-di-vuejs</guid>
+            <link>https://www.mazipan.xyz/unit-testing-guide-in-vuejs</link>
+            <guid isPermaLink="false">unit-testing-guide-in-vuejs</guid>
             <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
             <pubDate>Tue, 19 Mar 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Membuat blog keren dengan Gridsome]]></title>
             <description><![CDATA[Bagaimana memulai membuat Blog statis keren menggunakan Vue.js static site generator Gridsome dalam waktu yang singkat]]></description>
-            <link>https://www.mazipan.xyz/membuat-blog-keren-dengan-gridsome</link>
-            <guid isPermaLink="false">membuat-blog-keren-dengan-gridsome</guid>
+            <link>https://www.mazipan.xyz/create-awesome-blog-with-gridsome</link>
+            <guid isPermaLink="false">create-awesome-blog-with-gridsome</guid>
             <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
             <pubDate>Thu, 14 Mar 2019 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Pengalaman menjadi fasilitator di program Google Developer Kejar - Mobile Web Specialis 2018]]></title>
             <description><![CDATA[Berbagi pengalaman bagaimana ketika saya menjadi fasilitator pada program Google Developer Kejar - Mobile Web Specialis tahun 2018]]></description>
-            <link>https://www.mazipan.xyz/pengalaman-menjadi-fasilitator-gdk-mws-2018</link>
-            <guid isPermaLink="false">pengalaman-menjadi-fasilitator-gdk-mws-2018</guid>
+            <link>https://www.mazipan.xyz/experience-in-become-fasilitator-gdk-mws-2018</link>
+            <guid isPermaLink="false">experience-in-become-fasilitator-gdk-mws-2018</guid>
             <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
             <pubDate>Tue, 26 Feb 2019 00:00:00 GMT</pubDate>
         </item>
