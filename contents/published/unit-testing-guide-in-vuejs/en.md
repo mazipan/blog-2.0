@@ -1,6 +1,6 @@
 ---
 title: Panduan Unit Testing di Vue.js
-slug: panduan-unit-testing-di-vuejs
+slug: unit-testing-guide-in-vuejs
 date: '2019-03-19'
 minute2read: 20
 description: Langkah-langkah memasang dan melakukan testing pada kode Vue.js dan Nuxt.js dengan belajar dari berbagai kasus yang terjadi pada proyek nyata
@@ -39,7 +39,7 @@ categories: [javascript, testing]
 
 Unit testing (UT) merupakan bagian terkecil dari proses pengetesan sebuah aplikasi perangkat lunak. UT berfokus untuk mengetest bagian terkecil sebuah aplikasi yakni potongan-potongan kode yang dibuat oleh pengembangnya, itu mengapa UT paling ideal dibuat oleh pengembang itu sendiri. Dengan mengetest kode-kode kecil di dalam sebuah aplikasi diharapkan kita bisa menghasilkan aplikasi perangkat lunak dengan kualitas yang lebih bisa dijamin.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/panduan-unit-testing-di-vuejs/commitstrip.jpg" alt="Unit Test Meme by commitstrip">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/unit-testing-guide-in-vuejs/commitstrip.jpg" alt="Unit Test Meme by commitstrip">
 
 [🔼 Kembali ke navigasi](#navigasi)
 

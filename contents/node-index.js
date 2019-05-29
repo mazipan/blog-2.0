@@ -3,11 +3,11 @@
  * Should sort based on newest published date
  */
 module.exports = [
-  'mencicipi-reasonml-untuk-react',
-  'migrasi-nuxt-ke-typescript',
-  'panduan-unit-testing-di-vuejs',
-  'membuat-blog-keren-dengan-gridsome',
-  'pengalaman-menjadi-fasilitator-gdk-mws-2018',
+  'tasting-reasonml-for-react',
+  'migrate-nuxt-to-typescript',
+  'unit-testing-guide-in-vuejs',
+  'create-awesome-blog-with-gridsome',
+  'experience-in-become-fasilitator-gdk-mws-2018',
   'create-simple-like-button-using-firebase-rtdb',
   'eslint-formatter-html-extended'
 ]

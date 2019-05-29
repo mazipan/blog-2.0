@@ -1,6 +1,6 @@
 ---
 title: Mencicipi ReasonML untuk React
-slug: mencicipi-reasonml-untuk-react
+slug: tasting-reasonml-for-react
 date: '2019-05-19'
 minute2read: 10
 description: Menceritakan bagaimana rasanya mencicipi sintaksis ReasonML untuk membangun antarmuka sebuah website
@@ -43,7 +43,7 @@ OCaml memang bahasa yang dasarnya menggunakan paradigma fungsional sehingga Reas
 
 ## Siapa yang sudah pakai ReasonML?
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/mencicipi-reasonml-untuk-react/reasonml-users.png" alt="ReasonML Users">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/tasting-reasonml-for-react/reasonml-users.png" alt="ReasonML Users">
 
 Belum banyak pengguna ReasonML di dunia, tapi beberapa perusahaan besar sudah mulai mengadopsinya di production mereka. Di Indonesia sendiri sepertinya baru [Ruangguru ↗️](https://career.ruangguru.com/) yang berani terang-terangan menggunakan ReasonML di production.
 

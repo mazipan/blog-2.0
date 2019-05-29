@@ -1,6 +1,6 @@
 ---
 title: Membuat blog keren dengan Gridsome
-slug: membuat-blog-keren-dengan-gridsome
+slug: create-awesome-blog-with-gridsome
 date: '2019-03-14'
 minute2read: 10
 description: Bagaimana memulai membuat Blog statis keren menggunakan Vue.js static site generator Gridsome dalam waktu yang singkat
@@ -84,7 +84,7 @@ Untuk deploy Gridsome ke Netlify juga sangat mudah, bahkan Gridsome juga menyedi
 ```yaml
 ---
 title: Membuat blog keren dengan Gridsome
-slug: membuat-blog-keren-dengan-gridsome
+slug: create-awesome-blog-with-gridsome
 date: 2019-03-14
 tags: ['Gridsome','JavaScript']
 cover_image: ./images/logo-poster.png

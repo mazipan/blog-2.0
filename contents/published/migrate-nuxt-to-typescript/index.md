@@ -1,6 +1,6 @@
 ---
 title: Migrasi Nuxt ke TypeScript
-slug: migrasi-nuxt-ke-typescript
+slug: migrate-nuxt-to-typescript
 date: '2019-05-15'
 minute2read: 10
 description: Menceritakan beberapa langkah yang saya kerjakan ketika melakukan migrasi project Nuxt dari menggunakan JavaScript vanilla menjadi menggunakan TypeScript
