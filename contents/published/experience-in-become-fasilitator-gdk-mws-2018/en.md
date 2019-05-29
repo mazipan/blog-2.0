@@ -1,9 +1,9 @@
 ---
-title: Pengalaman menjadi fasilitator di program Google Developer Kejar - Mobile Web Specialis 2018
+title: Experience in become facilitator Google Developer Kejar - Mobile Web Specialist 2018
 slug: experience-in-become-fasilitator-gdk-mws-2018
 date: '2019-02-26'
 minute2read: 10
-description: Berbagi pengalaman bagaimana ketika saya menjadi fasilitator pada program Google Developer Kejar - Mobile Web Specialis tahun 2018
+description: Share my experiences when I became a facilitator in the Google Developer Kejar program for Mobile Web Specialist in 2018
 categories: [experience]
 ---
 

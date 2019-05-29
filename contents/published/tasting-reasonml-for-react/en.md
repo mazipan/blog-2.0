@@ -1,91 +1,91 @@
 ---
-title: Mencicipi ReasonML untuk React
+title: Tasting ReasonML for React
 slug: tasting-reasonml-for-react
 date: '2019-05-19'
 minute2read: 10
-description: Menceritakan bagaimana rasanya mencicipi sintaksis ReasonML untuk membangun antarmuka sebuah website
+description: Story telling in how it feels to taste ReasonML syntax to build the user interface of a website
 categories: [javascript, react, reasonml]
 ---
 
-## ReasonML, makanan apa ya?
+## ReasonML, what food?
 
-ReasonML (baca: Alasan Bercinta), bila saya kutip dari kata-kata mas Riza di blognya yang dipublikasikan [disini  ↗️](https://rizafahmi.com/2018/12/10/perkenalan-reasonml/) adalah sebuah sintaks yang berada diatas bahasa [OCaml  ↗️](https://ocaml.org/). ReasonML bisa menjadi bahasa yang *compiled-to-js* dengan bantuan [BuckleScript  ↗️](https://bucklescript.github.io/) sehingga menjadikan ReasonML pada akhirnya bisa langsung dibandingkan dengan TypeScript.
+ReasonML (do not read as Reasons for Making in Love), if I quote from the words of Mas Riza on his blog published [here ↗️](https://rizafahmi.com/2018/12/10/perkenalan-reasonml/) is a syntax that is above the other language called [OCaml ↗️](https://ocaml.org/). ReasonML can be a language *compiled-to-js* with [BuckleScript ↗️](https://bucklescript.github.io/) help so that ReasonML can ultimately be directly compared to TypeScript nowadays.
 
-Lucunya, saya juga bahkan pertama kali dengar namanya bukan hasil dari baca dokumentasi resmi atau dengerin video kursus keren apapun tapi dari presentasi mas Riza Fahmi di [JakartaJS #45  ↗️](https://www.meetup.com/JakartaJS/events/256965042/) yang membahas State of JavaScript di 2018.
+Funny thing is, I even first heard about ReasonML was not the result of reading the official documentation or listening to any cool video courses but from Mas Riza Fahmi's presentation in [JakartaJS #45 ↗️](https://www.meetup.com/JakartaJS/events/256965042/) which discusses State of JavaScript in 2018.
 
-## Alasan klise belajar ReasonML
+## A classic reason for learning ReasonML
 
-Masing-masing orang pasti punya alasan kenapa ingin belajar ini itu, atau alasan kenapa menggunakan ini dan itu. Mas Riza pun sudah menjelaskan beberapa alasan umum yang bisa kalian ambil sebagai pelecut untuk belajar ReasonML di tahun ini atau tahun depan (kalau masih ada 🤣).
+Each person must have a reason why they want to learn this, or the reason why to use this and that. Mas Riza has also explained some general reasons that you can take as a motivation for learning ReasonML this year or next year (if there are still exist 🤣).
 
-Bagi saya pribadi sendiri, beberapa alasan klise kenapa kalian harus belajar ReasonML tahun ini antara lain:
+For me personally, some classic reasons why you should study ReasonML this year include:
 
-### Anti Maintstream
+### Non-Maintstream
 
-Ini bisa jadi alasan ampuh bagi kalian yang gampang jenuh dengan suatu teknologi, belajar hal-hal yang belum marak di pasaran bisa memberikan kepuasan berbeda pada prosesnya. Pun bilamana teknologi tersebut pada akhirnya memiliki perkembangan yang bagus kedepannya, maka kalian bisa bersyukur karena sudah mengambil langkah belajar lebih dini.
+This could be a powerful reason for those of you who are easily saturated with a technology, learning things that are not yet on the market can give different satisfaction to the process. Even if the technology ultimately has a good development going forward, then you can be grateful for taking steps to learn earlier.
 
 ### Facebook Centric Development
 
-Sudah diketahui bersama bahwa dalam lingkungan developer sering terjadi perbedaan mazhab antara satu developer dengan developer lain, dimana biasanya pengambilan mazhab ini berpengaruh terhadap pemilihan teknologi pendukung di sekitarnya yang akan disesuaikan dengan mazhab yang mereka anut.
+It is well known that in the developer environment there are often different "religion" of thought between one developer and another developer, where usually the taking of the religion" influences the selection of supporting technologies around them which will be adapted to the religion" they hold.
 
-Facebook menjadi salah satu kiblat yang akhir-akhir ini menunjukan gelagat yang sangat baik dalam mendukung lingkungan developer. Banyak sekali alat, framework, teknologi bahkan dokumentasi terkait berbagai teknologi keluaran facebook yang dibuka sebagai kode terbuka. Mengikuti mazhab Facebook tentu bukan hal yang salah, dimana paling tidak kita bisa bersembunyi dibalik nama besar dan konsistensi Facebook dalam memelihara berbagai proyek kode terbuka mereka.
+Facebook is one of the center of attentions that lately shows a very good sign in supporting the developer environment. Lot of tools, frameworks, technology and even documentation related to various Facebook output technologies that are opened as open codes. Following the religion" of Facebook is certainly not a wrong thing, where at least we can hide behind the big names and consistency of Facebook in maintaining various open code projects.
 
-ReasonML seperti diketahui juga dipelihara oleh tim Facebook yang bisa memberikan jaminan lebih terhadap perkembangan dan adopsi kedepannya.
+ReasonML is also known to be maintained by a Facebook team that can provide more guarantees for future development and adoption.
 
 ### Type Safe
 
-Iya, sudah ada TypeScript. Tapi kan gak semua orang seneng pakai TypeScript. Pun bahwa tidak semua orang suka bila ada satu teknologi yang menjadi terlalu besar pada satu segmen. Untuk bahasa yang *Type Safe* di JavaScript memang saat ini TypeScript menjadi salah satu favorit banyak developer, tapi memberikan alternatif lain menjadi hal yang wajib agar masing-masing bisa terus berkembang dan saling berkompetisi.
+Yes, there is TypeScript. But not everyone is happy using TypeScript. Also that not everyone likes when there is one technology that becomes too large in one segment. For languages that are Type Safe in JavaScript, TypeScript is currently one of the favorites of many developers, but providing other alternatives is a must so that each can continue to grow and compete with each other.
 
-ReasonML yang mengambil bahasa dasar dari OCaml diuntungkan dengan *Type System* yang sudah cukup mature dan teruji, ditambah kemampuan menebak *Type* dari suatu data tanpa perlu mendefinikan *Type* secara langsung (*Type Inference*) menjadikan kelebihan ReasonML dalam hal *Type System* semakin komplit.
+ReasonML which took the basic language from OCaml benefited from its Type System which was quite mature and battle tested, plus the ability to guess a data type from any data without the need to define type directly (read: *Type Inference*) making ReasonML excess in type system is more complete.
 
 ### Functional
 
-OCaml memang bahasa yang dasarnya menggunakan paradigma fungsional sehingga ReasonML pun mewarisi sifat ini. Bagi temen-temen yang ingin belajar bahasa dengan paradigma fungsional namun tidak terlalu *strict*, maka ReasonML salah satu pilihan terbaik buat temen-temen memulai.
+OCaml is indeed a language that basically uses a functional paradigm so that ReasonML inherits this trait. For friends who want to learn a language with a functional paradigm but not too *strict*, then ReasonML is one of the best choices for friends to start.
 
-## Siapa yang sudah pakai ReasonML?
+## Who has used ReasonML?
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/tasting-reasonml-for-react/reasonml-users.png" alt="ReasonML Users">
 
-Belum banyak pengguna ReasonML di dunia, tapi beberapa perusahaan besar sudah mulai mengadopsinya di production mereka. Di Indonesia sendiri sepertinya baru [Ruangguru ↗️](https://career.ruangguru.com/) yang berani terang-terangan menggunakan ReasonML di production.
+Not many ReasonML users in the world, but several large companies have started adopting it in their production. In Indonesia itself, it seems that [Ruangguru ↗️](https://career.ruangguru.com/) seems to dare to openly use ReasonML in production.
 
-## Cara Saya Belajar
+## How I learn ReasonML
 
-Saya bukan orang yang senang belajar sintaksis karena jujur saja ini justru menjadi bagian yang paling membosankan dan gampang terlupakan oleh saya pribadi. Kalau kalian mampir ke [dokumentasi resminya ↗️](https://reasonml.github.io/docs/en/overview), kalian akan temui berbagai penjelasan lengkap dan contoh berbagai sintaksis dasar seperti penjelasan berbagai tipe data, tuple, record, variant dan sebagainya dengan mudah. Sayangnya membaca bagian ini tidak akan berpengaruh banyak bagi saya, semenit kemudian juga sudah lupa.
+I am not a person who likes syntaxing learning because to be honest this is actually the most boring and easily forgotten for me personally. If you read the [official documentation ↗️](https://reasonml.github.io/docs/en/overview), you will find various complete explanations and examples of various basic syntaxes such as explanations of various data types, tuples, records, variants and so easily. Unfortunately reading this section will not have much effect on me, a minute later I have forgotten.
 
-Bila temen-temen suka untuk belajar sintaksis terlebih dahulu, bisa langsung mampir ke [Playground ReasonML ↗️](https://reasonml.github.io/en/try?rrjsx=true&reason=C4TwDgpgBATlC8UDeAoKUD2A7CAuKAllsADRpTADuG+AzsDEQOZnrAAWMEehxrUAMwwBXGHQbN+AggDceRUuVoEAHuMZYWSiHKz4F-CASbtg6yeSxF5fcsAh6o9DVvQQANjof7bbSh7lzTX4OAhh7b15FdCFRCMdnCxjZCHifaKdVNKcJYO1dbINyIxNgbMS89CscQt8Kf2IQINd6h1BsG0UAXwBuFE9gJwRkcg78AEYQ6nwAIgAmGZDObgmpETEoecXyaUCoSaVVWYX+Wi9HA7djU2PtqutVu0itw09dR78Anhe7djDsy6CdbZH7JOQA05ZbiOUFOc4Q4rXMrQ278aqpFH7KZtJqbE52BrtHATFC9FD9VJQYTDJAAOnptBIFD+4UxczJFMGwjAwwAFABbEAAJQgAGMAJQIAB8yHptMFItFTNCrMi4zJAypw25vNokqAA) sehingga bisa coba-coba sintaksis tanpa perlu instalasi terlebih dahulu.
+If you like to learn syntax first, you can go to [ReasonML Playground ↗️](https://reasonml.github.io/en/try?rrjsx=true&reason=C4TwDgpgBATlC8UDeAoKUD2A7CAuKAllsADRpTADuG+AzsDEQOZnrAAWMEehxrUAMwwBXGHQbN+AggDceRUuVoEAHuMZYWSiHKz4F-CASbtg6yeSxF5fcsAh6o9DVvQQANjof7bbSh7lzTX4OAhh7b15FdCFRCMdnCxjZCHifaKdVNKcJYO1dbINyIxNgbMS89CscQt8Kf2IQINd6h1BsG0UAXwBuFE9gJwRkcg78AEYQ6nwAIgAmGZDObgmpETEoecXyaUCoSaVVWYX+Wi9HA7djU2PtqutVu0itw09dR78Anhe7djDsy6CdbZH7JOQA05ZbiOUFOc4Q4rXMrQ278aqpFH7KZtJqbE52BrtHATFC9FD9VJQYTDJAAOnptBIFD+4UxczJFMGwjAwwAFABbEAAJQgAGMAJQIAB8yHptMFItFTNCrMi4zJAypw25vNokqAA) so you can try syntax without the need for installation first.
 
-Saya sendiri lebih senang melihat contoh kasus aplikasi yang telah dibuat menggunakan ReasonML, dan syukurnya di halaman utamanya bahkan sudah diberikan tautan yang salah satunya mengarah ke proyek [HackerNews ↗️](https://github.com/reasonml-community/reason-react-hacker-news) yang dibuat menggunakan ReasonML dan React.
+I prefer to see the real world examples of applications that have been made using ReasonML, and thankfully the main page has even been given a link, one of which leads to the [HackerNews project ↗](https://github.com/reasonml-community/reason-react-hacker-news) created using ReasonML and React.
 
-Saya memutuskan untuk melihat dan mempelajari bagaimana ReasonML bisa dikombinasikan dengan React untuk membangun sebuah antarmuka website melalui proyek HackerNews tersebut diatas.
+I decided to see and learn how ReasonML could be combined with React to build a website interface through the HackerNews project above.
 
-Membuat proyek sendiri berdasarkan proyek yang sudah jadi lebih mudah bagi saya untuk melewati berbagai langkah untuk setup sebuah proyek yang biasanya lumayan memakan waktu di awal. Saya membuat proyek sederhana [https://github.com/mazipan/ghibli-reasonreact ↗️](https://github.com/mazipan/ghibli-reasonreact) yang kurang lebih saya akan membuat dua halaman yakni halaman listing dan halaman detail, datanya akan mengambil dari API publik yang disediakan pihak ketiga.
+Creating your own project is based on a project that has become easier for me to go through various steps to setup a project which is usually quite time consuming at the beginning. I made a simple project [https://github.com/mazipan/ghibli-reasonreact ↗️](https://github.com/mazipan/ghibli-reasonreact) which I would like to do more or less I will make two pages namely the listing page and the detail page , the data will be retrieved from public APIs provided by third parties.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="https://github.com/mazipan/ghibli-reasonreact/raw/master/screenshoot.png" alt="Ghibli ReasonReact">
 
-## Yang saya pelajari sampai saat ini
+## What I have learned so far
 
-### Menentukan tipe data
+### Specifies the data type
 
-Karena type safe, jadi kita mesti tau bagaimana membuat tipe data yang benar agar efektif. Meskipun pada ReasonML kita hampir tidak perlu menyebutkan tipe data yang dibutuhkan pada setiap fungsi yang dibuat, namun ReasonML akan selalu mengecek validitas tipe data yang digunakan pada setiap build.
+Because it's type safe, so we have to know how to make the correct data type to be effective. Although at ReasonML we hardly need to mention the type of data needed for each function created, but ReasonML will always check the validity of the data types used in each build.
 
-Tentu proyek pertama saya sangat cupu, jauh dari kata benar. Termasuk penentuan tipe data, seperti ada satu bagian yang saya menentukan menggunakan List padahal seharusnya lebih efektif bila menggunakan Map. Saya juga harus membuat definisi tipe data dari berbagai response yang saya ambil dari pihak ketiga agar mudah ketika dibaca di tempat lain.
+Of course my first project was very fast, far from being true. Including determining the data type, like there is one part that I specify using a List even though it should be more effective when using a Map. I also have to make definitions of data types from various responses that I take from third parties to be easy when read elsewhere.
 
-### "Return" yang tidak terlihat
+### The unseen "return"
 
-Setiap fungsi di ReasonML harus mengembalikan nilai meskipun kita tidak perlu secara langsung menentukan baris mana yang menjadi balikan. ReasonML secara otomatis akan membaca baris terakhir sebagai balikan dari fungsi yang kalian buat. Ini seringkali terlupakan oleh saya yang terlalu terbiasa ngoding JavaScript.
+Each function in ReasonML must return a value even though we do not need to directly determine which line is reversed. ReasonML will automatically read the last line as a response to the function you created. This is often forgotten by those of me who are too used to coding JavaScript.
 
 ### Immutable Data
 
-Temen-temen yang terbiasa dengan React sebenarnya mestinya sudah terbiasa dengan immutable data, namun tidak dengan saya yang biasanya menggunakan Vue sebagai framework utama sehari-hari. Vue yang mengedepankan Reactivitynya menjadi susah untuk implementasi immutable data. Di ReasonML hal ini secara native didukung oleh bahasanya, meskipun sebenarnya kita masih bisa mengubah nilai variable menggunakan `ref` dari variable tersebut.
+For you who are familiar with React should be used to working with immutable data, but not me who usually uses Vue as the main framework everyday. Vue who puts forward Reactivity becomes difficult for immutable data implementation. In ReasonML this is natively supported by the language, although actually we can still change the value of the variable using the `ref` of that variable.
 
-### Dukungan "Hooks" secara bawaan
+### "Hooks" support by default
 
-Reason dengan ReasonReact-nya secara bawaan sudah mendukung dan merekomendasikan menggunakan Hooks di komponennya, sehingga memaksa kita secara tidak langsung untuk belajar dan menggunakan lebih banyak fitur ini.
+Reason with ReasonReact by default supports and recommends using Hooks on its components, forcing us indirectly to learn and use more of these features.
 
-### Perbedaan sintaksis pada Siklus Hidup
+### Syntx differences in the Life Cycle
 
-Bila pada React kita menggunakan `componentDidMount` di ReasonReact kita bisa menggunakan `didMount` saja. Ya, cuma beda sintaksis aja sih. Tapi bisa cukup bikin bingung pas pertama kali. Berikut beberapa siklus hidup yang didukung di ReasonReact:
+If in React we use `componentDidMount` in ReasonReact we can use `didMount`. Yes, just the difference in syntax. But it can be quite confusing at the first time. Here are some life cycles supported at ReasonReact:
 
-| Siklus Hidup           | Parameter     |
+| Life Cycle             | Argument      |
 | ---------------------- |:-------------:|
 | `didMount`             | self          |
 | `willReceiveProps`     | self          |
@@ -94,22 +94,22 @@ Bila pada React kita menggunakan `componentDidMount` di ReasonReact kita bisa me
 | `didUpdate`            | {oldSelf, newSelf} |
 | `willUnmount`          | self          |
 
-Selengkapnya baca [disini ↗️](https://github.com/reasonml/reason-react/blob/master/docs/lifecycles.md)
+Read more [here ↗️](https://github.com/reasonml/reason-react/blob/master/docs/lifecycles.md)
 
-### Mengatur struktur direktori pada projek ReasonML
+### Managing the directory structure in the ReasonML project
 
-Awalnya saya mengikuti contoh pada HackerNews yang menerapkan Flat Structure diaman semua file ada pada satu direktori yang sama, namun memang menjadi "kotor" dan berantakan seiring semakin banyaknya berkas di dalamnya.
+Initially I followed the example on HackerNews which implemented Flat Structure where all files were in the same directory, but it did become "dirty" and messed up as more files were inside.
 
-Untungnya mas [Muhammad Ridho Assuryadi ↗️](https://github.com/muhammadridho) membantu saya untuk merapikan dan memperbaiki struktur dari proyek ini. Memisahkan berkas ke direktori yang berbeda-beda tergantung fungsinya. Hal ini memang sempat membingungankan saya, sebab di ReasonML kita tidak melakukan *import* berdasarkan lokasi *Path* sebuah berkas seperti yang biasa kita lakukan di JavaScript sehingga bisa menimbulkan kerancuan bila tidak menerapkan *namespace* dengan benar pada dua berkas yang sama namanya.
+Fortunately, [Muhammad Ridho Assuryadi ↗️](https://github.com/muhammadridho) helped me to tidy up and improve the structure of this project. Separating files to different directories depends on the function. This really confuses me, because in ReasonML we don't import by location or path of files like we normally do in JavaScript so it can cause confusion if it doesn't apply *namespace* correctly to the two files with the same name.
 
-### Konvensi
+### Convention
 
-Saya sampai sekarang belum menemukan referensi yang pas untuk belajar mengenai konvensi yang benar dan umum di terapkan di ReasonML, seperti penggunaan case apakah menggunakan camelCase atau kebab-case. Sementara berdasarkan dari kode yang di push oleh mas [Muhammad Ridho Assuryadi ↗️](https://github.com/muhammadridho) sendiri masih menggunakan dua hal yang berbeda ini di beberapa tempatnya.
+I have yet to find the right reference for learning about the correct conventions and are commonly applied in ReasonML, such as using cases whether using camelCase or kebab-cases. While based on the code that was pushed by [Muhammad Ridho Assuryadi ↗️](https://github.com/muhammadridho) himself still uses these two different things in several places.
 
-Nanti saya akan perbarui post ini bila sudah menemukan referensi yang tepat untuk hal ini.
+Later I will update this post if I have found the right reference for this.
 
-## Repositori hasil belajar
+## Learning result repository
 
 [https://github.com/mazipan/ghibli-reasonreact ↗️](https://github.com/mazipan/ghibli-reasonreact)
 
-### Demikian artikel kali ini, semoga bermanfaat...
+### Thus this article, hopefully useful ...
