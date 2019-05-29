@@ -4,11 +4,19 @@
       {{ meta.title }}
     </h1>
 
-    <div v-if="lang === 'ID'" class="pages__lang">
-      <nuxt-link :to="`/${meta.slug}/en?utm_source=lang`">Switch to  🇬🇧 language</nuxt-link>
+    <div
+      v-if="lang === 'ID'"
+      class="pages__lang">
+      <nuxt-link :to="`/${meta.slug}/en?utm_source=lang`">
+        Switch to  🇬🇧 language
+      </nuxt-link>
     </div>
-    <div v-if="lang === 'EN'" class="pages__lang">
-      <nuxt-link :to="`/${meta.slug}/?utm_source=lang`">Switch to  🇮🇩 language</nuxt-link>
+    <div
+      v-if="lang === 'EN'"
+      class="pages__lang">
+      <nuxt-link :to="`/${meta.slug}/?utm_source=lang`">
+        Switch to  🇮🇩 language
+      </nuxt-link>
     </div>
 
     <MetaData
