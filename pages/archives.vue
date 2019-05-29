@@ -1,7 +1,7 @@
 <template>
-  <div class="archieves">
+  <div class="archives">
     <div class="space-bottom text-title">
-      <h1>Archieves</h1>
+      <h1>Archives</h1>
     </div>
     <table width="100%">
       <tr
@@ -16,7 +16,7 @@
         </td>
         <td>
           <nuxt-link
-            :to="`/amp/${blog.slug}/?utm_source=archieves`"
+            :to="`/${blog.slug}/?utm_source=archives`"
             :title="blog.title">
             {{ blog.title }}
           </nuxt-link>
@@ -31,12 +31,12 @@ import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
 
 export default {
-  name: 'ArchievesPage',
-  layout: 'amp-default',
+  name: 'ArchivesPage',
   head () {
-    const title = `Archieves | @mazipan`
-    const description = `Page Archieves`
-    const url = `${this.productionUrl}/archieves/`
+    const title = `Archives | @mazipan`
+    const description = `Page Archives`
+    const url = `${this.productionUrl}/archives/`
+    const ampUrl = `${this.productionUrl}/amp/archives/`
     return {
       title,
       meta: [
@@ -52,7 +52,7 @@ export default {
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
       link: [
-        { hid: 'canonical', rel: 'canonical', href: url }
+        { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
     }
   },
@@ -77,3 +77,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>

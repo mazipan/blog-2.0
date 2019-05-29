@@ -16,7 +16,7 @@
         </td>
         <td>
           <nuxt-link
-            :to="`/${blog.slug}/?utm_source=archieves`"
+            :to="`/${blog.slug}/?utm_source=archives`"
             :title="blog.title">
             {{ blog.title }}
           </nuxt-link>

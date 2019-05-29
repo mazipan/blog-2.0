@@ -21,8 +21,8 @@ let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}
     '/amp',
     '/about',
     '/amp/about',
-    '/archieves',
-    '/amp/archieves',
+    '/archives',
+    '/amp/archives',
     '/now',
     '/amp/now'
   ]).concat(

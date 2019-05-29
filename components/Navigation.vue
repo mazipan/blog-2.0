@@ -8,8 +8,8 @@
       ⏰ Now
     </nuxt-link>
     <span class="dot"> • </span>
-    <nuxt-link :to="`/archieves`">
-      📦 Archieves
+    <nuxt-link :to="`/archives`">
+      📦 Archives
     </nuxt-link>
   </div>
 </template>
