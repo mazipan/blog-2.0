@@ -21,7 +21,7 @@ export function getClapsUrl (slug) {
 }
 
 export function getHitsUrl (slug) {
-  return `hits/${slug}`
+  return `pageview/${slug}`
 }
 
 export function getClapsRefs (firebaseInstance, slug) {

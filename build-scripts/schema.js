@@ -8,13 +8,13 @@ function generateData () {
     claps: {
 
     },
-    hits: {
+    pageview: {
 
     }
   }
   allMarkdownContent.map(item => {
     resultObj.claps[item] = 0
-    resultObj.hits[item] = 0
+    resultObj.pageview[item] = 0
 
     return item
   })
