@@ -1,6 +1,6 @@
 <template>
   <div class="container app">
-    <SimplifyHeader />
+    <SimplifyHeader :amp="true"/>
     <nuxt class="wrapper clearfix" />
 
     <hr>

@@ -30,7 +30,7 @@
     </div>
     <hr>
     <div class="pages__footer">
-      🚨Do you like this article? help me to click ❤️ button, share to your followers and subscribe the newsletter.
+      🚨Do you like this article? help me to share to your followers.
     </div>
   </section>
 </template>
@@ -40,6 +40,12 @@ import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
 import EditContentNav from '~/components/EditContentNav'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
+
+function replaceLazyloadImg (str) {
+  return str &&
+    str
+      .replace(/"src":(?:[^=>][^"]*","data-src"|[^=>"]*)/gi, '"src"');
+}
 
 export default {
   name: 'SlugPage',
@@ -112,8 +118,8 @@ export default {
     const attr = fileContent.attributes
     return {
       meta: attr,
-      renderFn: fileContent.vue.render,
-      staticRenderFn: fileContent.vue.staticRenderFns
+      renderFn: replaceLazyloadImg(fileContent.vue.render),
+      staticRenderFn: replaceLazyloadImg(fileContent.vue.staticRenderFns)
     }
   }
 }

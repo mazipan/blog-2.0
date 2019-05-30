@@ -2,7 +2,7 @@
   <header class="header clearfix">
     <div class="profile">
       <div class="profile--left">
-        <nuxt-link to="/">
+        <nuxt-link :to="ampPath">
           <img
             src="/images/profile.png"
             alt="@mazipan"
@@ -11,7 +11,7 @@
             width="76px">
         </nuxt-link>
         <div class="profile__text">
-          <nuxt-link to="/">
+          <nuxt-link :to="ampPath">
             <h1 class="profile__title">
               @mazipan
             </h1>
@@ -64,7 +64,7 @@
         </a>
       </div>
     </div>
-    <Navigation class="navigation" />
+    <Navigation class="navigation" :amp="amp"/>
   </header>
 </template>
 
@@ -79,7 +79,12 @@ export default {
   props: {
     amp: {
       type: Boolean,
-      default: false
+      default: true
+    }
+  },
+  computed: {
+    ampPath () {
+      return this.amp ? '/amp/' : '/'
     }
   }
 }

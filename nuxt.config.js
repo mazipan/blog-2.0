@@ -205,11 +205,11 @@ module.exports = {
       }
     },
     // This hook is called before serving the html to the browser
-    'render:route': (url, page, { req, res }) => {
-      if (/^\/amp/gi.test(url)) {
-        page.html = ampify(page.html)
-      }
-    }
+    // 'render:route': (url, page, { req, res }) => {
+    //   if (/^\/amp/gi.test(url)) {
+    //     page.html = ampify(page.html)
+    //   }
+    // }
   },
   /*
    ** Build configuration

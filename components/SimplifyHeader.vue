@@ -4,12 +4,12 @@
       class="header__block">
       <div class="header__child">
         <nuxt-link
-          to="/">
+          :to="ampPath">
           <h1 class="h1">
             {{ domain }}
           </h1>
         </nuxt-link>
-        <Navigation />
+        <Navigation class="navigation" :amp="amp"/>
       </div>
     </div>
   </header>
@@ -22,6 +22,17 @@ export default {
   name: 'SimplifyHeader',
   components: {
     Navigation
+  },
+  props: {
+    amp: {
+      type: Boolean,
+      default: true
+    }
+  },
+  computed: {
+    ampPath () {
+      return this.amp ? '/amp/' : '/'
+    }
   },
   data () {
     return {
