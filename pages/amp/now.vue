@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'NowPage',
+  name: 'NowPageamp',
   layout: 'amp-default',
   head () {
     const title = `Now | @mazipan`

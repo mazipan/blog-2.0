@@ -31,7 +31,7 @@ import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
 
 export default {
-  name: 'CategoryPage',
+  name: 'CategoryPageAmp',
   head () {
     const title = `Category ${this.category} | @mazipan`
     const description = `All article with ${this.category} category`
@@ -79,6 +79,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-</style>

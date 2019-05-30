@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'AboutPage',
+  name: 'AboutPageAmp',
   layout: 'amp-default',
   head () {
     const title = `About | @mazipan`

@@ -4,7 +4,6 @@ export default {
     const description = `${this.meta.description}`
     const postfix = this.lang === 'ID' ? '/' : '/en'
     const url = `${this.productionUrl}/${this.meta.slug}${postfix}`
-    const ampUrl = `${this.productionUrl}/amp/${this.meta.slug}${postfix}`
     return {
       title,
       meta: [
@@ -23,8 +22,8 @@ export default {
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
       link: [
-        { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
+        { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }
-  }
+  },
 }

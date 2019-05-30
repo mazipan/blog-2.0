@@ -31,7 +31,7 @@ import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
 
 export default {
-  name: 'ArchivesPage',
+  name: 'ArchivesPageAmp',
   layout: 'amp-default',
   head () {
     const title = `Archives | @mazipan`

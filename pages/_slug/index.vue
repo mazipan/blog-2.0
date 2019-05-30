@@ -13,18 +13,24 @@ import PostDetail from '~/pages-partials/PostDetail.vue'
 import PostDetailHead from '~/mixins/post-detail-head'
 
 export default {
-  name: 'SlugPage',
+  name: 'SlugPageId',
   components: {
     PostDetail
   },
   mixins: [
     PostDetailHead
   ],
+  data () {
+    return {
+      productionUrl: 'https://www.mazipan.xyz'
+    }
+  },
   async asyncData ({ params }) {
     const fileContent = await import(`~/contents/published/${params.slug}/index.md`)
 
     const attr = fileContent.attributes
     return {
+      lang: 'ID',
       meta: attr,
       renderFn: fileContent.vue.render,
       staticRenderFn: fileContent.vue.staticRenderFns

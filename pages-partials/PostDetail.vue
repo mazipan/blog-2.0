@@ -159,7 +159,7 @@ import {
 let firebaseInstance = null
 
 export default {
-  name: 'HomepagePartials',
+  name: 'PostDetailPartial',
   components: {
     FacebookIcon,
     TwitterIcon,

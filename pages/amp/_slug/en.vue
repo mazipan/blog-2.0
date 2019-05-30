@@ -9,13 +9,20 @@
 </template>
 
 <script>
-import PostDetail from '~/pages-partials/PostDetail.vue'
-import PostDetailHead from '~/mixins/post-detail-head'
+import PostDetail from '~/pages-partials/PostDetailAmp.vue'
+import PostDetailHead from '~/mixins/post-detail-head-amp'
+
+function replaceLazyloadImg (str) {
+  return str &&
+    str
+      .replace(/"src":(?:[^=>][^"]*","data-src"|[^=>"]*)/gi, '"src"');
+}
 
 export default {
-  name: 'SlugPageEn',
+  name: 'SlugPageEnAmp',
+  layout: 'amp-default',
   components: {
-    PostDetail
+    PostDetail,
   },
   mixins: [
     PostDetailHead
@@ -32,8 +39,8 @@ export default {
     return {
       lang: 'EN',
       meta: attr,
-      renderFn: fileContent.vue.render,
-      staticRenderFn: fileContent.vue.staticRenderFns
+      renderFn: replaceLazyloadImg(fileContent.vue.render),
+      staticRenderFn: replaceLazyloadImg(fileContent.vue.staticRenderFns)
     }
   }
 }

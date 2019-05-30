@@ -46,7 +46,7 @@ import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
 
 export default {
-  name: 'Homepage',
+  name: 'HomepageAmp',
   layout: 'amp-homepage',
   components: {
     MetaData

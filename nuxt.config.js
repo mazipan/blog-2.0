@@ -15,7 +15,7 @@ const drafts = draftContents.data.map(item => {
   return item
 })
 
-let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`]), [])
+let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`, `/amp/${item}/en`]), [])
   .concat(drafts).concat([
     '/success-subscribed',
     '/amp',
