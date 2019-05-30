@@ -9,7 +9,9 @@
             {{ domain }}
           </h1>
         </nuxt-link>
-        <Navigation class="navigation" :amp="amp"/>
+        <Navigation
+          class="navigation"
+          :amp="amp" />
       </div>
     </div>
   </header>
@@ -29,14 +31,14 @@ export default {
       default: true
     }
   },
-  computed: {
-    ampPath () {
-      return this.amp ? '/amp/' : '/'
-    }
-  },
   data () {
     return {
       domain: process.env.DOMAIN
+    }
+  },
+  computed: {
+    ampPath () {
+      return this.amp ? '/amp/' : '/'
     }
   }
 }

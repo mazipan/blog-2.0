@@ -64,7 +64,9 @@
         </a>
       </div>
     </div>
-    <Navigation class="navigation" :amp="amp"/>
+    <Navigation
+      class="navigation"
+      :amp="amp" />
   </header>
 </template>
 

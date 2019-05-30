@@ -15,14 +15,14 @@ import PostDetailHead from '~/mixins/post-detail-head-amp'
 function replaceLazyloadImg (str) {
   return str &&
     str
-      .replace(/"src":(?:[^=>][^"]*","data-src"|[^=>"]*)/gi, '"src"');
+      .replace(/"src":(?:[^=>][^"]*","data-src"|[^=>"]*)/gi, '"src"')
 }
 
 export default {
   name: 'SlugPageIdAmp',
   layout: 'amp-default',
   components: {
-    PostDetail,
+    PostDetail
   },
   mixins: [
     PostDetailHead

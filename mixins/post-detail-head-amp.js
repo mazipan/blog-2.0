@@ -25,5 +25,5 @@ export default {
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }
-  },
+  }
 }
