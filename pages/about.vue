@@ -6,7 +6,9 @@
     <div>
       <img
         src="/images/profile-rounded.png"
-        alt="@mazipan">
+        alt="@mazipan"
+        height="76px"
+        width="76px">
 
       <br><br>Hi, I am Irfan Maulana.
       <br><br>Software Architect in Bizzy Indonesia, former Software Engineer in Blibli.com and SML Technologies.

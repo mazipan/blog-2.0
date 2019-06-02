@@ -3,6 +3,7 @@
  * Should sort based on newest published date
  */
 module.exports = [
+  'generate-amp-pages-in-nuxtjs',
   'tasting-reasonml-for-react',
   'migrate-nuxt-to-typescript',
   'unit-testing-guide-in-vuejs',
