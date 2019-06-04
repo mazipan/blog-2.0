@@ -9,7 +9,7 @@ categories: [javascript, nuxt, amp]
 
 ## Sekilas Mengenai AMP
 
-AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) merupakan inisiatif yang diawalai oleh Google dalam membantu para publisher, developer dan para pemilik website agar bisa menyediakan website dengan kecepatan muat yang sangat cepat bahkan mendekati instan untuk device mobile. Untuk mencapai titik muat instan ini tentu tidak didapatkan secara gratis, ini dilakukan dengan peraturan ketat yang diterapkan oleh AMP. Ekstrimnya bisa disebut bahwa AMP bahkan tidak memperbolehkan untuk menyisipkan sembarang skrip JavaScript ke dalam halaman website kita, ditambah dengan berbagai aturan ketat lainnya yang bisa menjamin bahwa website dengan dukungan AMP yang valid bisa tetap dimuat dengan kecepatan yang luar biasa cepat.
+AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) merupakan inisiatif yang diawali oleh Google dalam membantu para publisher, developer dan para pemilik website agar bisa menyediakan website dengan kecepatan muat yang sangat cepat bahkan mendekati instan untuk device mobile. Untuk mencapai titik muat instan ini tentu tidak didapatkan secara gratis, ini dilakukan dengan peraturan ketat yang diterapkan oleh AMP. Ekstremnya bisa disebut bahwa AMP bahkan tidak memperbolehkan untuk menyisipkan sembarang skrip JavaScript ke dalam halaman website kita, ditambah dengan berbagai aturan ketat lainnya yang bisa menjamin bahwa website dengan dukungan AMP yang valid bisa tetap dimuat dengan kecepatan yang luar biasa cepat.
 
 AMP merupakan rekomendasi yang dianjurkan oleh Google langsung karena memiliki prioritas yang baik bagi hasil pencarian Google Search. Dan dengan rampingnya teknologi di dalamnya serta ditambah bantuan *cache* dari Google membuat AMP menjadi sangat cepat diakses dan sangat baik untuk digunakan sebagai halaman pertama bagi pengunjung yang datang dari hasil Google Search ini.
 
@@ -155,11 +155,11 @@ module.exports = (html) => {
 
 Seperti kalian bisa baca di bagian komentar pada kode diatas, bahwa kode diatas melakukan berbagai proses penggantian karakter (*replace*) menggunakan *RegEx* seperti menambahkan emoji ⚡, menggabungkan semua CSS internal ke dalam satu tag `<style amp-custom>`, menghilangkan berbagai JavaScript eksternal, menambahkan skrip utama dan CSS boilerplate AMP serta berbagai hal lainnya.
 
-Fungsi ini saya letakan di direktory `plugins/amplify.js` yang kemudian dipanggil pada hook generate seperti berikut:
+Fungsi ini saya letakan di direktory `plugins/ampify.js` yang kemudian dipanggil pada hook generate seperti berikut:
 
 
 ```javascript
-const ampify = require('./plugins/amplify')
+const ampify = require('./plugins/ampify')
 
 module.exports = {
   hooks: {
@@ -173,7 +173,7 @@ module.exports = {
 }
 ```
 
-### 4. Mengganti semua penggunaan scoped style menjadi un-scoped
+### 5. Mengganti semua penggunaan scoped style menjadi un-scoped
 
 Karena saya termasuk cupu untuk bermain dengan *RegEx* maka mengutak-atik kode yang penuh dengan *RegEx* seperti diatas menjadi PR tersendiri.
 
@@ -188,9 +188,9 @@ Ternyata mengakibatkan semua kode CSS *scoped* saya menjadi berantakan, maka pil
 
 Langkah ini tidak perlu teman-teman ikuti bila memang teman-teman bisa melakukan modifikasi *RegEx* agar bisa melakukan penggantian karakter dengan lebih tepat tanpa menimbulkan efek samping pada CSS.
 
-### 4. Mengganti semua lazy load gambar
+### 6. Mengganti semua lazy load gambar
 
-Pada halaman non-AMP, saya memanfaatkan pustaka [VueTinyLazyloadImg](https://github.com/mazipan/vue-tiny-lazyload-img) untuk melakukan lazy load pada setiap gambar yang dimuat. Sayangnya proses ini dikerjakan oleh JavaScript. Pada AMP hal ini tidak diperlukan lagi karena mereka memiliki komponen `amp-img` yang sudah mendukung lazy load.
+Pada halaman non-AMP, saya memanfaatkan pustaka [VueTinyLazyloadImg ↗️](https://github.com/mazipan/vue-tiny-lazyload-img) untuk melakukan lazy load pada setiap gambar yang dimuat. Sayangnya proses ini dikerjakan oleh JavaScript. Pada AMP hal ini tidak diperlukan lagi karena mereka memiliki komponen `amp-img` yang sudah mendukung lazy load.
 
 Dengan menggunakan `amp-img` maka tag HTML saya untuk gambar menjadi tidak valid karena sebelumnya dengan pustaka yang saya gunakan diatas saya meletakan alamat gambar pada atribut `data-src` sementara pada atribut `src` hanya saya letakan gambar placeholder. Pilihan termudah adalah mengganti tag `data-src` menjadi tag `src` dan menghapus penempatan gambar placeholder pada atribut `src`.
 
@@ -206,24 +206,28 @@ function replaceLazyloadImg (str) {
 }
 ```
 
-### 4. Menambahkan ukuran pada gambar
+### 7. Menambahkan ukuran pada gambar
 
 Ini pekerjaan yang sampai artikel ini dipublikasikan masih belum sempat saya selesaikan. Menambahkan atribut `height` dan `width` pada konten Markdown yang menyertakan gambar di dalamnya.
 
-### 5. Menambahkan canonical
+### 8. Menambahkan canonical
 
 Kita perlu menautkan antara halaman AMP dengan halaman aslinya agar bisa dideteksi oleh Google bahwa halaman AMP tersebut merupakan representasi dari konten yang mana.
 
 Caranya adalah dengan menambahkan kode seperti berikut pada head halaman AMP:
 
 ```html
-<link rel="canonical" href="alamat-halaman-asli"></link>
+<head>
+  <link rel="canonical" href="alamat-halaman-asli"></link>
+</head>
 ```
 
 Dan kode berikut pada halaman aslinya:
 
 ```html
-<link rel="amphtml" href="alamat-halaman-amp"></link>
+<head>
+  <link rel="amphtml" href="alamat-halaman-amp"></link>
+</head>
 ```
 
 Untuk membuat dua kode diatas kita bisa menambahkan pada bagian `head()` pada file .vue dari halaman kita, seperti contoh berikut pada halaman AMP:
@@ -254,6 +258,64 @@ export default {
     }
   }
 }
+```
+
+### 9. Menambahkan Google Analytics
+
+Untuk menambahkan Google Analytics pada halaman AMP memang sedikit berbeda dengan halaman biasa. Secara mudahnya, menambahkan Google Analytics bisa dilakukan dengan menambahkan skrip eksternal berikut:
+
+```html
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+```
+
+Serta menempatkan kode sederhana untuk melacak *page view* seperti berikut:
+
+```html
+<amp-analytics type='googleanalytics'>
+  <script type='application/json'>
+    {
+      "vars": {
+        "account": "UA-12345678-X"
+      },
+      "triggers": {
+        "trackPageview": {
+          "on": "visible",
+          "request": "pageview"
+        }
+      }
+    }
+  </script>
+</amp-analytics>
+```
+
+Untuk projek kita, kita bisa menyisipkan kode ini pada skrip `ampify` kita dengan sedikit perubahan seperti berikut:
+
+```javascript
+const ampScript = `<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>`
+```
+
+Kode di atas digunakan untuk menyisipkan skrip analytics yang dibutuhkan. Dan berikutnya kita akan menyisipkan skrip tracking sebelum tag penutup `</body>`, seperti contoh berikut:
+
+```javascript
+// Add AMP analytics
+html = html.replace('</body>',
+`<amp-analytics type='googleanalytics'>
+    <script type='application/json'>
+      {
+        "vars": {
+          "account": "UA-25065548-6"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+    </script>
+  </amp-analytics>
+</body>`)
 ```
 
 ## Test Validasi Halaman AMP

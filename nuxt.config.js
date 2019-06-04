@@ -4,7 +4,7 @@ import draftContents from './contents/drafts/index.js'
 
 const path = require('path')
 const pkg = require('./package')
-const ampify = require('./plugins/amplify')
+const ampify = require('./plugins/ampify')
 
 const appTitle = `@mazipan — A personal blog by Irfan Maulana`
 const productionUrl = 'https://www.mazipan.xyz'
@@ -66,7 +66,7 @@ module.exports = {
         hid: 'keywords',
         name: 'keywords',
         content:
-          'mazipan, mazipanneh, irfan maulana, irfan, irfan blibli, irfan bizzy, frontend, frontend developer'
+          'mazipan, mazipanneh, irfan maulana, irfan vue, irfan blibli, irfan bizzy'
       },
 
       { name: 'theme-color', content: '#bd93f9' },

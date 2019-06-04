@@ -7,19 +7,19 @@ description: How to generate AMP Pages for you blog using Nuxt.js
 categories: [javascript, nuxt, amp]
 ---
 
-## Sekilas Mengenai AMP
+## About AMP
 
-AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) merupakan inisiatif yang diawalai oleh Google dalam membantu para publisher, developer dan para pemilik website agar bisa menyediakan website dengan kecepatan muat yang sangat cepat bahkan mendekati instan untuk device mobile. Untuk mencapai titik muat instan ini tentu tidak didapatkan secara gratis, ini dilakukan dengan peraturan ketat yang diterapkan oleh AMP. Ekstrimnya bisa disebut bahwa AMP bahkan tidak memperbolehkan untuk menyisipkan sembarang skrip JavaScript ke dalam halaman website kita, ditambah dengan berbagai aturan ketat lainnya yang bisa menjamin bahwa website dengan dukungan AMP yang valid bisa tetap dimuat dengan kecepatan yang luar biasa cepat.
+AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) is Google's iniisatif for helping publishers, developers and website owner to serve website with fast first load time even nearly instant in mobile devices. For achieving that instant loading is not free, this can be done by AMP with applying so many strict rule for websites. We can say that AMP is strip down all your custom JavaScript to guarantee your website have instant load time.
 
-AMP merupakan rekomendasi yang dianjurkan oleh Google langsung karena memiliki prioritas yang baik bagi hasil pencarian Google Search. Dan dengan rampingnya teknologi di dalamnya serta ditambah bantuan *cache* dari Google membuat AMP menjadi sangat cepat diakses dan sangat baik untuk digunakan sebagai halaman pertama bagi pengunjung yang datang dari hasil Google Search ini.
+AMP is recommended by Google because it is very user centrict. Google also will prioritize the contents with AMP support with adding a badge in the search results to indicate AMP. Google also support with adding the caches to boost the first load speed into the limit which make AMP is the best choice for first user landing from the search result.
 
-## Dasar-dasar Membuat AMP
+## Basics for Creating AMP
 
-Halaman AMP memang menjadi halaman yang terpisah dari halaman aslinya, ini dikarenakan terlalu banyak aturan ketat yang membuat teknologi website pada umumnya akan susah untuk membuat halaman AMP yang valid. Halaman AMP seperti ibarat halaman kopian dari halaman asli yang telah kita buat sebelumnya namun dengan memenuhi berbagai aturan yang telah ditetapkan oleh AMP.
+AMP is seperate pages with the normal one. This is because AMP have different strict rule that make us harder to implement in our existing technology stack that usually become very depends on JavaScript.
 
-Untuk membuat halaman AMP pertama kita, pertama kita perlu menambahkan identifikasi pada tag `html` bahwa halaman tersebut merupakan versi AMP.
+For creating new AMP pages, first we need to add an identifier in `html` tag to make browser know that the pages is AMP version.
 
-Bila sebelumnya kita menulis html seperti berikut:
+If in normal HTML we can have this below code:
 
 ```html
 <html>
@@ -28,7 +28,7 @@ Bila sebelumnya kita menulis html seperti berikut:
 <html>
 ```
 
-Maka di AMP kita akan menambahkan emoji ⚡ pada tag `html` seperti berikut:
+In AMP we will add emoji ⚡ in our `html` tag, see below example:
 
 ```html
 <html ⚡>
@@ -37,23 +37,23 @@ Maka di AMP kita akan menambahkan emoji ⚡ pada tag `html` seperti berikut:
 <html>
 ```
 
-Atau bila kita tidak senang menggunakan emoji bisa menggantinya dengan atribut `amp` tanpa perlu mengisi nilai apapun pada atribut tersebut.
+Or we can just change the ⚡ emoji with attribute `amp` without any values if we didn't support emoji.
 
-Setelahnya kita bisa menambahkan skrip utama untuk mendukung AMP dengan menambahkan kode berikut:
+After adding the identifier, we need to add the main AMP engine script with this below code:
 
 ```html
 <script async src="https://cdn.ampproject.org/v0.js"></script>
 ```
 
-Serta menambahkan CSS wajib atau disebut *boilerplate* untuk halaman AMP berikut:
+We also need to add CSS boilerplate for all AMP pages:
 
 ```html
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 ```
 
-Perlu diketahui bahwa kita tidak boleh menambahkan skrip JavaScript apapun selain yang sudah dibuatkan oleh AMP sendiri atau biasa dikenal dengan komponen AMP, jadi kita diharuskan untuk menghapus semua link untuk memuat berbagai JavaScript.
+The things we need to be noted is AMP is not allowing any custom JavaScript or any external third party JavaScript link.
 
-Pun dengan CSS, tidak diperbolehkan bagi kita untuk memuat eksternal CSS sehingga harus menghapus semua link yang memuat CSS dari luar. Bila kita membutuhkan CSS tambahan, kita bisa menggunakan internal CSS dengan tag `style` dengan atribut wajib yakni `amp-custom` seperti contoh berikut:
+So do with CSS file, we can't load any external CSS file. All style need to be loaded internally using tag `amp-custom` like below example code:
 
 ```html
 <style amp-custom>
@@ -61,33 +61,29 @@ Pun dengan CSS, tidak diperbolehkan bagi kita untuk memuat eksternal CSS sehingg
 </style>
 ```
 
-Dalam menggunakan CSS pun ada hal yang perlu diperhatikan, seperti tidak bolehnya kita menggunakan `!important`.
+In AMP, we can use any `!important` in our CSS code.
 
-Pada dasarnya kita bebas menggunakan berbagai tag HTML pada halaman AMP kita, namun dengan aturan ketat AMP yang meyarankan untuk menggunakan komponen yang telah mereka buat untuk membangun berbagai hal umum, maka ada baiknya bila kita sempatkan untuk membaca halaman dokumen resmi dari AMP mengenai komponen apa saja yang telah disediakan dan bisa kita gunakan pada halaman AMP. Selengkapnya silakan baca di halaman [komponen AMP ↗️](https://amp.dev/documentation/components/?format=websites).
+Basically, we can use any HTML tag inside our `<body>` tag. But AMP already creating many components to help us in creating a common layout or functionality. Better for us to read in [AMPs official documentations](https://amp.dev/documentation/components/?format=websites) about the components that already created by AMP teams so we can have better visibility when creating AMP pages in the future.
 
-## Membuat AMP di Nuxt.js
+## Generate AMP in Nuxt.js
 
-Awalnya merupakan hal yang sangat sulit untuk membangun halaman AMP yang valid dengan menggunakan framework yang berbasiskan JavaScript, ini dikarenakan AMP sendiri melarang penggunaan JavaScript yang justru pada framework tersebut telah menjadi sebuah tulang punggung dari website kita.
+Creating AMP pages in JavaScript framework was like an impossible things to do. This is because JavaScript is forbidden in AMP, while in JavaScript framework become the main technology to be used.
 
-Namun dengan perkembangan framework JavaScript akhir-akhir termasuk Nuxt.js di dalamnya, hal yang tadinya tidak terfikirkan untuk dikerjakan menjadi mungkin meskipun masih tergolong rumit tertutama bagi para pengembang web pendatang baru.
+Today, JavaScript framework already have power to generate static pages like Nuxt.js already done. In my blog itself, I use Nuxt.js for generate static pages to simplify my deployment process. Unfortunately, the static files that generated bu Nuxt.js is bloated with many external JavaScript that need to be clean up first. So the hardest task to generate AMP in Nuxt.js is cleaning process itself.
 
-Untuk blog saya sendiri memang dibangun diatas Nuxt.js yang memanfaatkan kemampuan untuk memproduksi file statis sehingga lebih mudah bagi saya untuk menyajikan website ini. Sayangnya file statis hasil buatan Nuxt.js masih mengandung eksternal JavaScript dan CSS yang sudah kita bahas bahwa hal ini dilarang dalam sebuah halaman AMP. Jadi hal berat yang akan kita kerjakan adalah melakukan pembersihan terhadap halaman AMP yang dihasilkan oleh Nuxt.js ini.
+These are steps that I have been done in generate AMP for my blog:
 
-Berikut langkah-langkah yang saya kerjakan untuk membuat halaman AMP untuk blog saya:
+### 1. Creating new pages
 
-### 1. Membuat halaman baru
+First of all, I need to create new pages under the same root url `/amp/**` with nearly same content with the normal pages. This is for helping us to differentiate AMP pages with the normal pages so we can running clean up process is only for AMP pages an skip the normal pages.
 
-Karena halaman AMP merupakan kloningan halaman aslinya maka kita perlu membuat halaman baru yang kontennya mendekati konten aslinya. Saya membuat semua halaman AMP berada dibawah satu akar URL yang sama yakni `/amp/**` agar mudah bagi saya untuk mendeteksi mana halaman asli dan mana halaman AMP.
+### 2. Remove unused codes
 
-### 2. Hapus kode yang tidak diperlukan
+Because AMP is not allowing any custom JavaScript actions, so any codes in our AMP pages which placed under `methods` in Vue's single file components file are need to be removed. This code become unused because we need to strip down all interactions that require any custom Javascript.
 
-Karena di AMP nantinya kita akan menghapus semua penggunaan Javascript, maka kode-kode di bawah `methods` pada halaman AMP yang mana kebanyakan merupakan fungsi-fungsi yang mendukung interaktitas sebuah halaman website menjadi tidak diperlukan lagi. Dan karena saya juga tidak suka memelihara kode yang tidak diperlukan lagi, maka menghapus adalah pilihan terbaik yang bisa dikerjakan.
+### 3. Adding hooks in generate
 
-### 3. Menambahkan hook saat generate
-
-Saya memanfaatkan fungsi `generate` milik Nuxt untuk memproduksi file statis blog saya, karenanya saya perlu menambahkan hook pada saat Nuxt melakukan proses ini agar hasilnya bisa saya manipulasi nantinya.
-
-Untuk melakukan hal diatas saya perlu menambahkan kode berikut di berkas `nuxt.config.js`:
+I use `generate` command in Nuxt.js to creating static files for my blog so I need to add hooks to detect when this command is executed. In Nuxt, this task can be done with adding this below code in `nuxt.config.js` file like this below example:
 
 ```javascript
 module.exports = {
@@ -101,15 +97,15 @@ module.exports = {
 }
 ```
 
-Kode diatas membuat kita bisa menyelipkan sebuah proses ketika Nuxt melakukan proses `generate` dan saya menambahkan sebuah *RegEx* untuk mendeteksi hanya halaman AMP saja yang akan diselipkan proses tambahan sementara untuk halaman normal kita tidak memerlukan.
+The code above is for inserting a process when Nuxt execute command `generate` and we adding *Regular Expressions* to detect only the AMP pages route that have added process and skip all the normal pages.
 
-### 4. Memanipulasi HTML
+### 4. Manipulate HTML output
 
-Dari kode pada bagian sebelumnya kita mendapatkan objek `page` yang bila kita ambil property `page.html` adalah merupakan string HTML yang nantinya akan dijadikan file HTML sebagai keluaran akhir.
+From our sample code above, we have `page` object as parameter in our generate hooks. If we get property `page.html` we can get the HTML string as our final output as HTML file.
 
-Syukurnya saya menemukan artikel dari [toor.co ↗️](https://toor.co/blog/amp-pages-using-nuxt-js/) yang dari situ kita bisa temukan dasar dari fungsi yang bisa memanipulasi HTML string agar mendukung AMP.
+The good thing from Internet is there are many good people there. I found the article from [toor.co ↗️](https://toor.co/blog/amp-pages-using-nuxt-js/) that share about cleaning up HTML string from Nuxt to support AMP.
 
-Fungsinya kurang lebih seperti berikut:
+We can just copy-paste this below code:
 
 ```javascript
 const ampScript = '<script async src="https://cdn.ampproject.org/v0.js"></script>'
@@ -153,13 +149,13 @@ module.exports = (html) => {
 }
 ```
 
-Seperti kalian bisa baca di bagian komentar pada kode diatas, bahwa kode diatas melakukan berbagai proses penggantian karakter (*replace*) menggunakan *RegEx* seperti menambahkan emoji ⚡, menggabungkan semua CSS internal ke dalam satu tag `<style amp-custom>`, menghilangkan berbagai JavaScript eksternal, menambahkan skrip utama dan CSS boilerplate AMP serta berbagai hal lainnya.
+You can check the detail of each process with reading the comments in that code. Basically we just *replace* the characters we didn't need with *RegEx* and adding AMP support script. We adding emoji ⚡, remove all external JavaScript, combine all internal CSS into one tag under `<style amp-custom>` and any other tasks.
 
-Fungsi ini saya letakan di direktory `plugins/amplify.js` yang kemudian dipanggil pada hook generate seperti berikut:
+This functions is put in `plugins/ampify.js` directory that will be called in generate hook generate like this below sample:
 
 
 ```javascript
-const ampify = require('./plugins/amplify')
+const ampify = require('./plugins/ampify')
 
 module.exports = {
   hooks: {
@@ -173,32 +169,28 @@ module.exports = {
 }
 ```
 
-### 4. Mengganti semua penggunaan scoped style menjadi un-scoped
+### 5. Change all scoped style to global style
 
-Karena saya termasuk cupu untuk bermain dengan *RegEx* maka mengutak-atik kode yang penuh dengan *RegEx* seperti diatas menjadi PR tersendiri.
+Because I am not good enough to playing with *RegEx* code, it's very risky to update the RegEx when something unexpected happened.
 
-Walhasil ketika menyadari bahwa baris kode berikut ini:
+And I realize that this below code make weird result:
 
 ```javascript
 // Remove data attributes from tags
 html = html.replace(/\s*data-(?:[^=>]*="[^"]*"|[^=>\s]*)/gi, '')
 ```
 
-Ternyata mengakibatkan semua kode CSS *scoped* saya menjadi berantakan, maka pilihan terbaik adalah memindahkan semua *scoped* CSS kedalam CSS biasa yang bersifat global. Tentu bukan hal yang mudah karena saya sudah terbiasa dimudahkan dengan kemampuan Vue yang bisa membuat *scoped* CSS dengan sangat mudah. Pilihan menggunakan global CSS berarti memaksa saya kembali menggunakan konvensi CSS yang tetap mengedepankan prinsip *scoped* ini seperti BEM CSS.
+The above code made all my scoped style become invalid because wrong replace process. The easiest part for me to solve this thing is move all scoped style into global style. But this task can be done easily because with unscoped style I need to apply CSS module architecture to keep the CSS from one components is not affecting any other component. I prefer use BEM CSS because of my experience of using this CSS convention.
 
-Langkah ini tidak perlu teman-teman ikuti bila memang teman-teman bisa melakukan modifikasi *RegEx* agar bisa melakukan penggantian karakter dengan lebih tepat tanpa menimbulkan efek samping pada CSS.
+This step is optional for you if you can update the Regex part that made weird replace process.
 
-### 4. Mengganti semua lazy load gambar
+### 6. Change all lazy load images
 
-Pada halaman non-AMP, saya memanfaatkan pustaka [VueTinyLazyloadImg](https://github.com/mazipan/vue-tiny-lazyload-img) untuk melakukan lazy load pada setiap gambar yang dimuat. Sayangnya proses ini dikerjakan oleh JavaScript. Pada AMP hal ini tidak diperlukan lagi karena mereka memiliki komponen `amp-img` yang sudah mendukung lazy load.
+In non-AMP pages, I use [VueTinyLazyloadImg ↗️](https://github.com/mazipan/vue-tiny-lazyload-img) library to creating lazy load image. For AMP we don't need this library anymore because amp have `amp-img` component that already support lazy load by default.
 
-Dengan menggunakan `amp-img` maka tag HTML saya untuk gambar menjadi tidak valid karena sebelumnya dengan pustaka yang saya gunakan diatas saya meletakan alamat gambar pada atribut `data-src` sementara pada atribut `src` hanya saya letakan gambar placeholder. Pilihan termudah adalah mengganti tag `data-src` menjadi tag `src` dan menghapus penempatan gambar placeholder pada atribut `src`.
+Using `amp-img` make my existing function in lazy load become invalid for AMP because with in existing function I put attribut `data-src` to load the original source of image and using `src` for placeholder image. This thing need to be adjust for AMP with replacing `data-src` attribute with `src` and delete placeholder image.
 
-Proses diatas bisa kita letakkan pada fungsi sebelumnya yang kita gunakan untuk melakukan penggantian karakter pada HTML string. Sebagai catatan bahwa kita perlu meletakan proses ini sebeleum penghilangan berbagai atribut `data-**` yang ada di dalam fungsi tersebut karena kita akan kehilangan atribut `data-src` bila dilakukan setelahnya.
-
-Sementara untuk saat ini, saya memilih meletakan pada file .vue yang menjadi halaman AMP dimana disini dilakukan proses parsing konten *Markdown* menggunakan `frontmatter-markdown-loader`.
-
-Fungsi yang saya buat seperti berikut:
+You can see the RegEX function in this below sample:
 
 ```javascript
 function replaceLazyloadImg (str) {
@@ -206,27 +198,29 @@ function replaceLazyloadImg (str) {
 }
 ```
 
-### 4. Menambahkan ukuran pada gambar
+### 7. Adding fix size for images
 
-Ini pekerjaan yang sampai artikel ini dipublikasikan masih belum sempat saya selesaikan. Menambahkan atribut `height` dan `width` pada konten Markdown yang menyertakan gambar di dalamnya.
+This is the step that I haven't done when this article published. All the image tag should have `height` and `width` attribute.
 
-### 5. Menambahkan canonical
+### 8. Adding canonical
 
-Kita perlu menautkan antara halaman AMP dengan halaman aslinya agar bisa dideteksi oleh Google bahwa halaman AMP tersebut merupakan representasi dari konten yang mana.
+We need to linking our AMP with each respective normal pages that have same content with our AMP.
 
-Caranya adalah dengan menambahkan kode seperti berikut pada head halaman AMP:
-
-```html
-<link rel="canonical" href="alamat-halaman-asli"></link>
-```
-
-Dan kode berikut pada halaman aslinya:
+You can put link canonical under `<head>` tag in AMP page like in this below code :
 
 ```html
-<link rel="amphtml" href="alamat-halaman-amp"></link>
+<head>
+  <link rel="canonical" href="url-to-normal-page"></link>
+</head>
 ```
 
-Untuk membuat dua kode diatas kita bisa menambahkan pada bagian `head()` pada file .vue dari halaman kita, seperti contoh berikut pada halaman AMP:
+In our normal page we can add `amphtml` link, see this below code:
+
+```html
+<link rel="amphtml" href="url-to-amp-page"></link>
+```
+
+In Nuxt.js, we can add this meta tag via `head()` in our .vue files, see this below sample:
 
 ```javascript
 export default {
@@ -241,7 +235,7 @@ export default {
 }
 ```
 
-Dan berikut yang saya sematkan pada halaman aslinya:
+And this below code is sample to insert tag `amphtml` in normal page:
 
 ```javascript
 export default {
@@ -256,22 +250,80 @@ export default {
 }
 ```
 
-## Test Validasi Halaman AMP
+### 9. Adding Google Analytics
 
-Setelah proses selesai dan kalian sudah menghasilkan berkas statis yang mendukung AMP, jangan lupa untuk mengecek validasi dari halaman tersebut. Ada beberapa alternatif yang bisa kalian gunakan untuk melakukan test terhadap validasi AMP, diantaranya
+Adding Google Analytics in AMP is quite different with the normal page. In short, we just need to add this below script to adding Google Analytics engine in our AMP pages:
+
+```html
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+```
+
+Also placing this below simple tracker to tracking page view state:
+
+```html
+<amp-analytics type='googleanalytics'>
+  <script type='application/json'>
+    {
+      "vars": {
+        "account": "UA-12345678-X"
+      },
+      "triggers": {
+        "trackPageview": {
+          "on": "visible",
+          "request": "pageview"
+        }
+      }
+    }
+  </script>
+</amp-analytics>
+```
+
+I update the `ampify` script to insert analytics into our AMP pages:
+
+```javascript
+const ampScript = `<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>`
+```
+
+We also insert page view tracker before close tag `</body>` like this below code:
+
+```javascript
+// Add AMP analytics
+html = html.replace('</body>',
+`<amp-analytics type='googleanalytics'>
+    <script type='application/json'>
+      {
+        "vars": {
+          "account": "UA-25065548-6"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+    </script>
+  </amp-analytics>
+</body>`)
+```
+
+## Validate AMP Pages
+
+Not all AMP can be shown in Google Search result, only the valid pages that can have badge in search result. So we need to test the validity first before publishing our AMP pages. There are some alternatives outside to test AMP validation, two website that I can mention are:
 
 - [https://search.google.com/test/amp](https://search.google.com/test/amp)
 - [https://validator.ampproject.org/](https://validator.ampproject.org/)
 
-Untuk hasil test blog saya sendiri kalian bisa lihat di beberapa tautan berikut:
+For my blog itself, you can see the test results in below list:
 
-- [Halaman Beranda](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp)
-- [Halaman Tentang](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp%2Fabout)
-- [Halaman Post Tanpa Gambar](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp%2Feslint-formatter-html-extended%2F)
-- [Halaman Post Dengan Gambar](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp%2Ftasting-reasonml-for-react%2F)
+- [Homepage](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp)
+- [About Page](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp%2Fabout)
+- [Article Page - without any images](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp%2Feslint-formatter-html-extended%2F)
+- [Article Page - with images](https://search.google.com/test/amp?url=https%3A%2F%2Fwww.mazipan.xyz%2Famp%2Ftasting-reasonml-for-react%2F)
 
 
-## Repositori hasil belajar
+## Github Repo
 
 [https://github.com/mazipan/blog-2.0 ↗️](https://github.com/mazipan/blog-2.0)
 
