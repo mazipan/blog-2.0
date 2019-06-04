@@ -294,7 +294,7 @@ html = html.replace('</body>',
     <script type='application/json'>
       {
         "vars": {
-          "account": "UA-25065548-6"
+          "account": "UA-12345678-X"
         },
         "triggers": {
           "trackPageview": {
