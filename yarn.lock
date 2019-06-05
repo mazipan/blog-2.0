@@ -5041,13 +5041,13 @@ front-matter@^3.0.1:
   dependencies:
     js-yaml "^3.13.1"
 
-frontmatter-markdown-loader@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/frontmatter-markdown-loader/-/frontmatter-markdown-loader-1.6.0.tgz#9a94dc46035dba3a882efd73293018aa22a94f38"
-  integrity sha512-xcj5K6WpCdV1s+PRS3A6h/dNq8WGE5NNw18/mH2geat1WoSEXtK0Cqc6Xq9pmTO6vQI5In7DBVdYaS6klN837w==
+frontmatter-markdown-loader@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/frontmatter-markdown-loader/-/frontmatter-markdown-loader-1.6.1.tgz#5708f4c6727182f87cc6b53c77abb6a3e0885e5e"
+  integrity sha512-4yCjRjBBTb2w784zCYrwJWbougWaPquWzgcJ6dJxsRK2hQJbeHFlBPzLgR1rcUfIWK/RNpPRFlLY8owHHcFmdg==
   dependencies:
     front-matter "^3.0.1"
-    loader-utils "^1.1.0"
+    loader-utils "^1.2.3"
     markdown-it "^8.4.2"
   optionalDependencies:
     vue-template-compiler "^2.5.0"
