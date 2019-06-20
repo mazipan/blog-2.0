@@ -7,5 +7,14 @@ description: Menjelaskan bagaimana dan apa saja yang perlu dipelajari bagi teman
 categories: [programming]
 ---
 
+## Mengenal programming
+
+## Memetakan masalah sehari-hari
+
+## Belajar flowchart
+
+## Belajar pseudocode
+
+## Poin-poin penting
 
 ### Demikian artikel kali ini, semoga bermanfaat...

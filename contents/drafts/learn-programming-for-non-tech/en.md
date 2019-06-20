@@ -7,5 +7,14 @@ description: Describing about how and what to learn for Non-Tech people that int
 categories: [programming]
 ---
 
+## What is programming?
+
+## Mapping a daily problem
+
+## Learn flowchart
+
+## Learn pseudocode
+
+## Key takeaways
 
 ### Hopefully useful...
