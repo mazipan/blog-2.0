@@ -25,12 +25,15 @@ categories: [javascript, testing]
 + [Testing Props di Komponen Vue](#Testing-Props-di-Komponen-Vue)
 + [Testing Computed dan Watcher](#Testing-Computed-dan-Watcher)
 + [Testing Event Emitter](#Testing-Event-Emitter)
-+ [Testing Perpindahan Route](#Testing-Perpindahan-Route)
++ [Testing Route](#Testing-Perpindahan-Route)
+  - [Testing Perpindahan Route](#Testing-Perpindahan-Route)
+  - [Testing Mounting Route](#Testing-Mounting-Route)
 + [Testing Vuex](#Testing-Vuex)
   - [Testing Getters](#Testing-Getters)
   - [Testing Mutations](#Testing-Mutations)
   - [Testing Actions](#Testing-Actions)
   - [Testing Vuex di Komponen](#Testing-Vuex-di-Komponen)
+  - [Testing Vuex dengan Modules](#Testing-Vuex-dengan-Modules)
 + [Testing dengan Vue-i18n](#Testing-dengan-Vue-i18n)
 + [Testing Pemanggilan Rest API](#Testing-Pemanggilan-Rest-API)
 
@@ -834,6 +837,42 @@ Pada contoh kode unit test yang kita buat sebelumnya kita memalsukan `routes` ya
 
 Sebagai catatan, **Vue Router** mungkin tidak akan memberikan error ketika kita memindahkan sebuah *route* ke alamat yang tidak dikenal atau belum didefinisikan sebelumnya, namun kita bisa mengetahui apakah proses pemindahan itu berhasil atau tidak dari posisi *route* setelah pemindahan tersebut. Bila gagal, maka posisi *route* akan tetap sama seperti sebelumnya atau dalam kata lain tidak terjadi apa-apa pada objek *route* tersebut.
 
+
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Testing-Mounting-Route">Testing Mounting Route</h2>
+
+Pada beberapa kasus kalian akan memanggil `this.$route` pada siklus hidup mounted atau pada computed yang mana juga akan dikalkulasi secepatnya setelah komponen tersebut dibuat. Dengan contoh kasus seperti ini, cara yang kita gunakan seperti diatas bisa jadi akan memberikan galat pada saat melakukan render di kode unit test kita.
+
+Untuk menyelesaikan masalah ini, kita bisa memanfaatkan fitur `mock` dari Vue Test util dengan contoh seperti kode berikut:
+
+```javascript
+const $route = {
+  path: 'http://www.example-path.com',
+  params: '',
+  query: {},
+  fullPath: ''
+  // see https://router.vuejs.org/api/#route-object-properties for complete properties
+}
+const wrapper = shallowMount(Component, {
+  mocks: {
+    $route
+  }
+})
+expect(wrapper.vm.$route.path).toBe($route.path)
+```
+
+Hal yang perlu diperhatikan adalah bahwa kita tidak perlu lagi melempar route *bohongan* pada saat membuat Vue Instance seperti yang sebelumnya kita kerjakan, jadi bisa cukup dengan kode berikut:
+
+```javascript
+const wrapper = shallowMount(HelloWorld, {
+  localVue,
+  // router // -- bagian ini tidak diperlukan lagi
+})
+```
+
+[🔼 Kembali ke navigasi](#navigasi)
+
 <h2 id="Testing-Vuex">Testing Vuex</h2>
 
 [Vuex ↗️](https://vuex.vuejs.org/) merupakan salah satu pustaka yang sering sekali kita gunakan dalam suatu projek. Vuex menjadi satu-satunya pilihan yang paling mumpuni sebagai manajemen state pada Vue untuk saat ini. Berikut beberapa hal yang akan sering kita jumpai saat melakukan test pada aplikasi Vue yang menggunakan Vuex di dalamnya:
@@ -1271,6 +1310,85 @@ describe('HelloWorld.vue', () => {
       expect(wrapper.vm.messages).toEqual(messages)
       done()
     })
+  })
+})
+```
+
+[🔼 Kembali ke navigasi](#navigasi)
+
+<h2 id="Testing-Vuex-dengan-Modules">Testing Vuex dengan Modules</h2>
+
+Pada projek Vue dengan skala besar dan kompleks seringkali kita melakukan scoping pada kode Vuex dengan menggunakan fitur [Vuex Modules ↗️](https://vuex.vuejs.org/guide/modules.html). Ketika kita menggunakan fitur Modules ini, maka cara kita memalsukan Vuex pada unit testing pun menjadi berbeda dengan cara kita ketika tidak menggunakan Module.
+
+Katakanlah kita membuat Vuex Module dengan cara berikut:
+
+```javascript
+const moduleA = {
+  namespace: true,
+  state: { ... },
+  mutations: { ... },
+  actions: { ... },
+  getters: { ... }
+}
+
+const moduleB = {
+  namespace: true,
+  state: { ... },
+  mutations: { ... },
+  actions: { ... }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
+})
+```
+
+Maka pada unit test kita bisa memalsukan dengan cara seperti berikut:
+
+```javascript
+import { shallowMount, localVue } from '@vue/test-utils'
+import Vuex from 'vuex'
+import HelloWorld from '@/components/HelloWorld.vue'
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
+
+const moduleA = {
+  namespace: true,
+  state: { ... },
+  mutations: { ... },
+  actions: { ... },
+  getters: { ... }
+}
+
+const moduleB = {
+  namespace: true,
+  state: { ... },
+  mutations: { ... },
+  actions: { ... }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  },
+  state: { ... }, //  state di luar modules
+  mutations: { ... }, //  mutations di luar modules
+  actions: { ... } //  actions di luar modules
+})
+
+describe('HelloWorld.vue', () => {
+  it('memanggil state modules dengan namespace', (done) => {
+    // mengoper localVue dan store dalam shallowRender
+    const wrapper = shallowMount(HelloWorld, {
+      store,
+      localVue
+    })
+    done()
   })
 })
 ```
