@@ -98,7 +98,7 @@ Selengkapnya baca [disini ↗️](https://github.com/reasonml/reason-react/blob/
 
 ### Mengatur struktur direktori pada projek ReasonML
 
-Awalnya saya mengikuti contoh pada HackerNews yang menerapkan Flat Structure diaman semua file ada pada satu direktori yang sama, namun memang menjadi "kotor" dan berantakan seiring semakin banyaknya berkas di dalamnya.
+Awalnya saya mengikuti contoh pada HackerNews yang menerapkan Flat Structure dimana semua file ada pada satu direktori yang sama, namun memang menjadi "kotor" dan berantakan seiring semakin banyaknya berkas di dalamnya.
 
 Untungnya mas [Muhammad Ridho Assuryadi ↗️](https://github.com/muhammadridho) membantu saya untuk merapikan dan memperbaiki struktur dari proyek ini. Memisahkan berkas ke direktori yang berbeda-beda tergantung fungsinya. Hal ini memang sempat membingungankan saya, sebab di ReasonML kita tidak melakukan *import* berdasarkan lokasi *Path* sebuah berkas seperti yang biasa kita lakukan di JavaScript sehingga bisa menimbulkan kerancuan bila tidak menerapkan *namespace* dengan benar pada dua berkas yang sama namanya.
 
