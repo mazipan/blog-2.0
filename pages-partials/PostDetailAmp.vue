@@ -11,6 +11,7 @@
         Switch to  🇬🇧 language
       </nuxt-link>
     </div>
+
     <div
       v-if="lang === 'EN'"
       class="pages__lang">

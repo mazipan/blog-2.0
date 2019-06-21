@@ -11,6 +11,7 @@
         Switch to  🇬🇧 language
       </nuxt-link>
     </div>
+
     <div
       v-if="lang === 'EN'"
       class="pages__lang">
@@ -87,6 +88,7 @@
               w="24px"
               h="24px" />
           </a>
+
           <a
             class="share-btn"
             title="Share to twitter"
@@ -98,14 +100,15 @@
               w="24px"
               h="24px" />
           </a>
+
           <a
             class="share-btn"
-            title="Share to linkedin"
-            :href="linkedinLinkShare"
+            title="Discuss on twitter"
+            :href="twitterLinkDiscuss"
             target="_blank"
             rel="noopener"
-            @click.native="trackSocialShare('LinkedIn')">
-            <LinkedinIcon
+            @click.native="trackSocialShare('Twitter Discuss')">
+            <ChatBoxesIcon
               w="24px"
               h="24px" />
           </a>
@@ -128,9 +131,9 @@
 <script>
 import FacebookIcon from 'vue-ionicons/dist/js/logo-facebook'
 import TwitterIcon from 'vue-ionicons/dist/js/logo-twitter'
-import LinkedinIcon from 'vue-ionicons/dist/js/logo-linkedin'
 import HeartIcon from 'vue-ionicons/dist/js/md-heart'
 import ShareIcon from 'vue-ionicons/dist/js/md-share'
+import ChatBoxesIcon from 'vue-ionicons/dist/js/md-chatboxes'
 
 import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
@@ -163,9 +166,9 @@ export default {
   components: {
     FacebookIcon,
     TwitterIcon,
-    LinkedinIcon,
     HeartIcon,
     ShareIcon,
+    ChatBoxesIcon,
     MetaData,
     EditContentNav,
     ContentParser
@@ -203,14 +206,17 @@ export default {
     encodedTitle () {
       return encodeURIComponent(`${this.meta.title}`)
     },
+
     encodedDesc () {
       return encodeURIComponent(`${this.meta.description}`)
     },
+
     encodedUrl () {
       return encodeURIComponent(
         `${this.productionUrl}/${this.meta.slug}?utm_source=sosial-share`
       )
     },
+
     fbLinkShare () {
       return `https://www.facebook.com/sharer/sharer.php?u=${
         this.encodedUrl
@@ -218,15 +224,15 @@ export default {
         this.encodedDesc
       }`
     },
+
     twitterLinkShare () {
       return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${
         this.encodedDesc
       }&url=${this.encodedUrl}&via=maz_ipan`
     },
-    linkedinLinkShare () {
-      return `https://www.linkedin.com/sharing/share-offsite/?url=${
-        this.encodedUrl
-      }`
+
+    twitterLinkDiscuss () {
+      return `https://mobile.twitter.com/search?q=${this.encodedUrl}`
     }
   },
   mounted () {
@@ -234,6 +240,7 @@ export default {
       this.isSupportWebshare = true
     }
     firebaseInstance = initFirebase()
+
     getHitsData(firebaseInstance, this.meta.slug, snapshot => {
       if (!snapshot.val()) {
         const newRef = {
@@ -267,6 +274,7 @@ export default {
     trackSocialShare (network) {
       trackShare(this, this.meta.slug, network)
     },
+
     onClickShare () {
       const title = `${this.meta.title}`
       const decription = `${this.meta.description}`
@@ -284,6 +292,7 @@ export default {
         window.navigator.share(data)
       }
     },
+
     onClickLike () {
       trackLike(this, this.meta.slug)
       this.youClapped += 1
