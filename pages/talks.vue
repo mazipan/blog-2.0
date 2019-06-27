@@ -3,9 +3,7 @@
     <div class="space-bottom text-title">
       <h1>Talks</h1>
     </div>
-    <table width="100%">
-
-    </table>
+    <table width="100%" />
   </div>
 </template>
 
@@ -30,7 +28,7 @@ export default {
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         { hid: 'twitter:description', name: 'twitter:description', content: description },
         { hid: 'twitter:url', name: 'twitter:url', content: url }
-      ],
+      ]
       // link: [
       //   { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       // ]
