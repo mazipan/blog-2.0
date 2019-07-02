@@ -4,6 +4,7 @@
   "description": "A personal blog by Irfan Maulana",
   "author": "Irfan Maulana",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nuxt",
     "build": "cross-env NODE_ENV=production nuxt build",
@@ -75,6 +76,13 @@
     "sass-loader": "7.1.0",
     "vue-jest": "3.0.4",
     "vue-router": "3.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mazipan/blog-2.0.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mazipan/blog-2.0/issues"
   },
   "husky": {
     "hooks": {

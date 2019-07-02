@@ -221,9 +221,7 @@ module.exports = {
     cssSourceMap: false,
     postcss: {
       plugins: [
-        require('autoprefixer')({
-          browsers: ['last 2 versions']
-        })
+        require('autoprefixer')
       ],
       preset: {
         features: {
@@ -237,7 +235,11 @@ module.exports = {
           'prismjs',
           {
             languages: ['javascript', 'css', 'markup', 'bash', 'markdown', 'git', 'yaml'],
-            css: false
+            css: false,
+            plugins: [
+              'line-numbers',
+              'line-highlight'
+            ],
           }
         ]
       ]

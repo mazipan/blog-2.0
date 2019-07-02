@@ -4,6 +4,7 @@
  */
 export default {
   data: [
+    'the-art-of-deleting-and-updating-the-code',
     'generate-amp-pages-in-nuxtjs',
     'tasting-reasonml-for-react',
     'migrate-nuxt-to-typescript',
