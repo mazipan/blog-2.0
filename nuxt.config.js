@@ -239,7 +239,7 @@ module.exports = {
             plugins: [
               'line-numbers',
               'line-highlight'
-            ],
+            ]
           }
         ]
       ]
