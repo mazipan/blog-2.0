@@ -35,23 +35,37 @@ Ada jargon yang sering didengungkan oleh banyak temen-temen programmer di luar a
 
 Beberapa alasan kenapa kita mesti menghapus atau memperbarui sebuah kode menurut Martin Fowler pada buku **[Refactoring ↗️](https://refactoring.com/)** antara lain:
 
-+ **Meningkatkan desain perangkat lunak**, sebuah desain bisa jadi pada dasarnya sudah baik namun seiring waktu berjalan dan semakin banyak terjadi pengubahan dan penambahan kode maka menjadi semakin sulit untuk melihat desain tersebut. Proses menghapus dan memperbarui serta memperbaiki kode diharapkan bisa membersihkan berbagai ketidakteraturan yang menjadikan desain sebuah perangkat lunak menjadi susah untuk dilihat dan dipahami.
+### Meningkatkan desain perangkat lunak
 
-+ **Memudahkan dipahami**, semakin banyak kode maka semakin sulit memahami bagaimana kode tersebut bekerja. Salah satu solusinya adalah dengan menerapkan desain yang baik. Kebiasan kita seringkali menulis kode dengan berpikir bagaimana agar program tersebut berjalan dan melupakan bagaimana nanti programmer selanjutnya akan memahaminya.
+Sebuah desain bisa jadi pada dasarnya sudah baik namun seiring waktu berjalan dan semakin banyak terjadi pengubahan dan penambahan kode maka menjadi semakin sulit untuk melihat desain tersebut. Proses menghapus dan memperbarui serta memperbaiki kode diharapkan bisa membersihkan berbagai ketidakteraturan yang menjadikan desain sebuah perangkat lunak menjadi susah untuk dilihat dan dipahami.
 
-+ **Membantu menemukan galat**, dengan semakin mudah memahami sebuah kode maka memberikan efek kita bisa mendeteksi berbagai galat yang sudah terjadi dan kemungkinan galat akan terjadi dengan lebih mudah.
+### Memudahkan dipahami
 
-+ **Membantu menulis kode dengan lebih cepat**, hasil akhirnya kita sebagai programmer bisa menulis kode, menambahkan berbagai fitur, memperbaiki galat dengan lebih cepat. Meskipun beberapa orang juga akan beragumen bahwa kecepatan pengembangan tidak akan selalu berbanding lurus dengan baiknya desain sebuah sistem.
+Semakin banyak kode maka semakin sulit memahami bagaimana kode tersebut bekerja. Salah satu solusinya adalah dengan menerapkan desain yang baik. Kebiasan kita seringkali menulis kode dengan berpikir bagaimana agar program tersebut berjalan dan melupakan bagaimana nanti programmer selanjutnya akan memahaminya.
+
+### Membantu menemukan galat
+
+Dengan semakin mudah memahami sebuah kode maka memberikan efek kita bisa mendeteksi berbagai galat yang sudah terjadi dan kemungkinan galat akan terjadi dengan lebih mudah.
+
+### Membantu menulis kode dengan lebih cepat
+
+Hasil akhirnya kita sebagai programmer bisa menulis kode, menambahkan berbagai fitur, memperbaiki galat dengan lebih cepat. Meskipun beberapa orang juga akan beragumen bahwa kecepatan pengembangan tidak akan selalu berbanding lurus dengan baiknya desain sebuah sistem.
 
 ## Kapan waktu terbaik mengerjakannya?
 
 Hal ini juga saya ambil dari buku **Refactoring** yang dijelaskan saat-saat terbaik untuk melakukan pengubahan kode adalah sebagai berikut:
 
-+ **Ketika menambahkan fungsi**, sudah umum bagi kita ketika membuat suatu fungsi untuk pertama kali ya cukup tambahkan saja, ketika membuat fungsi yang sama pada kali kedua ya salin saja kode tersebut dan biarkan terjadi kode ganda, namun ketika harus membuat fungsi yang sama untuk kali ketiga maka sudah dipikirkan menyatukan pada satu tempat yang bisa digunakan secara bersama-sama. Tidak jarang ketika kita diberikan tugas untuk membuat sebuah fitur kecil namun berakhir harus memperbarui banyak kode sampai ke dasar karena dirasa sulit menambahkan fitur tersebut tanpa mengubah dari dasar.
+### Ketika menambahkan fungsi
 
-+ **Ketika harus memperbaiki galat**, ketika kita ditugaskan untuk memperbaiki galat maka kita diharuskan melakukan pelacakan jejak kebelakang mengikuti arus dari kode tersebut untuk memahami dan menemukan titik penyebab galat itu terjadi. Karenanya pada saat melakukan pelacakan dalam rangka menemukan titik penyebab ini dirasa sangat susah, bisa jadi ini karena pada saat awal menulis kode belum berpikir tentang bagaimana kode tersebut nanti akan dibaca orang lain. Melakukan perbaikan pada saat ini juga merupakan waktu yang cukup tepat karena biasanya dibarengi dengan adanya bantuan dari pihak Tester yang memastikan aplikasi tetap berjalan sesuai ekspektasi.
+Sudah umum bagi kita ketika membuat suatu fungsi untuk pertama kali ya cukup tambahkan saja, ketika membuat fungsi yang sama pada kali kedua ya salin saja kode tersebut dan biarkan terjadi kode ganda, namun ketika harus membuat fungsi yang sama untuk kali ketiga maka sudah dipikirkan menyatukan pada satu tempat yang bisa digunakan secara bersama-sama. Tidak jarang ketika kita diberikan tugas untuk membuat sebuah fitur kecil namun berakhir harus memperbarui banyak kode sampai ke dasar karena dirasa sulit menambahkan fitur tersebut tanpa mengubah dari dasar.
 
-+ **Ketika code review**, code review merupakan saat yang tepat untuk saling mengkoreksi satu sama lain antar programmer, saling memberikan pendapat terhadap solusi yang diambil, termasuk juga pendapat mengenai bagaimana desain besar dari suatu kode di dalam projek.
+### Ketika harus memperbaiki galat
+
+Ketika kita ditugaskan untuk memperbaiki galat maka kita diharuskan melakukan pelacakan jejak kebelakang mengikuti arus dari kode tersebut untuk memahami dan menemukan titik penyebab galat itu terjadi. Karenanya pada saat melakukan pelacakan dalam rangka menemukan titik penyebab ini dirasa sangat susah, bisa jadi ini karena pada saat awal menulis kode belum berpikir tentang bagaimana kode tersebut nanti akan dibaca orang lain. Melakukan perbaikan pada saat ini juga merupakan waktu yang cukup tepat karena biasanya dibarengi dengan adanya bantuan dari pihak Tester yang memastikan aplikasi tetap berjalan sesuai ekspektasi.
+
+### Ketika code review
+
+Code review merupakan saat yang tepat untuk saling mengkoreksi satu sama lain antar programmer, saling memberikan pendapat terhadap solusi yang diambil, termasuk juga pendapat mengenai bagaimana desain besar dari suatu kode di dalam projek.
 
 ## Pelajaran yang bisa diambil
 
