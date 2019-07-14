@@ -47,7 +47,7 @@ FIREBASE_DATABASE_URL= your firebase `databaseURL` config
 FIREBASE_PROJECT_ID= your firebase `projectId` config
 FIREBASE_STORAGE_BUCKET= your firebase `storageBucket` config
 FIREBASE_MESSAGING_SENDER_ID= your firebase `messagingSenderId` config
-</code></pre> <p>On Nuxt.js I added the <code>@nuxtjs/dotenv</code> module in the<code>nuxt.config.js</code> file to be able to read the value of this <code>.env</code>, but later I found that this value was not replaced when the process of generating static files was done by Nuxt . I need to add the following code to my <code>nuxt.config.js</code> file:</p> <pre><code class="language-javascript">module.exports = {
+</code></pre> <p>On Nuxt.js I added the <code>@nuxtjs/dotenv</code> module in the<code> nuxt.config.js</code> file to be able to read the value of this <code>.env</code>, but later I found that this value was not replaced when the process of generating static files was done by Nuxt . I need to add the following code to my <code>nuxt.config.js</code> file:</p> <pre><code class="language-javascript">module.exports = {
   env: {
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
@@ -80,7 +80,7 @@ Vue.prototype.$firebase = firebase
     { src: '~/plugins/firebase', ssr: false }
    ↗️]
 }
-</code></pre> <p>Besides having to be initialized, Firebase also requires several files such as <code>firebase.json</code>,<code>.firebaserc</code> and <code>database.rules.json</code>. These files can be obtained with the <code>firebase init</code> command in our project root folder. But before that you have to log in to Firebase first with the <code>firebase login</code> command.</p> <p>The following is an example of the <code>firebase.json</code> file that you can also find in this project:</p> <pre><code class="language-javascript">{
+</code></pre> <p>Besides having to be initialized, Firebase also requires several files such as <code>firebase.json</code>,<code> .firebaserc</code> and <code>database.rules.json</code>. These files can be obtained with the <code>firebase init</code> command in our project root folder. But before that you have to log in to Firebase first with the <code>firebase login</code> command.</p> <p>The following is an example of the <code>firebase.json</code> file that you can also find in this project:</p> <pre><code class="language-javascript">{
   "database": {
     "rules": "database.rules.json"
   }
