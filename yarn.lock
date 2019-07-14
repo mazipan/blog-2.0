@@ -5260,14 +5260,14 @@ front-matter@^3.0.1:
   dependencies:
     js-yaml "^3.13.1"
 
-frontmatter-markdown-loader@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/frontmatter-markdown-loader/-/frontmatter-markdown-loader-1.7.0.tgz#4266647cf05429a963323b49028b53fd4e925f14"
-  integrity sha512-nK5EPs7Zu/RujAG+o0hX+GS/1G3g1MWsPpEqAosaDLXqQVvDkWSqwxB4pqYPMw0d0DWW2azw1+5ZhI4GbKDz1w==
+frontmatter-markdown-loader@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/frontmatter-markdown-loader/-/frontmatter-markdown-loader-1.8.0.tgz#8b19e5ebe3badb8659f25a06ea50178f3bdbdf8f"
+  integrity sha512-woGWVfcs3wOcL70XdG4LvDOni/0RJ+jYzJ4h6L7Kb+kVdtcu0crDWfOWh6eUJ2rNNrY/fbV4+BASO8cbzrapWw==
   dependencies:
     front-matter "^3.0.1"
     loader-utils "^1.2.3"
-    markdown-it "^8.4.2"
+    markdown-it "^9.0.0"
   optionalDependencies:
     vue-template-compiler "^2.5.0"
     vue-template-es2015-compiler "^1.6.0"
@@ -7369,10 +7369,10 @@ markdown-extensions@^1.1.0:
   resolved "https://registry.yarnpkg.com/markdown-extensions/-/markdown-extensions-1.1.1.tgz#fea03b539faeaee9b4ef02a3769b455b189f7fc3"
   integrity sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==
 
-markdown-it@^8.4.2:
-  version "8.4.2"
-  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
-  integrity sha512-GcRz3AWTqSUphY3vsUqQSFMbgR38a4Lh3GWlHRh/7MRwz8mcu9n2IO7HOh+bXHrR9kOPDl5RNCaEsrneb+xhHQ==
+markdown-it@^9.0.0:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-9.0.1.tgz#aafe363c43718720b6575fd10625cde6e4ff2d47"
+  integrity sha512-XC9dMBHg28Xi7y5dPuLjM61upIGPJG8AiHNHYqIaXER2KNnn7eKnM5/sF0ImNnyoV224Ogn9b1Pck8VH4k0bxw==
   dependencies:
     argparse "^1.0.7"
     entities "~1.1.1"
