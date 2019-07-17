@@ -15,7 +15,7 @@ const drafts = draftContents.data.map(item => {
   return item
 })
 
-let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`, `/amp/${item}/en`]), [])
+const routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`, `/amp/${item}/en`]), [])
   .concat(drafts).concat([
     '/success-subscribed',
     '/amp',
@@ -33,7 +33,7 @@ let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}
   )
 
 const routesSitemap = () => {
-  let res = []
+  const res = []
   routes.forEach(el => {
     const item = {}
     item.url = el + '/'
@@ -164,7 +164,7 @@ module.exports = {
    */
   plugins: [
     { src: '~/plugins/lazyload', ssr: false },
-    { src: '~/plugins/vue-google-adsense', ssr: false },
+    { src: '~/plugins/vue-google-adsense', ssr: false }
   ],
   /*
    ** Nuxt.js modules

@@ -128,9 +128,7 @@
 
     <InArticleAdsense
       data-ad-client="ca-pub-5442972248172818"
-      data-ad-slot="7974047383">
-    </InArticleAdsense>
-
+      data-ad-slot="7974047383" />
   </section>
 </template>
 

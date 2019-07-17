@@ -10,7 +10,7 @@ function generateData () {
       return
     }
     let strResult = ''
-    let result = []
+    const result = []
     filenames.forEach(function (filename) {
       const pathDir = path.join(FOLDER_DRAFTS, filename)
       const isDir = fs.lstatSync(pathDir).isDirectory()

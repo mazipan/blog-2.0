@@ -4,7 +4,7 @@ const fs = require('fs-extra')
 const path = require('path')
 
 function generateData () {
-  let resultObj = {
+  const resultObj = {
     claps: {
 
     },

@@ -12,7 +12,7 @@ const iconUrl = `${productionUrl}/icon.png`
 const FOLDER_CONTENTS = path.resolve('./contents/')
 const FOLDER_DIST = path.resolve('./dist/')
 
-let FEED_RSS = new RSS({
+const FEED_RSS = new RSS({
   title: appTitle,
   description: pkg.description,
   site_url: productionUrl,
@@ -28,7 +28,7 @@ function generateFeedData (data) {
         console.log(err)
         return
       }
-      let feed = {}
+      const feed = {}
       feed.title = result.attributes.title
       feed.author = 'Irfan Maulana - @mazipan'
       feed.date = new Date(result.attributes.date).toISOString()
