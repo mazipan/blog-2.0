@@ -162,7 +162,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/lazyload', ssr: false }],
+  plugins: [
+    { src: '~/plugins/lazyload', ssr: false },
+    { src: '~/plugins/vue-google-adsense', ssr: false },
+  ],
   /*
    ** Nuxt.js modules
    */
