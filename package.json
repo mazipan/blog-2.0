@@ -46,7 +46,7 @@
     "@babel/plugin-syntax-jsx": "7.2.0",
     "@babel/preset-env": "7.5.5",
     "@vue/test-utils": "1.0.0-beta.29",
-    "app-root-dir": "^1.0.2",
+    "app-root-dir": "1.0.2",
     "autoprefixer": "9.6.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.2",
@@ -64,7 +64,7 @@
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.0",
     "eslint-plugin-vue": "5.2.3",
-    "front-matter": "^3.0.2",
+    "front-matter": "3.0.2",
     "frontmatter-markdown-loader": "1.8.0",
     "fs-extra": "8.1.0",
     "husky": "3.0.2",
@@ -82,7 +82,7 @@
     "sass-loader": "7.1.0",
     "vue-jest": "3.0.4",
     "vue-router": "3.0.7",
-    "yargs": "^13.3.0"
+    "yargs": "13.3.0"
   },
   "repository": {
     "type": "git",
