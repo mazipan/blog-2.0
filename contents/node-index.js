@@ -3,6 +3,7 @@
  * Should sort based on newest published date
  */
 module.exports = [
+  'the-art-of-deleting-and-updating-the-code',
   'generate-amp-pages-in-nuxtjs',
   'tasting-reasonml-for-react',
   'migrate-nuxt-to-typescript',

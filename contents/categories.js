@@ -1,1 +1,1 @@
-export default { data: ['javascript', 'nuxt', 'amp', 'react', 'reasonml', 'typescript', 'testing', 'gridsome', 'experience', 'firebase', 'eslint'] }
+export default { data: ['javascript', 'gridsome', 'nuxt', 'firebase', 'eslint', 'experience', 'amp', 'typescript', 'react', 'reasonml', 'programming', 'testing'] }

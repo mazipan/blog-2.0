@@ -1,31 +1,21 @@
-const fs = require('fs-extra')
 const path = require('path')
-const markdown = require('markdown-parse')
-const allMarkdownContent = require('../contents/node-index.js')
-const FOLDER_CONTENTS = path.resolve('./contents/')
+const fileUtils = require('./file-utils');
 
-function getDataMarkdown (data) {
-  let categories = []
-  const map = new Map()
-  data.forEach(item => {
-    const file = path.join(FOLDER_CONTENTS, `/published/${item}/index.md`)
-    const fileContent = fs.readFileSync(file, 'utf8')
-    markdown(fileContent, function (err, result) {
-      if (err) {
-        console.log(err)
-        return
-      }
-      result.attributes.categories.map(item => map.set(item, item))
-      categories = Array.from(map.values())
-    })
-  })
+(async function getDataMarkdown () {
+  const DIR_SCOPE = fileUtils.getDirPublished()
+  const res = await fileUtils.getAllMarkdown(DIR_SCOPE)
 
-  setTimeout(function () {
-    const stream = fs.createWriteStream(path.join(FOLDER_CONTENTS, `/categories.js`))
-    stream.write(`export default { data: ${JSON.stringify(categories)} }`)
-    stream.end()
-    console.log('success generate categories file')
-  }, 3000)
-}
+  const categoriesMap = new Map()
 
-getDataMarkdown(allMarkdownContent)
+  for (const key in res) {
+    const item = res[key]
+    item.categories.map(item => categoriesMap.set(item, item))
+  }
+  const categoriesArray = Array.from(categoriesMap.values())
+  const categoryFile = path.resolve(fileUtils.getDirContent(), 'categories.js')
+
+  fileUtils.writeFile(
+    categoryFile,
+    `export default { data: ${JSON.stringify(categoriesArray)} }`
+  )
+})()
