@@ -32,6 +32,8 @@ const routes = publisedContents.data.reduce((list, item) => list.concat([`/${ite
     publisedCategories.data.reduce((list, item) => list.concat([`/category/${item}`, `/amp/category/${item}`]), [])
   )
 
+console.log(routes)
+
 const routesSitemap = () => {
   const res = []
   routes.forEach(el => {
