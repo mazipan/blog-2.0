@@ -5,10 +5,13 @@ node_modules/
 .env
 .nuxt
 assets/
+coverage
 dist
 sw.*
 __mocks__
 ./contents/categories.js
-coverage
+./contents/index.js
+./contents/node-index.js
+./contents/drafts/index.js
+./contents/ghibah/index.js
 ./drafts/index.js
-test/
