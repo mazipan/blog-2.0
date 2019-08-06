@@ -1,0 +1,158 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <title>Create simple like button using Firebase Realtime Database</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="author" content="Irfan Maulana"><meta name="keywords" content="mazipan, mazipanneh, irfan maulana, irfan vue, irfan blibli, irfan bizzy"><meta name="theme-color" content="#bd93f9"><meta name="mobile-web-app-capable" content="yes"><meta property="og:image" content="https://www.mazipan.xyz/icon.png"><meta property="og:image:secure_url" content="https://www.mazipan.xyz/icon.png"><meta property="og:image:width" content="512"><meta property="og:image:height" content="512"><meta property="og:site_name" content="@mazipan"><meta property="profile:username" content="mazipanneh"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@maz_ipan"><meta name="twitter:site" content="@maz_ipan"><meta name="twitter:image:src" content="https://www.mazipan.xyz/icon.png"><meta name="description" content="Sharing experiences using Firebase Realtime Database to make simple button likes as seen in Blog 2.0"><meta name="apple-mobile-web-app-title" content="Create simple like button using Firebase Realtime Database"><meta property="og:title" content="Create simple like button using Firebase Realtime Database"><meta property="og:description" content="Sharing experiences using Firebase Realtime Database to make simple button likes as seen in Blog 2.0"><meta property="og:url" content="https://www.mazipan.xyz/create-simple-like-button-using-firebase-rtdb/en"><meta property="og:type" content="article"><meta property="article:published_time" content="2019-02-21T00:00:00.000Z"><meta property="article:section" content="Technology"><meta name="twitter:title" content="Create simple like button using Firebase Realtime Database"><meta name="twitter:description" content="Sharing experiences using Firebase Realtime Database to make simple button likes as seen in Blog 2.0"><meta name="twitter:url" content="https://www.mazipan.xyz/create-simple-like-button-using-firebase-rtdb/en"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"><link rel="manifest" href="/_nuxt/manifest.c9c59db4.json"><link rel="shortcut icon" href="/_nuxt/icons/icon_64.b338d5.png"><link rel="apple-touch-icon" href="/_nuxt/icons/icon_512.b338d5.png" sizes="512x512"><link rel="canonical" href="https://www.mazipan.xyz/create-simple-like-button-using-firebase-rtdb/en">
+    
+  <style amp-custom>/*! modern-normalize | MIT License | https://github.com/sindresorhus/modern-normalize */html{-webkit-box-sizing:border-box;box-sizing:border-box}*,::after,::before{-webkit-box-sizing:inherit;box-sizing:inherit}:root{-moz-tab-size:4;-o-tab-size:4;tab-size:4}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'}hr{height:0}abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:SFMono-Regular,Consolas,'Liberation Mono',Menlo,Courier,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{padding:0}progress{vertical-align:baseline}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}:root{--bg:#282a36;--bgLighter:#44475a;--textNormal:#f8f8f2;--textTitle:#50fa7b;--textSubtitle:#8be9fd;--textLink:#bd93f9;--textHighlight:#ff79c6;--textWarning:#f1fa8c;--textDanger:#ff5555;--textSecondary:#6272a4}body{font-family:'Merriweather Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;-webkit-box-sizing:border-box;box-sizing:border-box;color:var(--textNormal);background-color:var(--bg)}.container{margin-left:auto;margin-right:auto;max-width:42rem;padding:2.625rem 1.3125rem}.clearfix::after{content:"";clear:both;display:table}a{color:var(--textLink);text-decoration:none}a:hover{text-decoration:underline}blockquote{font-style:italic;border-left:4px solid var(--textSecondary);color:var(--textSecondary);margin:0;padding:.25em 1em;font-size:110%}small{font-size:80%}table{display:block;overflow:auto;width:100%;border-collapse:collapse;border-spacing:0}table th{border:1px solid #dfe2e5;padding:13px;font-weight:600}table tr td{border:1px solid #c6cbd1;padding:8px 13px;text-align:left}table tr:nth-child(2n){background-color:#3c3e50}:not(pre)>code[class*=language-],pre[class*=language-]{border-radius:10px;-webkit-box-shadow:0 0 8px 4px rgba(0,0,0,.2);box-shadow:0 0 8px 4px rgba(0,0,0,.2);background-color:var(--bgLighter)}code:not([class*=language-]){background-color:var(--bgLighter);color:var(--textLink);padding:.1em .5em;border-radius:.25em}pre{max-width:100%;overflow:auto}.flex{display:-webkit-box;display:-ms-flexbox;display:flex}.flex--center{-webkit-box-align:center;-ms-flex-align:center;align-items:center}.dot{padding:0 .5em}.wrapper{margin:1em 0 0 0;min-height:60vh}.meta{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.meta__date{color:var(--textSubtitle)}@media screen and (max-width:640px){.meta--desktop{display:none}}.meta--mobile{display:none}@media screen and (max-width:640px){.meta--mobile{display:block}}.space-bottom{margin-bottom:1em}.footer{width:100%;margin:0 auto;text-align:center}@-webkit-keyframes zoomIn{from{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}50%{opacity:1}}@keyframes zoomIn{from{opacity:0;-webkit-transform:scale3d(.3,.3,.3);transform:scale3d(.3,.3,.3)}50%{opacity:1}}.zoomIn{-webkit-animation-name:zoomIn;animation-name:zoomIn;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.text-normal{color:var(--textNormal)}.text-title{color:var(--textTitle)}.text-subtitle{color:var(--textSubtitle)}.text-link{color:var(--textLink)}.text-highlight{color:var(--textHighlight)}.text-warning{color:var(--textWarning)}.text-danger{color:var(--textDanger)}.text-secondary{color:var(--textSecondary)}.header{margin-bottom:3.5rem}.header--simplify{margin-bottom:1rem}.profile{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.profile--left{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}.profile__img{height:76px;width:76px;margin-right:1em}.profile__text{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;margin-right:1em}.profile__title{font-size:1.5em;margin-top:0}.profile__social a{margin-right:.5em}.navigation{margin-top:1em}.pages__title{margin-bottom:.25em}.pages__title--small{font-size:2em}.pages__content{width:100%;word-break:break-word;margin:2em 0}.pages__date{color:var(--textSubtitle)}.pages__item{margin-bottom:3.5em}.pages__lang{padding:.25em 1em;border-radius:.25em;background-color:var(--bgLighter);margin-bottom:1em;display:table;cursor:pointer}.pages__tags{display:-webkit-box;display:-ms-flexbox;display:flex}.pages__tags--spacetop{margin-top:.5em}.pages__tag{margin-right:.5em;padding:0 .5em;line-height:1.5;border-radius:.25em}.pages__tag a{color:var(--bgLighter)}.pages__tag:first-child{background-color:var(--textHighlight)}.pages__tag:nth-child(2){background-color:var(--textTitle)}.pages__tag:nth-child(3){background-color:var(--textSubtitle)}.pages__sponsored{padding:.25em 1em;border-radius:.25em;background-color:var(--bgLighter)}.pages__footer{margin:1em 0}.block-wrap{margin:1em 0;display:-webkit-box;display:-ms-flexbox;display:flex;justify-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.like,.share{display:-webkit-box;display:-ms-flexbox;display:flex}.like-btn,.share-btn{color:var(--textNormal);background:var(--textLink);padding:.25em 1em;border-radius:.25em;border:0;outline:0;cursor:pointer;margin-right:1em;text-decoration:none;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.pages__content h2{color:var(--textSubtitle)}.pages__content h3{color:var(--textWarning)}.pages__content a{color:var(--textHighlight);text-decoration:underline}.pages__content p{line-height:1.5}.pages__content img{width:90%;height:auto;border-radius:10px;-webkit-box-shadow:1px 1px 8px 5px rgba(0,0,0,.2);box-shadow:1px 1px 8px 5px rgba(0,0,0,.2)}.pages__content ol>li,.pages__content ul{line-height:2}.ion{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.ion__svg{fill:currentColor}@-webkit-keyframes ionShake{10%,90%{-webkit-transform:translate3d(-1px,0,0);transform:translate3d(-1px,0,0)}20%,80%{-webkit-transform:translate3d(2px,0,0);transform:translate3d(2px,0,0)}30%,50%,70%{-webkit-transform:translate3d(-4px,0,0);transform:translate3d(-4px,0,0)}40%,60%{-webkit-transform:translate3d(4px,0,0);transform:translate3d(4px,0,0)}}@keyframes ionShake{10%,90%{-webkit-transform:translate3d(-1px,0,0);transform:translate3d(-1px,0,0)}20%,80%{-webkit-transform:translate3d(2px,0,0);transform:translate3d(2px,0,0)}30%,50%,70%{-webkit-transform:translate3d(-4px,0,0);transform:translate3d(-4px,0,0)}40%,60%{-webkit-transform:translate3d(4px,0,0);transform:translate3d(4px,0,0)}}@-webkit-keyframes ionRotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes ionRotate{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes ionBeat{0%{-webkit-transform:scale(.75);transform:scale(.75)}20%{-webkit-transform:scale(1);transform:scale(1)}40%{-webkit-transform:scale(.75);transform:scale(.75)}60%{-webkit-transform:scale(1);transform:scale(1)}80%{-webkit-transform:scale(.75);transform:scale(.75)}100%{-webkit-transform:scale(.75);transform:scale(.75)}}@keyframes ionBeat{0%{-webkit-transform:scale(.75);transform:scale(.75)}20%{-webkit-transform:scale(1);transform:scale(1)}40%{-webkit-transform:scale(.75);transform:scale(.75)}60%{-webkit-transform:scale(1);transform:scale(1)}80%{-webkit-transform:scale(.75);transform:scale(.75)}100%{-webkit-transform:scale(.75);transform:scale(.75)}}.ion-beat{-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-timing-function:linear;animation-timing-function:linear;-webkit-animation-name:ionBeat;animation-name:ionBeat;-webkit-animation-duration:.82s;animation-duration:.82s}.ion-shake{-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-timing-function:linear;animation-timing-function:linear;-webkit-animation-name:ionShake;animation-name:ionShake;-webkit-animation-duration:.82s;animation-duration:.82s}.ion-rotate{-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-timing-function:linear;animation-timing-function:linear;-webkit-animation-name:ionRotate;animation-name:ionRotate;-webkit-animation-duration:2s;animation-duration:2s}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:4px;width:0%;opacity:1;-webkit-transition:width .1s,opacity .4s;transition:width .1s,opacity .4s;background-color:#bd93f9;z-index:999999}.nuxt-progress.nuxt-progress-notransition{-webkit-transition:none;transition:none}.nuxt-progress-failed{background-color:red}</style><script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript></head>
+  <body>
+    <div id="__nuxt"><!----><div id="__layout"><div class="container app"><header class="header header--simplify clearfix"><div class="header__block"><div class="header__child"><a href="/amp/" class="nuxt-link-active"><h1 class="h1">
+          mazipan.xyz
+        </h1></a> <div class="nav navigation"><a href="/amp/about">
+    😎 About
+  </a> <span class="dot"> • </span> <a href="/amp/now">
+    ⏰ Now
+  </a> <span class="dot"> • </span> <a href="/amp/archives">
+    📦 Archives
+  </a></div></div></div></header> <section class="postdetail-EN wrapper clearfix"><section class="pages"><h1 class="pages__title pages__title--small text-title">
+    Create simple like button using Firebase Realtime Database
+  </h1> <!----> <div class="pages__lang"><a href="/amp/create-simple-like-button-using-firebase-rtdb/?utm_source=lang">
+      Switch to  🇮🇩 language
+    </a></div> <div><div class="meta meta--desktop"><small class="meta__date">
+      📆 February 21, 2019
+    </small> <small class="dot"> • </small> <small class="meta__read">☕️ 10 min read</small> <!----> <!----> <!----> <!----></div> <div class="meta meta--mobile"><div><small class="meta__date">
+        📆 February 21, 2019
+      </small> <small class="dot"> • </small> <small class="meta__read">☕️ 10 min read</small></div> <div style="margin-top:.5em"><!----> <!----> <!----></div></div></div> <div class="pages__tags pages__tags--spacetop"><div class="pages__tag"><a href="/category/javascript?utm_source=home" title="javascript">
+        #javascript
+      </a></div><div class="pages__tag"><a href="/category/nuxt?utm_source=home" title="nuxt">
+        #nuxt
+      </a></div><div class="pages__tag"><a href="/category/firebase?utm_source=home" title="firebase">
+        #firebase
+      </a></div></div> <div class="pages__content"><div class="content-markdown"><h2>Background Story</h2> <p>As I explained in the previous article that Blog 2.0 is just a static Blog without Backend, I only use static hosting services from Netlify to place and present the build files. Because I do not use Backend and do not want to use it, I have difficulty when adding features that require me to store data in the database like the number of people who like an article. Such data is clearly not data that can be stored in each browser. The data must be centered and all visitors see the same amount. Data like this is most ideal in the DB, whatever type of DB is used.</p> <p>Today fortunately there is a platform like <a href="https://firebase.google.com/">Firebase ↗️</a> that helps lazy people make Backends but still can store data centrally. Firebase not only provides DB for us but also other services such as hosting, authentication, cloud storage, analytics, A / B testing, remote config, dynamic links and various other cool things. Firebase is like a complete package if we want to buy lunch.</p> <p>This time we will only use the real-time database feature.</p> <h2>Creating project in Firebase</h2> <p>First you have to make a project in <a href="https://console.firebase.google.com/">Firebase Console ↗️</a>, you can give any name to your project but this name must be unique and has never been used by anyone else.</p> <p>Next you will be offered the option to setup Firebase that varies depending on the type of your project, we can choose for the web and will be given a code to install Firebase like this:</p> <pre><code class="language-html">&lt;script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js">&lt;/script>
+&lt;script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "QWERTY-YTREWQ",
+    authDomain: "contoh-aja.firebaseapp.com",
+    databaseURL: "https://contoh-aja.firebaseio.com",
+    projectId: "contoh-aja",
+    storageBucket: "contoh-aja.appspot.com",
+    messagingSenderId: "1234567890"
+  };
+  firebase.initializeApp(config);
+&lt;/script>
+</code></pre> <p>We can't do a copy-paste this code completely, because the Blog 2.0 project uses Nuxt as a framework and of course there are a few different ways to use it.</p> <p>Before starting to set up the configuration, I chose to put these configuration values into the <code>.env</code> file so that it can be easily changed later.</p> <p>I created the <code>.env</code> file with the contents based on the configuration obtained from Firebase as follows:</p> <pre><code class="language-bash">FIREBASE_API_KEY= your firebase `apiKey` config
+FIREBASE_AUTH_DOMAIN= your firebase `authDomain` config
+FIREBASE_DATABASE_URL= your firebase `databaseURL` config
+FIREBASE_PROJECT_ID= your firebase `projectId` config
+FIREBASE_STORAGE_BUCKET= your firebase `storageBucket` config
+FIREBASE_MESSAGING_SENDER_ID= your firebase `messagingSenderId` config
+</code></pre> <p>On Nuxt.js I added the <code>@nuxtjs/dotenv</code> module in the<code> nuxt.config.js</code> file to be able to read the value of this <code>.env</code>, but later I found that this value was not replaced when the process of generating static files was done by Nuxt . I need to add the following code to my <code>nuxt.config.js</code> file:</p> <pre><code class="language-javascript">module.exports = {
+  env: {
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+    FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
+    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
+    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
+    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
+    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID
+  },
+}
+</code></pre> <h2>Setup the Configuration Code</h2> <p>To open a connection to Firebase, I need the <code>firebase</code> dependency that can be installed via the command</p> <pre><code class="language-bash">$ yarn add firebase
+# atau
+$ npm i firebase
+</code></pre> <p>I chose to put this firebase connection into the <code>plugins</code> folder in the Nuxt structure, this means that it will be added to all pages in this project.</p> <p>I created the <code>plugins/firebase.js</code> file and made a connection to Firebase with the following code:</p> <pre><code class="language-javascript">import Vue from 'vue'
+const firebase = require('firebase/app')
+require('firebase/database')
+
+var config = {
+  apiKey: process.env.FIREBASE_API_KEY || '',
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN || '',
+  databaseURL: process.env.FIREBASE_DATABASE_URL || '',
+  projectId: process.env.FIREBASE_PROJECT_ID || '',
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET || '',
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || ''
+}
+
+firebase.initializeApp(config)
+Vue.prototype.$firebase = firebase
+</code></pre> <p>In addition to opening a connection to Firebase I also injected the prepared firebase object into the instance of Vue so that it can be easily used in the later Vue Component.</p> <p>I need to add these plugins in the <code>nuxt.config.js</code> file so that they are read in this project with the code like this:</p> <pre><code class="language-javascript">module.exports = {
+  plugins: [
+    { src: '~/plugins/firebase', ssr: false }
+   ↗️]
+}
+</code></pre> <p>Besides having to be initialized, Firebase also requires several files such as <code>firebase.json</code>,<code> .firebaserc</code> and <code>database.rules.json</code>. These files can be obtained with the <code>firebase init</code> command in our project root folder. But before that you have to log in to Firebase first with the <code>firebase login</code> command.</p> <p>The following is an example of the <code>firebase.json</code> file that you can also find in this project:</p> <pre><code class="language-javascript">{
+  "database": {
+    "rules": "database.rules.json"
+  }
+}
+</code></pre> <p>And the <code>database.rules.json</code> file as follows, which means I let users access my database without having to login first.</p> <pre><code class="language-javascript">{
+  "rules": {
+    ".read": "auth == null",
+    ".write": "auth == null"
+  }
+}
+</code></pre> <h2>Setup a Data Structure</h2> <p>This data structure from Firebase DB is not like a relational database, Firebase DB is more like an ordinary JSON file.</p> <p>I structure the data to store the number of likes in each article as follows:</p> <pre><code class="language-javascript">{
+  "claps": {
+    "create-simple-like-button-using-firebase-rtdb":0,"eslint-formatter-html-extended":0,
+    "blog-2-0-in-nuxtjs":0
+  }
+}
+</code></pre> <p>If you are lazy, you can also import from JSON data that I have prepared in the <code>firebase-db-export.json</code> file on the Blog 2.0 project.</p> <p>Don't forget to open access for read and write on the <code>Rules</code> tab:</p> <pre><code class="language-javascript">{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+</code></pre> <h2>Read and Update Data</h2> <p>Firebase is fairly easy to use with Vue or Nuxt, we will try to read the data that we have created in Firebase DB in our Vue Component.</p> <p>I put it in the <code>mounted</code> life cycle in the following Vue Component code:</p> <pre><code class="language-javascript">// this is vue component instance
+const __self = this
+const REF_URL = 'claps/' + __self.meta.slug
+__self.clapsRefs = __self.$firebase.database().ref(REF_URL)
+__self.clapsRefs.once('value').then(function (snapshot) {
+  __self.claps = snapshot.val()
+})
+</code></pre> <p>Previously, of course I had to set up <code>clapsRefs</code> and <code>claps</code> states in the <code>data ()</code> section as a placeholder for that value.</p> <p>The above code is used to initialize values based on data that is in Firebase DB, what if there is a change in value in our Firebase DB? because we use Firebase Realtime-DB, it will be very easy for us to listen to any changes that occur and so it immediately reacts by updating the display of the likes displayed. The code for listening to changes in realtime is more or less as follows:</p> <pre><code class="language-javascript">// this is vue component instance
+const __self = this
+__self.clapsRefs.on('value', function (snapshot) {
+  __self.claps = snapshot.val()
+})
+</code></pre> <p>While to update the value in our DB it is also no less easy, just by the <code>set</code> code in the reference we have got, like the following example:</p> <pre><code class="language-javascript">// this is vue component instance
+if (this.clapsRefs) {
+  this.clapsRefs.set(this.claps + 1)
+}
+</code></pre> <h2>Travis CI Configs</h2> <p>The last touch is making sure when the build process we set the value of <em>environment variable</em> with the original value according to what we use in the prodcution. If at local time we can use the <code>.env</code> file which we cannot push into the repository.</p> <p>In <a href="https://travis-ci.org">Travis CI ↗️</a> we can also adjust various variables easily. Just enter the `settings' section and we can add * key-value * as a variable that will be included during the * build * process.</p> <amp-img  src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable" layout=intrinsic></amp-img> <h3>Hopefully useful...</h3></div> <div><a href="/" class="nuxt-link-active">
+    🏠 Back to Home
+  </a> <span class="dot"> • </span> <a target="_blank" rel="noopener" title="Edit in Github" href="https://github.com/mazipan/blog-2.0/edit/master/contents/published/create-simple-like-button-using-firebase-rtdb/index.md">
+    📝 Edit in Github
+  </a></div></div> <hr> <div class="pages__footer">
+    🚨Do you like this article? help me to share to your followers.
+  </div></section></section> <hr> <footer class="footer clearfix"><span>Copyright © 2019 by</span> <a href="http://github.com/mazipan" title="Github" target="_blank" rel="noopener">Irfan Maulana</a> <br> <span>See source code in </span> <a href="https://github.com/mazipan/blog-2.0" title="Github Blog 2.0" target="_blank" rel="noopener">Github</a></footer></div></div></div><noscript>This website requires JavaScript.</noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.mazipan.xyz",
+        "name": "Irfan Maulana",
+        "author": "Irfan Maulana",
+        "image": "https://www.mazipan.xyz/icon.png",
+        "description": "@mazipan | A personal blog by Irfan Maulana",
+        "sameAs": [ "https://www.facebook.com/mazipanneh", "https://instagram.com/maz_ipan", "https://twitter.com/Maz_Ipan", "https://id.linkedin.com/in/mazipan", "https://www.slideshare.net/IrfanMaulana21", "https://github.com/mazipan"
+        ]
+      }
+    </script>
+  <amp-analytics type='googleanalytics'>
+    <script type='application/json'>
+      {
+        "vars": {
+          "account": "UA-25065548-6"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+    </script>
+  </amp-analytics>
+</body>
+</html>
