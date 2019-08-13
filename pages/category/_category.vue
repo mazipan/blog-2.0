@@ -12,7 +12,7 @@
           v-if="index % 3 === 0"
           colspan="3">
           <InFeedAdsense
-            root-class="wrapper VueInFeedAdsense"
+            root-class="VueInFeedAdsense"
             data-ad-layout-key="-fg+5n+6t-e7+r"
             data-ad-client="ca-pub-5442972248172818"
             data-ad-slot="2105028631" />
