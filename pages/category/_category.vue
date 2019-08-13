@@ -5,9 +5,18 @@
     </div>
     <table width="100%">
       <tr
-        v-for="blog in blogs"
+        v-for="(blog, index) in blogs"
         :key="blog.title"
         style="vertical-align: top; line-height: 2;">
+        <td
+          v-if="index % 3 === 0"
+          colspan="3">
+          <InFeedAdsense
+            root-class="wrapper VueInFeedAdsense"
+            data-ad-layout-key="-fg+5n+6t-e7+r"
+            data-ad-client="ca-pub-5442972248172818"
+            data-ad-slot="2105028631" />
+        </td>
         <td width="150px">
           {{ formatPostDate(blog.date) }}
         </td>
