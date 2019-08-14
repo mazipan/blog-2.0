@@ -3,7 +3,7 @@ title: Pindah Kerja
 slug: 03-pindah-kerja
 date: '2019-01-21'
 minute2read: 10
-description: Code ownership bisa mempengaruhi banyak hal dalam keseharian seorang programmer terutama kode yang dihasilkann serta sikap terhadap kode tersebut
+description: Beberapa hal yang menurut saya perlu temen-temen pertimbangkan ketika akan memutuskan untuk pindah kerja
 categories: [ghibahprogramnmer]
 cover: https://images.pexels.com/photos/1081228/pexels-photo-1081228.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150
 ---

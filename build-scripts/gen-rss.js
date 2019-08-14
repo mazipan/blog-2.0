@@ -20,6 +20,8 @@ const FEED_RSS = new RSS({
 })
 
 function generateFeedData (data) {
+  console.log(`Generating file feed rss...`)
+
   data.forEach(item => {
     const file = path.join(FOLDER_CONTENTS, `/published/${item}/index.md`)
     const fileContent = fs.readFileSync(file, 'utf8')

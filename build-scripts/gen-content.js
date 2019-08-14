@@ -4,6 +4,7 @@ const fileUtils = require('./file-utils');
 (async function getDataMarkdown () {
   const DIR_SCOPE = fileUtils.getDirPublished()
   const res = await fileUtils.getAllMarkdown(DIR_SCOPE)
+  console.log(`Generating content list based on directory ${DIR_SCOPE}...`)
 
   const arrayContents = []
   let arraySorted = []
@@ -40,4 +41,6 @@ const fileUtils = require('./file-utils');
   module.exports = ${JSON.stringify(arrayContents)};
   `
   )
+
+  console.log(`Suceess generate content list`)
 })()
