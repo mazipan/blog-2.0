@@ -7,7 +7,7 @@
       :meta-date="meta.date"
       :meta-minute-to-read="meta.minute2read"
       :is-show-stats="false" />
-    <div class="page__content">
+    <div class="pages__content">
       <ContentParser
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />

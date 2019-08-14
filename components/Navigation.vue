@@ -11,6 +11,10 @@
     <nuxt-link :to="`${ampPath}archives`">
       📦 Archives
     </nuxt-link>
+    <span class="dot"> • </span>
+    <nuxt-link :to="`${ampPath}ghibahprogrammer`">
+      😈 Ghibah Programmer
+    </nuxt-link>
   </div>
 </template>
 

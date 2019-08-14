@@ -5,7 +5,7 @@
       :key="meta.title"
       class="pages__item">
       <nuxt-link
-        :to="`/drafts/${meta.slug}/`"
+        :to="`/ghibahprogrammer/${meta.slug}/`"
         :title="meta.title"
         class="pages__link">
         <h2 class="pages__title">
@@ -15,6 +15,14 @@
       <MetaData
         :meta-date="meta.date"
         :meta-minute-to-read="meta.minute2read" />
+
+      <img
+        v-lazyload
+        src="/images/placeholder-1x1.png"
+        :data-src="meta.cover"
+        :alt="meta.title"
+        class="pages__cover">
+
       <div>
         <p>
           {{ meta.description }}
@@ -25,12 +33,12 @@
 </template>
 
 <script>
-import Contents from '~/contents/drafts/index.js'
+import Contents from '~/contents/ghibah/index.js'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
 
 export default {
-  name: 'Homepage',
+  name: 'HomepageGhibah',
   layout: 'homepage',
   components: {
     MetaData
@@ -43,7 +51,7 @@ export default {
   },
   async asyncData ({ store }) {
     async function asyncImport (blogSlug) {
-      const allMarkdown = await import(`~/contents/drafts/${blogSlug}/index.md`)
+      const allMarkdown = await import(`~/contents/ghibah/${blogSlug}/index.md`)
       return allMarkdown.attributes
     }
 

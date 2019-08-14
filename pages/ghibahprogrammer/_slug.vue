@@ -1,19 +1,20 @@
 <template>
-  <section class="page">
-    <h1 class="page__title text-title">
+  <section class="pages">
+    <h1 class="pages__title pages__title--small text-title">
       {{ meta.title }}
     </h1>
     <MetaData
       :meta-date="meta.date"
       :meta-minute-to-read="meta.minute2read"
       :is-show-stats="false" />
-    <div class="page__content">
+    <div class="pages__content">
       <ContentParser
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />
-      <EditContentNav
-        :is-draft="true"
-        :slug="meta.slug" />
+
+      <InArticleAdsense
+        data-ad-client="ca-pub-5442972248172818"
+        data-ad-slot="7974047383" />
     </div>
   </section>
 </template>
@@ -21,20 +22,18 @@
 <script>
 import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
-import EditContentNav from '~/components/EditContentNav'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 
 export default {
   name: 'DraftPage',
   components: {
     MetaData,
-    EditContentNav,
     ContentParser
   },
   head () {
-    const title = `[Draft] - ${this.meta.title}`
+    const title = `${this.meta.title} | Ghibah Programmer`
     const description = `${this.meta.description}`
-    const url = `${this.productionUrl}/drafts/${this.meta.slug}/`
+    const url = `${this.productionUrl}/ghibah/${this.meta.slug}/`
     return {
       title,
       meta: [
@@ -62,7 +61,7 @@ export default {
     }
   },
   async asyncData ({ params }) {
-    const fileContent = await import(`~/contents/drafts/${params.slug}/index.md`)
+    const fileContent = await import(`~/contents/ghibah/${params.slug}/index.md`)
 
     const attr = fileContent.attributes
     return {
