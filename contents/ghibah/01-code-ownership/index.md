@@ -12,7 +12,7 @@ Artikel ini merupakan seri dari Ghibah Programmer, pada seri ini kita akan memba
 
 Code ownership dalam kaitannya sikap seorang programmer bisa diartikan sebagai rasa memiliki terhadap sebuah kode. Code ownership bisa diartikan sebagai hal negatif bisa pula diartikan ke hal yang positif, tergantung dari sudut mana kita mengambil kesimpulannya. Code ownership bisa mempengaruhi banyak hal dalam keseharian seorang programmer terutama kode yang dihasilkan serta sikap terhadap kode tersebut.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://images.pexels.com/photos/1288482/pexels-photo-1288482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150" alt="Code Ownership Illustration">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://images.pexels.com/photos/1288482/pexels-photo-1288482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150" alt="Code Ownership Ilustrasi">
 
 <small class="caption">Gambar diambil dari laman <a href="https://images.pexels.com/photos/1288482/pexels-photo-1288482.jpeg" target="_blank" rel="noopener">https://pexels.com</a><small>
 
@@ -29,5 +29,7 @@ Kabar baiknya, sebagian besar yang belum memiliki code ownershipyang baik memang
 
 Kabar buruknya, lebih mudah untuk mengajarkan hal-hal teknis dibandingkan non teknis kepada seorang programmer. Pun soal code ownershipini, susah sekali memberitahukan dan menanamkan sikap ini kepada programmer.
 Artikel soal code ownership bisa dibaca di [https://martinfowler.com/bliki/CodeOwnership.html ↗️](https://martinfowler.com/bliki/CodeOwnership.html).
+
+----
 
 Terima kasih dan tunggu seri berikutnya, jangan lupa tinggalkan pendapat kalian di kolom komentar di bawah ini. Saya juga terbuka untuk masukkan berbagai topik yang kalian inginkan untuk dibahas pada seri selanjutnya.
