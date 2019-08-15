@@ -15,7 +15,7 @@ $mobile-breakpoint: 640px;
 }
 
 body {
-  font-family: 'Merriweather Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
 
   -ms-text-size-adjust: 100%;
@@ -71,7 +71,7 @@ table{
   th{
     border: 1px solid #dfe2e5;
     padding: 13px;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   tr{
@@ -90,9 +90,8 @@ table{
 :not(pre)>code[class*="language-"],
 pre[class*="language-"] {
   border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
   background-color: var(--bgLighter);
-  border: 4px solid var(--textLink);
 }
 
 code:not([class*="language-"]) {

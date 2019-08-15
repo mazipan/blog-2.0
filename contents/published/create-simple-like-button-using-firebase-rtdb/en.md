@@ -5,6 +5,7 @@ date: '2019-02-21'
 minute2read: 10
 description: Sharing experiences using Firebase Realtime Database to make simple button likes as seen in Blog 2.0
 categories: [javascript, nuxt, firebase]
+cover: https://www.mazipan.xyz/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png
 ---
 
 ## Background Story
@@ -14,6 +15,8 @@ As I explained in the previous article that Blog 2.0 is just a static Blog witho
 Today fortunately there is a platform like [Firebase ↗️](https://firebase.google.com/) that helps lazy people make Backends but still can store data centrally. Firebase not only provides DB for us but also other services such as hosting, authentication, cloud storage, analytics, A / B testing, remote config, dynamic links and various other cool things. Firebase is like a complete package if we want to buy lunch.
 
 This time we will only use the real-time database feature.
+
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png" alt="Button Like Firebase">
 
 ## Creating project in Firebase
 

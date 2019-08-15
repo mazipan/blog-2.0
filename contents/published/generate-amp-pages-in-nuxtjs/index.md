@@ -5,6 +5,7 @@ date: '2019-06-02'
 minute2read: 20
 description: Menceritakan bagaimana cara membuat AMP Pages untuk blog kalian dengan framework Nuxt.js
 categories: [javascript, nuxt, amp]
+cover: https://www.mazipan.xyz/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png
 ---
 
 ## Sekilas Mengenai AMP
@@ -12,6 +13,8 @@ categories: [javascript, nuxt, amp]
 AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) merupakan inisiatif yang diawali oleh Google dalam membantu para publisher, developer dan para pemilik website agar bisa menyediakan website dengan kecepatan muat yang sangat cepat bahkan mendekati instan untuk device mobile. Untuk mencapai titik muat instan ini tentu tidak didapatkan secara gratis, ini dilakukan dengan peraturan ketat yang diterapkan oleh AMP. Ekstremnya bisa disebut bahwa AMP bahkan tidak memperbolehkan untuk menyisipkan sembarang skrip JavaScript ke dalam halaman website kita, ditambah dengan berbagai aturan ketat lainnya yang bisa menjamin bahwa website dengan dukungan AMP yang valid bisa tetap dimuat dengan kecepatan yang luar biasa cepat.
 
 AMP merupakan rekomendasi yang dianjurkan oleh Google langsung karena memiliki prioritas yang baik bagi hasil pencarian Google Search. Dan dengan rampingnya teknologi di dalamnya serta ditambah bantuan *cache* dari Google membuat AMP menjadi sangat cepat diakses dan sangat baik untuk digunakan sebagai halaman pertama bagi pengunjung yang datang dari hasil Google Search ini.
+
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png" alt="Mazipan AMP">
 
 ## Dasar-dasar Membuat AMP
 

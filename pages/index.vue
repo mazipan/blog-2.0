@@ -1,7 +1,7 @@
 <template>
   <section class="pages">
     <div
-      v-for="meta in metas"
+      v-for="(meta, index) in metas"
       :key="meta.title"
       class="pages__item">
       <span
@@ -36,6 +36,13 @@
           </nuxt-link>
         </div>
       </div>
+
+      <InFeedAdsense
+        v-if="index % 3 === 0"
+        root-class="VueInFeedAdsense"
+        data-ad-layout-key="-fg+5n+6t-e7+r"
+        data-ad-client="ca-pub-5442972248172818"
+        data-ad-slot="2105028631" />
     </div>
   </section>
 </template>

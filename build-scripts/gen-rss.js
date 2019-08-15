@@ -12,7 +12,7 @@ const iconUrl = `${productionUrl}/icon.png`
 const FOLDER_CONTENTS = path.resolve('./contents/')
 const FOLDER_DIST = path.resolve('./dist/')
 
-let FEED_RSS = new RSS({
+const FEED_RSS = new RSS({
   title: appTitle,
   description: pkg.description,
   site_url: productionUrl,
@@ -20,6 +20,8 @@ let FEED_RSS = new RSS({
 })
 
 function generateFeedData (data) {
+  console.log(`Generating file feed rss...`)
+
   data.forEach(item => {
     const file = path.join(FOLDER_CONTENTS, `/published/${item}/index.md`)
     const fileContent = fs.readFileSync(file, 'utf8')
@@ -28,7 +30,7 @@ function generateFeedData (data) {
         console.log(err)
         return
       }
-      let feed = {}
+      const feed = {}
       feed.title = result.attributes.title
       feed.author = 'Irfan Maulana - @mazipan'
       feed.date = new Date(result.attributes.date).toISOString()

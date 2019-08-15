@@ -4,7 +4,7 @@
  */
 
 export function formatReadingTime (minutes) {
-  let cups = Math.round(minutes / 10)
+  const cups = Math.round(minutes / 10)
   return `${new Array(cups || 1).fill('☕️').join('')} ${minutes} min read`
 }
 

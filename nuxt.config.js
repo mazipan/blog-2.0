@@ -15,7 +15,7 @@ const drafts = draftContents.data.map(item => {
   return item
 })
 
-let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`, `/amp/${item}/en`]), [])
+const routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`, `/amp/${item}/en`]), [])
   .concat(drafts).concat([
     '/success-subscribed',
     '/amp',
@@ -24,13 +24,16 @@ let routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}
     '/archives',
     '/amp/archives',
     '/now',
-    '/amp/now'
+    '/amp/now',
+    '/ebooks',
+    '/interviews',
+    '/talks'
   ]).concat(
     publisedCategories.data.reduce((list, item) => list.concat([`/category/${item}`, `/amp/category/${item}`]), [])
   )
 
 const routesSitemap = () => {
-  let res = []
+  const res = []
   routes.forEach(el => {
     const item = {}
     item.url = el + '/'
@@ -159,7 +162,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/lazyload', ssr: false }],
+  plugins: [
+    { src: '~/plugins/lazyload', ssr: false },
+    { src: '~/plugins/vue-google-adsense', ssr: false }
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -179,6 +185,32 @@ module.exports = {
     name: `${appTitle}`,
     short_name: '@mazipan'
   },
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: '^https://fonts.*(?:googleapis|gstatic).com/(.*)',
+        handler: 'cacheFirst',
+        strategyOptions: {
+          cacheName: 'GoogleFont',
+          cacheExpiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 7
+          }
+        }
+      },
+      {
+        urlPattern: '^https://polyfill.io/(.*)',
+        handler: 'cacheFirst',
+        strategyOptions: {
+          cacheName: 'Polyfill',
+          cacheExpiration: {
+            maxEntries: 2,
+            maxAgeSeconds: 60 * 60 * 24 * 7
+          }
+        }
+      }
+    ]
+  },
   generate: {
     routes
   },
@@ -190,7 +222,7 @@ module.exports = {
   },
   webfontloader: {
     google: {
-      families: ['Merriweather Sans:400,700']
+      families: ['Montserrat:400,700']
     }
   },
   /*
@@ -218,9 +250,7 @@ module.exports = {
     cssSourceMap: false,
     postcss: {
       plugins: [
-        require('autoprefixer')({
-          browsers: ['last 2 versions']
-        })
+        require('autoprefixer')
       ],
       preset: {
         features: {
@@ -234,7 +264,11 @@ module.exports = {
           'prismjs',
           {
             languages: ['javascript', 'css', 'markup', 'bash', 'markdown', 'git', 'yaml'],
-            css: false
+            css: false,
+            plugins: [
+              'line-numbers',
+              'line-highlight'
+            ]
           }
         ]
       ]

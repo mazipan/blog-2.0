@@ -5,6 +5,7 @@ date: '2019-02-19'
 minute2read: 3
 description: Alasan mengapa kami memutuskan untuk mengeksten HTML Formatter resmi ESLint's
 categories: [javascript, eslint]
+cover: https://www.mazipan.xyz/content-images/eslint-formatter-html-extended/eslint-html.png
 ---
 
 ## Latar Belakang ⛈
@@ -18,6 +19,8 @@ Kami melakukan trial and error untuk bukti kesasihan tentang pembuatan laporan H
 Akhirnya, kami memutuskan untuk membuat formatter kami sendiri yang menggabungkan kekuatan reporter HTML dan menyimpan log kesalahan di sistem log kami.
 
 Kami menyebutnya `eslint-formatter-html-extended`!
+
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/eslint-formatter-html-extended/eslint-html.png" alt="ESLint formatter HTML Extended">
 
 ## Unboxing 📦
 

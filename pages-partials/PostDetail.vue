@@ -8,14 +8,15 @@
       v-if="lang === 'ID'"
       class="pages__lang">
       <nuxt-link :to="`/${meta.slug}/en?utm_source=lang`">
-        Switch to  🇬🇧 language
+        Switch to 🇬🇧 language
       </nuxt-link>
     </div>
+
     <div
       v-if="lang === 'EN'"
       class="pages__lang">
       <nuxt-link :to="`/${meta.slug}/?utm_source=lang`">
-        Switch to  🇮🇩 language
+        Switch to 🇮🇩 language
       </nuxt-link>
     </div>
 
@@ -87,6 +88,7 @@
               w="24px"
               h="24px" />
           </a>
+
           <a
             class="share-btn"
             title="Share to twitter"
@@ -98,14 +100,15 @@
               w="24px"
               h="24px" />
           </a>
+
           <a
             class="share-btn"
-            title="Share to linkedin"
-            :href="linkedinLinkShare"
+            title="Discuss on twitter"
+            :href="twitterLinkDiscuss"
             target="_blank"
             rel="noopener"
-            @click.native="trackSocialShare('LinkedIn')">
-            <LinkedinIcon
+            @click.native="trackSocialShare('Twitter Discuss')">
+            <ChatBoxesIcon
               w="24px"
               h="24px" />
           </a>
@@ -122,15 +125,26 @@
         </div>
       </div>
     </div>
+
+    <InArticleAdsense
+      data-ad-client="ca-pub-5442972248172818"
+      data-ad-slot="7974047383" />
+
+    <script
+      type="application/ld+json"
+      v-html="jsonLdBreadcrumb" />
+    <script
+      type="application/ld+json"
+      v-html="jsonLdArtcile" />
   </section>
 </template>
 
 <script>
 import FacebookIcon from 'vue-ionicons/dist/js/logo-facebook'
 import TwitterIcon from 'vue-ionicons/dist/js/logo-twitter'
-import LinkedinIcon from 'vue-ionicons/dist/js/logo-linkedin'
 import HeartIcon from 'vue-ionicons/dist/js/md-heart'
 import ShareIcon from 'vue-ionicons/dist/js/md-share'
+import ChatBoxesIcon from 'vue-ionicons/dist/js/md-chatboxes'
 
 import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
@@ -163,9 +177,9 @@ export default {
   components: {
     FacebookIcon,
     TwitterIcon,
-    LinkedinIcon,
     HeartIcon,
     ShareIcon,
+    ChatBoxesIcon,
     MetaData,
     EditContentNav,
     ContentParser
@@ -200,33 +214,87 @@ export default {
     }
   },
   computed: {
+    jsonLdBreadcrumb () {
+      const ld = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: this.productionUrl
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: `${this.meta.categories[0]}`,
+            item: `${this.productionUrl}/category/${this.meta.categories[0]}`
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: `${this.meta.title}`,
+            item: `${this.productionUrl}/${this.meta.slug}`
+          }
+        ]
+      }
+      return ld
+    },
+    jsonLdArtcile () {
+      const ld = {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${this.productionUrl}/${this.meta.slug}`
+        },
+        headline: this.meta.title,
+        image: [
+          this.meta.cover
+        ],
+        datePublished: new Date(this.meta.date).toISOString(),
+        dateModified: new Date(this.meta.date).toISOString(),
+        author: {
+          '@type': 'Person',
+          name: 'Irfan Maulana'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'mazipan',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${this.productionUrl}/favicon-192x192.png`
+          }
+        },
+        description: this.meta.description
+      }
+      return ld
+    },
     encodedTitle () {
       return encodeURIComponent(`${this.meta.title}`)
     },
+
     encodedDesc () {
       return encodeURIComponent(`${this.meta.description}`)
     },
+
     encodedUrl () {
       return encodeURIComponent(
         `${this.productionUrl}/${this.meta.slug}?utm_source=sosial-share`
       )
     },
+
     fbLinkShare () {
-      return `https://www.facebook.com/sharer/sharer.php?u=${
-        this.encodedUrl
-      }&title=${this.encodedTitle}&description=${this.encodedDesc}&quote=${
-        this.encodedDesc
-      }`
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.encodedUrl}&title=${this.encodedTitle}&description=${this.encodedDesc}&quote=${this.encodedDesc}`
     },
+
     twitterLinkShare () {
-      return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${
-        this.encodedDesc
-      }&url=${this.encodedUrl}&via=maz_ipan`
+      return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${this.encodedDesc}&url=${this.encodedUrl}&via=maz_ipan`
     },
-    linkedinLinkShare () {
-      return `https://www.linkedin.com/sharing/share-offsite/?url=${
-        this.encodedUrl
-      }`
+
+    twitterLinkDiscuss () {
+      return `https://mobile.twitter.com/search?q=${this.encodedUrl}`
     }
   },
   mounted () {
@@ -234,6 +302,7 @@ export default {
       this.isSupportWebshare = true
     }
     firebaseInstance = initFirebase()
+
     getHitsData(firebaseInstance, this.meta.slug, snapshot => {
       if (!snapshot.val()) {
         const newRef = {
@@ -267,6 +336,7 @@ export default {
     trackSocialShare (network) {
       trackShare(this, this.meta.slug, network)
     },
+
     onClickShare () {
       const title = `${this.meta.title}`
       const decription = `${this.meta.description}`
@@ -284,6 +354,7 @@ export default {
         window.navigator.share(data)
       }
     },
+
     onClickLike () {
       trackLike(this, this.meta.slug)
       this.youClapped += 1
@@ -292,7 +363,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "~/assets/scss/_prism-custom.scss";
-</style>
