@@ -8,7 +8,7 @@
       v-if="lang === 'ID'"
       class="pages__lang">
       <nuxt-link :to="`/${meta.slug}/en?utm_source=lang`">
-        Switch to  🇬🇧 language
+        Switch to 🇬🇧 language
       </nuxt-link>
     </div>
 
@@ -16,7 +16,7 @@
       v-if="lang === 'EN'"
       class="pages__lang">
       <nuxt-link :to="`/${meta.slug}/?utm_source=lang`">
-        Switch to  🇮🇩 language
+        Switch to 🇮🇩 language
       </nuxt-link>
     </div>
 
@@ -129,6 +129,13 @@
     <InArticleAdsense
       data-ad-client="ca-pub-5442972248172818"
       data-ad-slot="7974047383" />
+
+    <script
+      type="application/ld+json"
+      v-html="jsonLdBreadcrumb" />
+    <script
+      type="application/ld+json"
+      v-html="jsonLdArtcile" />
   </section>
 </template>
 
@@ -207,6 +214,63 @@ export default {
     }
   },
   computed: {
+    jsonLdBreadcrumb () {
+      const ld = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: this.productionUrl
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: `${this.meta.categories[0]}`,
+            item: `${this.productionUrl}/category/${this.meta.categories[0]}`
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: `${this.meta.title}`,
+            item: `${this.productionUrl}/${this.meta.slug}`
+          }
+        ]
+      }
+      return ld
+    },
+    jsonLdArtcile () {
+      const ld = {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${this.productionUrl}/${this.meta.slug}`
+        },
+        headline: this.meta.title,
+        image: [
+          this.meta.cover
+        ],
+        datePublished: new Date(this.meta.date).toISOString(),
+        dateModified: new Date(this.meta.date).toISOString(),
+        author: {
+          '@type': 'Person',
+          name: 'Irfan Maulana'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'mazipan',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${this.productionUrl}/favicon-192x192.png`
+          }
+        },
+        description: this.meta.description
+      }
+      return ld
+    },
     encodedTitle () {
       return encodeURIComponent(`${this.meta.title}`)
     },
@@ -222,17 +286,11 @@ export default {
     },
 
     fbLinkShare () {
-      return `https://www.facebook.com/sharer/sharer.php?u=${
-        this.encodedUrl
-      }&title=${this.encodedTitle}&description=${this.encodedDesc}&quote=${
-        this.encodedDesc
-      }`
+      return `https://www.facebook.com/sharer/sharer.php?u=${this.encodedUrl}&title=${this.encodedTitle}&description=${this.encodedDesc}&quote=${this.encodedDesc}`
     },
 
     twitterLinkShare () {
-      return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${
-        this.encodedDesc
-      }&url=${this.encodedUrl}&via=maz_ipan`
+      return `https://twitter.com/intent/tweet?text=${this.encodedTitle}-${this.encodedDesc}&url=${this.encodedUrl}&via=maz_ipan`
     },
 
     twitterLinkDiscuss () {

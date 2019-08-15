@@ -30,6 +30,7 @@
   }
 
   &__title {
+    font-weight: 700;
     font-size: 1.5em;
     margin-top: 0;
   }
@@ -49,6 +50,7 @@
 .pages {
   &__title {
     margin-bottom: .25em;
+    font-weight: 700;
 
     &--small {
       font-size: 2em;

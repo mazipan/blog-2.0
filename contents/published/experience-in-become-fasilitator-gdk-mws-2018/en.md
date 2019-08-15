@@ -5,6 +5,7 @@ date: '2019-02-26'
 minute2read: 10
 description: Share my experiences when I became a facilitator in the Google Developer Kejar program for Mobile Web Specialist in 2018
 categories: [experience]
+cover: https://www.mazipan.xyz/content-images/experience-in-become-fasilitator-gdk-mws-2018/gdk-mws-dev-showcase.jpg
 ---
 
 ## Mengenai Google Developer Kejar 🏃‍

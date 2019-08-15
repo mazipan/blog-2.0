@@ -185,6 +185,32 @@ module.exports = {
     name: `${appTitle}`,
     short_name: '@mazipan'
   },
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: '^https://fonts.*(?:googleapis|gstatic).com/(.*)',
+        handler: 'cacheFirst',
+        strategyOptions: {
+          cacheName: 'GoogleFont',
+          cacheExpiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24 * 7
+          }
+        }
+      },
+      {
+        urlPattern: '^https://polyfill.io/(.*)',
+        handler: 'cacheFirst',
+        strategyOptions: {
+          cacheName: 'Polyfill',
+          cacheExpiration: {
+            maxEntries: 2,
+            maxAgeSeconds: 60 * 60 * 24 * 7
+          }
+        }
+      }
+    ]
+  },
   generate: {
     routes
   },
@@ -196,7 +222,7 @@ module.exports = {
   },
   webfontloader: {
     google: {
-      families: ['Merriweather Sans:400,700']
+      families: ['Montserrat:400,700']
     }
   },
   /*

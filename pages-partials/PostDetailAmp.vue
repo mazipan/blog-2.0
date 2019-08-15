@@ -49,6 +49,13 @@
     <div class="pages__footer">
       🚨Do you like this article? help me to share to your followers.
     </div>
+
+    <script
+      type="application/ld+json"
+      v-html="jsonLdBreadcrumb" />
+    <script
+      type="application/ld+json"
+      v-html="jsonLdArtcile" />
   </section>
 </template>
 
@@ -88,6 +95,65 @@ export default {
       productionUrl: 'https://www.mazipan.xyz',
       formatReadingTime,
       formatPostDate
+    }
+  },
+  computed: {
+    jsonLdBreadcrumb () {
+      const ld = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: this.productionUrl
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: `${this.meta.categories[0]}`,
+            item: `${this.productionUrl}/category/${this.meta.categories[0]}`
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: `${this.meta.title}`,
+            item: `${this.productionUrl}/${this.meta.slug}`
+          }
+        ]
+      }
+      return ld
+    },
+    jsonLdArtcile () {
+      const ld = {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `${this.productionUrl}/${this.meta.slug}`
+        },
+        headline: this.meta.title,
+        image: [
+          this.meta.cover
+        ],
+        datePublished: new Date(this.meta.date).toISOString(),
+        dateModified: new Date(this.meta.date).toISOString(),
+        author: {
+          '@type': 'Person',
+          name: 'Irfan Maulana'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'mazipan',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${this.productionUrl}/favicon-192x192.png`
+          }
+        },
+        description: this.meta.description
+      }
+      return ld
     }
   }
 }

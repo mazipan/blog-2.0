@@ -5,6 +5,7 @@ date: '2019-02-19'
 minute2read: 3
 description: Why we decide to extend an official ESLint's HTML formatter
 categories: [javascript, eslint]
+cover: https://www.mazipan.xyz/content-images/eslint-formatter-html-extended/eslint-html.png
 ---
 
 ## Background Story ⛈
@@ -18,6 +19,8 @@ We doing trial and error for proof of concept (POC) about producing HTML report 
 Finally, we decide to create our own formatter that combined the power of HTML reporter and keep the log exist in our log system.
 
 We call it as `eslint-formatter-html-extended`!
+
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/eslint-formatter-html-extended/eslint-html.png" alt="ESLint formatter HTML Extended">
 
 ## Unboxing 📦
 

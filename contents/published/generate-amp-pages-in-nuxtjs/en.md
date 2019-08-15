@@ -5,6 +5,7 @@ date: '2019-06-02'
 minute2read: 20
 description: How to generate AMP Pages for you blog using Nuxt.js
 categories: [javascript, nuxt, amp]
+cover: https://www.mazipan.xyz/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png
 ---
 
 ## About AMP
@@ -12,6 +13,8 @@ categories: [javascript, nuxt, amp]
 AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) is Google's iniisatif for helping publishers, developers and website owner to serve website with fast first load time even nearly instant in mobile devices. For achieving that instant loading is not free, this can be done by AMP with applying so many strict rule for websites. We can say that AMP is strip down all your custom JavaScript to guarantee your website have instant load time.
 
 AMP is recommended by Google because it is very user centrict. Google also will prioritize the contents with AMP support with adding a badge in the search results to indicate AMP. Google also support with adding the caches to boost the first load speed into the limit which make AMP is the best choice for first user landing from the search result.
+
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png" alt="Mazipan AMP">
 
 ## Basics for Creating AMP
 

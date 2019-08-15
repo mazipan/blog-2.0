@@ -5,6 +5,7 @@ date: '2019-02-21'
 minute2read: 10
 description: Berbagi pengalaman dalam menggunakan Firebase RTDB untuk membuat button Like sederhana seperti yang terlihat pada Blog 2.0 ini
 categories: [javascript, nuxt, firebase]
+cover: https://www.mazipan.xyz/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png
 ---
 
 ## Latar Belakang
@@ -14,6 +15,8 @@ Seperti sudah saya jelaskan pada tulisan sebelumnya bahwa Blog 2.0 ini hanyalah 
 Dewasa ini untunglah ada platform seperti [Firebase ↗️](https://firebase.google.com/) yang membantu orang-orang yang males bikin Backend namun tetap bisa menyimpan data secara terpusat. Firebase bukan cuma menyediakan DB untuk kita tapi juga jasa lainnya seperti hosting, otentikasi, cloud storage, analytics, A/B testing, remote config, dynamic link dan berbagai hal keren lainnya. Firebase ini ibarat paket komplit kalau kita mau beli makan siang.
 
 Kali ini kita hanya akan menggunakan fitur real-time databasenya saja.
+
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png" alt="Button Like Firebase">
 
 ## Membuat Projek di Firebase
 

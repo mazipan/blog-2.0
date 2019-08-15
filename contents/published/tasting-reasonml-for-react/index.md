@@ -5,6 +5,7 @@ date: '2019-05-19'
 minute2read: 10
 description: Menceritakan bagaimana rasanya mencicipi sintaksis ReasonML untuk membangun antarmuka sebuah website
 categories: [javascript, react, reasonml]
+cover: https://www.mazipan.xyz/content-images/tasting-reasonml-for-react/reasonml-users.png
 ---
 
 ## ReasonML, makanan apa ya?

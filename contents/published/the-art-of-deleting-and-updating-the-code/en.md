@@ -5,6 +5,7 @@ date: '2019-07-02'
 minute2read: 10
 description: Story telling about my daily job to deleting my peer's code
 categories: [programming]
+cover: https://www.mazipan.xyz/content-images/the-art-of-deleting-and-updating-the-code/quadran.png
 ---
 
 ## Pengenalan terhadap masalah
