@@ -72,4 +72,4 @@ Syukuri apa yang kita terima hari ini, karena mungkin saja ada banyak orang di l
 
 ----
 
-Terima kasih dan tunggu seri berikutnya, jangan lupa tinggalkan pendapat kalian di kolom komentar di bawah ini. Saya juga terbuka untuk masukkan berbagai topik yang kalian inginkan untuk dibahas pada seri selanjutnya.
+Terima kasih dan tunggu seri berikutnya. Ikuti juga <a href="https://www.instagram.com/ghibahprogrammer/" target="_blank" rel="noopener">@ghibahprogrammer</a> di Instagram.
