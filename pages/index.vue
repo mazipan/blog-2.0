@@ -38,7 +38,7 @@
       </div>
 
       <InFeedAdsense
-        v-if="index % 3 === 0"
+        v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
         root-class="VueInFeedAdsense"
         data-ad-layout-key="-fg+5n+6t-e7+r"
         data-ad-client="ca-pub-5442972248172818"
@@ -51,6 +51,10 @@
 import Contents from '~/contents/index.js'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
+
+import {
+  ENABLE_ADS
+} from '~/constants'
 
 export default {
   name: 'Homepage',
@@ -70,7 +74,8 @@ export default {
     return {
       productionUrl: 'https://www.mazipan.xyz',
       formatReadingTime,
-      formatPostDate
+      formatPostDate,
+      ENABLE_ADS
     }
   },
   async asyncData ({ store }) {

@@ -9,7 +9,7 @@
         :key="blog.title"
         style="vertical-align: top; line-height: 2;">
         <td
-          v-if="index % 3 === 0"
+          v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
           colspan="3">
           <InFeedAdsense
             root-class="VueInFeedAdsense"
@@ -38,6 +38,10 @@
 <script>
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
+
+import {
+  ENABLE_ADS
+} from '~/constants'
 
 export default {
   name: 'CategoryPage',
@@ -69,7 +73,8 @@ export default {
     return {
       formatReadingTime,
       formatPostDate,
-      productionUrl: 'https://www.mazipan.xyz'
+      productionUrl: 'https://www.mazipan.xyz',
+      ENABLE_ADS
     }
   },
   async asyncData ({ params }) {

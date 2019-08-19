@@ -2,7 +2,6 @@
  * Helpers by Dan Abramov's Overreacted.io
  * https://github.com/gaearon/overreacted.io/blob/master/src/utils/helpers.js
  */
-
 export function formatReadingTime (minutes) {
   const cups = Math.round(minutes / 10)
   return `${new Array(cups || 1).fill('☕️').join('')} ${minutes} min read`

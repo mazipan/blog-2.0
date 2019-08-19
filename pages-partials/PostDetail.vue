@@ -127,6 +127,7 @@
     </div>
 
     <InArticleAdsense
+      v-if="ENABLE_ADS"
       data-ad-client="ca-pub-5442972248172818"
       data-ad-slot="7974047383" />
 
@@ -154,11 +155,17 @@ import {
   formatPostDate,
   debounce
 } from '~/utils/helpers.js'
+
+import {
+  constructJsonLdBreadcrumb
+} from '~/utils/jsonld.js'
+
 import {
   trackLike,
   trackUniversalShare,
   trackShare
 } from '~/utils/analitycs.js'
+
 import {
   initFirebase,
   getHitsUrl,
@@ -170,6 +177,11 @@ import {
   subscribeClapsData,
   createNewRef
 } from '~/utils/firebase.js'
+
+import {
+  ENABLE_ADS
+} from '~/constants'
+
 let firebaseInstance = null
 
 export default {
@@ -210,36 +222,17 @@ export default {
       youClapped: 0,
       claps: 0,
       hits: 0,
-      isSupportWebshare: false
+      isSupportWebshare: false,
+      ENABLE_ADS
     }
   },
   computed: {
     jsonLdBreadcrumb () {
-      const ld = {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: this.productionUrl
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: `${this.meta.categories[0]}`,
-            item: `${this.productionUrl}/category/${this.meta.categories[0]}`
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: `${this.meta.title}`,
-            item: `${this.productionUrl}/${this.meta.slug}`
-          }
-        ]
-      }
-      return ld
+      return constructJsonLdBreadcrumb(
+        this.meta.categories[0],
+        this.meta.title,
+        this.meta.slug
+      )
     },
     jsonLdArtcile () {
       const ld = {

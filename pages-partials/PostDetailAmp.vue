@@ -65,6 +65,10 @@ import ContentParser from '~/components/ContentParser'
 import EditContentNav from '~/components/EditContentNav'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 
+import {
+  constructJsonLdBreadcrumb
+} from '~/utils/jsonld.js'
+
 export default {
   name: 'PostDetailAmpPartial',
   components: {
@@ -99,31 +103,11 @@ export default {
   },
   computed: {
     jsonLdBreadcrumb () {
-      const ld = {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: this.productionUrl
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: `${this.meta.categories[0]}`,
-            item: `${this.productionUrl}/category/${this.meta.categories[0]}`
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: `${this.meta.title}`,
-            item: `${this.productionUrl}/${this.meta.slug}`
-          }
-        ]
-      }
-      return ld
+      return constructJsonLdBreadcrumb(
+        this.meta.categories[0],
+        this.meta.title,
+        this.meta.slug
+      )
     },
     jsonLdArtcile () {
       const ld = {
