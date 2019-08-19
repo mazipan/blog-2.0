@@ -66,7 +66,8 @@ import EditContentNav from '~/components/EditContentNav'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 
 import {
-  constructJsonLdBreadcrumb
+  constructJsonLdBreadcrumb,
+  constructJsonLdArticle
 } from '~/utils/jsonld.js'
 
 export default {
@@ -103,41 +104,21 @@ export default {
   },
   computed: {
     jsonLdBreadcrumb () {
-      return constructJsonLdBreadcrumb(
-        this.meta.categories[0],
-        this.meta.title,
-        this.meta.slug
-      )
+      return constructJsonLdBreadcrumb({
+        category: this.meta.categories[0],
+        title: this.meta.title,
+        slug: this.meta.slug
+      })
     },
     jsonLdArtcile () {
-      const ld = {
-        '@context': 'https://schema.org',
-        '@type': 'NewsArticle',
-        mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': `${this.productionUrl}/${this.meta.slug}`
-        },
-        headline: this.meta.title,
-        image: [
-          this.meta.cover
-        ],
-        datePublished: new Date(this.meta.date).toISOString(),
-        dateModified: new Date(this.meta.date).toISOString(),
-        author: {
-          '@type': 'Person',
-          name: 'Irfan Maulana'
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: 'mazipan',
-          logo: {
-            '@type': 'ImageObject',
-            url: `${this.productionUrl}/favicon-192x192.png`
-          }
-        },
-        description: this.meta.description
-      }
-      return ld
+      return constructJsonLdArticle({
+        category: this.meta.categories[0],
+        title: this.meta.title,
+        slug: this.meta.slug,
+        cover: this.meta.cover,
+        date: this.meta.date,
+        desc: this.meta.description
+      })
     }
   }
 }
