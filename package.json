@@ -83,7 +83,7 @@
     "sass-loader": "7.2.0",
     "vue-jest": "3.0.4",
     "vue-router": "3.1.2",
-    "yargs": "13.3.0"
+    "yargs": "14.0.0"
   },
   "repository": {
     "type": "git",
