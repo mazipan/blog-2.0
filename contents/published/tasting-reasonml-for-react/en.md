@@ -44,7 +44,7 @@ OCaml is indeed a language that basically uses a functional paradigm so that Rea
 
 ## Who has used ReasonML?
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/tasting-reasonml-for-react/reasonml-users.png" alt="ReasonML Users">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/tasting-reasonml-for-react/reasonml-users.png" alt="ReasonML Users" height="200">
 
 Not many ReasonML users in the world, but several large companies have started adopting it in their production. In Indonesia itself, it seems that [Ruangguru ↗️](https://career.ruangguru.com/) seems to dare to openly use ReasonML in production.
 
@@ -60,7 +60,7 @@ I decided to see and learn how ReasonML could be combined with React to build a 
 
 Creating your own project is based on a project that has become easier for me to go through various steps to setup a project which is usually quite time consuming at the beginning. I made a simple project [https://github.com/mazipan/ghibli-reasonreact ↗️](https://github.com/mazipan/ghibli-reasonreact) which I would like to do more or less I will make two pages namely the listing page and the detail page , the data will be retrieved from public APIs provided by third parties.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://github.com/mazipan/ghibli-reasonreact/raw/master/screenshoot.png" alt="Ghibli ReasonReact">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://github.com/mazipan/ghibli-reasonreact/raw/master/screenshoot.png" alt="Ghibli ReasonReact" height="200">
 
 ## What I have learned so far
 

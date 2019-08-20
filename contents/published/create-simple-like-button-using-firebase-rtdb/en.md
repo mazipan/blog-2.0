@@ -16,7 +16,7 @@ Today fortunately there is a platform like [Firebase ↗️](https://firebase.go
 
 This time we will only use the real-time database feature.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png" alt="Button Like Firebase">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png" alt="Button Like Firebase" height="200">
 
 ## Creating project in Firebase
 
@@ -208,7 +208,7 @@ The last touch is making sure when the build process we set the value of *enviro
 
 In [Travis CI ↗️](https://travis-ci.org) we can also adjust various variables easily. Just enter the `settings' section and we can add * key-value * as a variable that will be included during the * build * process.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable" height="200">
 
 ### Hopefully useful...
 

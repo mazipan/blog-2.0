@@ -26,7 +26,7 @@ Programmer memiliki berbagai alasan kenapa mereka menulis kode yang asal jalan, 
 
 Untuk hal ini kita bisa melihat pada [Technical Debt Quadrant ↗️](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html) yang dijelaskan Martin Fowler, singkatnya bisa menilik pada gambar berikut:
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/the-art-of-deleting-and-updating-the-code/quadran.png" alt="Technical Debt Quadrant">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/the-art-of-deleting-and-updating-the-code/quadran.png" alt="Technical Debt Quadrant" height="200">
 
 <small class="caption">Gambar diambil dari laman https://martinfowler.com<small>
 
