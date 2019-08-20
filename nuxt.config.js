@@ -3,6 +3,10 @@ import publisedCategories from './contents/categories.js'
 import draftContents from './contents/drafts/index.js'
 import ghibahContents from './contents/ghibah/index.js'
 
+require('dotenv-safe').config({
+  allowEmptyValues: true
+})
+
 const path = require('path')
 const pkg = require('./package')
 const ampify = require('./plugins/ampify')
