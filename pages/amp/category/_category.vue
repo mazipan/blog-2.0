@@ -36,7 +36,6 @@ export default {
     const title = `Category ${this.category} | @mazipan`
     const description = `All article with ${this.category} category`
     const url = `${this.productionUrl}/category/${this.category}`
-    const ampUrl = `${this.productionUrl}/amp/category/${this.category}`
     return {
       title,
       meta: [
@@ -52,7 +51,7 @@ export default {
         { hid: 'twitter:url', name: 'twitter:url', content: url }
       ],
       link: [
-        { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
+        { hid: 'canonical', rel: 'canonical', href: url }
       ]
     }
   },

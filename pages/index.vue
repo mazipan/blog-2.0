@@ -41,7 +41,7 @@
         v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
         root-class="VueInFeedAdsense"
         data-ad-layout-key="-fg+5n+6t-e7+r"
-        data-ad-client="ca-pub-5442972248172818"
+        :data-ad-client="ADS_CLIENT"
         data-ad-slot="2105028631" />
     </div>
   </section>
@@ -53,7 +53,8 @@ import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
 
 import {
-  ENABLE_ADS
+  ENABLE_ADS,
+  ADS_CLIENT
 } from '~/constants'
 
 export default {
@@ -75,7 +76,8 @@ export default {
       productionUrl: 'https://www.mazipan.xyz',
       formatReadingTime,
       formatPostDate,
-      ENABLE_ADS
+      ENABLE_ADS,
+      ADS_CLIENT
     }
   },
   async asyncData ({ store }) {

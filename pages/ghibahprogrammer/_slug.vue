@@ -13,7 +13,8 @@
         :static-render-fn="staticRenderFn" />
 
       <InArticleAdsense
-        data-ad-client="ca-pub-5442972248172818"
+        v-if="ENABLE_ADS"
+        :data-ad-client="ADS_CLIENT"
         data-ad-slot="7974047383" />
     </div>
   </section>
@@ -23,6 +24,11 @@
 import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
+
+import {
+  ENABLE_ADS,
+  ADS_CLIENT
+} from '~/constants'
 
 export default {
   name: 'DraftPage',
@@ -57,7 +63,9 @@ export default {
     return {
       productionUrl: 'https://www.mazipan.xyz',
       formatReadingTime,
-      formatPostDate
+      formatPostDate,
+      ENABLE_ADS,
+      ADS_CLIENT
     }
   },
   async asyncData ({ params }) {

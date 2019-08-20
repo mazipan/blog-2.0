@@ -1,6 +1,7 @@
 import publisedContents from './contents/index.js'
 import publisedCategories from './contents/categories.js'
 import draftContents from './contents/drafts/index.js'
+import ghibahContents from './contents/ghibah/index.js'
 
 const path = require('path')
 const pkg = require('./package')
@@ -15,8 +16,15 @@ const drafts = draftContents.data.map(item => {
   return item
 })
 
+const ghibahs = ghibahContents.data.map(item => {
+  item = `/ghibahprogrammer/${item}`
+  return item
+})
+
 const routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`, `/amp/${item}/en`]), [])
-  .concat(drafts).concat([
+  .concat(drafts)
+  .concat(ghibahs)
+  .concat([
     '/success-subscribed',
     '/amp',
     '/about',
@@ -55,7 +63,9 @@ module.exports = {
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
     FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
     FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    ENABLE_ADS: process.env.ENABLE_ADS || false
+    ENABLE_ADS: process.env.ENABLE_ADS || false,
+    ADS_CLIENT: process.env.ADS_CLIENT,
+    GA_KEY: process.env.GA_KEY
   },
   /*
    ** Headers of the page
@@ -179,7 +189,7 @@ module.exports = {
     [
       '@nuxtjs/google-analytics',
       {
-        id: 'UA-25065548-6'
+        id: `${process.env.GA_KEY}`
       }
     ]
   ],

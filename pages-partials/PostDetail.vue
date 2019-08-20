@@ -128,7 +128,7 @@
 
     <InArticleAdsense
       v-if="ENABLE_ADS"
-      data-ad-client="ca-pub-5442972248172818"
+      :data-ad-client="ADS_CLIENT"
       data-ad-slot="7974047383" />
 
     <script
@@ -180,7 +180,8 @@ import {
 } from '~/utils/firebase.js'
 
 import {
-  ENABLE_ADS
+  ENABLE_ADS,
+  ADS_CLIENT
 } from '~/constants'
 
 let firebaseInstance = null
@@ -224,7 +225,8 @@ export default {
       claps: 0,
       hits: 0,
       isSupportWebshare: false,
-      ENABLE_ADS
+      ENABLE_ADS,
+      ADS_CLIENT
     }
   },
   computed: {
@@ -308,14 +310,14 @@ export default {
   },
   methods: {
     trackSocialShare (network) {
-      trackShare(this, this.meta.slug, network)
+      trackShare(this.meta.slug, network)
     },
 
     onClickShare () {
       const title = `${this.meta.title}`
       const decription = `${this.meta.description}`
       const url = `/${this.meta.slug}`
-      trackUniversalShare(this, this.meta.slug)
+      trackUniversalShare(this.meta.slug)
 
       const data = {
         title,
@@ -330,7 +332,7 @@ export default {
     },
 
     onClickLike () {
-      trackLike(this, this.meta.slug)
+      trackLike(this.meta.slug)
       this.youClapped += 1
       setClapsData(firebaseInstance, this.meta.slug, this.claps + 1)
     }
