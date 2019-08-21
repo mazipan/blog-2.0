@@ -26,7 +26,7 @@ module.exports = (html) => {
 
   // Replace img tags with amp-img
   html = html.replace(/<img([^>]*)>/gi, (match, sub) => {
-    return `<amp-img ${sub} layout=intrinsic></amp-img>`
+    return `<amp-img ${sub} layout=responsive></amp-img>`
   })
 
   // Remove data attributes from tags

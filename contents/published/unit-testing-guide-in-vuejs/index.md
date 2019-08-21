@@ -43,7 +43,7 @@ cover: https://www.mazipan.xyz/content-images/unit-testing-guide-in-vuejs/commit
 
 Unit testing (UT) merupakan bagian terkecil dari proses pengetesan sebuah aplikasi perangkat lunak. UT berfokus untuk mengetest bagian terkecil sebuah aplikasi yakni potongan-potongan kode yang dibuat oleh pengembangnya, itu mengapa UT paling ideal dibuat oleh pengembang itu sendiri. Dengan mengetest kode-kode kecil di dalam sebuah aplikasi diharapkan kita bisa menghasilkan aplikasi perangkat lunak dengan kualitas yang lebih bisa dijamin.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/unit-testing-guide-in-vuejs/commitstrip.jpg" alt="Unit Test Meme by commitstrip" height="200">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/unit-testing-guide-in-vuejs/commitstrip.jpg" alt="Unit Test Meme by commitstrip" height="auto" width="90%">
 
 [🔼 Kembali ke navigasi](#navigasi)
 

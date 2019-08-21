@@ -20,7 +20,7 @@ Finally, we decide to create our own formatter that combined the power of HTML r
 
 We call it as `eslint-formatter-html-extended`!
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/eslint-formatter-html-extended/eslint-html.png" alt="ESLint formatter HTML Extended" height="200">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/eslint-formatter-html-extended/eslint-html.png" alt="ESLint formatter HTML Extended" height="auto" width="90%">
 
 ## Unboxing 📦
 

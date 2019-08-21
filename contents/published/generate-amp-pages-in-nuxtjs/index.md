@@ -14,7 +14,7 @@ AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) merupakan ini
 
 AMP merupakan rekomendasi yang dianjurkan oleh Google langsung karena memiliki prioritas yang baik bagi hasil pencarian Google Search. Dan dengan rampingnya teknologi di dalamnya serta ditambah bantuan *cache* dari Google membuat AMP menjadi sangat cepat diakses dan sangat baik untuk digunakan sebagai halaman pertama bagi pengunjung yang datang dari hasil Google Search ini.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png" alt="Mazipan AMP" height="200">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png" alt="Mazipan AMP" height="auto" width="90%">
 
 ## Dasar-dasar Membuat AMP
 

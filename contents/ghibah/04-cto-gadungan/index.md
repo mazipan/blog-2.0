@@ -14,6 +14,8 @@ Artikel ini merupakan seri dari Ghibah Programmer, pada seri ini kita akan memba
 
 <small class="caption">Gambar diambil dari laman instagram <a href="https://www.instagram.com/p/B0swZrXAybC/" target="_blank" rel="noopener">@ghibahprogrammer</a><small>
 
+Temen-temen mungkin pernah mengalami hal yang sama, dimana ketika melihat CV seseorang kita menjadi terperangah karena sebegitu kerennya berbagai daftar pengalaman yang mereka cantumkan dalam CV mereka. Salah? Tidak juga. Mari kita coba bahas dari sudut pandang saya pribadi.
+
 ----
 
 Terima kasih dan tunggu seri berikutnya. Ikuti juga <a href="https://www.instagram.com/ghibahprogrammer/" target="_blank" rel="noopener">@ghibahprogrammer</a> di Instagram.
