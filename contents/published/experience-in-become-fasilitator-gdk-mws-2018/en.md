@@ -42,7 +42,7 @@ Bagi saya, pertemuan luring selalu lebih menarik dibandingkan daring. Kita bisa 
 
 Seperti saya sebutkan diatas, konsistensi menjadi barang mahal bagi kita bersama. Setelah meetup pertama dihadiri 13 orang meetup kedua yang saya adakan hanya dihadiri oleh 4 peserta saja.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/experience-in-become-fasilitator-gdk-mws-2018/gdk-mws-meetup.jpg" alt="GDK MWS Meetup" height="auto" width="90%">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/experience-in-become-fasilitator-gdk-mws-2018/gdk-mws-meetup.jpg" alt="GDK MWS Meetup" height="200px" width="200px">
 
 Tapi bagi saya pribadi ini bukan masalah, selama masih ada satu dua orang yang bersemangat hadir maka saya berusaha datang ke meetup yang disepakati bersama. Tidak rugi bagi saya bertemu dengan 4 orang ini, bagi saya mereka adalah orang-orang yang menjadi *booster* bagi saya untuk tetap menyelesaikan tanggung jawab menjadi fasilitator sampai akhir program. Orang-orang yang akan dengan mudah menjadi teman bagi saya kedepannya 🤩
 
@@ -51,7 +51,7 @@ Tapi bagi saya pribadi ini bukan masalah, selama masih ada satu dua orang yang b
 Sehari setelah acara Google For Indonesia, Google mengadakan acara Google Developer Showcase yang intinya memberitahu ke khalayak ramai apa-apa saja yang telah dikerjakan Google belakangan ini dalam rangka membangun ekosistem dan membangun sumber daya manusia di Indonesia khususnya untuk mencetak banyak developer baru lewat berbagai program yang dicanangkannya.
 Google Developer Kejar sendiri merupakan satu dari sekian program yang dibuat Google untuk membantu hal ini. Untuk menghadiri acara ini dipilihlah beberapa fasilitator dan peserta untuk mewakili dari masing-masing kota.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/experience-in-become-fasilitator-gdk-mws-2018/gdk-mws-dev-showcase.jpg" alt="Google Developer Showcase" height="auto" width="90%">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/experience-in-become-fasilitator-gdk-mws-2018/gdk-mws-dev-showcase.jpg" alt="Google Developer Showcase" height="200px" width="200px">
 
 ## Bagaimana Hasilnya? 💎
 

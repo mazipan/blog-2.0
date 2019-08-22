@@ -14,7 +14,7 @@ AMP (Accelerated Mobile Pages - [amp.dev ↗️](https://amp.dev)) is Google's i
 
 AMP is recommended by Google because it is very user centrict. Google also will prioritize the contents with AMP support with adding a badge in the search results to indicate AMP. Google also support with adding the caches to boost the first load speed into the limit which make AMP is the best choice for first user landing from the search result.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png" alt="Mazipan AMP" height="auto" width="90%">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/generate-amp-pages-in-nuxtjs/mazipan-amp.png" alt="Mazipan AMP" height="200px" width="200px">
 
 ## Basics for Creating AMP
 

@@ -10,7 +10,7 @@ cover: https://www.mazipan.xyz/content-images/migrate-nuxt-to-typescript/quran-o
 
 As we all know that the default from the Nuxt project will be to create a code based on JavaScript Vanilla. Whereas the increasingly widespread use of TypeScript among JavaScript developers makes me personally interested in implementing the use of TypeScript on my open source code project.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/migrate-nuxt-to-typescript/quran-offline.png" alt="Quran Offline" height="auto" width="90%">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/migrate-nuxt-to-typescript/quran-offline.png" alt="Quran Offline" height="200px" width="200px">
 
 The following are the things I worked on in the migration process:
 

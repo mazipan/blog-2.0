@@ -20,7 +20,7 @@ Akhirnya, kami memutuskan untuk membuat formatter kami sendiri yang menggabungka
 
 Kami menyebutnya `eslint-formatter-html-extended`!
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/eslint-formatter-html-extended/eslint-html.png" alt="ESLint formatter HTML Extended" height="auto" width="90%">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/eslint-formatter-html-extended/eslint-html.png" alt="ESLint formatter HTML Extended" height="200px" width="200px">
 
 ## Unboxing 📦
 
