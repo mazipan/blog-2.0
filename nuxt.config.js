@@ -157,6 +157,7 @@ module.exports = {
         body: true
       }
     ]
+    // __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
