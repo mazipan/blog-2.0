@@ -11,17 +11,23 @@
         width="76px">
 
       <br><br>Hi, I am Irfan Maulana.
-      <br><br>Software Architect in Bizzy Indonesia, former Software Engineer in Blibli.com and SML Technologies.
-      <br><br>An experience software engineer especially in frontend side.
-      <br>Having deep knowledge in HTML, CSS (with it's pre-processor) and JavaScript with various framework.
-      <br>Write good quality, well tested, and fast delivered code.
+      <br><br>Principal Engineer in Tokopedia. Former Software Engineer in Bizzy, Blibli.com and SML Technologies.
+
+      <br><br>An experienced software engineer especially in frontend side.
+      <br>Having deep knowledge in HTML, CSS (with its pre-processor) and JavaScript with the various framework. Write good quality, well tested, and fast delivered code.
       <br>Experience in architecting frontend codebase.
-      <br><br>Well known figure in programming community, open-source creator, and writer for many technical article.
+
+      <br><br>A well-known figure in the programming community, open-source creator, and writer for many technical articles.
     </div>
   </div>
 </template>
 
 <script>
+
+import {
+  PRODUCTION_URL
+} from '~/constants'
+
 export default {
   name: 'AboutPageAmp',
   layout: 'amp-default',
@@ -29,6 +35,8 @@ export default {
     const title = `About | @mazipan`
     const description = `Page About`
     const url = `${this.productionUrl}/about/`
+    const imageUrl = `${this.productionUrl}/images/profile-rounded.png`
+
     return {
       title,
       meta: [
@@ -46,6 +54,8 @@ export default {
           content: description
         },
         { hid: 'og:url', property: 'og:url', content: url },
+        { hid: 'og:image', property: 'og:image', content: imageUrl },
+        { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: imageUrl },
 
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         {
@@ -53,7 +63,8 @@ export default {
           name: 'twitter:description',
           content: description
         },
-        { hid: 'twitter:url', name: 'twitter:url', content: url }
+        { hid: 'twitter:url', name: 'twitter:url', content: url },
+        { hid: 'twitter:image:src', name: 'twitter:image:src', content: imageUrl }
       ],
       link: [
         { hid: 'canonical', rel: 'canonical', href: url }
@@ -62,7 +73,7 @@ export default {
   },
   data () {
     return {
-      productionUrl: 'https://www.mazipan.xyz'
+      productionUrl: PRODUCTION_URL
     }
   }
 }

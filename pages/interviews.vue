@@ -8,6 +8,10 @@
 </template>
 
 <script>
+import {
+  PRODUCTION_URL
+} from '~/constants'
+
 export default {
   name: 'InterviewsPage',
   head () {
@@ -36,7 +40,7 @@ export default {
   },
   data () {
     return {
-      productionUrl: 'https://www.mazipan.xyz'
+      productionUrl: PRODUCTION_URL
     }
   }
 }

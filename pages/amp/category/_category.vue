@@ -30,6 +30,10 @@
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
 
+import {
+  PRODUCTION_URL
+} from '~/constants'
+
 export default {
   name: 'CategoryPageAmp',
   head () {
@@ -59,7 +63,7 @@ export default {
     return {
       formatReadingTime,
       formatPostDate,
-      productionUrl: 'https://www.mazipan.xyz'
+      productionUrl: PRODUCTION_URL
     }
   },
   async asyncData ({ params }) {

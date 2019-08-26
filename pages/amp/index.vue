@@ -45,6 +45,10 @@ import Contents from '~/contents/index.js'
 import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
 
+import {
+  PRODUCTION_URL
+} from '~/constants'
+
 export default {
   name: 'HomepageAmp',
   layout: 'amp-homepage',
@@ -61,7 +65,7 @@ export default {
   },
   data () {
     return {
-      productionUrl: 'https://www.mazipan.xyz',
+      productionUrl: PRODUCTION_URL,
       formatReadingTime,
       formatPostDate
     }

@@ -23,6 +23,11 @@
 </template>
 
 <script>
+
+import {
+  PRODUCTION_URL
+} from '~/constants'
+
 export default {
   name: 'AboutPage',
   head () {
@@ -30,6 +35,8 @@ export default {
     const description = `Page About`
     const url = `${this.productionUrl}/about/`
     const ampUrl = `${this.productionUrl}/amp/about/`
+    const imageUrl = `${this.productionUrl}/images/profile-rounded.png`
+
     return {
       title,
       meta: [
@@ -47,6 +54,8 @@ export default {
           content: description
         },
         { hid: 'og:url', property: 'og:url', content: url },
+        { hid: 'og:image', property: 'og:image', content: imageUrl },
+        { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: imageUrl },
 
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         {
@@ -54,7 +63,8 @@ export default {
           name: 'twitter:description',
           content: description
         },
-        { hid: 'twitter:url', name: 'twitter:url', content: url }
+        { hid: 'twitter:url', name: 'twitter:url', content: url },
+        { hid: 'twitter:image:src', name: 'twitter:image:src', content: imageUrl }
       ],
       link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
@@ -63,7 +73,7 @@ export default {
   },
   data () {
     return {
-      productionUrl: 'https://www.mazipan.xyz'
+      productionUrl: PRODUCTION_URL
     }
   }
 }

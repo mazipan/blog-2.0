@@ -54,7 +54,8 @@ import MetaData from '~/components/MetaData'
 
 import {
   ENABLE_ADS,
-  ADS_CLIENT
+  ADS_CLIENT,
+  PRODUCTION_URL
 } from '~/constants'
 
 export default {
@@ -73,7 +74,7 @@ export default {
   },
   data () {
     return {
-      productionUrl: 'https://www.mazipan.xyz',
+      productionUrl: PRODUCTION_URL,
       formatReadingTime,
       formatPostDate,
       ENABLE_ADS,

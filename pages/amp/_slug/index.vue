@@ -12,11 +12,13 @@
 import PostDetail from '~/pages-partials/PostDetailAmp.vue'
 import PostDetailHead from '~/mixins/post-detail-head-amp'
 
-function replaceLazyloadImg (str) {
-  return str &&
-    str
-      .replace(/"src":(?:[^=>][^"]*","data-src"|[^=>"]*)/gi, '"src"')
-}
+import {
+  PRODUCTION_URL
+} from '~/constants'
+
+import {
+  replaceLazyloadImg
+} from '~/utils/helpers'
 
 export default {
   name: 'SlugPageIdAmp',
@@ -29,7 +31,7 @@ export default {
   ],
   data () {
     return {
-      productionUrl: 'https://www.mazipan.xyz'
+      productionUrl: PRODUCTION_URL
     }
   },
   async asyncData ({ params }) {

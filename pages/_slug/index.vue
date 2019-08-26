@@ -12,6 +12,10 @@
 import PostDetail from '~/pages-partials/PostDetail.vue'
 import PostDetailHead from '~/mixins/post-detail-head'
 
+import {
+  PRODUCTION_URL
+} from '~/constants'
+
 export default {
   name: 'SlugPageId',
   components: {
@@ -22,7 +26,7 @@ export default {
   ],
   data () {
     return {
-      productionUrl: 'https://www.mazipan.xyz'
+      productionUrl: PRODUCTION_URL
     }
   },
   async asyncData ({ params }) {

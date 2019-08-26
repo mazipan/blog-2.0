@@ -41,7 +41,8 @@ import Contents from '~/contents/index.js'
 
 import {
   ENABLE_ADS,
-  ADS_CLIENT
+  ADS_CLIENT,
+  PRODUCTION_URL
 } from '~/constants'
 
 export default {
@@ -74,7 +75,7 @@ export default {
     return {
       formatReadingTime,
       formatPostDate,
-      productionUrl: 'https://www.mazipan.xyz',
+      productionUrl: PRODUCTION_URL,
       ENABLE_ADS,
       ADS_CLIENT
     }

@@ -58,7 +58,11 @@ Tentu saja pemilihan `jQuery` bukanlah hal yang biasa di Tokopedia, dimana para 
 
 ## Proses Pembangunan
 
-Maka dimulailah pengerjaan pembangunan *microsite* ini dengan dasar teknologi menggunakan `jQuery`.
+Maka dimulailah pengerjaan pembangunan *microsite* ini dengan dasar teknologi menggunakan `jQuery`. Sayangnya dengan technology stack seperti ini kami jadi tidak bisa menggunakan keuntungan development tools yang biasa kami gunakan sehari-hari, katakanlah sebelumnya kami terbiasa dimanjakan dengan kemampuan untuk deploy feature branch ke puluhan virtual machine tanpa perlu berebutan atau bergantian dengan engineer lain, yang sayangnya cara deployment seperti ini masih sangat *couple* dengan technology stack dan folder structuring pada monorepo utama kami. Kami juga jadi tidak bisa memanfaatkan berbagai kemampuan hebat webpack seperti melakukan hot reload pada saat development, mengerjakan kompresi pada berkas, menyatukan berbagai berkas, memberikan hash pada nama berkas, menyisipkan environment variable, serta banyak hal yang biasanya kami kerjakan namun sangat bergantung pada webpack.
+
+Kami punya pilihan untuk mengerjakan sebagai *microsite* statis yang tinggal cemplung saja ke CDN ketika proses deployment, tapi setelah berkonsultasi dengan berbagai pihak yang lebih berkompetensi pada akhirnya pilihan sederhana seperti ini tidak jadi kami ambil dengan pertimbangan kami tidak ingin projek ini menjadi contoh buruk dan bisa dijadikan alasan di masa yang akan datang untuk melakukan deployment semau sendiri tanpa mengikuti kaidah dan kebiasaan kita. Pun melihat bahwa kami memang belum punya platform yang baik ketika membutuhkan projek-projek seperti ini, maka kami putuskan untuk membuat projek ini bisa lebih baik dibandingkan sekedar projek sekali pukul menjadi projek yang bisa menjadi platform bagi banyak *microsite* semacam ini kedepannya, sehingga diharapkan bila ada lagi projek serupa di masa depan, kami cukup mengikuti kaidah dan arsitektur yang sudah dibuatkan pada projek ini.
+
+Mengingat kemampuan deployment branch fitur kami yang masih sangat *couple* dengan struktur monorepo yang ada, maka kami putuskan pada saat itu bahwa projek ini pun harus bisa melakukan hal yang sama agar *engineer* bisa lebih mudah melakukan deployment tanpa harus merging branch ke satu branch utama.
 
 ## Pelajaran yang didapat
 
