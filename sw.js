@@ -28,6 +28,7 @@ workbox.precaching.cleanupOutdatedCaches()
 // --------------------------------------------------
 
 // Register route handlers for runtimeCaching
+workbox.routing.registerRoute(new RegExp('/.html$/'), new workbox.strategies.NetworkFirst ({"cacheName":"Html","cacheExpiration":{"maxEntries":10,"maxAgeSeconds":86400}}), 'GET')
 workbox.routing.registerRoute(new RegExp('^https://fonts.*(?:googleapis|gstatic).com/(.*)'), new workbox.strategies.CacheFirst ({"cacheName":"GoogleFont","cacheExpiration":{"maxEntries":10,"maxAgeSeconds":604800}}), 'GET')
 workbox.routing.registerRoute(new RegExp('^https://polyfill.io/(.*)'), new workbox.strategies.CacheFirst ({"cacheName":"Polyfill","cacheExpiration":{"maxEntries":2,"maxAgeSeconds":604800}}), 'GET')
 workbox.routing.registerRoute(new RegExp('/_nuxt/'), new workbox.strategies.CacheFirst ({}), 'GET')
