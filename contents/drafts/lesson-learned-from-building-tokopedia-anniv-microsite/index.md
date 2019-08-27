@@ -38,7 +38,7 @@ Sebelum membicarakan lebih lanjut, mungkin teman-teman perlu melihat sekilas tam
 
 Kami perlu berikan catatan sebelumnya dari sisi waktu pembangunan *microsite* ini, projek ini dibuat dengan mengikuti ilmu *Sangkuriang* dimana diminta dibangun dalam waktu satu sprint yang tidak lebih dari dua minggu termasuk segala *ceremony* persiapan deployment yang harus selesai dalam waktu tersebut. Hal ini karena tentu saja tanggal ulang tahun Tokopedia tidak mungkin diundur, yang harus bisa menyesuaikan adalah *development time*.
 
-## Kebutuhan dari Produk
+## Permintaan Fancy UI
 
 Setelah turun *requirement* dari tim produk, ternyata website yang akan dibangun merupakan *microsite* yang sangat-sangat *fancy*. Penuh dengan animasi menarik pada saat *scroll down*. Belum cukup *microsite* ini juga bertaburan gambar dan beberapa video dimana-mana, beberapa malah berada pada lokasi yang kritis yang akan memaksa pengguna untuk memuat di masa-masa awal. Ok, *requirement* sudah terlihat dan tidak bisa digoyang lagi soal kemauan membuat *microsite* yang super *fancy* ini.
 
