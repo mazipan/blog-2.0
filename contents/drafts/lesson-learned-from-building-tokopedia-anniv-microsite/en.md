@@ -106,11 +106,11 @@ Desktop web Tokopedia belum memasang Service Worker dengan tujuan yang benar, se
 
 ## Lessons Learned
 
-- Tidak semua website harus *fancy*, karena biasanya *fancy website* membutuhkan banyak DOM manipulation dan pilihan untuk ini biasanya berujung pada jQuery. Pastikan ada alasan yang jelas dan masuk akal soal permintaan membuat *fancy* website.
+- Tidak semua website harus *fancy*, karena biasanya *fancy website* membutuhkan banyak DOM manipulation dan pilihan untuk ini biasanya berujung pada `jQuery`. Pastikan ada alasan yang jelas dan masuk akal soal permintaan membuat *fancy* website.
 - Setiap projek haruslah memiliki visi kedepan, seperti pada projek ini kami memproyeksikan sebagai platform untuk projek-projek lain serupa.
 - Tidak perlu malu menggunakan teknologi lama, selama bisa dipelihara dengan baik dan menyelesaikan masalah kalian.
-- Setiap keputusan dalam pemilihan teknologi selalu memiliki trade-off, pastikan kalian memahami baik dan buruknya
-- Melakukan kesalahan bukanlah hal yang haram dalam startup yang memiliki *hiper growth*, pastikan kita belajar dari setiap kesalahan yang dialami
-- GTM (Google Tag Manager) bisa jadi sangat powerfull, tapi bisa jadi beban besar ketika tidak dikelola dengan tepat guna
+- Setiap keputusan dalam pemilihan teknologi selalu memiliki *trade-off*, pastikan kalian memahami baik dan buruknya.
+- Melakukan kesalahan bukanlah hal yang haram dalam startup yang memiliki *hyper growth*, pastikan kita belajar dari setiap kesalahan yang dialami.
+- GTM (Google Tag Manager) bisa jadi sangat *powerfull*, tapi bisa jadi beban besar ketika tidak dikelola dengan tepat guna.
 
 ### Hopefully useful...
