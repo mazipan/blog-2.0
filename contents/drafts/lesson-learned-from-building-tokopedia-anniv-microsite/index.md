@@ -1,8 +1,8 @@
 ---
 title: Pelajaran dari membangun microsite untuk Tokopedia Anniversary
 slug: lesson-learned-from-building-tokopedia-anniv-microsite
-date: '2019-08-21'
-minute2read: 10
+date: '2019-08-27'
+minute2read: 15
 description: Berbagai pelajaran yang kami dapat saat membangun microsite untuk acara ulang tahun Tokopedia ke-10
 categories: [programming]
 cover: https://www.mazipan.xyz/content-images/lesson-learned-from-building-tokopedia-anniv-microsite/tokopedia-anniv.png
@@ -62,8 +62,29 @@ Maka dimulailah pengerjaan pembangunan *microsite* ini dengan dasar teknologi me
 
 Kami punya pilihan untuk mengerjakan sebagai *microsite* statis yang tinggal cemplung saja ke CDN ketika proses deployment, tapi setelah berkonsultasi dengan berbagai pihak yang lebih berkompetensi pada akhirnya pilihan sederhana seperti ini tidak jadi kami ambil dengan pertimbangan kami tidak ingin projek ini menjadi contoh buruk dan bisa dijadikan alasan di masa yang akan datang untuk melakukan deployment semau sendiri tanpa mengikuti kaidah dan kebiasaan kita. Pun melihat bahwa kami memang belum punya platform yang baik ketika membutuhkan projek-projek seperti ini, maka kami putuskan untuk membuat projek ini bisa lebih baik dibandingkan sekedar projek sekali pukul menjadi projek yang bisa menjadi platform bagi banyak *microsite* semacam ini kedepannya, sehingga diharapkan bila ada lagi projek serupa di masa depan, kami cukup mengikuti kaidah dan arsitektur yang sudah dibuatkan pada projek ini.
 
-Mengingat kemampuan deployment branch fitur kami yang masih sangat *couple* dengan struktur monorepo yang ada, maka kami putuskan pada saat itu bahwa projek ini pun harus bisa melakukan hal yang sama agar *engineer* bisa lebih mudah melakukan deployment tanpa harus merging branch ke satu branch utama.
+Mengingat kemampuan deployment branch fitur kami yang masih sangat *couple* dengan struktur monorepo yang ada, maka kami putuskan pada saat itu bahwa projek ini pun harus bisa melakukan hal yang sama agar *engineer* bisa lebih mudah melakukan deployment tanpa harus merging branch ke satu branch utama. Hal ini menjadikan kami menempatkan projek ini sebagai bagian dari repository monorepo kami.
+
+Menggunakan `jQuery` memang bukanlah halangan untuk tidak menggunakan webpack, dengan pengalaman kami selama ini menggunakan webpack maka bukan hal yang begitu sulit untuk membuatkan konfigurasi webpack untuk projek yang bahkan berbasiskan `jQuery`. Di projek lain kami, hampir semuanya menggunakan `Less` sebagai CSS Pre-processor sehingga kami pun meminta *engineer* untuk melakukan konversi dari yang sebelumnya menggunakan `SASS` menjadi `Less` agar bisa seragam dengan kebiasaan kami.
+
+Hal berikutnya yang menjadi tantangan adalah pada *image processing*, jika pada projek React hal seperti mudah saja ditangani oleh webpack maka pada projek statis seperti ini menjadi tantangan tersendiri karena image yang ada tidak melalui entry point JavaScript yang kami sematkan pada webpack melainkan langsung disematkan pada file HTML. Menjadi semakin runyam karena kami menggunakan `publicPath` yang berbeda antara proses development dengan rencana di production nantinya, menggunakan static absolute path tentu bukan pilihan yang bisa diambil.
+
+Untuk `publicPath` pada akhirnya bisa diselesaikan dengan mengirimkan parameter di [HTMLWebpackPlugin ↗️](https://webpack.js.org/plugins/html-webpack-plugin/) yang kami gunakan, sedangkan masalah *image processing* kami memutuskan untuk membuat WebpackPlugin sendiri khusus untuk menghandle projek ini. Plugin sederhana, hanya membaca semua image yang ada meskipun tidak melalui entry point JavaScript untuk kemudian di proses seperti pemberian hash pada nama file. Kami sempat juga mencoba menggunakan [ImageWebpackLoader ↗️](https://github.com/tcoopman/image-webpack-loader) pada hari-hari terakhir untuk melakukan kompresi otomatis yang sayangnya ternyata image hasil dari loader ini tidak bisa di render dengan baik oleh browser berbasiskan Safari (hal terakhir ini kita *revert*).
+
+Seperti kebanyakan projek kami yang lain yang menempatakan Node.JS di bagian paling depan sebagai pelayan bagi file HTML kami, projek inipun menempatkan Node.js sebagai pelayan utama dibagian depan. Sayangnya dengan cara ini, kita tidak bisa berharap kalau projek ini bisa bertahan dengan traffic yang tinggi, pun hal ini sudah terdeteksi pada saat Load Test dilakukan. Meskipun kami sebenarnya bisa menutup mata akan hal ini, karena pada dasarnya Server yang ada sudah bisa *auto scale up* dan *auto scale down*. Namun sebagai *engineer* kami harus memikirkan solusi yang lebih *proper* dibandingkan mengharapkan proses *auto scale* bisa berjalan lancar.
+
+Hal menantang pada projek dengan banyak image dan video adalah penanganan dan prioritas loading berbagai assets. Bukan hal yang mudah memastikan asset-asset yang pertama kali di request hanyalah asset-asset yang benar-benar kritis dan benar-benar dibutuhkan. Kami harus berulang kali mengecek satu persatu assets yang diminta pada berbagai platform. Awalnya *engineer* attach pada scroll dan resize event untuk melakukan deteksi visibility sebuah element image (*tentu dengan cara-cara `jQuery`), hal ini sudah tidak relevan ketika kita bisa dengan percaya diri menggunakan IntersectionObserver di production, makanya kami memutuskan untuk membuat ulang cara deteksi visibility dari sebuah image menggunakan VanillaJS dan IntersectionObserver.
+
+Kami memutuskan untuk menggunakan *Cache* secara agresif di beberapa level setelah dipertimbangkan soal tidak akan adanya perubahan lagi pada saat projek ini sudah di release nantinya. Di ALB kami menempatkan cache, di CDN kamipun memastikan semua sudah di cache, di Node.js kami juga menempatkan memory cache sehingga processing time bisa dipangkas ketika sebuah request masih sampai ke Node.js.
+
+Penyakit terakhir yang sampai pada hari H tidak berhasil disembuhkan adalah penggunaan third-party yang tidak tepat guna. Kami menggunakan GTM sebagai pusat dari third-party tracking, yang ternyata ada banyak script yang ditanam di semua halaman termasuk halaman-halaman yang belum tentu membutuhkan spesifik script tersebut.
 
 ## Pelajaran yang didapat
+
+- Tidak semua website harus *fancy*, karena biasanya *fancy website* membutuhkan banyak DOM manipulation dan pilihan untuk ini biasanya berujung pada jQuery. Pastikan ada alasan yang jelas dan masuk akal soal permintaan membuat *fancy* website.
+- Setiap projek haruslah memiliki visi kedepan, seperti pada projek ini kami memproyeksikan sebagai platform untuk projek-projek lain serupa.
+- Tidak perlu malu menggunakan teknologi lama, selama bisa dipelihara dengan baik dan menyelesaikan masalah kalian.
+- Setiap keputusan dalam pemilihan teknologi selalu memiliki trade-off, pastikan kalian memahami baik dan buruknya
+- Melakukan kesalahan bukanlah hal yang haram dalam startup yang memiliki *hiper growth*, pastikan kita belajar dari setiap kesalahan yang dialami
+- GTM (Google Tag Manager) bisa jadi sangat powerfull, tapi bisa jadi beban besar ketika tidak dikelola dengan tepat guna
 
 ### Demikian artikel kali ini, semoga bermanfaat...
