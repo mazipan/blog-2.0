@@ -12338,10 +12338,10 @@ vue-eslint-parser@^5.0.0:
     esquery "^1.0.1"
     lodash "^4.17.11"
 
-vue-google-adsense@1.6.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/vue-google-adsense/-/vue-google-adsense-1.6.2.tgz#6489a34512f3b9b314aba8c337c2d8797c6b1447"
-  integrity sha512-PaPN24rSQ+KynvLJkMnVz1RKmsBaJdJHoAFNZztt+9tQNUKkXQWqdcBQ6w6GQYvi0NqY87Sdrt46YFcA7dBbGw==
+vue-google-adsense@1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/vue-google-adsense/-/vue-google-adsense-1.7.0.tgz#b269b6ac7515b26100838d8413e4edf515d7b445"
+  integrity sha512-QlnEOwem9Kk8SGzSHhEcrNQPF6v27JaN2ur9vIe4mTf5i6DiBzQrGib97dTCMRlqnBObp1mu4eb+r3v5KgILGw==
   dependencies:
     vue "^2.6.10"
     vue-script2 "2.1.0"
