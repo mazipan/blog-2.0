@@ -205,6 +205,17 @@ module.exports = {
   workbox: {
     runtimeCaching: [
       {
+        urlPattern: '/.html$/',
+        handler: 'networkFirst',
+        strategyOptions: {
+          cacheName: 'Html',
+          cacheExpiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24
+          }
+        }
+      },
+      {
         urlPattern: '^https://fonts.*(?:googleapis|gstatic).com/(.*)',
         handler: 'cacheFirst',
         strategyOptions: {
