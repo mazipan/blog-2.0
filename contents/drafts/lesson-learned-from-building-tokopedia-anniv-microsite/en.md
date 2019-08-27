@@ -3,14 +3,14 @@ title: Lesson Learned from Building Tokopedia Anniversary Microsite
 slug: lesson-learned-from-building-tokopedia-anniv-microsite
 date: '2019-08-27'
 minute2read: 15
-description: lessons we learned as a team when building a microsite for Tokopedia 10th Anniversary
+description: Lessons we learned as a team when building a microsite for Tokopedia 10th Anniversary
 categories: [programming]
 cover:
 ---
 
-> *Disclaimer: Tulisan ini adalah pandangan pribadi saya, tanpa mewakili Tokopedia secara resmi. Semua pekerjaan di dalam artikel ini adalah hasil kerja tim, semua pujian saya sampaikan terhadap keseluruhan anggota tim yang terlibat. Artikel ini dibuat dengan tujuan pembelajaran bersama tanpa ada tujuan untuk menyudutkan pihak manapaun
+> *Disclaimer: Tulisan ini adalah pandangan pribadi saya, tanpa mewakili Tokopedia secara resmi. Semua pekerjaan di dalam artikel ini adalah hasil kerja tim, semua pujian saya sampaikan terhadap keseluruhan anggota tim yang terlibat. Artikel ini dibuat dengan tujuan pembelajaran bersama tanpa ada tujuan untuk menyudutkan pihak manapun.
 
-## Pembukaan
+## Inroduction
 
 Tokopedia baru saja berulang tahun ke-10, dan untuk merayakannya kami meyiapkan satu *microsite* untuk sebagai perantara menyampaikan pesan kepada para pengunjung setia kami. Kalian bisa melihat halaman tersebut di alamat [https://www.tokopedia.com/ulang-tahun/ ↗️](https://www.tokopedia.com/ulang-tahun/).
 
@@ -22,15 +22,15 @@ Pun dalam proses membangun *microsite* kali ini. Bagi yang belum tau *microsite*
 
 Dan mari kita bicarakan berbagai hal baik dan buruk yang bisa kita pelajari bersama-sama dari proses pembangunan *microsite* ini.
 
-## Penampakan
+## Screenshots
 
 Sebelum membicarakan lebih lanjut, mungkin teman-teman perlu melihat sekilas tampilan dari *microsite* tersebut.
 
-### Tampilan Desktop Web
+### Desktop Web UI
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/lesson-learned-from-building-tokopedia-anniv-microsite/anniv-desktop.gif" alt="Desktop Web" height="200" width="auto">
 
-### Tampilan Mobile Web
+### Mobile Web UI
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/lesson-learned-from-building-tokopedia-anniv-microsite/anniv-mobile.gif" alt="Mobile Web" height="200" width="auto">
 
@@ -38,29 +38,29 @@ Sebelum membicarakan lebih lanjut, mungkin teman-teman perlu melihat sekilas tam
 
 Kami perlu berikan catatan sebelumnya dari sisi waktu pembangunan *microsite* ini, projek ini dibuat dengan mengikuti ilmu *Sangkuriang* dimana diminta dibangun dalam waktu satu sprint yang tidak lebih dari dua minggu termasuk segala *ceremony* persiapan deployment yang harus selesai dalam waktu tersebut. Hal ini karena tentu saja tanggal ulang tahun Tokopedia tidak mungkin diundur, yang harus bisa menyesuaikan adalah *development time*.
 
-## Kebutuhan dari Produk
+## Fancy Website Requirement
 
 Setelah turun *requirement* dari tim produk, ternyata website yang akan dibangun merupakan *microsite* yang sangat-sangat *fancy*. Penuh dengan animasi menarik pada saat *scroll down*. Belum cukup *microsite* ini juga bertaburan gambar dan beberapa video dimana-mana, beberapa malah berada pada lokasi yang kritis yang akan memaksa pengguna untuk memuat di masa-masa awal. Ok, *requirement* sudah terlihat dan tidak bisa digoyang lagi soal kemauan membuat *microsite* yang super *fancy* ini.
 
 Sebagai *engineer*, pilihan kita adalah banyak berdoa 😂 semoga *microsite* ini tidak akan menimbulkan kegaduhan dan bisa tetap bertahan dihajar traffic yang menggila nantinya.
 
-## Kebutuhan dari SRE
+## Concern from SRE
 
 Selain kebutuhan dari tim produk, ada juga kebutuhan lain dari tim SRE dimana direncanakan bahwa *microsite* ini akan menerima traffic yang cukup tinggi terutama menjelang hari H dimana hampir semua platfom Tokopedia akan meletakan tautan ke *microsite* ini pada halaman beranda mereka.
 
-## Platform
+## Platform Usage
 
 Dipastikan bahwa *microsite* ini akan diakses lewat peramban baik desktop maupun mobile, sehingga dua jenis ini harus bisa bekerja sama baiknya. Menyusul adalah platfom Apps baik Android maupun iOS yang akan menampilkan *microsite* ini lewat WebView mereka.
 
-## Pemilihan Teknologi
+## Technology Base
 
 Pada akhirnya *engineer* yang mengerjakan *microsite* ini memutuskan untuk menggunakan `jQuery` dibantu dengan pustaka [ScrollMagic ↗️](https://scrollmagic.io/) dan [GSAP - TweenMax ↗️](https://greensock.com/docs/TweenMax) untuk membangun berbagai animasi interaksi ketika pengguna melakukan *scroll down*.
 
 Tentu saja pemilihan `jQuery` bukanlah hal yang biasa di Tokopedia, dimana para *engineer* sudah terlalu #React dan pastinya susah untuk diminta melakukan coding di `jQuery`. Tapi melihat pada kebutuhan dan waktu yang dipunya, sepertinya tidak ada pilihan lain selain berharap pada kehebatan jQuery melakukan *DOM manipulation*.
 
-## Proses Pembangunan
+## Development Process
 
-### Monorepo Structure
+### Preparation, Monorepo and Deployment Strategi Plan
 
 Maka dimulailah pengerjaan pembangunan *microsite* ini dengan dasar teknologi menggunakan `jQuery`. Sayangnya dengan technology stack seperti ini kami jadi tidak bisa menggunakan keuntungan development tools yang biasa kami gunakan sehari-hari, katakanlah sebelumnya kami terbiasa dimanjakan dengan kemampuan untuk deploy feature branch ke puluhan virtual machine tanpa perlu berebutan atau bergantian dengan engineer lain, yang sayangnya cara deployment seperti ini masih sangat *couple* dengan technology stack dan folder structuring pada monorepo utama kami. Kami juga jadi tidak bisa memanfaatkan berbagai kemampuan hebat webpack seperti melakukan hot reload pada saat development, mengerjakan kompresi pada berkas, menyatukan berbagai berkas, memberikan hash pada nama berkas, menyisipkan environment variable, serta banyak hal yang biasanya kami kerjakan namun sangat bergantung pada webpack.
 
@@ -72,21 +72,21 @@ Mengingat kemampuan deployment branch fitur kami yang masih sangat *couple* deng
 
 Menggunakan `jQuery` memang bukanlah halangan untuk tidak menggunakan webpack, dengan pengalaman kami selama ini menggunakan webpack maka bukan hal yang begitu sulit untuk membuatkan konfigurasi webpack untuk projek yang bahkan berbasiskan `jQuery`. Di projek lain kami, hampir semuanya menggunakan `Less` sebagai CSS Pre-processor sehingga kami pun meminta *engineer* untuk melakukan konversi dari yang sebelumnya menggunakan `SASS` menjadi `Less` agar bisa seragam dengan kebiasaan kami.
 
-### Image Processing
+### HTML and Image Processing
 
 Hal berikutnya yang menjadi tantangan adalah pada *image processing*, jika pada projek React hal seperti mudah saja ditangani oleh webpack maka pada projek statis seperti ini menjadi tantangan tersendiri karena image yang ada tidak melalui entry point JavaScript yang kami sematkan pada webpack melainkan langsung disematkan pada file HTML. Menjadi semakin runyam karena kami menggunakan `publicPath` yang berbeda antara proses development dengan rencana di production nantinya, menggunakan static absolute path tentu bukan pilihan yang bisa diambil.
 
 Untuk `publicPath` pada akhirnya bisa diselesaikan dengan mengirimkan parameter di [HTMLWebpackPlugin ↗️](https://webpack.js.org/plugins/html-webpack-plugin/) yang kami gunakan, sedangkan masalah *image processing* kami memutuskan untuk membuat WebpackPlugin sendiri khusus untuk menghandle projek ini. Plugin sederhana, hanya membaca semua image yang ada meskipun tidak melalui entry point JavaScript untuk kemudian di proses seperti pemberian hash pada nama file. Kami sempat juga mencoba menggunakan [ImageWebpackLoader ↗️](https://github.com/tcoopman/image-webpack-loader) pada hari-hari terakhir untuk melakukan kompresi otomatis yang sayangnya ternyata image hasil dari loader ini tidak bisa di render dengan baik oleh browser berbasiskan Safari (hal terakhir ini kita *revert*).
 
-### Node.js things
+### Node.js Things
 
 Seperti kebanyakan projek kami yang lain yang menempatakan Node.JS di bagian paling depan sebagai pelayan bagi file HTML kami, projek inipun menempatkan Node.js sebagai pelayan utama dibagian depan. Sayangnya dengan cara ini, kita tidak bisa berharap kalau projek ini bisa bertahan dengan traffic yang tinggi, pun hal ini sudah terdeteksi pada saat Load Test dilakukan. Meskipun kami sebenarnya bisa menutup mata akan hal ini, karena pada dasarnya Server yang ada sudah bisa *auto scale up* dan *auto scale down*. Namun sebagai *engineer* kami harus memikirkan solusi yang lebih *proper* dibandingkan mengharapkan proses *auto scale* bisa berjalan lancar.
 
-### Prioritas Rendering
+### Rendering Priority
 
 Hal menantang pada projek dengan banyak image dan video adalah penanganan dan prioritas loading berbagai assets. Bukan hal yang mudah memastikan asset-asset yang pertama kali di request hanyalah asset-asset yang benar-benar kritis dan benar-benar dibutuhkan. Kami harus berulang kali mengecek satu persatu assets yang diminta pada berbagai platform. Awalnya *engineer* attach pada scroll dan resize event untuk melakukan deteksi visibility sebuah element image (*tentu dengan cara-cara `jQuery`), hal ini sudah tidak relevan ketika kita bisa dengan percaya diri menggunakan IntersectionObserver di production, makanya kami memutuskan untuk membuat ulang cara deteksi visibility dari sebuah image menggunakan VanillaJS dan IntersectionObserver.
 
-### Agressive Cache
+### Aggressive Cache Usage
 
 Kami memutuskan untuk menggunakan *Cache* secara agresif di beberapa level setelah dipertimbangkan soal tidak akan adanya perubahan lagi pada saat projek ini sudah di release nantinya. Di ALB kami menempatkan cache, di CDN kamipun memastikan semua sudah di cache, di Node.js kami juga menempatkan memory cache sehingga processing time bisa dipangkas ketika sebuah request masih sampai ke Node.js.
 
@@ -104,7 +104,7 @@ Desktop web Tokopedia belum memasang Service Worker dengan tujuan yang benar, se
 - Beberapa gambar masih ada di kritikal rendering path meskipun below the fold
 - Untuk device mobile iOS, kami melakukan *switch-off* pada fitur lazy loading image. Hal ini menyebabkan pengguna iOS akan butuh waktu lebih lama dalam memuat halaman tersebut
 
-## Pelajaran yang didapat
+## Lessons Learned
 
 - Tidak semua website harus *fancy*, karena biasanya *fancy website* membutuhkan banyak DOM manipulation dan pilihan untuk ini biasanya berujung pada jQuery. Pastikan ada alasan yang jelas dan masuk akal soal permintaan membuat *fancy* website.
 - Setiap projek haruslah memiliki visi kedepan, seperti pada projek ini kami memproyeksikan sebagai platform untuk projek-projek lain serupa.
