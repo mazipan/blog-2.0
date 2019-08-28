@@ -9,7 +9,15 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 28 Aug 2019 05:29:23 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Aug 2019 11:26:13 GMT</lastBuildDate>
+        <item>
+            <title><![CDATA[Pelajaran dari membangun microsite untuk Tokopedia Anniversary]]></title>
+            <description><![CDATA[Berbagai pelajaran yang kami dapat saat membangun microsite untuk acara ulang tahun Tokopedia ke-10]]></description>
+            <link>https://www.mazipan.xyz/lesson-learned-from-building-tokopedia-anniv-microsite</link>
+            <guid isPermaLink="false">lesson-learned-from-building-tokopedia-anniv-microsite</guid>
+            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
+            <pubDate>Thu, 29 Aug 2019 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Seni menghapus dan memperbarui sebuah kode]]></title>
             <description><![CDATA[Menceritakan bagaimana pekerjaan saya sehari-hari yang seringkali berhadapan dengan keharusan untuk menghapus kode orang lain]]></description>
