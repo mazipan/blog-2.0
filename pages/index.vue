@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <InFeedAdsense
+      <in-feed-adsense
         v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
         root-class="VueAdsense"
         data-ad-layout-key="-fg+5n+6t-e7+r"

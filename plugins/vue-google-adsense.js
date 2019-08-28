@@ -3,7 +3,7 @@ import Ads from 'vue-google-adsense'
 
 Vue.use(require('vue-script2'))
 
-Vue.use(Ads.AutoAdsense, { adClient: process.env.ADS_CLIENT })
 Vue.use(Ads.Adsense)
 Vue.use(Ads.InArticleAdsense)
 Vue.use(Ads.InFeedAdsense)
+Vue.use(Ads.AutoAdsense, { adClient: process.env.ADS_CLIENT })

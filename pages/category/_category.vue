@@ -11,7 +11,7 @@
         <td
           v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
           colspan="3">
-          <InFeedAdsense
+          <in-feed-adsense
             root-class="VueAdsense"
             data-ad-layout-key="-fg+5n+6t-e7+r"
             :data-ad-client="ADS_CLIENT"

@@ -12,7 +12,7 @@
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />
 
-      <InArticleAdsense
+      <in-article-adsense
         v-if="ENABLE_ADS"
         root-class="VueAdsense"
         :data-ad-client="ADS_CLIENT"
