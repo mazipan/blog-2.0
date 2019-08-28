@@ -45,6 +45,7 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: META_DESC },
       { name: 'author', content: 'Irfan Maulana - @mazipan' },
+      { hid: 'robots', name: 'robots', content: 'index,follow' },
       {
         hid: 'keywords',
         name: 'keywords',

@@ -183,12 +183,14 @@ export function getAllGeneratedUrl () {
 }
 
 export function generateObjectSitemap (array) {
-  return array.map(el => {
-    return {
-      url: el + '/',
-      changefreq: 'daily',
-      priority: 1,
-      lastmodISO: String(new Date().toISOString())
-    }
-  })
+  return array
+    .filter(el => el.indexOf('/drafts') < 0)
+    .map(el => {
+      return {
+        url: el + '/',
+        changefreq: 'daily',
+        priority: 1,
+        lastmodISO: String(new Date().toISOString())
+      }
+    })
 }

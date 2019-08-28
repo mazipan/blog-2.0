@@ -38,6 +38,13 @@ export default {
   mixins: [
     BaseData
   ],
+  head () {
+    return {
+      meta: [
+        { hid: 'robots', name: 'robots', content: 'noindex,nofollow' }
+      ]
+    }
+  },
   async asyncData ({ store }) {
     async function asyncImport (blogSlug) {
       const allMarkdown = await import(`~/contents/drafts/${blogSlug}/index.md`)

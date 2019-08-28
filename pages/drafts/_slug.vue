@@ -46,6 +46,8 @@ export default {
         { hid: 'description', name: 'description', content: description },
         { hid: 'apple-mobile-web-app-title', name: 'apple-mobile-web-app-title', content: title },
 
+        { hid: 'robots', name: 'robots', content: 'noindex,nofollow' },
+
         { hid: 'og:title', property: 'og:title', content: title },
         { hid: 'og:description', property: 'og:description', content: description },
         { hid: 'og:url', property: 'og:url', content: url },
