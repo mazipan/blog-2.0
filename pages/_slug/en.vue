@@ -11,10 +11,7 @@
 <script>
 import PostDetail from '~/pages-partials/PostDetail.vue'
 import PostDetailHead from '~/mixins/post-detail-head'
-
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'SlugPageEn',
@@ -22,13 +19,9 @@ export default {
     PostDetail
   },
   mixins: [
+    BaseData,
     PostDetailHead
   ],
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL
-    }
-  },
   async asyncData ({ params }) {
     const fileContent = await import(`~/contents/published/${params.slug}/en.md`)
 

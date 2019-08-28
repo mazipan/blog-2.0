@@ -22,11 +22,7 @@
 import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
 import EditContentNav from '~/components/EditContentNav'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
-
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'DraftPage',
@@ -35,6 +31,9 @@ export default {
     EditContentNav,
     ContentParser
   },
+  mixins: [
+    BaseData
+  ],
   head () {
     const title = `[Draft] - ${this.meta.title}`
     const description = `${this.meta.description}`
@@ -62,13 +61,6 @@ export default {
         { hid: 'twitter:url', name: 'twitter:url', content: url },
         { hid: 'twitter:image:src', name: 'twitter:image:src', content: imageUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL,
-      formatReadingTime,
-      formatPostDate
     }
   },
   async asyncData ({ params }) {

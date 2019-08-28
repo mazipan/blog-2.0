@@ -8,16 +8,16 @@
 </template>
 
 <script>
-
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'EbooksPage',
+  mixins: [
+    BaseData
+  ],
   head () {
-    const title = `E-Book collections | @mazipan`
-    const description = `Page E-Book collections`
+    const title = 'E-Book collections | @mazipan'
+    const description = 'Page E-Book collections'
     const url = `${this.productionUrl}/ebooks/`
     // const ampUrl = `${this.productionUrl}/amp/archives/`
     return {
@@ -37,11 +37,6 @@ export default {
       // link: [
       //   { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       // ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL
     }
   }
 }

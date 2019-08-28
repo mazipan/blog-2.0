@@ -23,17 +23,17 @@
 </template>
 
 <script>
-
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'AboutPageAmp',
   layout: 'amp-default',
+  mixins: [
+    BaseData
+  ],
   head () {
-    const title = `About | @mazipan`
-    const description = `Page About`
+    const title = 'About | @mazipan'
+    const description = 'Page About'
     const url = `${this.productionUrl}/about/`
     const imageUrl = `${this.productionUrl}/images/profile-rounded.png`
 
@@ -69,11 +69,6 @@ export default {
       link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL
     }
   }
 }

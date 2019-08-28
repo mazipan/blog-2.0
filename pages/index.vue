@@ -50,14 +50,8 @@
 
 <script>
 import Contents from '~/contents/index.js'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
-
-import {
-  ENABLE_ADS,
-  ADS_CLIENT,
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'Homepage',
@@ -65,21 +59,15 @@ export default {
   components: {
     MetaData
   },
+  mixins: [
+    BaseData
+  ],
   head () {
     const ampUrl = `${this.productionUrl}/amp/`
     return {
       link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL,
-      formatReadingTime,
-      formatPostDate,
-      ENABLE_ADS,
-      ADS_CLIENT
     }
   },
   async asyncData ({ store }) {

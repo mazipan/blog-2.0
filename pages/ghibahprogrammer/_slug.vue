@@ -25,13 +25,7 @@
 <script>
 import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
-
-import {
-  ENABLE_ADS,
-  ADS_CLIENT,
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'DraftPage',
@@ -39,6 +33,9 @@ export default {
     MetaData,
     ContentParser
   },
+  mixins: [
+    BaseData
+  ],
   head () {
     const title = `${this.meta.title} | Ghibah Programmer`
     const description = `${this.meta.description}`
@@ -66,15 +63,6 @@ export default {
         { hid: 'twitter:url', name: 'twitter:url', content: url },
         { hid: 'twitter:image:src', name: 'twitter:image:src', content: imageUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL,
-      formatReadingTime,
-      formatPostDate,
-      ENABLE_ADS,
-      ADS_CLIENT
     }
   },
   async asyncData ({ params }) {

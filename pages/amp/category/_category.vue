@@ -27,15 +27,14 @@
 </template>
 
 <script>
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
-
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'CategoryPageAmp',
+  mixins: [
+    BaseData
+  ],
   head () {
     const title = `Category ${this.category} | @mazipan`
     const description = `All article with ${this.category} category`
@@ -57,13 +56,6 @@ export default {
       link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
-    }
-  },
-  data () {
-    return {
-      formatReadingTime,
-      formatPostDate,
-      productionUrl: PRODUCTION_URL
     }
   },
   async asyncData ({ params }) {

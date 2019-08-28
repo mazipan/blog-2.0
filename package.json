@@ -36,6 +36,7 @@
     "nuxt-webfontloader": "1.1.0",
     "prism-themes": "1.1.0",
     "prismjs": "1.17.1",
+    "reading-time": "^1.2.0",
     "vue-google-adsense": "1.7.0",
     "vue-ionicons": "3.0.4",
     "vue-script2": "2.1.0",

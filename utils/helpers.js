@@ -1,3 +1,14 @@
+import {
+  DATA_CONTENTS,
+  DATA_DRAFTS,
+  DATA_CATEGORIES,
+  DATA_GHIBAH,
+  DATA_OTHER,
+  ROOT_DRAFT,
+  ROOT_GHIBAH,
+  ROOT_CATEGORY
+} from '../constants'
+
 /*
  * Helpers by Dan Abramov's Overreacted.io
  * https://github.com/gaearon/overreacted.io/blob/master/src/utils/helpers.js
@@ -105,4 +116,79 @@ export function generateMetaHead ({
     meta: meta,
     link: link
   }
+}
+
+export async function getMarkdownData ({
+  subDir = 'published',
+  slug = '',
+  lang = 'ID'
+}) {
+  const markdownFile = lang === 'ID' ? 'index.md' : 'en.md'
+  const result = await import(`~/contents/${subDir}/${slug}/${markdownFile}`)
+  return result
+}
+
+export function readAllMarkdown (array, subDir, lang) {
+  return Promise.all(
+    array.map(slug => getMarkdownData({ subDir, slug, lang }))
+  ).then((res) => {
+    return {
+      metas: res.attributes
+    }
+  })
+}
+
+export async function readMarkdown (subDir, slug, lang) {
+  const res = await getMarkdownData({ subDir, slug, lang })
+
+  return {
+    lang,
+    meta: res.attributes,
+    renderFn: res.vue.render,
+    staticRenderFn: res.vue.staticRenderFns
+  }
+}
+
+export function getAllGeneratedUrl () {
+  const generateUrl = (array, rootUrl, hasAmp, hasLocale) => {
+    if (hasAmp) {
+      const concatUrls = (item) => {
+        if (hasLocale) {
+          return [`${rootUrl}/${item}`, `${rootUrl}/${item}/en`, `/amp${rootUrl}/${item}`, `/amp${rootUrl}/${item}/en`]
+        }
+        return [`${rootUrl}/${item}`, `/amp${rootUrl}/${item}`]
+      }
+
+      return array.data.reduce((list, item) => list.concat(concatUrls(item)), [])
+    } else {
+      return array.data.map(item => {
+        item = `${rootUrl}/${item}`
+        return item
+      })
+    }
+  }
+
+  const urlDrafts = generateUrl(DATA_DRAFTS, ROOT_DRAFT)
+  const urlGhibahs = generateUrl(DATA_GHIBAH, ROOT_GHIBAH)
+  const urlCategories = generateUrl(DATA_CATEGORIES, ROOT_CATEGORY, true)
+  const urlContents = generateUrl(DATA_CONTENTS, '', true, true)
+
+  return [
+    ...urlContents,
+    ...urlDrafts,
+    ...urlGhibahs,
+    ...urlCategories,
+    DATA_OTHER
+  ]
+}
+
+export function generateObjectSitemap (array) {
+  return array.map(el => {
+    return {
+      url: el + '/',
+      changefreq: 'daily',
+      priority: 1,
+      lastmodISO: String(new Date().toISOString())
+    }
+  })
 }

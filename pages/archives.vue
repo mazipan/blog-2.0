@@ -27,18 +27,17 @@
 </template>
 
 <script>
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
-
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'ArchivesPage',
+  mixins: [
+    BaseData
+  ],
   head () {
-    const title = `Archives | @mazipan`
-    const description = `Page Archives`
+    const title = 'Archives | @mazipan'
+    const description = 'Page Archives'
     const url = `${this.productionUrl}/archives/`
     const ampUrl = `${this.productionUrl}/amp/archives/`
     return {
@@ -58,13 +57,6 @@ export default {
       link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      formatReadingTime,
-      formatPostDate,
-      productionUrl: PRODUCTION_URL
     }
   },
   async asyncData ({ store }) {

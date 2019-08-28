@@ -42,12 +42,8 @@
 
 <script>
 import Contents from '~/contents/index.js'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
-
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'HomepageAmp',
@@ -55,19 +51,15 @@ export default {
   components: {
     MetaData
   },
+  mixins: [
+    BaseData
+  ],
   head () {
     const url = `${this.productionUrl}/`
     return {
       link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL,
-      formatReadingTime,
-      formatPostDate
     }
   },
   async asyncData ({ store }) {

@@ -4,26 +4,24 @@
       <h1>Now</h1>
     </div>
     <ul>
-      <li>Step out from Facebook, Instagram and Twitter for temporary 📵</li>
-      <li>Helping Vue.js Indonesia translating official documentation to Bahasa Indonesia 🌐</li>
-      <li>Learning about TypeScript 🍰</li>
       <li>Learning about React and it's ecosystems 🍜</li>
-      <li>Preparing next journey 🚀</li>
+      <li>Helping "The Owl 🦉" </li>
       <li>Try to reading some non-technical books 📚</li>
     </ul>
   </div>
 </template>
 
 <script>
-import {
-  PRODUCTION_URL
-} from '~/constants'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'NowPage',
+  mixins: [
+    BaseData
+  ],
   head () {
-    const title = `Now | @mazipan`
-    const description = `Page Now`
+    const title = 'Now | @mazipan'
+    const description = 'Page Now'
     const url = `${this.productionUrl}/now/`
     const ampUrl = `${this.productionUrl}/now/`
     return {
@@ -43,11 +41,6 @@ export default {
       link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: PRODUCTION_URL
     }
   }
 }
