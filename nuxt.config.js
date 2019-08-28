@@ -203,6 +203,9 @@ module.exports = {
     short_name: '@mazipan'
   },
   workbox: {
+    cleanupOutdatedCaches: true,
+    offlineAnalytics: true,
+    cachingExtensions: '~/plugins/workbox-range-request.js',
     runtimeCaching: [
       {
         urlPattern: '/.html$/',
