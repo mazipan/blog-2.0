@@ -17,11 +17,27 @@ workbox.core.skipWaiting()
 
 workbox.precaching.cleanupOutdatedCaches()
 
+// Enable offline Google Analytics tracking
+workbox.googleAnalytics.initialize()
+
 // --------------------------------------------------
 // Precaches
 // --------------------------------------------------
 
 // Precache assets
+
+// -- Start of cachingExtensions --
+/* eslint-disable */
+workbox.routing.registerRoute(
+  /\.(mp4|webm)/,
+  workbox.strategies.cacheFirst({
+    plugins: [
+      new workbox.rangeRequests.Plugin()
+    ]
+  }),
+  'GET'
+)
+// -- End of cachingExtensions --
 
 // --------------------------------------------------
 // Runtime Caching
