@@ -13,7 +13,7 @@
           colspan="3">
           <in-feed-adsense
             root-class="VueAdsense"
-            class="VueAdsense"
+            class="Ads-wrapper"
             data-ad-layout-key="-fg+5n+6t-e7+r"
             :data-ad-client="ADS_CLIENT"
             data-ad-slot="2105028631" />

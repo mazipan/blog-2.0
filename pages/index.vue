@@ -40,7 +40,7 @@
       <in-feed-adsense
         v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
         root-class="VueAdsense"
-        class="VueAdsense"
+        class="Ads-wrapper"
         data-ad-layout-key="-fg+5n+6t-e7+r"
         :data-ad-client="ADS_CLIENT"
         data-ad-slot="2105028631" />

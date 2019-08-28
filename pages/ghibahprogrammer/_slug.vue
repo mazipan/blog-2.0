@@ -15,7 +15,7 @@
       <in-article-adsense
         v-if="ENABLE_ADS"
         root-class="VueAdsense"
-        class="VueAdsense"
+        class="Ads-wrapper"
         :data-ad-client="ADS_CLIENT"
         data-ad-slot="7974047383" />
     </div>
