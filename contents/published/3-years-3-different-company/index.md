@@ -1,7 +1,7 @@
 ---
 title: 3 Tahun, 3 Perusahaan Berbeda
 slug: 3-years-3-different-company
-date: '2019-08-29'
+date: '2019-09-02'
 minute2read: 15
 description: Cerita mengenai pengalaman saya 3 tahun terakhir, terutama bagaimana saya berpindah dari satu perusahaan ke perusahaan lain
 categories: [non-technical, lesson-learned]

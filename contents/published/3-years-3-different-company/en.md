@@ -1,7 +1,7 @@
 ---
 title: 3 Years, 3 Different Company
 slug: 3-years-3-different-company
-date: '2019-08-29'
+date: '2019-09-02'
 minute2read: 15
 description: Story about my last 3 years experience, especially when moving from one to another company
 categories: [non-technical, lesson-learned]
