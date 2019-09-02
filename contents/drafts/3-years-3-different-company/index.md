@@ -58,6 +58,8 @@ Pindah-pindah tempat kerja dalam waktu yang relatif singkat sebetulnya bukanlah 
 
 Pindah pekerjaan selalu merupakan hal sulit, tidak pernah mudah. Banyak hal yang kalian harus mulai lagi dari awal. Selalu berpikir berkali-kali terlebih dahulu ketika tersebit keinginan untuk pindah kerja. Apalagi untuk orang-orang yang sudah punya istri dan anak-anak yang harus ditanggung secara finansial. Coba bicarakan dengan orang-orang terdekat mengenai rencana pindah kerja tersebut, siapa tau pendapat orang lain bisa membantu dalam mengambil keputusan.
 
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/3-years-3-different-company/lion-nTfGYGPURFA.jpg" alt="Lion Roar" height="200px" width="200px">
+
 > "Die First, Then Quit" -- Jangan keluar, sebelum kalian memberikan yang terbaik dari yang kalian bisa. Bila segenap tenaga telah dikerahkan dan hasilnya masih tidak membahagiakan kalian, maka mungkin saatnya kalian keluar.
 
 ### Demikian artikel kali ini, semoga bermanfaat...
