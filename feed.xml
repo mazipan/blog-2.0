@@ -9,7 +9,15 @@
             <link>https://www.mazipan.xyz</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 02 Sep 2019 12:28:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Sep 2019 12:29:22 GMT</lastBuildDate>
+        <item>
+            <title><![CDATA[3 Tahun, 3 Perusahaan Berbeda]]></title>
+            <description><![CDATA[Cerita mengenai pengalaman saya 3 tahun terakhir, terutama bagaimana saya berpindah dari satu perusahaan ke perusahaan lain]]></description>
+            <link>https://www.mazipan.xyz/3-years-3-different-company</link>
+            <guid isPermaLink="false">3-years-3-different-company</guid>
+            <dc:creator><![CDATA[Irfan Maulana - @mazipan]]></dc:creator>
+            <pubDate>Mon, 02 Sep 2019 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Pelajaran dari membangun microsite untuk Tokopedia Anniversary]]></title>
             <description><![CDATA[Berbagai pelajaran yang kami dapat saat membangun microsite untuk acara ulang tahun Tokopedia ke-10]]></description>
