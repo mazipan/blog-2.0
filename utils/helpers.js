@@ -124,21 +124,27 @@ export async function getMarkdownData ({
   lang = 'ID'
 }) {
   const markdownFile = lang === 'ID' ? 'index.md' : 'en.md'
-  const result = await import(`~/contents/${subDir}/${slug}/${markdownFile}`)
-  return result
+  try {
+    const result = await import(`~/contents/${subDir}/${slug}/${markdownFile}`)
+    return result
+  } catch (error) {
+    console.error(error)
+    return null
+  }
 }
 
-export function readAllMarkdown (array, subDir, lang) {
+export function readAllMarkdown ({ array, subDir, lang }) {
   return Promise.all(
     array.map(slug => getMarkdownData({ subDir, slug, lang }))
   ).then((res) => {
+    console.log('res===>', res.attributes)
     return {
       metas: res.attributes
     }
   })
 }
 
-export async function readMarkdown (subDir, slug, lang) {
+export async function readMarkdown ({ subDir, slug, lang }) {
   const res = await getMarkdownData({ subDir, slug, lang })
 
   return {
