@@ -32,6 +32,7 @@ import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'CategoryPageAmp',
+  layout: 'amp-default',
   mixins: [
     BaseData
   ],

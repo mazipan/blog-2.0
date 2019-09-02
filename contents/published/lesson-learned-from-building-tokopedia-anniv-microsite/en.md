@@ -28,11 +28,11 @@ Sebelum membicarakan lebih lanjut, mungkin teman-teman perlu melihat sekilas tam
 
 ### Desktop Web UI
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/lesson-learned-from-building-tokopedia-anniv-microsite/anniv-desktop.gif" alt="Desktop Web" height="200" width="auto">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/lesson-learned-from-building-tokopedia-anniv-microsite/anniv-desktop.gif" alt="Desktop Web" height="200" width="200px">
 
 ### Mobile Web UI
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/lesson-learned-from-building-tokopedia-anniv-microsite/anniv-mobile.gif" alt="Mobile Web" height="200" width="auto">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/lesson-learned-from-building-tokopedia-anniv-microsite/anniv-mobile.gif" alt="Mobile Web" height="200" width="200px">
 
 ## Timeline
 
