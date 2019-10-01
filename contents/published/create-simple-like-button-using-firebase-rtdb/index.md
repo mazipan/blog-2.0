@@ -16,7 +16,7 @@ Dewasa ini untunglah ada platform seperti [Firebase ↗️](https://firebase.goo
 
 Kali ini kita hanya akan menggunakan fitur real-time databasenya saja.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png" alt="Button Like Firebase">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/button-like-firebase.png" alt="Button Like Firebase" height="200px" width="200px">
 
 ## Membuat Projek di Firebase
 
@@ -208,7 +208,7 @@ Sentuhan terkhir adalah memastikan ketika proses build kita menyetel nilai *envi
 
 Di [Travis CI ↗️](https://travis-ci.org) kita juga bisa menyetel berbagai variabel dengan mudah. Cukup masuk ke bagian `settings` dan kita bisa menambahkan *key-value* sebagai variabel yang akan diikutkan saat proses *build*.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/create-simple-like-button-using-firebase-rtdb/travis-ci-env.png" alt="Travis CI Environment Variable" height="200px" width="200px">
 
 ### Demikian artikel kali ini, semoga bermanfaat...
 

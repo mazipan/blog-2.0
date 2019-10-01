@@ -4,23 +4,25 @@
       <h1>Now</h1>
     </div>
     <ul>
-      <li>Step out from Facebook, Instagram and Twitter for temporary 📵</li>
-      <li>Helping Vue.js Indonesia translating official documentation to Bahasa Indonesia 🌐</li>
-      <li>Learning about TypeScript 🍰</li>
       <li>Learning about React and it's ecosystems 🍜</li>
-      <li>Preparing next journey 🚀</li>
+      <li>Helping "The Owl 🦉" </li>
       <li>Try to reading some non-technical books 📚</li>
     </ul>
   </div>
 </template>
 
 <script>
+import BaseData from '~/mixins/base-data'
+
 export default {
   name: 'NowPageamp',
   layout: 'amp-default',
+  mixins: [
+    BaseData
+  ],
   head () {
-    const title = `Now | @mazipan`
-    const description = `Page Now`
+    const title = 'Now | @mazipan'
+    const description = 'Page Now'
     const url = `${this.productionUrl}/now/`
     return {
       title,
@@ -39,11 +41,6 @@ export default {
       link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: 'https://www.mazipan.xyz'
     }
   }
 }

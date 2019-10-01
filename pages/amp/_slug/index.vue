@@ -11,12 +11,11 @@
 <script>
 import PostDetail from '~/pages-partials/PostDetailAmp.vue'
 import PostDetailHead from '~/mixins/post-detail-head-amp'
+import BaseData from '~/mixins/base-data'
 
-function replaceLazyloadImg (str) {
-  return str &&
-    str
-      .replace(/"src":(?:[^=>][^"]*","data-src"|[^=>"]*)/gi, '"src"')
-}
+import {
+  replaceLazyloadImg
+} from '~/utils/helpers'
 
 export default {
   name: 'SlugPageIdAmp',
@@ -25,13 +24,9 @@ export default {
     PostDetail
   },
   mixins: [
+    BaseData,
     PostDetailHead
   ],
-  data () {
-    return {
-      productionUrl: 'https://www.mazipan.xyz'
-    }
-  },
   async asyncData ({ params }) {
     const fileContent = await import(`~/contents/published/${params.slug}/index.md`)
 

@@ -34,8 +34,8 @@
 
 <script>
 import Contents from '~/contents/ghibah/index.js'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'HomepageGhibah',
@@ -43,12 +43,9 @@ export default {
   components: {
     MetaData
   },
-  data () {
-    return {
-      formatReadingTime,
-      formatPostDate
-    }
-  },
+  mixins: [
+    BaseData
+  ],
   async asyncData ({ store }) {
     async function asyncImport (blogSlug) {
       const allMarkdown = await import(`~/contents/ghibah/${blogSlug}/index.md`)

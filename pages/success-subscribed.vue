@@ -22,12 +22,17 @@
 </template>
 
 <script>
+import BaseData from '~/mixins/base-data'
+
 export default {
   name: 'SuccessSubscribedPage',
+  mixins: [
+    BaseData
+  ],
   head () {
-    const title = `Thank You`
-    const decription = `Thank you for subscribing!`
-    const url = `/success-subscribed`
+    const title = 'Thank You'
+    const decription = 'Thank you for subscribing!'
+    const url = '/success-subscribed'
     return {
       title,
       meta: [

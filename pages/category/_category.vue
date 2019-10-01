@@ -9,12 +9,13 @@
         :key="blog.title"
         style="vertical-align: top; line-height: 2;">
         <td
-          v-if="index % 3 === 0"
+          v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
           colspan="3">
-          <InFeedAdsense
-            root-class="VueInFeedAdsense"
+          <in-feed-adsense
+            root-class="VueAdsense"
+            class="Ads-wrapper"
             data-ad-layout-key="-fg+5n+6t-e7+r"
-            data-ad-client="ca-pub-5442972248172818"
+            :data-ad-client="ADS_CLIENT"
             data-ad-slot="2105028631" />
         </td>
         <td width="150px">
@@ -36,11 +37,14 @@
 </template>
 
 <script>
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import Contents from '~/contents/index.js'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'CategoryPage',
+  mixins: [
+    BaseData
+  ],
   head () {
     const title = `Category ${this.category} | @mazipan`
     const description = `All article with ${this.category} category`
@@ -63,13 +67,6 @@ export default {
       link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      formatReadingTime,
-      formatPostDate,
-      productionUrl: 'https://www.mazipan.xyz'
     }
   },
   async asyncData ({ params }) {

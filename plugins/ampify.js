@@ -1,5 +1,6 @@
 const ampScript = `<script async src="https://cdn.ampproject.org/v0.js"></script>
-<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>`
+<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+<script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>`
 const ampBoilerplate = '<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>'
 
 module.exports = (html) => {
@@ -25,7 +26,7 @@ module.exports = (html) => {
 
   // Replace img tags with amp-img
   html = html.replace(/<img([^>]*)>/gi, (match, sub) => {
-    return `<amp-img ${sub} layout=intrinsic></amp-img>`
+    return `<amp-img ${sub} layout=responsive></amp-img>`
   })
 
   // Remove data attributes from tags
@@ -41,11 +42,13 @@ module.exports = (html) => {
 
   // Add AMP analytics
   html = html.replace('</body>',
-    `<amp-analytics type='googleanalytics'>
+    `
+    <amp-auto-ads type="adsense" data-ad-client="${process.env.ADS_CLIENT}"></amp-auto-ads>
+    <amp-analytics type='googleanalytics'>
     <script type='application/json'>
       {
         "vars": {
-          "account": "UA-25065548-6"
+          "account": "${process.env.GA_KEY}"
         },
         "triggers": {
           "trackPageview": {

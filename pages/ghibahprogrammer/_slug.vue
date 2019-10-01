@@ -12,8 +12,11 @@
         :render-fn="renderFn"
         :static-render-fn="staticRenderFn" />
 
-      <InArticleAdsense
-        data-ad-client="ca-pub-5442972248172818"
+      <in-article-adsense
+        v-if="ENABLE_ADS"
+        root-class="VueAdsense"
+        class="Ads-wrapper"
+        :data-ad-client="ADS_CLIENT"
         data-ad-slot="7974047383" />
     </div>
   </section>
@@ -22,7 +25,7 @@
 <script>
 import MetaData from '~/components/MetaData'
 import ContentParser from '~/components/ContentParser'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'DraftPage',
@@ -30,10 +33,15 @@ export default {
     MetaData,
     ContentParser
   },
+  mixins: [
+    BaseData
+  ],
   head () {
     const title = `${this.meta.title} | Ghibah Programmer`
     const description = `${this.meta.description}`
     const url = `${this.productionUrl}/ghibah/${this.meta.slug}/`
+    const imageUrl = this.meta.cover || `${this.productionUrl}/icon.png`
+
     return {
       title,
       meta: [
@@ -44,20 +52,17 @@ export default {
         { hid: 'og:description', property: 'og:description', content: description },
         { hid: 'og:url', property: 'og:url', content: url },
         { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:image', property: 'og:image', content: imageUrl },
+        { hid: 'og:image:secure_url', property: 'og:image:secure_url', content: imageUrl },
+
         { hid: 'article:published_time', property: 'article:published_time', content: new Date(this.meta.date).toISOString() },
         { hid: 'article:section', property: 'article:section', content: 'Technology' },
 
         { hid: 'twitter:title', name: 'twitter:title', content: title },
         { hid: 'twitter:description', name: 'twitter:description', content: description },
-        { hid: 'twitter:url', name: 'twitter:url', content: url }
+        { hid: 'twitter:url', name: 'twitter:url', content: url },
+        { hid: 'twitter:image:src', name: 'twitter:image:src', content: imageUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: 'https://www.mazipan.xyz',
-      formatReadingTime,
-      formatPostDate
     }
   },
   async asyncData ({ params }) {

@@ -1,75 +1,56 @@
-import publisedContents from './contents/index.js'
-import publisedCategories from './contents/categories.js'
-import draftContents from './contents/drafts/index.js'
+import {
+  META_TITLE,
+  META_DESC,
+  PRODUCTION_URL
+} from './constants'
 
-const path = require('path')
-const pkg = require('./package')
-const ampify = require('./plugins/ampify')
+import {
+  getAllGeneratedUrl,
+  generateObjectSitemap
+} from './utils/helpers'
 
-const appTitle = `@mazipan — A personal blog by Irfan Maulana`
-const productionUrl = 'https://www.mazipan.xyz'
-const iconUrl = `${productionUrl}/icon.png`
-
-const drafts = draftContents.data.map(item => {
-  item = `/drafts/${item}`
-  return item
+require('dotenv-safe').config({
+  allowEmptyValues: true
 })
 
-const routes = publisedContents.data.reduce((list, item) => list.concat([`/${item}`, `/${item}/en`, `/amp/${item}`, `/amp/${item}/en`]), [])
-  .concat(drafts).concat([
-    '/success-subscribed',
-    '/amp',
-    '/about',
-    '/amp/about',
-    '/archives',
-    '/amp/archives',
-    '/now',
-    '/amp/now',
-    '/ebooks',
-    '/interviews',
-    '/talks'
-  ]).concat(
-    publisedCategories.data.reduce((list, item) => list.concat([`/category/${item}`, `/amp/category/${item}`]), [])
-  )
+const path = require('path')
+const ampify = require('./plugins/ampify')
 
-const routesSitemap = () => {
-  const res = []
-  routes.forEach(el => {
-    const item = {}
-    item.url = el + '/'
-    item.changefreq = 'daily'
-    item.priority = 1
-    item.lastmodISO = String(new Date().toISOString())
-    res.push(item)
-  })
-  return res
-}
+const iconUrl = `${PRODUCTION_URL}/icon.png`
+
+const routes = getAllGeneratedUrl()
+const routesSitemap = generateObjectSitemap(routes)
 
 module.exports = {
   env: {
-    DOMAIN: 'mazipan.xyz',
+    DOMAIN: process.env.DOMAIN || 'mazipan.xyz',
+    FULL_DOMAIN: process.env.FULL_DOMAIN || 'https://www.mazipan.xyz',
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
     FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
     FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
     FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
     FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
-    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID
+    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    ENABLE_ADS: process.env.ENABLE_ADS || false,
+    ADS_CLIENT: process.env.ADS_CLIENT,
+    GA_KEY: process.env.GA_KEY
   },
   /*
    ** Headers of the page
    */
   head: {
-    title: `${appTitle}`,
+    title: META_TITLE,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description },
-      { name: 'author', content: pkg.author },
+      { hid: 'description', name: 'description', content: META_DESC },
+      { name: 'author', content: 'Irfan Maulana - @mazipan' },
+      { hid: 'robots', name: 'robots', content: 'index,follow' },
       {
         hid: 'keywords',
         name: 'keywords',
         content:
-          'mazipan, mazipanneh, irfan maulana, irfan vue, irfan blibli, irfan bizzy'
+          'mazipan, mazipanneh, irfan maulana, irfan vue, irfan blibli, irfan bizzy, irfan tokopedia'
       },
 
       { name: 'theme-color', content: '#bd93f9' },
@@ -77,7 +58,7 @@ module.exports = {
       {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
-        content: `${appTitle}`
+        content: META_TITLE
       },
 
       { hid: 'og:image', property: 'og:image', content: iconUrl },
@@ -88,13 +69,13 @@ module.exports = {
       },
       { hid: 'og:image:width', property: 'og:image:width', content: '512' },
       { hid: 'og:image:height', property: 'og:image:height', content: '512' },
-      { hid: 'og:title', property: 'og:title', content: `${appTitle}` },
+      { hid: 'og:title', property: 'og:title', content: META_TITLE },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: pkg.description
+        content: META_DESC
       },
-      { hid: 'og:url', property: 'og:url', content: productionUrl },
+      { hid: 'og:url', property: 'og:url', content: PRODUCTION_URL },
       { hid: 'og:site_name', property: 'og:site_name', content: '@mazipan' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -107,13 +88,13 @@ module.exports = {
       { name: 'twitter:creator', content: '@maz_ipan' },
       { name: 'twitter:site', content: '@maz_ipan' },
       { hid: 'twitter:image:src', name: 'twitter:image:src', content: iconUrl },
-      { hid: 'twitter:title', name: 'twitter:title', content: `${appTitle}` },
+      { hid: 'twitter:title', name: 'twitter:title', content: META_TITLE },
       {
         hid: 'twitter:description',
         name: 'twitter:description',
-        content: pkg.description
+        content: META_DESC
       },
-      { hid: 'twitter:url', name: 'twitter:url', content: productionUrl }
+      { hid: 'twitter:url', name: 'twitter:url', content: PRODUCTION_URL }
     ],
     link: [
       {
@@ -141,6 +122,7 @@ module.exports = {
         body: true
       }
     ]
+    // __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
@@ -177,16 +159,30 @@ module.exports = {
     [
       '@nuxtjs/google-analytics',
       {
-        id: 'UA-25065548-6'
+        id: `${process.env.GA_KEY}`
       }
     ]
   ],
   manifest: {
-    name: `${appTitle}`,
+    name: `${META_TITLE}`,
     short_name: '@mazipan'
   },
   workbox: {
+    cleanupOutdatedCaches: true,
+    offlineAnalytics: true,
+    cachingExtensions: '~/plugins/workbox-range-request.js',
     runtimeCaching: [
+      {
+        urlPattern: '/.html$/',
+        handler: 'networkFirst',
+        strategyOptions: {
+          cacheName: 'Html',
+          cacheExpiration: {
+            maxEntries: 10,
+            maxAgeSeconds: 60 * 60 * 24
+          }
+        }
+      },
       {
         urlPattern: '^https://fonts.*(?:googleapis|gstatic).com/(.*)',
         handler: 'cacheFirst',
@@ -215,10 +211,10 @@ module.exports = {
     routes
   },
   sitemap: {
-    hostname: productionUrl,
+    hostname: PRODUCTION_URL,
     cacheTime: 1000 * 60 * 15,
     gzip: true,
-    routes: routesSitemap()
+    routes: routesSitemap
   },
   webfontloader: {
     google: {

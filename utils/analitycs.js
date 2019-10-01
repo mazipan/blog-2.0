@@ -1,33 +1,42 @@
-export function trackLike (self, slug) {
+export function trackEvent ({
+  eventCategory = '',
+  eventAction = '',
+  eventLabel = '',
+  eventValue = ''
+}) {
   try {
     if (window.ga) {
       window.ga({
         hitType: 'event',
-        eventCategory: 'Like Post',
-        eventAction: 'like',
-        eventLabel: 'Like',
-        eventValue: slug
+        eventCategory: eventCategory,
+        eventAction: eventAction,
+        eventLabel: eventLabel,
+        eventValue: eventValue
       })
     }
-  } catch (error) {}
+  } catch (error) { }
 }
 
-export function trackShare (self, slug, network) {
-  try {
-    if (window.ga) {
-      window.ga({
-        hitType: 'event',
-        eventCategory: 'Share Post',
-        eventAction: 'share',
-        eventLabel: network,
-        eventValue: slug
-      })
-    }
-  } catch (error) {}
+export function trackLike (slug) {
+  trackEvent({
+    eventCategory: 'Like Post',
+    eventAction: 'like',
+    eventLabel: 'Like',
+    eventValue: slug
+  })
 }
 
-export function trackUniversalShare (self, slug) {
-  trackShare(self, slug, 'Universal')
+export function trackShare (slug, network) {
+  trackEvent({
+    eventCategory: 'Share Post',
+    eventAction: 'share',
+    eventLabel: network,
+    eventValue: slug
+  })
+}
+
+export function trackUniversalShare (slug) {
+  trackShare(slug, 'Universal')
 }
 
 export function trackJSPerf () {
@@ -46,6 +55,6 @@ export function trackJSPerf () {
           timingValue: timeSincePageLoad
         })
       }
-    } catch (error) {}
+    } catch (error) { }
   }
 }

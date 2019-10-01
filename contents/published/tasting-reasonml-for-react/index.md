@@ -44,7 +44,7 @@ OCaml memang bahasa yang dasarnya menggunakan paradigma fungsional sehingga Reas
 
 ## Siapa yang sudah pakai ReasonML?
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/tasting-reasonml-for-react/reasonml-users.png" alt="ReasonML Users">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/tasting-reasonml-for-react/reasonml-users.png" alt="ReasonML Users" height="200px" width="200px">
 
 Belum banyak pengguna ReasonML di dunia, tapi beberapa perusahaan besar sudah mulai mengadopsinya di production mereka. Di Indonesia sendiri sepertinya baru [Ruangguru ↗️](https://career.ruangguru.com/) yang berani terang-terangan menggunakan ReasonML di production.
 
@@ -60,7 +60,7 @@ Saya memutuskan untuk melihat dan mempelajari bagaimana ReasonML bisa dikombinas
 
 Membuat proyek sendiri berdasarkan proyek yang sudah jadi lebih mudah bagi saya untuk melewati berbagai langkah untuk setup sebuah proyek yang biasanya lumayan memakan waktu di awal. Saya membuat proyek sederhana [https://github.com/mazipan/ghibli-reasonreact ↗️](https://github.com/mazipan/ghibli-reasonreact) yang kurang lebih saya akan membuat dua halaman yakni halaman listing dan halaman detail, datanya akan mengambil dari API publik yang disediakan pihak ketiga.
 
-<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://github.com/mazipan/ghibli-reasonreact/raw/master/screenshoot.png" alt="Ghibli ReasonReact">
+<img v-lazyload src="/images/placeholder-1x1.png" data-src="https://github.com/mazipan/ghibli-reasonreact/raw/master/screenshoot.png" alt="Ghibli ReasonReact" height="200px" width="200px">
 
 ## Yang saya pelajari sampai saat ini
 

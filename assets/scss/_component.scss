@@ -42,7 +42,7 @@
   }
 }
 
-.navigation {
+.nav {
   margin-top: 1em;
 }
 
@@ -164,9 +164,17 @@
     height: auto;
     border-radius: 10px;
     box-shadow: 1px 1px 8px 5px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
   }
 
   ul, ol > li {
     line-height: 2;
   }
+}
+
+.VueAdsense{
+  max-width: 42rem;
+  width: 90%;
+  padding-top: 2.625rem;
+  display: block;
 }

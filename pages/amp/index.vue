@@ -42,8 +42,8 @@
 
 <script>
 import Contents from '~/contents/index.js'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'HomepageAmp',
@@ -51,19 +51,15 @@ export default {
   components: {
     MetaData
   },
+  mixins: [
+    BaseData
+  ],
   head () {
     const url = `${this.productionUrl}/`
     return {
       link: [
         { hid: 'canonical', rel: 'canonical', href: url }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: 'https://www.mazipan.xyz',
-      formatReadingTime,
-      formatPostDate
     }
   },
   async asyncData ({ store }) {

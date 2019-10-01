@@ -5,7 +5,7 @@ const RSS = require('rss')
 const pkg = require('../package')
 const allMarkdownContent = require('../contents/node-index.js')
 
-const appTitle = `@mazipan — A personal blog by Irfan Maulana`
+const appTitle = '@mazipan — A personal blog by Irfan Maulana'
 const productionUrl = 'https://www.mazipan.xyz'
 const iconUrl = `${productionUrl}/icon.png`
 
@@ -20,7 +20,7 @@ const FEED_RSS = new RSS({
 })
 
 function generateFeedData (data) {
-  console.log(`Generating file feed rss...`)
+  console.log('Generating file feed rss...')
 
   data.forEach(item => {
     const file = path.join(FOLDER_CONTENTS, `/published/${item}/index.md`)
@@ -46,7 +46,7 @@ function generateFeedData (data) {
 generateFeedData(allMarkdownContent)
 
 var feedXml = FEED_RSS.xml({ indent: true })
-const stream = fs.createWriteStream(path.join(FOLDER_DIST, `/feed.xml`))
+const stream = fs.createWriteStream(path.join(FOLDER_DIST, '/feed.xml'))
 stream.write(feedXml)
 stream.end()
 

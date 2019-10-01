@@ -127,7 +127,8 @@
     </div>
 
     <InArticleAdsense
-      data-ad-client="ca-pub-5442972248172818"
+      v-if="ENABLE_ADS"
+      :data-ad-client="ADS_CLIENT"
       data-ad-slot="7974047383" />
 
     <script
@@ -154,11 +155,18 @@ import {
   formatPostDate,
   debounce
 } from '~/utils/helpers.js'
+
+import {
+  constructJsonLdBreadcrumb,
+  constructJsonLdArticle
+} from '~/utils/jsonld.js'
+
 import {
   trackLike,
   trackUniversalShare,
   trackShare
 } from '~/utils/analitycs.js'
+
 import {
   initFirebase,
   getHitsUrl,
@@ -170,6 +178,12 @@ import {
   subscribeClapsData,
   createNewRef
 } from '~/utils/firebase.js'
+
+import {
+  ENABLE_ADS,
+  ADS_CLIENT
+} from '~/constants'
+
 let firebaseInstance = null
 
 export default {
@@ -210,66 +224,28 @@ export default {
       youClapped: 0,
       claps: 0,
       hits: 0,
-      isSupportWebshare: false
+      isSupportWebshare: false,
+      ENABLE_ADS,
+      ADS_CLIENT
     }
   },
   computed: {
     jsonLdBreadcrumb () {
-      const ld = {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: this.productionUrl
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: `${this.meta.categories[0]}`,
-            item: `${this.productionUrl}/category/${this.meta.categories[0]}`
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: `${this.meta.title}`,
-            item: `${this.productionUrl}/${this.meta.slug}`
-          }
-        ]
-      }
-      return ld
+      return constructJsonLdBreadcrumb({
+        category: this.meta.categories[0],
+        title: this.meta.title,
+        slug: this.meta.slug
+      })
     },
     jsonLdArtcile () {
-      const ld = {
-        '@context': 'https://schema.org',
-        '@type': 'NewsArticle',
-        mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': `${this.productionUrl}/${this.meta.slug}`
-        },
-        headline: this.meta.title,
-        image: [
-          this.meta.cover
-        ],
-        datePublished: new Date(this.meta.date).toISOString(),
-        dateModified: new Date(this.meta.date).toISOString(),
-        author: {
-          '@type': 'Person',
-          name: 'Irfan Maulana'
-        },
-        publisher: {
-          '@type': 'Organization',
-          name: 'mazipan',
-          logo: {
-            '@type': 'ImageObject',
-            url: `${this.productionUrl}/favicon-192x192.png`
-          }
-        },
-        description: this.meta.description
-      }
-      return ld
+      return constructJsonLdArticle({
+        category: this.meta.categories[0],
+        title: this.meta.title,
+        slug: this.meta.slug,
+        cover: this.meta.cover,
+        date: this.meta.date,
+        desc: this.meta.description
+      })
     },
     encodedTitle () {
       return encodeURIComponent(`${this.meta.title}`)
@@ -334,14 +310,14 @@ export default {
   },
   methods: {
     trackSocialShare (network) {
-      trackShare(this, this.meta.slug, network)
+      trackShare(this.meta.slug, network)
     },
 
     onClickShare () {
       const title = `${this.meta.title}`
       const decription = `${this.meta.description}`
       const url = `/${this.meta.slug}`
-      trackUniversalShare(this, this.meta.slug)
+      trackUniversalShare(this.meta.slug)
 
       const data = {
         title,
@@ -356,7 +332,7 @@ export default {
     },
 
     onClickLike () {
-      trackLike(this, this.meta.slug)
+      trackLike(this.meta.slug)
       this.youClapped += 1
       setClapsData(firebaseInstance, this.meta.slug, this.claps + 1)
     }

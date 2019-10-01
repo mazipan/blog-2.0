@@ -2,7 +2,7 @@ const path = require('path')
 const fileUtils = require('./file-utils');
 
 (async function getDataMarkdown () {
-  console.log(`Generating file categories based on content available...`)
+  console.log('Generating file categories based on content available...')
 
   const DIR_SCOPE = fileUtils.getDirPublished()
   const res = await fileUtils.getAllMarkdown(DIR_SCOPE)
@@ -24,5 +24,5 @@ export default { data: ${JSON.stringify(categoriesArray)} };
 `
   )
 
-  console.log(`Success create file categories`)
+  console.log('Success create file categories')
 })()

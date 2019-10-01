@@ -37,11 +37,12 @@
         </div>
       </div>
 
-      <InFeedAdsense
-        v-if="index % 3 === 0"
-        root-class="VueInFeedAdsense"
+      <in-feed-adsense
+        v-if="ENABLE_ADS && (index > 0 && index % 3 === 0)"
+        root-class="VueAdsense"
+        class="Ads-wrapper"
         data-ad-layout-key="-fg+5n+6t-e7+r"
-        data-ad-client="ca-pub-5442972248172818"
+        :data-ad-client="ADS_CLIENT"
         data-ad-slot="2105028631" />
     </div>
   </section>
@@ -49,8 +50,8 @@
 
 <script>
 import Contents from '~/contents/index.js'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'Homepage',
@@ -58,19 +59,15 @@ export default {
   components: {
     MetaData
   },
+  mixins: [
+    BaseData
+  ],
   head () {
     const ampUrl = `${this.productionUrl}/amp/`
     return {
       link: [
         { hid: 'amphtml', rel: 'amphtml', href: ampUrl }
       ]
-    }
-  },
-  data () {
-    return {
-      productionUrl: 'https://www.mazipan.xyz',
-      formatReadingTime,
-      formatPostDate
     }
   },
   async asyncData ({ store }) {

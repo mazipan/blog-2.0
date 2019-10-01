@@ -42,5 +42,5 @@ const fileUtils = require('./file-utils');
   `
   )
 
-  console.log(`Suceess generate content list`)
+  console.log('Suceess generate content list')
 })()

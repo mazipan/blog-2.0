@@ -26,8 +26,8 @@
 
 <script>
 import Contents from '~/contents/drafts/index.js'
-import { formatReadingTime, formatPostDate } from '~/utils/helpers.js'
 import MetaData from '~/components/MetaData'
+import BaseData from '~/mixins/base-data'
 
 export default {
   name: 'Homepage',
@@ -35,10 +35,14 @@ export default {
   components: {
     MetaData
   },
-  data () {
+  mixins: [
+    BaseData
+  ],
+  head () {
     return {
-      formatReadingTime,
-      formatPostDate
+      meta: [
+        { hid: 'robots', name: 'robots', content: 'noindex,nofollow' }
+      ]
     }
   },
   async asyncData ({ store }) {
