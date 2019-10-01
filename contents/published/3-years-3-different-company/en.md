@@ -1,63 +1,80 @@
 ---
 title: 3 Years, 3 Different Company
 slug: 3-years-3-different-company
-date: '2019-09-02'
+date: "2019-09-02"
 minute2read: 15
 description: Story about my last 3 years experience, especially when moving from one to another company
 categories: [non-technical, lesson-learned]
 cover: https://www.mazipan.xyz/content-images/3-years-3-different-company/lion-nTfGYGPURFA.jpg
 ---
 
-## Pembukaan
+## Opening
 
-Saya baru menyadari hal ini setelah berbalas komentar pada sebuah post di Facebook terkait acara DevC Build Day 2019, saya menyadari kalau ini adalah kali ketiga saya diminta bantuan untuk menjadi mentor untuk teman-teman peserta yang ikut acara mereka.
+
+I just realized this after replying to a comment on a post on Facebook related to the 2019 DevC Build Day event, I realized that this was the third time I was asked to help to become a mentor to fellow participants who took part in their event.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/3-years-3-different-company/fb-comment-1.png" alt="Facebook comment from me" height="200px" width="200px">
 
-Dan salah satu balasan dari komentar tersebut berhasil mengingatkan saya kalau tiga tahun belakangan ini saya sudah bergabung dengan acara DevC Build Day namun tiga perusahaan yang berbeda.
-
+And one of the replies from that comment managed to remind me that in the past three years I have joined the DevC Build Day event but for three different companies.
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/3-years-3-different-company/fb-comment-2.png" alt="Facebook comment from my friend" height="200px" width="200px">
 
-Hal ini ingin coba saya bahas dalam satu blog post terpisah setelah juga diingatkan teman untuk coba sharing hal-hal terkait pindah-pindah perusahaan ini.
+I want to discuss this in a separate blog post also after being reminded by friends to try share things related to moving around this company.
 
-Tapi sebelum membahas berbagai hal menarik yang saya alami, agar teman-teman yang belum tau mengenai perjalanan saya ini tidak kehilangan konteks dari cerita selanjutnya maka saya coba kilas balik menjelaskan 3 perusahaan terakhir saya dalam 3 tahun terakhir ini.
+But before discussing a variety of interesting things that I have experienced, so that friends who do not know about my trip do not lose the context of the next story, then I will try to flashback so to explain my last 3 companies in the last 3 years.
+## About Blibli.com
 
-## Di Blibli.com
-
-Bergabung dan menjadi karyawan Blibli.com bisa jadi adalah langkah terbaik bagi karir saya dalam dunia persilatan coding. Saya bergabung dengan Blibli.com bulan Oktober tahun 2015 setelah sebelumnya saya bekerja di perusahan semacam software house selama 2 tahun lebih sejak pertengahan 2013-an. Saya belajar sangat banyak hal di Blibli.com selama 2 tahun 9 bulan yang akhirnya harus saya akhiri pada Juni 2018, saya ingat saat itu saya resign setelah lebaran idul fitri 2018. Keputusan menginggalkan Blibli.com adalah salah satu keputusan terberat dan paling beresiko yang saya ambil mengingat sebenarnya saya sudah berada dalam "zona nyaman" selama bekerja disini. Hal berat lain adalah karena harus meninggalkan teman-teman yang sudah saya kenal dan temui hampir setiap hari selama hampir tahun belakangan. Berada di tim Mas [Ifnu Bima ↗️](https://www.linkedin.com/in/ifnubima/?source=mazipan) sedari bergabung dengan Blibli.com, saya merasa telah berada dalam tim yang sangat mengerti satu sama lain. Saya pada saat itu merasa ketakutan akan sangat kehilangan momen-momen dengan teman-teman saya.
+Joining and becoming an employee of Blibli.com could be the best step for my career in the martial arts world.
+I joined Blibli.com in October 2015 after previously I worked in a company such as software house for more than 2 years since the mid-2013.I learned so many things at Blibli.com for 2 years and 9 months, but it ended in June 2018, I remember when I resigned after the Eid Eid Al-Fitr 2018.
+The decision to leave Blibli.com was one of the toughest and most risky decisions that I took considering that I was already in a "comfort zone" while working here. Another difficult thing is having to leave friends that I have known and met almost every day for almost 3 years.
+Being on the Mas team [must include ↗️](https://www.linkedin.com/in/ifnubima/?source=mazipan) from joining Blibli.com, I felt I was in a team that really understood each other.I was afraid at the time that I was going to miss out on moments with my friends.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/3-years-3-different-company/in-blibli.jpg" alt="In Blibli" height="200px" width="200px">
 
-## Di Bizzy Indonesia
+## At Bizzy Indonesia
 
-Hal terberat bagi saya ketika pindah ke tempat baru adalah berusaha beradaptasi dengan lingkungan kerja, orang-orang di dalamnya, cara mereka berbicara, bergaul dan berkomunikasi selalu saja saya rasa berbeda dengan kebiasaan yang selama ini saya jalani. Pun ketika saya pertama di Bizzy Indonesia, meskipun secara beban pekerjaan, saya sedikit diuntungkan dengan pengalaman saya sebelumnya yang memiliki *tech stack* yang hampir sama, namun tetap saja tidak mudah bagi saya bisa kenal orang-orang di dalamnya.
+The hardest thing for me when moving to a new place is trying to adapt to the work environment, the people in it, the way they talk, get along and communicate I always feel different from the habits I have been living. Even when I was first at Bizzy Indonesia, although in terms of workload, I was slightly benefited by my previous experience of having a similar tech stack, but it was still not easy for me to get to know the people in it.
+It took me months so I could just chat with several people there. In fact, if you think about it, they are not that scary 😂, it's just that I'm not used to starting a chat without work-related reasons.
 
-Butuh waktu berbulan-bulan sampai saya bisa sekedar ngobrol dengan beberapa orang disana. Padahal kalau dipikir lagi mereka tidak seseram itu kok 😂, hanya saja saya yang memang tidak terbiasa memulai suatu obrolan tanpa alasan yang terkait pekerjaan. Saya sangat dibantu dengan berada di tim om [Bobby Siagian ↗️](https://www.linkedin.com/in/bobbysiagian/?source=mazipan) yang mana sangat supportif dan meringankan beban saya untuk beradaptasi, ditambah dengan bertemunya kembali dengan kawan lama saya, [Ardi Firmansyah ↗️](https://www.linkedin.com/in/ardi-firmansyah/?source=mazipan) yang membantu mengarahkan saya dalam banyak hal (--seperti kala dulu ya, Bro 🙇‍).
+I was greatly helped, because i was on the Uncle team [Bobby Siagian ↗️](https://www.linkedin.com/in/bobbysiagian/?source=mazipan) which is very supportive and lightens my burden to adapt, plus meeting my old friend again,[Ardi Firmansyah ↗️](https://www.linkedin.com/in/ardi-firmansyah/?source=mazipan) which helped me directly in many ways (- long ago yes, Bro 🙇‍).
 
-Saya beruntung bergabung dengan Bizzy Indonesia dan tim om Bobby pada saat ritme development mereka tidak sekencang beberapa bulan sebelumnya. Pada saat itu mereka sedang mulai untuk stabilisasi fitur dan teknologi yang mereka gunakan, termasuk di dalamnya memulai mengadopsi berbagai *best practice* agar bisa menghasilkan produk perangkat lunak yang mumpuni secara kualitas akhir maupun kualitas teknologi itu sendiri. Sebagai *Frontend Developer*, jujur saja kala itu kualitas kode yang dihasilkan kami di Bizzy belum begitu baik. Bisa dimaklumi karena mereka baru saja menyelesaikan migrasi besar-besaran pada platform mereka, sehingga jadwal yang terlalu padat bisa menjadikan orang agak acuh pada kualitas kode yang ditulisnya sendiri.
+I was fortunate to join Bizzy Indonesia and the Bobby team when their development rhythm was not as fast as it was few months. At that time they were starting to stabilize the features and technology they were using, including starting to adopt various best practices in order to produce qualified software products in there final version and the quality of the technology itself. 
+As _Frontend Developer_, to be honest at that time the quality of our code produced at Bizzy was not so good. Understandable because they have just completed a massive migration on their platform, so an overcrowded schedule can make people somewhat indifferent to the quality of the code they write themselves.
 
-Stress? sebagian kecil iya karena saya sebetulnya sudah rada terbiasa melihat kode yang tertata rapi, tapi saya justru melihat ini sebagai peluang bagi saya yang sudah memiliki pengalaman dalam hal ini untuk bisa memberikan kontribusi lebih melihat kondisi pada saat itu. Dan benar saja, beberapa bulan setelahnya saya dan teman-teman diberikan kesempatan, kepercayaan dan waktu yang *dedicated* untuk memperbaiki banyak hal agar kualitas kode bisa berangsur membaik dan mengarah ke tujuan yang diharapkan.
+Stress? a small part yes, because I was actually getting used to see neatly arranged code, but actually i saw this as an opportunity for me who already has experience in this matter to be able to contribute more no matter the conditions at the time.
+And sure enough, a few months after that my friends and I were given the opportunity, trust and time _dedicated_ to improve many things so that the quality of the code can gradually improve and lead to the expected goals.
 
-Dipimpin oleh pak [Etji ↗️](https://www.linkedin.com/in/etjie/) dan dibantu oleh duo DevOps terbaik dan bersifikat, om [Dani ↗️](https://www.linkedin.com/in/kusuma-asdani/) dan om [Ucup ↗️](https://www.linkedin.com/in/herbiono/) serta duo Test Architect handal, om [Buddy ↗️](https://www.linkedin.com/in/buddy-arifin/) dan om [Wib ↗️](https://www.linkedin.com/in/genta-wibowo/) kami sebagai *Frontend Developer* merasa sangat dimudahkan dan dibantu sehingga bisa menyelesaikan pekerjaan kamu dengan mudah dan lebih mantap tanpa dirusuhi lagi urusan integrasi ke berbagai tools internal maupun urusan deployment.
+Guided By
+ [Etji ↗️](https://www.linkedin.com/in/etjie/) 
+and assisted by the best and certified DevOps duo, uncle
+[Dani ↗️](https://www.linkedin.com/in/kusuma-asdani/) and
+ [Ucup ↗️](https://www.linkedin.com/in/herbiono/) and a reliable duo Architect Test, uncle 
+ [Buddy ↗️](https://www.linkedin.com/in/buddy-arifin/) and
+ [Wib ↗️](https://www.linkedin.com/in/genta-wibowo/)
+we as _Frontend Developers_ felt very facilitated and assisted so that we can complete our work easily and more efficiently without being disturbed by the integration of various internal tools and deployment matters.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/3-years-3-different-company/in-bizzy.jpg" alt="In Bizzy" height="200px" width="200px">
 
-Saya bergabung di Bizzy sejak Juli 2018 dan memutuskan untuk resign pada Juni 2019, satu tahun kurang lebih. Saya pindah setelah lebaran idul fitri (--lagi-lagi) 2019. Sesungguhnya Bizzy Indonesia telah juga menjadi "comfort zone" bagi saya kala itu, banyangkan saja saya bisa tetap kerja dengan sebelumnya di pagi hari mengantar jemput anak sekolah. Keleluasaan waktu seperti sangat-sangat berharga bagi saya, apalagi di masa-masa dimana anak-anak butuh lebih banyak kehadiran saya di rumah.
+I joined Bizzy since July 2018 and decided to resign in June 2019, one year or so. I moved after Eid Eid (- again) 2019. In fact, Bizzy Indonesia had also become a "comfort zone" for me at that time, just imagine that I could keep working after taking the school kids in the morning. Such free time is very valuable to me, especially in times when children need more of my presence at home.
 
-## Di Tokopedia
+## About Tokopedia
 
-Saya bergabung di Tokopedia sejak Juni 2019 dengan banyak harapan tersemat, berharap saya tidak akan kesusahan beradaptasi mengingat mereka bahkan punya lebih dari 4200 Nakama (--karyawan Tokopedia), berharap bisa belajar banyak hal baru karena sebelumnya saya selalu ngoding Vue sementara Tokopedia sudah terkenal dengan pengguna React, berharap bisa belajar dari orang-orang hebat yang saya tau ada di dalamnya.
+I joined Tokopedia since June 2019 with many hopes pinned,I hoped that will not have trouble adapting because they have more than 4200 Nakama (- Tokopedia employees), also hoping to learn a lot of new things because previously I was always coding Vue while Tokopedia was already famous for React users, hoping to learn from great people which I know are in it.
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/3-years-3-different-company/in-tokopedia.jpg" alt="In Tokopedia" height="200px" width="200px">
 
-Namun sedari awal, saya sudah mempersiapkan diri kalau-kalau banyak hal yang berbeda dengan ekspektasi karena pun pada tempat yang kalian kira adalah tempat terbaik di muka bumi ini akan selalu ada kekurangan dan tantangan yang berbeda satu sama lain.
+But from the start, I had prepared myself for many things that were different from my expectations because even in places that you think is the best place on earth, there will always be flaws and challenges that are different from one and another.
 
-## Yang bisa saya sampaikan
+## What can i Say!
 
-Pindah-pindah tempat kerja dalam waktu yang relatif singkat sebetulnya bukanlah sebuah prestasi yang bisa saya maupun kalian banggakan pada khalayak ramai. Cukuplah saja hasil dari kontribusi nyata kalian pada tempat kerja tersebut yang dijadikan sebagai sebuah pencapaian dan layak untuk dibanggakan. Namun sebagai manusia kita juga perlu menghargai keputusan masing-masing orang, ketika semisalnya orang tersebut memutuskan untuk pindah-pindah dalam waktu singkat. Percaya saja kalau orang tersebut mungkin sudah punya alasan terbaik untuk melakukan hal itu.
+Moving around different jobs in a relatively short time is actually not an achievement that you and I can be proud of to the general public. Suffice to be the result of your tangible contribution to your workplace which is an achievement and you deserves to be proud of. But as human beings, we also need to respect each person's decision, when for example that person decides to move around in a short amount of time. Just believe that the person might already have the best reason to do that.
 
-Pindah pekerjaan selalu merupakan hal sulit, tidak pernah mudah. Banyak hal yang kalian harus mulai lagi dari awal. Selalu berpikir berkali-kali terlebih dahulu ketika tersebit keinginan untuk pindah kerja. Apalagi untuk orang-orang yang sudah punya istri dan anak-anak yang harus ditanggung secara finansial. Coba bicarakan dengan orang-orang terdekat mengenai rencana pindah kerja tersebut, siapa tau pendapat orang lain bisa membantu dalam mengambil keputusan.
+Moving through different jobs is always a difficult thing, it is never easy, there are many things that you will have to start from the beginning.
+ Always think about it as many times possible before there is a desire to change jobs.
+ Especially for people who already have a wife and children who must be covered financially.
+ Try to talk with the people closest to you before planning on moving from a workplace, who knows the opinions of others can help in making decisions.
 
 > "Die First, Then Quit" -- Jangan keluar, sebelum kalian memberikan yang terbaik dari yang kalian bisa. Bila segenap tenaga telah dikerahkan dan hasilnya masih tidak membahagiakan kalian, maka mungkin saatnya kalian keluar.
+
+> "Die First, Then Quit" -- Don't go out, before you give your best. If all your energy has been mobilized and the results are still not happy for you, then maybe it's time for you to go out.
 
 ### Hopefully useful...
