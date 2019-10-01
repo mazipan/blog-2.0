@@ -9,9 +9,11 @@ import {
   generateObjectSitemap
 } from './utils/helpers'
 
-require('dotenv-safe').config({
-  allowEmptyValues: true
-})
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv-safe').config({
+    allowEmptyValues: true
+  })
+}
 
 const path = require('path')
 const ampify = require('./plugins/ampify')
