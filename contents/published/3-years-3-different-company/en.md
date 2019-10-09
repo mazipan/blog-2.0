@@ -37,17 +37,17 @@ It took me months so I could just chat with several people there. In fact, if y
 
 I was greatly helped, because i was on the Uncle team [Bobby Siagian ↗️](https://www.linkedin.com/in/bobbysiagian/?source=mazipan) which is very supportive and lightens my burden to adapt, plus meeting my old friend again,[Ardi Firmansyah ↗️](https://www.linkedin.com/in/ardi-firmansyah/?source=mazipan) which helped me directly in many ways (- long ago yes, Bro 🙇‍).
 
-I was fortunate to join Bizzy Indonesia and the Bobby team when their development rhythm was not as fast as it was few months. At that time they were starting to stabilize the features and technology they were using, including starting to adopt various best practices in order to produce qualified software products in there final version and the quality of the technology itself. 
+I was fortunate to join Bizzy Indonesia and the Bobby team when their development rhythm was not as fast as it was few months. At that time they were starting to stabilize the features and technology they were using, including starting to adopt various best practices in order to produce qualified software products in there final version and the quality of the technology itself.
 As _Frontend Developer_, to be honest at that time the quality of our code produced at Bizzy was not so good. Understandable because they have just completed a massive migration on their platform, so an overcrowded schedule can make people somewhat indifferent to the quality of the code they write themselves.
 
 Stress? a small part yes, because I was actually getting used to see neatly arranged code, but actually i saw this as an opportunity for me who already has experience in this matter to be able to contribute more no matter the conditions at the time.
 And sure enough, a few months after that my friends and I were given the opportunity, trust and time _dedicated_ to improve many things so that the quality of the code can gradually improve and lead to the expected goals.
 
 Guided By
- [Etji ↗️](https://www.linkedin.com/in/etjie/) 
+ [Etji ↗️](https://www.linkedin.com/in/etjie/)
 and assisted by the best and certified DevOps duo, uncle
 [Dani ↗️](https://www.linkedin.com/in/kusuma-asdani/) and
- [Ucup ↗️](https://www.linkedin.com/in/herbiono/) and a reliable duo Architect Test, uncle 
+ [Ucup ↗️](https://www.linkedin.com/in/herbiono/) and a reliable duo Architect Test, uncle
  [Buddy ↗️](https://www.linkedin.com/in/buddy-arifin/) and
  [Wib ↗️](https://www.linkedin.com/in/genta-wibowo/)
 we as _Frontend Developers_ felt very facilitated and assisted so that we can complete our work easily and more efficiently without being disturbed by the integration of various internal tools and deployment matters.
@@ -77,4 +77,4 @@ Moving through different jobs is always a difficult thing, it is never easy, the
 
 > "Die First, Then Quit" -- Don't go out, before you give your best. If all your energy has been mobilized and the results are still not happy for you, then maybe it's time for you to go out.
 
-### Hopefully useful...
+### May useful for you...
