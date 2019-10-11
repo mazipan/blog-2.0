@@ -14,9 +14,7 @@ Programmers are often identified with someone who writes code to make software.N
 
 Writing code becomes a fundamental skill for a programmer, we are required to be able to translate a solution that has been previously designed into a line of code to solve various problems and improvements in software products.
 
-The ability to write code like this is not common to be over-exploited in some workplace programmers themselves. Especially when it is faced with *deadlines* which are urgent. We can just blindly write code that originates without regard to the various 
-rules that we should follow. Things like this will end in beaing a *technical debt* on ourselves and our own team in the futur and regarding this technical debt when  reading your explanation [Martin Fowler](https://martinfowler.com/) on the following page [Technical Debt ↗️](https://martinfowler.com/bliki/TechnicalDebt.html) 
-can be associated with financial debt which if we do not pay now,  one day we will still have to pay it (plus the interest too).
+The ability to write code like this is not common to be over-exploited in some workplace programmers themselves. Especially when it is faced with *deadlines* which are urgent. We can just blindly write code that originates without regard to the various rules that we should follow. Things like this will end in beaing a *technical debt* on ourselves and our own team in the futur and regarding this technical debt when  reading your explanation [Martin Fowler](https://martinfowler.com/) on the following page [Technical Debt ↗️](https://martinfowler.com/bliki/TechnicalDebt.html) can be associated with financial debt which if we do not pay now,  one day we will still have to pay it (plus the interest too).
 
 The art of deleting and updating code or better known as **Refactoring**, is the process of repairing code, removing parts that are no longer needed, putting together multiple parts, and various things related to code cleaning without changing the end result to the user.
 Therefore programmers do not just need to know about how to write and add code, but must also know when to delete and update the code, to the best of your ability.
