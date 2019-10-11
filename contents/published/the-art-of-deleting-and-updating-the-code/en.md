@@ -8,70 +8,73 @@ categories: [programming]
 cover: https://www.mazipan.xyz/content-images/the-art-of-deleting-and-updating-the-code/quadran.png
 ---
 
-## Pengenalan terhadap masalah
+## Introduction to the problem
 
-Programmer seringkali diidentikkan dengan seseorang yang menulis sebuah kode untuk membuat sebuah perangkat lunak. Tidak salah, karena sebagian besar kita (programmer) memang memiliki pekerjaan sehari-hari untuk menulis berbaris-baris kode untuk membangun sebuah fitur, memperbaiki galat (cacat) pada sebuah perangkat lunak.
+Programmers are often identified with someone who writes code to make software.Not wrong, because most of us (programmers) do have daily work to write lines of code to build a feature, fix errors (defects) in a software.
 
-Menulis kode menjadi sebuah keahlian mendasar bagi seorang programmer, kita diharuskan bisa menterjemahkan sebuah solusi yang sudah didesain sebelumnya ke dalam barisan kode untuk menyelesaikan berbagai permasalahan dan perbaikan pada produk perangkat lunak.
+Writing code becomes a fundamental skill for a programmer, we are required to be able to translate a solution that has been previously designed into a line of code to solve various problems and improvements in software products.
 
-Keahlian menulis kode seperti ini tidak jarang menjadi terlalu di eksploitasi pada beberapa tempat kerja programmer itu sendiri. Apalagi bila sudah dihadapkan pada batas waktu (*deadline*) yang terlalu mendesak. Kita bisa saja membabi buta menulis kode yang asal jalan tanpa mempedulikan berbagai kaidah yang seharusnya kita ikuti. Hal seperti ini seperti ini akan menjadi utang teknikal (*technical debt*) pada diri kita dan tim kita sendiri pada masa depan. Dan mengenai utang teknikal ini bila membaca penjelasan Bapak [Martin Fowler](https://martinfowler.com/) pada laman berikut [Technical Debt ↗️](https://martinfowler.com/bliki/TechnicalDebt.html) bisa diasosiasikan dengan utang finansial yang kalau kita tidak bayar sekarang pun suatu saat kita tetap harus membayarnya (ditambah dengan bunganya juga).
+The ability to write code like this is not common to be over-exploited in some workplace programmers themselves. Especially when it is faced with *deadlines* which are urgent. We can just blindly write code that originates without regard to the various 
+rules that we should follow. Things like this will end in beaing a *technical debt* on ourselves and our own team in the futur and regarding this technical debt when  reading your explanation [Martin Fowler](https://martinfowler.com/) on the following page [Technical Debt ↗️](https://martinfowler.com/bliki/TechnicalDebt.html) 
+can be associated with financial debt which if we do not pay now,  one day we will still have to pay it (plus the interest too).
 
-Seni menghapus dan memperbarui kode atau lebih kerennya dikenal dengan istilah **Refactoring**, merupakan proses memperbaiki kode, menghilangkan bagian yang tidak diperlukan lagi, menyatukan bagian yang ganda, dan berbagai hal berkaitan dengan bersih-bersih kode tanpa mengubah hasil akhirnya pada pengguna.
+The art of deleting and updating code or better known as **Refactoring**, is the process of repairing code, removing parts that are no longer needed, putting together multiple parts, and various things related to code cleaning without changing the end result to the user.
+Therefore programmers do not just need to know about how to write and add code, but must also know when to delete and update the code, to the best of your ability.
 
-Karena itu programmer tidak melulu cuma tau tentang bagaimana menulis dan menambahkan kode, namun harus tau juga kapan harus menghapus dan memperbarui kode serta bagaimana cara terbaik untuk melakukannya.
+## Why do programmers write origin code?
 
-## Mengapa programmer menulis kode asal jalan?
+Programmers have a variety of reasons why they write code from the origin, of course we can't generalize it because it could be the reason that it is indeed the best when the decision is taken.
 
-Programmer memiliki berbagai alasan kenapa mereka menulis kode yang asal jalan, tentu kita tidak bisa menyamaratakan kesemuanya karena bisa jadi alasannya memang hal tersebut adalah yang terbaik pada saat keputusan tersebut diambil.
-
-Untuk hal ini kita bisa melihat pada [Technical Debt Quadrant ↗️](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html) yang dijelaskan Martin Fowler, singkatnya bisa menilik pada gambar berikut:
+For this we can look at [Technical Debt Quadrant ↗️](https://martinfowler.com/bliki/TechnicalDebtQuadrant.html) as Martin Fowler explained, in a nutshell, look at the following picture:
 
 <img v-lazyload src="/images/placeholder-1x1.png" data-src="/content-images/the-art-of-deleting-and-updating-the-code/quadran.png" alt="Technical Debt Quadrant" height="200px" width="200px">
 
-<small class="caption">Gambar diambil dari laman https://martinfowler.com<small>
+<small class="caption">Image taken from page https://martinfowler.com<small>
 
-## Kenapa kita mesti menghapus dan memperbarui kode?
+## Why do we have to delete and update the code?
 
-Ada jargon yang sering didengungkan oleh banyak temen-temen programmer di luar angkasa sana, bahwa "Kalau aplikasinya baik-baik saja, kenapa harus diubah?". Jargonnya tidak salah, namun juga tidak seutuhnya benar. Kata "baik-baik" saja disana sebenarnya bisa jadi relatif pada sudut pandang mana kita melihatnya. Baik-baik saja bisa jadi iya, karena pengguna akhir kita ternyata tidak mengalami galat pada saat menggunakan aplikasi kita. Baik-baik saja bisa jadi salah, karena ternyata mungkin secara sususan kode, aplikasi kita mempersulit tim programmer untuk mengembangkan fitur baru maupun memperbaiki galat yang sudah ada maupun yang kemungkinan akan ada di masa depan.
+There is a jargon that is often echoed by many friends in the programmers space, that "If the application is okay, why should it be changed?". The jargon isn't wrong, but it's also not completely true.The word "all right" can actually be relative to the point of view that we see it.
+Fine can be yes, because our end users did not experience an error when using our application.Just fine can be wrong, because it turns out that maybe in terms of code formulation, our application makes it difficult for the programmer team to develop new features or fix errors that already exist or that might be in the future.
 
-Beberapa alasan kenapa kita mesti menghapus atau memperbarui sebuah kode menurut Martin Fowler pada buku **[Refactoring ↗️](https://refactoring.com/)** antara lain:
+Some reasons why we must delete or update a code according to Martin Fowler on the book **[Refactoring ↗️](https://refactoring.com/)** among others:
 
-### Meningkatkan desain perangkat lunak
+### Improve software design
 
-Sebuah desain bisa jadi pada dasarnya sudah baik namun seiring waktu berjalan dan semakin banyak terjadi pengubahan dan penambahan kode maka menjadi semakin sulit untuk melihat desain tersebut. Proses menghapus dan memperbarui serta memperbaiki kode diharapkan bisa membersihkan berbagai ketidakteraturan yang menjadikan desain sebuah perangkat lunak menjadi susah untuk dilihat dan dipahami.
+A design can basically be good but as time progresses and more and more changes and additions to it, becomes increasingly difficult to see the design. The process of removing, update and improve the code is expected to clean up various irregularities that make the design of a software become difficult to be seen and understood.
 
-### Memudahkan dipahami
+### Make it easy to understand
 
-Semakin banyak kode maka semakin sulit memahami bagaimana kode tersebut bekerja. Salah satu solusinya adalah dengan menerapkan desain yang baik. Kebiasan kita seringkali menulis kode dengan berpikir bagaimana agar program tersebut berjalan dan melupakan bagaimana nanti programmer selanjutnya akan memahaminya.
+The more code, the more difficult it is to understand how the code works. One solution is to apply a good design. It is normal for us to often write code thinking about how to keep the program running and forgetting how the next programmer will understand it.
 
-### Membantu menemukan galat
+### Helps find errors
 
-Dengan semakin mudah memahami sebuah kode maka memberikan efek kita bisa mendeteksi berbagai galat yang sudah terjadi dan kemungkinan galat akan terjadi dengan lebih mudah.
+The easier it is to understand a code, the more effective it is to detect various errors that have already occurred and the possibility that errors will occur more easily.
 
-### Membantu menulis kode dengan lebih cepat
+### Help write code faster
 
-Hasil akhirnya kita sebagai programmer bisa menulis kode, menambahkan berbagai fitur, memperbaiki galat dengan lebih cepat. Meskipun beberapa orang juga akan beragumen bahwa kecepatan pengembangan tidak akan selalu berbanding lurus dengan baiknya desain sebuah sistem.
+The end result is that us as programmers we can write code, add various features, fix errors more quickly. Although some people will also argue that the speed of development will not always be directly proportional to the good design of a system.
 
-## Kapan waktu terbaik mengerjakannya?
+## When is the best time to do it?
 
-Hal ini juga saya ambil dari buku **Refactoring** yang dijelaskan saat-saat terbaik untuk melakukan pengubahan kode adalah sebagai berikut:
+I also took this from the **Refactoring** book which explained the best times to make changes to the code are as follows:
 
-### Ketika menambahkan fungsi
+### When adding a function
 
-Sudah umum bagi kita ketika membuat suatu fungsi untuk pertama kali ya cukup tambahkan saja, ketika membuat fungsi yang sama pada kali kedua ya salin saja kode tersebut dan biarkan terjadi kode ganda, namun ketika harus membuat fungsi yang sama untuk kali ketiga maka sudah dipikirkan menyatukan pada satu tempat yang bisa digunakan secara bersama-sama. Tidak jarang ketika kita diberikan tugas untuk membuat sebuah fitur kecil namun berakhir harus memperbarui banyak kode sampai ke dasar karena dirasa sulit menambahkan fitur tersebut tanpa mengubah dari dasar.
+It is common for us when creating a function for the first time, just add it, when making the same function the second time, just copy the code and let the double code occur, but when you have to make the same function for the third time, then think about uniting it in one place that can be used together. Not infrequently when we are given the task to create a small feature, but end up having to update a lot of code to the bottom because it is difficult to add these features without changing from the basic.
 
-### Ketika harus memperbaiki galat
+### When it comes to fixing errors
 
-Ketika kita ditugaskan untuk memperbaiki galat maka kita diharuskan melakukan pelacakan jejak kebelakang mengikuti arus dari kode tersebut untuk memahami dan menemukan titik penyebab galat itu terjadi. Karenanya pada saat melakukan pelacakan dalam rangka menemukan titik penyebab ini dirasa sangat susah, bisa jadi ini karena pada saat awal menulis kode belum berpikir tentang bagaimana kode tersebut nanti akan dibaca orang lain. Melakukan perbaikan pada saat ini juga merupakan waktu yang cukup tepat karena biasanya dibarengi dengan adanya bantuan dari pihak Tester yang memastikan aplikasi tetap berjalan sesuai ekspektasi.
+When we are assigned to fix the error, we are required to trace the trace backward to follow the flow of the code to understand and find the point where the error occurred. Therefore, when tracking in order to find the cause of this is very difficult, it could be because at the beginning of writing the code it was not thought about how the code will be read by others. Making improvements at this time is also a quite appropriate time because it is usually accompanied by assistance from the Tester who ensures the application continues to run as expected.
 
-### Ketika code review
+### When code review
 
-Code review merupakan saat yang tepat untuk saling mengkoreksi satu sama lain antar programmer, saling memberikan pendapat terhadap solusi yang diambil, termasuk juga pendapat mengenai bagaimana desain besar dari suatu kode di dalam projek.
+Code review is the right time to team up among programmers to correct errors or bugs , taking given opinions to the solutions , including giving opinions about how large the design of the project and code is.
 
-## Pelajaran yang bisa diambil
+## Lessons that can be taken
 
-Dunia teknologi berkembang sangat cepat, ada saja terobosan dan solusi terbaru setiap hari. Memilih profesi sebagai programmer berarti sudah harus siap dengan kecepatan perubahan ini. Apa yang kita anggap sebagai solusi terbaik saat ini bisa jadi sudah tidak relevan lagi setahun mendatang. Tetap updates dengan berbagai perkembangan terbaru, jangan merasa gundah ketika harus menghapus dan memperbarui kode. Jika bukan kalian yang mengerjakan maka sesorang pun akan mengerjakannya suatu saat. Tidak perlu sayang untuk menghapus dan memperbarui kode hasil jerih payah kita sebelumnya, karena bisa jadi memang itu adalah yang terbaik yang harus diambil. Tak perlu juga menyalahkan si penulis kode sebelumnya, anggap saja bahwa setiap solusi memang ada lah yang terbaik pada saat solusi tersebut diputuskan untuk digunakan.
+The world of technology is developing very fast, there are just breakthroughs and solutions every day. Choosing a profession as a programmer means you have to be ready with the speed of change. What we think is the best solution now may become irrelevant in the near future.
+Stay updated with the latest developments, don't feel upset when you have to delete and update your code. If you don't do it, someone will have to do it sometime. There is no need to delete and update our code of our previous results, because it could be that it is the best so it must be taken. There is no need to blame the previous programmer for his code either, just assume that every solution really is the best solution he decided to be used.
 
-Terus belajar, karena itu merupakan proses yang semakin membuat kita besar, membuat kita tetap bertahan dan bersaing dalam dunia dengan perubahan yang begitu cepat.
+Keep learning, because it is a process that is increasingly making us big, making us stay afloat and compete in a world with rapid change.
 
-### May useful for you...
+### May it be usefull for you...
