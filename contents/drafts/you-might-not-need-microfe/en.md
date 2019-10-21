@@ -3,7 +3,7 @@ title: You might not need Micro Frontends
 slug: you-might-not-need-microfe
 date: "2019-10-08"
 minute2read: 15
-description: My mind about the latest trend in Micro Frontend
+description: Story telling about Micro-Frontend trade-off
 categories: [programming]
 cover: https://www.mazipan.xyz/content-images/you-might-not-need-microfe/microfe.png
 ---
@@ -50,9 +50,50 @@ With different deployment and different server, its easier to us to maintain the
 
 MFE can localized the complexity of your web apps into several part. This is good that we doesn't need to put all of our logics and complexities in the same place. With the growing of your bussiness, these logics and complexities may will harm you someday if its on one place.
 
+## Implementation
+
+MFE is just a concept, there are no standard how to implement in our project. That's made there are so many variations when try to looking about the implementation steps, we will not describe in technical way, but will give you some alternatives in the industry to make this MFE.
+
+### IFrames
+
+Maybe you doesn't realize that iFrame is the old technology we can use to forcing MFE in our websites. It because `iframe` allow you to load any pages from another domain into your own web pages. With this ability, we can decide to host our FE Apps in many different domain. We can have seperate deployment pipeline and also independent teams to handle each FE Apps.
+
+You can use `iFrame` in your HTML with code like:
+
+```html
+<iframe src="https://your-apps-domain" title="Some Title" width="400" height="300"></iframe>
+```
+
+The common problem in using `iFrame` is because we need to set static value for the dimension, width and height. Also how we communicate cross domains apps. For the last problem, usually we can use [postMessage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) to solving cross window communication.
+
+### Web Components
+
+### Client Window
+
+### Server Side Includes
+
+### Backend Includes
+
 ## Problem you will face
 
-Honestly, implementing MFE is not that easy. There are some concern you might face when try to adopt.
+Honestly, implementing MFE is not that easy. There are some concern you might face when adopting this concept, these are the commons:
+
+### Integration and Deployment
+
+### State & Logic Sharing
+
+### Number of Devs
+
+### Monitoring
+
+## Takeways
+
+Yes, MFE is good. But you might not need for your current scale.
+Just because it works on a big company, it shouldn't make you need to adopt.
+Revisit your needs, understanding your teams capability, and doing the Proof of Concept before you go with it.
+Try to looking from two sides of view, the good and the bad one.
+
+When your needs covered by MFE benefits, then it's showtime 🚀
 
 ## References:
 
