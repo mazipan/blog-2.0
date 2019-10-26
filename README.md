@@ -6,7 +6,7 @@
 
 ## Live
 
-<https://www.mazipan.xyz>
+<https://mazipan-blog.netlify.com/>
 
 ## Logo
 
