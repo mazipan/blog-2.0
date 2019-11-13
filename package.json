@@ -74,7 +74,7 @@
     "jest": "24.9.0",
     "jest-serializer-vue": "2.0.2",
     "lighthousebot": "https://github.com/GoogleChromeLabs/lighthousebot",
-    "lint-staged": "9.4.2",
+    "lint-staged": "9.4.3",
     "markdown-parse": "0.2.1",
     "node-sass": "4.13.0",
     "remark-cli": "7.0.1",
