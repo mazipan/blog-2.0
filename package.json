@@ -57,7 +57,7 @@
     "babel-plugin-prismjs": "1.1.1",
     "cross-env": "6.0.3",
     "dotenv": "8.2.0",
-    "dotenv-safe": "8.1.0",
+    "dotenv-safe": "8.2.0",
     "eslint": "6.6.0",
     "eslint-config-standard": "14.1.0",
     "eslint-formatter-html-extended": "1.0.2",
