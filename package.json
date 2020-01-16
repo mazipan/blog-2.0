@@ -76,7 +76,7 @@
     "lighthousebot": "https://github.com/GoogleChromeLabs/lighthousebot",
     "lint-staged": "9.5.0",
     "markdown-parse": "0.2.1",
-    "node-sass": "4.13.0",
+    "node-sass": "4.13.1",
     "remark-cli": "7.0.1",
     "remark-preset-lint-consistent": "2.0.3",
     "remark-preset-lint-markdown-style-guide": "2.1.3",
