@@ -43,10 +43,10 @@
     "vue-tiny-lazyload-img": "0.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.8.3",
+    "@babel/core": "7.8.4",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
     "@babel/plugin-syntax-jsx": "7.8.3",
-    "@babel/preset-env": "7.8.3",
+    "@babel/preset-env": "7.8.4",
     "@vue/test-utils": "1.0.0-beta.31",
     "app-root-dir": "1.0.2",
     "autoprefixer": "9.7.4",
